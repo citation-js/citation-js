@@ -1,46 +1,36 @@
 import wdk from 'wikidata-sdk'
-import fetchFile from '../../util/fetchFile'
+import fetchFileAsync from '../../../util/fetchFileAsync'
 
-import fetchWikidataType from './type'
-import parseDate from '../date'
-import parseName from '../name'
+import fetchWikidataType from '../type'
+import parseDate from '../../date'
+import parseName from '../../name'
 
 /**
- * Get the names of objects from Wikidata IDs
+ * Get the names of objects from Wikidata IDs (async)
  *
  * @access private
- * @method fetchWikidataLabel
+ * @method fetchWikidataLabelAsync
  *
  * @param {String|String[]} q - Wikidata IDs
  * @param {String} lang - Language
  *
  * @return {String[]} Array with labels of each prop
  */
-const fetchWikidataLabel = function (q, lang) {
+const fetchWikidataLabelAsync = async function (q, lang) {
   const ids = Array.isArray(q) ? q : typeof q === 'string' ? q.split('|') : ''
   const url = wdk.getEntities(ids, [lang], 'labels')
-  const entities = JSON.parse(fetchFile(url)).entities || {}
+  const entities = JSON.parse(await fetchFileAsync(url)).entities || {}
 
   return Object.keys(entities).map(entityKey => (entities[entityKey].labels[lang] || {}).value)
 }
 
-/**
- * Get series ordinal from qualifiers object
- *
- * @access private
- * @method parseWikidataProp
- *
- * @param {Object} qualifiers - qualifiers object
- *
- * @return {Number} series ordinal or -1
- */
 const parseWikidataP1545 = qualifiers => qualifiers.P1545 ? parseInt(qualifiers.P1545[0]) : -1
 
 /**
- * Transform property and value from Wikidata format to CSL
+ * Transform property and value from Wikidata format to CSL (async)
  *
  * @access protected
- * @method parseWikidataProp
+ * @method parseWikidataPropAsync
  *
  * @param {String} prop - Property
  * @param {String|Number} value - Value
@@ -48,7 +38,7 @@ const parseWikidataP1545 = qualifiers => qualifiers.P1545 ? parseInt(qualifiers.
  *
  * @return {String[]} Array with new prop and value
  */
-const parseWikidataProp = function (prop, value, lang) {
+const parseWikidataPropAsync = async function (prop, value, lang) {
   switch (prop) {
     case 'P50':
     case 'P2093':
@@ -67,10 +57,12 @@ const parseWikidataProp = function (prop, value, lang) {
     // Author ( q )
     case 'P50':
       rProp = 'authorQ'
-      rValue = value.map(({value, qualifiers}) => [
-        parseName(fetchWikidataLabel(value, lang)[0]),
-        parseWikidataP1545(qualifiers)
-      ])
+      rValue = await Promise.all(value.map(async function ({value, qualifiers}) {
+        return [
+          parseName(await fetchWikidataLabelAsync(value, lang)[0]),
+          parseWikidataP1545(qualifiers)
+        ]
+      }))
       break
 
     // Author ( s )
@@ -116,7 +108,7 @@ const parseWikidataProp = function (prop, value, lang) {
     // Journal
     case 'P1433':
       rProp = 'container-title'
-      rValue = fetchWikidataLabel(value, lang)[0]
+      rValue = await fetchWikidataLabelAsync(value, lang)[0]
       break
 
     // Pages
@@ -168,4 +160,4 @@ const parseWikidataProp = function (prop, value, lang) {
   return [rProp, rValue]
 }
 
-export default parseWikidataProp
+export default parseWikidataPropAsync
