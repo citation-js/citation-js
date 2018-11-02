@@ -1,0 +1,26 @@
+{
+  "name": "@citation-js/cli",
+  "version": "0.4.0",
+  "description": "> TODO: description",
+  "author": "Lars Willighagen <lars.willighagen@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/cli.js",
+  "bin": {
+    "citation-js": "bin/citation-js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "yargs": "^12.0.2"
+  }
+}

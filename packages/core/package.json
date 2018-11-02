@@ -1,0 +1,19 @@
+{
+  "name": "@citation-js/core",
+  "version": "0.4.0",
+  "description": "> TODO: description",
+  "author": "Lars Willighagen <lars.willighagen@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/core.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
