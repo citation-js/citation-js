@@ -2,6 +2,12 @@
   "name": "root",
   "private": true,
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "lerna": "^3.4.3"
+  },
+  "scripts": {
+    "babel": "lerna exec --parallel --ignore '@citation-js/cli' -- babel src -d lib --copy-files"
   }
 }

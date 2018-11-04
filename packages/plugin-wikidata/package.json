@@ -11,12 +11,9 @@
     "test": "__tests__"
   },
   "homepage": "https://citation.js.org/",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/citation-js/citation-js/tree/master/packages/plugin-wikidata.git"
-  },
+  "repository": "https://github.com/citation-js/core/tree/master/packages/plugin-wikidata",
   "bugs": {
-    "url": "https://github.com/citation-js/citation-js/issues"
+    "url": "https://github.com/citation-js/core/issues"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -28,6 +25,6 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@babel/polyfill": true
+    "@babel/polyfill": "^7.0.0"
   }
 }
