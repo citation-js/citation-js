@@ -1,0 +1,23 @@
+# node
+npm-debug.log
+npm-debug.log.*
+node_modules/
+
+# dev
+dev/
+profile/
+isolate-0x*
+debug.html
+
+# generated content
+build/
+coverage/
+jsdoc/
+lib/
+
+# coverage
+.nyc_output/
+coverage.lcov
+
+# not really needed, is it?
+.directory
