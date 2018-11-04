@@ -1,19 +1,33 @@
 {
   "name": "@citation-js/core",
-  "version": "0.4.0",
-  "description": "> TODO: description",
+  "version": "0.4.0-10",
+  "description": "Convert different bibliographic metadata sources",
+  "keywords": ["citation-js", "citation", "bibliography"],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
-  "homepage": "",
-  "license": "ISC",
-  "main": "lib/core.js",
+  "license": "MIT",
+  "main": "lib/index.js",
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
+  },
+  "homepage": "https://citation.js.org/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citation-js/citation-js/tree/master/packages/core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/citation-js/citation-js/issues"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   },
   "files": [
     "lib"
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@babel/polyfill": true
   }
 }

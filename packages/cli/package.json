@@ -1,26 +1,33 @@
 {
   "name": "@citation-js/cli",
-  "version": "0.4.0",
-  "description": "> TODO: description",
+  "version": "0.4.0-10",
+  "description": "CLI for Citation.js",
+  "keywords": ["citation-js", "cli"],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
-  "homepage": "",
-  "license": "ISC",
-  "main": "lib/cli.js",
-  "bin": {
-    "citation-js": "bin/citation-js"
-  },
+  "license": "MIT",
+  "main": "lib/index.js",
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
   },
+  "homepage": "https://citation.js.org/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citation-js/citation-js/tree/master/packages/cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/citation-js/citation-js/issues"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "files": [
-    "bin",
     "lib"
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "yargs": "^12.0.2"
+    "@babel/polyfill": true
   }
 }

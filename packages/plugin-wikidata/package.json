@@ -1,19 +1,33 @@
 {
-  "name": "plugin-wikidata",
-  "version": "1.0.0",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
-  "keywords": [],
+  "name": "@citation-js/plugin-wikidata",
+  "version": "0.4.0-10",
+  "description": "Plugin for Wikidata for Citation.js",
+  "keywords": ["citation-js", "wikidata", "wikicite"],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
-  "license": "ISC",
-  "main": "lib/plugin-wikidata.js",
+  "license": "MIT",
+  "main": "lib/index.js",
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
+  },
+  "homepage": "https://citation.js.org/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citation-js/citation-js/tree/master/packages/plugin-wikidata.git"
+  },
+  "bugs": {
+    "url": "https://github.com/citation-js/citation-js/issues"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   },
   "files": [
     "lib"
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@babel/polyfill": true
   }
 }
