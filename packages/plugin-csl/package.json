@@ -25,6 +25,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "^7.0.0",
+    "@citation-js/core": "^0.4.0-10",
+    "citeproc": "^2.1.210"
   }
 }

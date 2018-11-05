@@ -25,6 +25,10 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "^7.0.0",
+    "@citation-js/core": "^0.4.0-10",
+    "@citation-js/date": "^0.4.1",
+    "@citation-js/name": "^0.4.1",
+    "wikidata-sdk": "^5.15.4"
   }
 }

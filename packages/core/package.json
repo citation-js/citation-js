@@ -25,7 +25,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "^7.0.0",
+    "@citation-js/date": "^0.4.1",
+    "@citation-js/name": "^0.4.1",
+    "isomorphic-fetch": "^2.2.1",
+    "sync-request": "^5.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
