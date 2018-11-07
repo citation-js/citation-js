@@ -8,6 +8,8 @@ dev/
 profile/
 isolate-0x*
 debug.html
+lerna-debug.log
+/saveConfig.js
 
 # generated content
 build/
