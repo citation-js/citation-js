@@ -2,8 +2,8 @@
  * @module output/json
  */
 
-import deepCopy from '../../util/deepCopy.js'
-import {has as hasDict, get as getDict} from '../dict'
+import plugins from '../../plugins/'
+import util from '../../util/'
 
 /**
  * Append commas to every item but the last. Should unfortunately, probably be a utility.
@@ -99,19 +99,19 @@ const getJson = function (src, dict) {
  * @return {String} JSON HTML string
  */
 const getJsonWrapper = function (src) {
-  return getJson(src, getDict('html'))
+  return getJson(src, plugins.dict.get('html'))
 }
 
 export {getJsonWrapper}
 export default {
   data (data, {type, format = type || 'text'} = {}) {
     if (format === 'object') {
-      return deepCopy(data)
+      return util.deepCopy(data)
     } else if (format === 'text') {
       return JSON.stringify(data, null, 2)
     } else {
       logger.warn('[get]', 'This feature (JSON output with special formatting) is unstable. See https://github.com/larsgw/citation.js/issues/144')
-      return hasDict(format) ? getJson(data, getDict(format)) : ''
+      return hasDict(format) ? getJson(data, plugins.dict.get(format)) : ''
     }
   }
 }
