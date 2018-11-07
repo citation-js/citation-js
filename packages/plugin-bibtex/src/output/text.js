@@ -3,7 +3,7 @@
  */
 
 import getBibTeXJSON from './json'
-import {get as getDict} from '../../dict'
+import {plugins} from '@citation-js/core'
 
 /**
  * Mapping of BibTeX syntax chars to BibTeX Escaped Chars.
@@ -127,7 +127,7 @@ const getBibtex = function (src, dict) {
  * @return {String} BibTeX (HTML) string
  */
 const getBibTeXWrapper = function (src, html) {
-  const dict = getDict(html ? 'html' : 'text')
+  const dict = plugins.dict.get(html ? 'html' : 'text')
   return getBibtex(src, dict)
 }
 

@@ -2,7 +2,7 @@
  * @module output/bibtex
  */
 
-import {has as hasDict, get as getDict} from '../../dict'
+import {plugins} from '@citation-js/core'
 import json from './json'
 import {getBibtex} from './text'
 import {getBibtxt} from './bibtxt'
@@ -12,7 +12,7 @@ const factory = function (formatter) {
     if (format === 'object') {
       return data.map(json)
     } else {
-      return hasDict(format) ? formatter(data, getDict(format)) : ''
+      return plugins.dict.has(format) ? formatter(data, plugins.dict.get(format)) : ''
     }
   }
 }

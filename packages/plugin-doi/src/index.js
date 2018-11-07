@@ -2,14 +2,16 @@
  * @module input/doi
  */
 
+import {plugins} from '@citation-js/core'
+
 import * as id from './id'
 import * as api from './api'
 import * as json from './json'
 import * as type from './type'
 
-export const ref = '@doi'
-export const parsers = {id, api, json, type}
-export const formats = {
+const ref = '@doi'
+const parsers = {id, api, json, type}
+const formats = {
   '@doi/api': {
     parse: api.parse,
     parseAsync: api.parseAsync,
@@ -44,3 +46,9 @@ export const formats = {
     parse: type.parse
   }
 }
+
+plugins.add(ref, {
+  input: formats
+})
+
+export {ref, parsers, formats}

@@ -3,8 +3,7 @@
  */
 
 import parseDoiJson from './json'
-import fetchFile from '../../../util/fetchFile'
-import fetchFileAsync from '../../../util/fetchFileAsync'
+import {util} from '@citation-js/core'
 
 /**
  * DOI API headers
@@ -26,7 +25,7 @@ const apiHeaders = {
  * @return {Promise<CSL>} The fetched JSON
  */
 const fetchDoiApiAsync = async function (url) {
-  const result = await fetchFileAsync(url, {headers: apiHeaders})
+  const result = await util.fetchFileAsync(url, {headers: apiHeaders})
   return result === '[]' ? {} : JSON.parse(result)
 }
 
@@ -56,7 +55,7 @@ const parseDoiApiAsync = async function (data) {
  * @return {CSL} The fetched JSON
  */
 const fetchDoiApi = function (url) {
-  const result = fetchFile(url, {headers: apiHeaders})
+  const result = util.fetchFile(url, {headers: apiHeaders})
   return result === '[]' ? {} : JSON.parse(result)
 }
 

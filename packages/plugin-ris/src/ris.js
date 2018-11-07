@@ -2,8 +2,8 @@
  * @module output/ris
  */
 
-import getName from '../../name'
-import getDate from '../../date'
+import {format as getName} from '@citation-js/name'
+import {format as getDate} from '@citation-js/date'
 
 const typeMap = {
   graphic: 'ART',

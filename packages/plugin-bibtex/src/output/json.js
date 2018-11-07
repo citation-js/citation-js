@@ -4,8 +4,8 @@
 
 import fetchBibTeXType from './type'
 import getBibTeXLabel from './label'
-import getName from '../../name'
-import getDate from '../../date'
+import {format as getName} from '@citation-js/name'
+import {format as getDate} from '@citation-js/date'
 
 /**
  * Get BibTeX-JSON from CSL(-JSON)

@@ -3,6 +3,7 @@ import * as options from './options'
 import * as set from './set'
 import * as sort from './sort'
 import * as get from './get'
+import * as staticMethods from './static'
 
 /**
  * Citation.js input data, see {@tutorial input_types}
@@ -106,5 +107,7 @@ Object.assign(Cite.prototype, log, options, set, sort, get)
 Cite.prototype[Symbol.iterator] = function * () {
   yield * this.data
 }
+
+Object.assign(Cite, staticMethods)
 
 export default Cite

@@ -1,4 +1,4 @@
-import {chain as parseInput, chainAsync as parseInputAsync} from '../parse/'
+import {chain as parseInput, chainAsync as parseInputAsync} from '../plugins/input/'
 import fetchId from '../util/fetchId'
 
 /**

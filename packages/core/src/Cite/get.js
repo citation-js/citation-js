@@ -1,6 +1,6 @@
 import {validateOutputOptions as validate} from './static'
-import {format as formatData} from '../get/registrar'
-import {csl as parseCsl} from '../parse/'
+import {format as formatData} from '../plugins/output'
+import {clean as parseCsl} from '../plugins/input/csl'
 
 /**
  * Get a list of the data entry IDs, in the order of that list

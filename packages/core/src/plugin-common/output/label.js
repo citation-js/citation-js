@@ -9,13 +9,13 @@
  * @method getLabel
  * @todo flavors/formats
  *
- * @param {CSL} src - Input CSL
+ * @param {CSL} entry - Input CSL
  *
  * @return {String} The label
  */
-const getLabel = (src) => {
-  if ('citation-label' in src) {
-    return src['citation-label']
+const getLabel = (entry) => {
+  if ('citation-label' in entry) {
+    return entry['citation-label']
   }
 
   let res = ''

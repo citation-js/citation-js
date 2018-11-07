@@ -1,4 +1,4 @@
-import parseName from './name'
+import {parse as parseName} from '@citation-js/name'
 
 const NAME = 1
 const NAME_LIST = 2
@@ -241,4 +241,4 @@ const parseCsl = function (data) {
   })
 }
 
-export default parseCsl
+export {parseCsl as clean}

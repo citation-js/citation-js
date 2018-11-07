@@ -3,9 +3,9 @@
  * @memberof Cite
  */
 
-import * as input from '../parse/interface/'
-import * as output from '../get/registrar'
-import * as dict from '../get/dict'
+import * as input from './input/'
+import * as output from './output'
+import * as dict from './dict'
 import * as config from './config'
 
 const registers = {

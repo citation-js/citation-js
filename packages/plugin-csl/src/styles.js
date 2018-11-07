@@ -2,7 +2,7 @@
  * @module output/csl
  */
 
-import Register from '../../../util/register'
+import {util} from '@citation-js/core'
 
 /**
  * Object containing CSL templates
@@ -21,7 +21,7 @@ import defaultTemplates from './styles.json'
  * @type Cite.util.Register
  * @member
  */
-const templates = new Register(defaultTemplates)
+const templates = new util.Register(defaultTemplates)
 
 /* istanbul ignore next: deprecated */
 /**

@@ -2,7 +2,7 @@
  * @module output/csl
  */
 
-import Register from '../../../util/register'
+import {util} from '@citation-js/core'
 
 /**
  * Object containing CSL locales
@@ -21,7 +21,7 @@ import defaultLocales from './locales.json'
  * @type Cite.util.Register
  * @member
  */
-const locales = new Register(defaultLocales)
+const locales = new util.Register(defaultLocales)
 
 /* istanbul ignore next: deprecated */
 /**

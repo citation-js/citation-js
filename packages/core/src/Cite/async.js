@@ -1,4 +1,4 @@
-import {chainAsync as parseInputAsync} from '../parse/'
+import {chainAsync as parseInputAsync} from '../plugins/input/'
 import Cite from './index'
 
 /**

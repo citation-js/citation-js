@@ -3,12 +3,13 @@
  */
 
 import * as json from './json'
+import {plugins} from '@citation-js/core'
 
 let scraperLinks = ['fulltext_html', 'fulltext_xml', 'fulltext_pdf']
 
-export const ref = '@bibjson'
-export const parsers = {json}
-export const formats = {
+const ref = '@bibjson'
+const parsers = {json}
+const formats = {
   '@bibjson/quickscrape+record+object': {
     parse: json.quickscrapeRecord,
     parseType: {
@@ -52,3 +53,9 @@ export const formats = {
     }
   }
 }
+
+plugins.add(ref, {
+  input: formats
+})
+
+export {ref, parsers, formats}

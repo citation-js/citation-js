@@ -2,7 +2,7 @@
  * @module input/bibtex
  */
 
-import TokenStack from '../../../util/stack'
+import {util} from '@citation-js/core'
 
 /**
  * Mapping of BibTeX Escaped Chars to Unicode.
@@ -83,7 +83,7 @@ const getTokenizedBibtex = function (str) {
 const parseBibTeX = function (str) {
   const entries = []
   const tokens = getTokenizedBibtex(str)
-  const stack = new TokenStack(tokens)
+  const stack = new util.TokenStack(tokens)
 
   try {
     stack.consumeWhitespace()

@@ -3,7 +3,7 @@
  */
 
 import getBibTeXJSON from './json'
-import {get as getDict} from '../../dict'
+import {plugins} from '@citation-js/core'
 
 /**
  * Get a Bib.TXT string from CSL
@@ -44,7 +44,7 @@ const getBibtxt = function (src, dict) {
  * @return {String} Bib.TXT (HTML) string
  */
 const getBibtxtWrapper = function (src, html) {
-  const dict = getDict(html ? 'html' : 'text')
+  const dict = plugins.dict.get(html ? 'html' : 'text')
   return getBibtxt(src, dict)
 }
 

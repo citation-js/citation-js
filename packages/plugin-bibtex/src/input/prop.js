@@ -2,8 +2,8 @@
  * @module input/bibtex
  */
 
-import parseName from '../../name'
-import parseDate from '../../date'
+import {parse as parseName} from '@citation-js/name'
+import {parse as parseDate} from '@citation-js/date'
 
 /**
  * To match months.

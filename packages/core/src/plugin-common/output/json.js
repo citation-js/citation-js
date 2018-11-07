@@ -2,8 +2,8 @@
  * @module output/json
  */
 
-import plugins from '../../plugins/'
-import util from '../../util/'
+import * as plugins from '../../plugins/'
+import * as util from '../../util/'
 
 /**
  * Append commas to every item but the last. Should unfortunately, probably be a utility.
@@ -111,7 +111,7 @@ export default {
       return JSON.stringify(data, null, 2)
     } else {
       logger.warn('[get]', 'This feature (JSON output with special formatting) is unstable. See https://github.com/larsgw/citation.js/issues/144')
-      return hasDict(format) ? getJson(data, plugins.dict.get(format)) : ''
+      return plugins.dict.has(format) ? getJson(data, plugins.dict.get(format)) : ''
     }
   }
 }

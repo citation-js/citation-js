@@ -2,6 +2,8 @@
  * @module input/wikidata
  */
 
+import {plugins} from '@citation-js/core'
+
 import * as list from './list'
 import * as json from './json'
 import * as prop from './prop'
@@ -9,9 +11,9 @@ import * as type from './type'
 import * as url from './url'
 import * as api from './api'
 
-export const ref = '@wikidata'
-export const parsers = {list, json, prop, type, url, api}
-export const formats = {
+const ref = '@wikidata'
+const parsers = {list, json, prop, type, url, api}
+const formats = {
   '@wikidata/id': {
     parse: list.parse,
     parseType: {
@@ -65,3 +67,9 @@ export const formats = {
     parse: type.parse
   }
 }
+
+plugins.add(ref, {
+  input: formats
+})
+
+export {ref, parsers, formats}

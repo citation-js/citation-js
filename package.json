@@ -10,7 +10,7 @@
     "standard": "^11.0.1"
   },
   "scripts": {
-    "babel": "lerna exec --parallel --ignore '@citation-js/cli' -- babel src -d lib --copy-files",
+    "babel": "lerna exec --parallel --ignore '@citation-js/cli' -- babel src -d lib --copy-files --root $PWD",
     "lint": "standard"
   },
   "standard": {

@@ -2,8 +2,8 @@
  * @module input/bibjson
  */
 
-import parseDate from '../../date'
-import parseName from '../../name'
+import {parse as parseDate} from '@citation-js/date'
+import {parse as parseName} from '@citation-js/name'
 
 function nameProps (person) {
   let {

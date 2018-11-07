@@ -1,1 +1,1 @@
-{"plugins":["@babel/plugin-proposal-object-rest-spread","@babel/plugin-proposal-class-properties"]}
+{"extends":"../../babel.config.js","plugins":["@babel/plugin-proposal-object-rest-spread","@babel/plugin-proposal-class-properties"]}

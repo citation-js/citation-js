@@ -6,7 +6,7 @@
  * @projectname Citation.js
  *
  * @author Lars Willighagen
- * @version 0.3.4
+ * @version 0.4
  * @license
  * Copyright (c) 2016-2018 Lars Willighagen
  *
@@ -33,7 +33,13 @@ var program = require('commander')
 var fs = require('fs')
 var path = require('path')
 var cjs = require(path.join('..', 'package.json'))
-var Cite = require(path.join('..', cjs.main))
+var Cite = require('@citation-js/core').Cite
+require('@citation-js/plugin-bibjson')
+require('@citation-js/plugin-bibtex')
+require('@citation-js/plugin-csl')
+require('@citation-js/plugin-doi')
+require('@citation-js/plugin-ris')
+require('@citation-js/plugin-wikidata')
 
 program
   .version(cjs.version)

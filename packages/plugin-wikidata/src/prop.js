@@ -3,12 +3,11 @@
  */
 
 import wdk from 'wikidata-sdk'
-import fetchFile from '../../../util/fetchFile'
-import fetchFileAsync from '../../../util/fetchFileAsync'
+import {util} from '@citation-js/core'
 
 import fetchWikidataType from './type'
-import parseDate from '../../date'
-import parseName from '../../name'
+import {parse as parseName} from '@citation-js/name'
+import {parse as parseDate} from '@citation-js/date'
 
 /**
  * Get series ordinal from qualifiers object
@@ -84,7 +83,7 @@ const propMap = {
 const fetchWikidataLabel = function (q, lang) {
   const ids = Array.isArray(q) ? q : typeof q === 'string' ? q.split('|') : ''
   const url = wdk.getEntities(ids, [lang], 'labels')
-  const entities = JSON.parse(fetchFile(url)).entities || {}
+  const entities = JSON.parse(util.fetchFile(url)).entities || {}
 
   return Object.keys(entities).map(entityKey => (entities[entityKey].labels[lang] || {}).value)
 }
@@ -187,7 +186,7 @@ const parseWikidataProp = function (name, value, lang) {
 const fetchWikidataLabelAsync = async function (q, lang) {
   const ids = Array.isArray(q) ? q : typeof q === 'string' ? q.split('|') : ''
   const url = wdk.getEntities(ids, [lang], 'labels')
-  const entities = JSON.parse(await fetchFileAsync(url)).entities || {}
+  const entities = JSON.parse(await util.fetchFileAsync(url)).entities || {}
 
   return Object.keys(entities).map(entityKey => (entities[entityKey].labels[lang] || {}).value)
 }

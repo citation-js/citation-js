@@ -14,7 +14,7 @@
  * @return {String} CSL Locale
  */
 
-import {add as addPlugin} from '../../../plugins/'
+import {plugins} from '@citation-js/core'
 
 import {locales} from './locales'
 import {templates} from './styles'
@@ -23,7 +23,7 @@ import engine from './engines'
 import bibliography from './bibliography'
 import citation from './citation'
 
-addPlugin('csl', {
+plugins.add('@csl', {
   output: {
     bibliography,
     citation
