@@ -6,6 +6,10 @@
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
+  "bin": {
+    "citation-js": "bin/cmd.js"
+  },
+  "man": "bin/man/citation-js.1",
   "directories": {
     "lib": "src",
     "test": "__tests__"
