@@ -1,0 +1,31 @@
+{
+  "plugins": {
+    "title": "Plugins",
+    "children": []
+  },
+  "cite": {
+    "title": "Cite",
+    "children": {
+      "cite_constructor": {"title": "Cite Constructor"},
+      "cite_data": {"title": "Cite Data Methods"},
+      "cite_output": {"title": "Cite Output Methods"}
+    }
+  },
+  "input": {
+    "title": "Input",
+    "children": {
+      "input_options": {"title": "Input Options"},
+      "input_plugins": {"title": "Input Plugins"}
+    }
+  },
+  "output": {
+    "title": "Output",
+    "children": {
+      "output_plugins": {"title": "Output Plugins",
+        "children": {
+          "output_plugins_dict": {"title": "Dictionary Plugins"}
+        }
+      }
+    }
+  }
+}
