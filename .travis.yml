@@ -6,5 +6,6 @@ node_js:
 sudo: false
 install:
   - npm install
+  - npm run babel
 script:
   - npm test
