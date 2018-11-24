@@ -5,6 +5,7 @@ node_js:
   - "6"
 sudo: false
 install:
+  - npm install
   - lerna bootstrap
   - npm run babel
 script:
