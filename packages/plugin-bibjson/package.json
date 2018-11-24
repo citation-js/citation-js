@@ -11,9 +11,9 @@
     "test": "__tests__"
   },
   "homepage": "https://citation.js.org/",
-  "repository": "https://github.com/citation-js/core/tree/master/packages/plugin-bibjson",
+  "repository": "https://github.com/citation-js/citation-js/tree/master/packages/plugin-bibjson",
   "bugs": {
-    "url": "https://github.com/citation-js/core/issues"
+    "url": "https://github.com/citation-js/citation-js/issues"
   },
   "engines": {
     "node": ">=6.0.0"
