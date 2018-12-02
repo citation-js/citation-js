@@ -54,7 +54,7 @@ const fieldMap = {
     {type: '__default', fieldName: 'author', convert: name}
   ],
   DA: {fieldName: 'issued', convert (date) { return getDate(date, '/') }},
-  PY: {fieldName: 'issued', convert (date) { return date['date-parts'][0][0] }},
+  PY: {fieldName: 'issued', convert (date) { return date['date-parts'][0][0] + '' }},
   Y2: {fieldName: 'accessed', convert (date) { return getDate(date, '/') }},
 
   // somewhat simple
