@@ -14,15 +14,13 @@ const simple = {
       family: 'Hall'
     }
   ],
-  issued: [
-    {
-      'date-parts': [
-        '1957',
-        '1',
-        '1'
-      ]
-    }
-  ],
+  issued: {
+    'date-parts': [[
+      '1957',
+      '1',
+      '1'
+    ]]
+  },
   'container-title': 'Journal of the American Chemical Society',
   volume: '79',
   issue: '20',
