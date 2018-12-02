@@ -5,17 +5,28 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "expect.js": "^0.3.1",
     "lerna": "^3.4.3",
     "mocha": "^5.2.0",
     "mock-require": "^3.0.2",
+    "nyc": "^13.1.0",
     "standard": "^11.0.1"
   },
   "scripts": {
     "babel": "lerna exec --ignore '*/cli' --parallel -- babel src -d lib --copy-files --root $PWD",
     "lint": "standard",
-    "test": "TEST_MOCHA=true lerna exec --ignore '*/cli' --no-bail --stream -- mocha -c -R dot test/*.spec.js"
+    "lerna": "lerna exec --ignore '*/cli' --no-bail --stream --",
+    "test": "npm run lerna -- npm test",
+    "coverage": "npm run lerna -- nyc npm test && npm run lerna -- nyc report --reporter=text-lcov > coverage.lcov"
+  },
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "standard": {
     "parser": "babel-eslint",

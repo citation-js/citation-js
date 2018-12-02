@@ -6,7 +6,10 @@ node_js:
 sudo: false
 install:
   - npm install
+  - npm install -g codecov
   - lerna bootstrap
   - npm run babel
 script:
-  - npm test
+  - npm run coverage
+after_success:
+  - codecov
