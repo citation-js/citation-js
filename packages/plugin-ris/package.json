@@ -22,7 +22,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "TEST_MOCHA=true mocha -c -r @babel/register -R dot test/*.spec.js"
+    "test": "TEST_MOCHA=true mocha -c -R dot test/*.spec.js"
   },
   "dependencies": {
     "@citation-js/core": "^0.4.0-10",

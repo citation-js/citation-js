@@ -2,7 +2,7 @@
 
 const assert = require('assert')
 const {plugins} = require('../../../test/api')(require('@citation-js/core'))
-require('../lib/')
+require('../src/')
 
 const data = require('./data')
 

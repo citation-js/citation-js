@@ -18,8 +18,10 @@
     "babel": "lerna exec --ignore '*/cli' --parallel -- babel src -d lib --copy-files --root $PWD",
     "lint": "standard",
     "lerna": "lerna exec --ignore '*/cli' --no-bail --stream --",
-    "test": "npm run lerna -- npm test",
-    "coverage": "npm run lerna -- nyc npm test && npm run lerna -- nyc report --reporter=text-lcov \">\" coverage.lcov"
+    "test": "npm run lerna -- npm test -- -r @babel/register",
+    "coverage": "npm run coverage:test && npm run coverage:report",
+    "coverage:test": "npm run lerna -- nyc --require @babel/register npm test",
+    "coverage:report": "npm run lerna -- nyc report --reporter=text-lcov \">\" coverage.lcov"
   },
   "nyc": {
     "require": [

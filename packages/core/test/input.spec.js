@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 
-const {plugins} = require('../lib/')
+const {plugins} = require('../src/')
 const expect = require('expect.js')
 
 const cases = {

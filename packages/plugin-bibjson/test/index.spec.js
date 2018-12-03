@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-require('../lib/')
+require('../src/')
 const {plugins} = require('@citation-js/core')
 const data = require('./data')
 

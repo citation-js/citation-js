@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const {plugins} = require('../lib/')
+const {plugins} = require('../src/')
 
 const simple = {
   id: 'Q23571040',
