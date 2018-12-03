@@ -19,7 +19,7 @@
     "lint": "standard",
     "lerna": "lerna exec --ignore '*/cli' --no-bail --stream --",
     "test": "npm run lerna -- npm test",
-    "coverage": "npm run lerna -- nyc npm test && npm run lerna -- nyc report --reporter=text-lcov > coverage.lcov"
+    "coverage": "npm run lerna -- nyc npm test && npm run lerna -- nyc report --reporter=text-lcov \">\" coverage.lcov"
   },
   "nyc": {
     "require": [
