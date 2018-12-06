@@ -1,8 +1,11 @@
 {
   "name": "@citation-js/plugin-ris",
-  "version": "0.4.0-10",
+  "version": "0.4.0-rc.0",
   "description": "Plugin for RIS formats for Citation.js",
-  "keywords": ["citation-js", "ris"],
+  "keywords": [
+    "citation-js",
+    "ris"
+  ],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -25,7 +28,7 @@
     "test": "TEST_MOCHA=true mocha -c -R dot test/*.spec.js"
   },
   "dependencies": {
-    "@citation-js/core": "^0.4.0-10",
+    "@citation-js/core": "^0.4.0-rc.0",
     "@citation-js/date": "^0.4.1",
     "@citation-js/name": "^0.4.1"
   }

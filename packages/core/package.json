@@ -1,8 +1,12 @@
 {
   "name": "@citation-js/core",
-  "version": "0.4.0-10",
+  "version": "0.4.0-rc.0",
   "description": "Convert different bibliographic metadata sources",
-  "keywords": ["citation-js", "citation", "bibliography"],
+  "keywords": [
+    "citation-js",
+    "citation",
+    "bibliography"
+  ],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -31,7 +35,7 @@
     "sync-request": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0"
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0"
   }
 }
