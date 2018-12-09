@@ -26,7 +26,8 @@
     "node": ">=6.0.0"
   },
   "files": [
-    "lib"
+    "lib",
+    "bin"
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
