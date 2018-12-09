@@ -2,10 +2,7 @@
   "name": "@citation-js/cli",
   "version": "0.4.0-rc.0",
   "description": "CLI for Citation.js",
-  "keywords": [
-    "citation-js",
-    "cli"
-  ],
+  "keywords": ["citation-js", "cli"],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
