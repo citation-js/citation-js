@@ -11,9 +11,10 @@ Citation.js converts formats like BibTeX, Wikidata JSON and BibJSON to CSL-JSON 
 [![NPM version](https://img.shields.io/npm/v/@citation-js/core.svg)](https://npmjs.org/package/@citation-js/core)
 [![NPM total downloads](https://img.shields.io/npm/dt/@citation-js/core.svg)](https://npmcharts.com/compare/@citation-js%2Fcore?minimal=true)
 [![Build Status](https://travis-ci.org/citation-js/citation-js.svg?branch=master)](https://travis-ci.org/citation-js/citation-js)
+[![devDependencies Status](https://david-dm.org/citation-js/citation-js/dev-status.svg)](https://david-dm.org/citation-js/citation-js?type=dev)
+![License](https://img.shields.io/npm/l/@citation-js/core.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Join the chat at https://gitter.im/citation-js/Lobby](https://badges.gitter.im/citation-js/Lobby.svg)](https://gitter.im/citation-js/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-![License](https://img.shields.io/npm/license/@citation-js/core.svg)
 
 # Packages
 
