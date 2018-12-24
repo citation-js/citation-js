@@ -5,7 +5,7 @@
   "keywords": ["citation-js", "cli"],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "bin/cmd.js",
   "bin": {
     "citation-js": "bin/cmd.js"
   },
@@ -23,7 +23,6 @@
     "node": ">=6.0.0"
   },
   "files": [
-    "lib",
     "bin"
   ],
   "scripts": {
