@@ -1,8 +1,13 @@
 {
   "name": "@citation-js/plugin-doi",
-  "version": "0.4.0-rc.0",
+  "version": "0.4.0-rc.1",
   "description": "Plugin for DOI input for Citation.js",
-  "keywords": ["citation-js", "doi", "crossref", "datacite"],
+  "keywords": [
+    "citation-js",
+    "doi",
+    "crossref",
+    "datacite"
+  ],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -25,7 +30,7 @@
     "test": "TEST_MOCHA=true mocha -c -R dot test/*.spec.js"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.4.0-rc.0"
+    "@citation-js/core": "^0.4.0-rc.1"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.4.0-rc.0"

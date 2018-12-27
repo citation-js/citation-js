@@ -1,8 +1,12 @@
 {
   "name": "@citation-js/plugin-wikidata",
-  "version": "0.4.0-rc.0",
+  "version": "0.4.0-rc.1",
   "description": "Plugin for Wikidata for Citation.js",
-  "keywords": ["citation-js", "wikidata", "wikicite"],
+  "keywords": [
+    "citation-js",
+    "wikidata",
+    "wikicite"
+  ],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -30,7 +34,7 @@
     "wikidata-sdk": "^5.15.4"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.4.0-rc.0"
+    "@citation-js/core": "^0.4.0-rc.1"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.4.0-rc.0"

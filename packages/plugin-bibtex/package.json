@@ -1,8 +1,13 @@
 {
   "name": "@citation-js/plugin-bibtex",
-  "version": "0.4.0-rc.0",
+  "version": "0.4.0-rc.1",
   "description": "Plugin for BibTeX formats for Citation.js",
-  "keywords": ["citation-js", "bibtex", "biblatex", "tex"],
+  "keywords": [
+    "citation-js",
+    "bibtex",
+    "biblatex",
+    "tex"
+  ],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -29,7 +34,7 @@
     "@citation-js/name": "^0.4.1"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.4.0-rc.0"
+    "@citation-js/core": "^0.4.0-rc.1"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.4.0-rc.0"
