@@ -64,6 +64,8 @@ const get = function (options = {}) {
     case 'data':
     case 'bibtex':
     case 'bibtxt':
+    case 'ndjson':
+    case 'ris':
       formatOptions = {type: newType}
       break
 

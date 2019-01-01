@@ -113,5 +113,8 @@ export default {
       logger.warn('[get]', 'This feature (JSON output with special formatting) is unstable. See https://github.com/larsgw/citation.js/issues/144')
       return plugins.dict.has(format) ? getJson(data, plugins.dict.get(format)) : ''
     }
+  },
+  ndjson (data) {
+    return data.map(entry => JSON.stringify(entry)).join('\n')
   }
 }

@@ -3,7 +3,7 @@
 const assert = require('assert')
 const {plugins} = require('../src/')
 
-const simple = {
+const simple = [{
   id: 'Q23571040',
   type: 'article-journal',
   title: 'Correlation of the Base Strengths of Amines 1',
@@ -25,7 +25,7 @@ const simple = {
   volume: '79',
   issue: '20',
   page: '5441-5444'
-}
+}]
 
 const string = '[\n  {\n    id: "Q23571040",\n    type: "article-journal",\n    title: "Correlation of the Base Strengths of Amines 1",\n    DOI: "10.1021/ja01577a030",\n    author: [\n      {\n\tgiven: "H. K.",\n\tfamily: "Hall"\n      }\n    ],\n    issued: {\n      date-parts: [\n\t[ "1957", "1", "1" ]\n      ]\n    },\n    container-title: "Journal of the American Chemical Society",\n    volume: "79",\n    issue: "20",\n    page: "5441-5444"\n  }\n]'
 
@@ -34,8 +34,8 @@ const label = [{'id': 'b', 'citation-label': 'foo', 'type': 'book'}]
 
 const inputData = {
   '@else/json': {
-    'as JSON string': [JSON.stringify(simple), [simple]],
-    'as JS Object string': [string, [simple]],
+    'as JSON string': [JSON.stringify(simple), simple],
+    'as JS Object string': [string, simple],
     'with a syntax error': ['{"hi"}', []]
   },
   '@empty/text': {
@@ -79,8 +79,11 @@ const outputData = {
     'plain text': [simple, JSON.stringify(simple, null, 2)],
     'object': [simple, simple, {format: 'object'}]
   },
+  ndjson: {
+    'normal': [simple, simple.map(entry => JSON.stringify(entry)).join('\n')]
+  },
   label: {
-    'normal': [[simple], {[simple.id]: 'Hall1957Correlation'}],
+    'normal': [simple, {[simple[0].id]: 'Hall1957Correlation'}],
     'with year-suffix': [yearSuffix, {[yearSuffix[0].id]: 'foo2018a'}],
     'with own label': [label, {[label[0].id]: 'foo'}]
   }
