@@ -21,7 +21,7 @@ import {parse as parseDate} from '@citation-js/date'
  */
 const getSeriesOrdinal = qualifiers => qualifiers.P1545 ? parseInt(qualifiers.P1545[0]) : -1
 
-const getStatedAs = qualifiers => qualifiers.P1932
+const getStatedAs = qualifiers => qualifiers.P1932 || qualifiers.P1810
 
 /**
  * Map holding information on Wikidata fields.
