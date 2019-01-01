@@ -10,15 +10,14 @@
  * @return {CSL} entry
  */
 export const applyGraph = (entry, graph) => {
-  const isArrayElse = ({type}) => type === '@else/list+object'
-
-  if (!Array.isArray(entry._graph)) {
-    entry._graph = graph
-  } else if (graph.find(isArrayElse)) {
-    graph.splice(graph.findIndex(isArrayElse), 1, ...entry._graph.slice(0, -1))
-    entry._graph = graph
+  if (entry._graph) {
+    const index = graph.findIndex(({type}) => type === '@else/list+object')
+    if (index !== -1) {
+      graph.splice(index + 1, 0, ...entry._graph.slice(0, -1))
+    }
   }
 
+  entry._graph = graph
   return entry
 }
 
