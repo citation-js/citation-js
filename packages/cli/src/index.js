@@ -37,6 +37,8 @@ program
 
   .option('-o, --output <path>', 'Output file (omit file extension). If this option is omitted, the output is written to stdout')
 
+  .option('--pipe', 'Pipe and transform from stdin to stdout')
+
   .option('-R, --output-non-real', 'Output as a text file', false)
   .option('-f, --output-type <option>', 'Output structure type: string, html, json', 'json')
   .option('-s, --output-style <option>', 'Output scheme. A combination of --output-format json and --output-style citation-* is considered invalid. ' + 'Options: csl (Citation Style Lanugage JSON), bibtex, citation-* (where * is any formatting style)', 'csl')
@@ -50,8 +52,27 @@ module.exports = main
 async function main (options) {
   process.stdin.setEncoding('utf8')
 
-  const input = await getInput(options)
-  await writeOutput(await processInput(input, options), options)
+  if (options.pipe) {
+    await pipe(process.stdin, process.stdout, options)
+  } else {
+    const input = await getInput(options)
+    await writeOutput(await processInput(input, options), options)
+  }
+}
+
+module.exports.pipe = pipe
+function pipe (stdin, stdout, options) {
+  return new Promise((resolve, reject) => {
+    stdin.on('readable', async () => {
+      const input = stdin.read()
+      if (input) {
+        const output = await processInput(input, options)
+        stdout.write(output + '\n')
+      }
+    })
+    stdin.on('end', () => { resolve() })
+    stdin.on('error', (err) => { reject(err) })
+  })
 }
 
 async function getInput (options) {
