@@ -29,13 +29,13 @@
     "test": "TEST_MOCHA=true mocha -c -R dot test/*.spec.js"
   },
   "dependencies": {
-    "@citation-js/date": "^0.4.1",
-    "@citation-js/name": "^0.4.1",
+    "@citation-js/date": "^0.4.2",
+    "@citation-js/name": "^0.4.2",
     "isomorphic-fetch": "^2.2.1",
     "sync-request": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0"
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0"
   }
 }
