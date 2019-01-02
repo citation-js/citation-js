@@ -17,7 +17,7 @@
     "wikidata-sdk": "^5.15.9"
   },
   "scripts": {
-    "babel": "lerna exec --ignore '*/cli' --parallel -- babel src -d lib --copy-files --root $PWD",
+    "babel": "lerna exec --parallel -- babel src -d lib --copy-files --root $PWD",
     "lint": "standard",
     "lerna": "lerna exec --ignore '*/cli' --no-bail --stream --",
     "test": "npm run lerna -- npm test -- -r @babel/register",

@@ -8,14 +8,14 @@
   ],
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
-  "main": "bin/cmd.js",
+  "main": "lib/index.js",
   "bin": {
-    "citation-js": "bin/cmd.js"
+    "citation-js": "lib/index.js"
   },
-  "man": "bin/man/citation-js.1",
+  "man": "man/citation-js.1",
   "directories": {
     "lib": "src",
-    "test": "__tests__"
+    "man": "man"
   },
   "homepage": "https://citation.js.org/",
   "repository": "https://github.com/citation-js/citation-js/tree/master/packages/cli",
@@ -26,7 +26,7 @@
     "node": ">=6.0.0"
   },
   "files": [
-    "bin"
+    "lib"
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
