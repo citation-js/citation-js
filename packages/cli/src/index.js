@@ -1,39 +1,24 @@
 #!/usr/bin/env node
 
-/**
- * @file cmd.js
- *
- * @projectname Citation.js
- *
- * @author Lars Willighagen
- * @version 0.4
- * @license
- * Copyright (c) 2016-2018 Lars Willighagen
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+const fs = require('fs')
+const readFile = promisify(fs.readFile)
+const writeFile = promisify(fs.writeFile)
 
-var program = require('commander')
-var fs = require('fs')
-var path = require('path')
-var cjs = require(path.join('..', 'package.json'))
-var Cite = require('@citation-js/core').Cite
+function promisify (fn) {
+  return function (...args) {
+    return new Promise((resolve, reject) => {
+      fn.call(this, ...args, function (err, data) {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+  }
+}
+
+const Cite = require('@citation-js/core').Cite
 require('@citation-js/plugin-bibjson')
 require('@citation-js/plugin-bibtex')
 require('@citation-js/plugin-csl')
@@ -41,8 +26,9 @@ require('@citation-js/plugin-doi')
 require('@citation-js/plugin-ris')
 require('@citation-js/plugin-wikidata')
 
+const program = require('commander')
 program
-  .version(cjs.version)
+  .version(require('../package.json').version)
   .usage('[options]')
 
   .option('-i, --input <path>', 'Input file. If all input options are omitted, it uses stdin')
@@ -58,58 +44,68 @@ program
 
   .parse(process.argv)
 
-if (program.input && !fs.existsSync(program.input)) {
-  throw new Error('Input file does not exist: ' + program.input)
+main(program).catch(console.error)
+
+module.exports = main
+async function main (options) {
+  process.stdin.setEncoding('utf8')
+
+  const input = await getInput(options)
+  await writeOutput(await processInput(input, options), options)
 }
 
-var extension
-if (program.outputStyle === 'bibtex' && program.outputType === 'string') {
-  extension = 'bib'
-} else if (program.outputNonReal) {
-  extension = 'txt'
-} else {
-  extension = {string: 'txt', html: 'html', json: 'json'}[program.outputType]
-}
-
-var saveOutput = function (data) {
-  var output = data.get({
-    format: 'string',
-    type: program.outputType,
-    style: program.outputStyle,
-    lang: program.outputLanguage
-  })
-
-  if (!program.outputNonReal && program.outputType === 'html') {
-    output = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' + output + '</body></html>'
-  }
-
-  if (!program.output) {
-    process.stdout.write(output + '\n')
+async function getInput (options) {
+  if (options.input) {
+    return readFile(options.input, 'utf8')
+  } else if (options.text || options.url) {
+    return options.text || options.url
   } else {
-    fs.writeFile(program.output + '.' + extension, output, function (err) {
-      if (err) {
-        throw err
-      }
+    return new Promise(function (resolve, reject) {
+      let input = ''
+      process.stdin.on('readable', () => { input += process.stdin.read() || '' })
+      process.stdin.on('end', () => { resolve(input) })
+      process.stdin.on('error', (err) => { reject(err) })
     })
   }
 }
 
-var input
-
-if (program.input || program.text || program.url) {
-  input = program.input ? fs.readFileSync(program.input, 'utf8') : program.url || program.text
-  Cite.async(input, saveOutput)
-} else {
-  input = ''
-
-  process.stdin.setEncoding('utf8')
-  process.stdin.on('readable', function () {
-    var chunk = process.stdin.read()
-    if (chunk !== null) {
-      input += chunk
-    }
+async function processInput (input, options) {
+  const data = await Cite.async(input)
+  let output = data.get({
+    format: 'string',
+    type: options.outputType,
+    style: options.outputStyle,
+    lang: options.outputLanguage
   })
-  process.stdin.on('end', function () {
-    Cite.async(input, saveOutput)
-  })
+
+  if (!options.outputNonReal && options.outputType === 'html') {
+    output = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' + output + '</body></html>'
+  }
+
+  return output
+}
+
+function writeOutput (output, options) {
+  if (!options.output) {
+    process.stdout.write(output + '\n')
+  } else {
+    const extension = getExtension(options)
+    writeFile(options.output + '.' + extension, output)
+  }
+}
+
+function getExtension (options) {
+  const lookup = {
+    string: 'txt',
+    html: 'html',
+    json: 'json'
+  }
+
+  if (options.outputStyle === 'bibtex' && options.outputType === 'string') {
+    return 'bib'
+  } else if (options.outputNonReal) {
+    return 'txt'
+  } else {
+    return lookup[options.outputType]
+  }
 }
