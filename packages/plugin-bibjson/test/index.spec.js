@@ -12,7 +12,8 @@ describe('input', function () {
         assert(plugins.input.has(type))
       })
 
-      for (let [i, [input, expected]] of Object.entries(data[type])) {
+      for (let i of Object.keys(data[type])) {
+        let [input, expected] = data[type][i]
         describe((i + 1).padStart(3, '0'), function () {
           it('parses type', function () {
             assert.strictEqual(plugins.input.type(input), type)

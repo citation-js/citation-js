@@ -12,7 +12,8 @@ describe('output', function () {
         assert(plugins.output.has(type))
       })
 
-      for (let [name, [input, expected, ...opts]] of Object.entries(data[type])) {
+      for (let name of Object.keys(data[type])) {
+        let [input, expected, ...opts] = data[type][name]
         let actual = plugins.output.format(type, input, ...opts)
         it(`with ${name} works`, function () {
           assert.deepStrictEqual(

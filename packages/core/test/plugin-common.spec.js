@@ -57,7 +57,8 @@ describe('input', function () {
         assert(plugins.input.has(type))
       })
 
-      for (let [name, [input, expected]] of Object.entries(inputData[type])) {
+      for (let name of Object.keys(inputData[type])) {
+        let [input, expected] = inputData[type][name]
         describe(name, function () {
           it('parses type', function () {
             assert.strictEqual(plugins.input.type(input), type)
@@ -96,7 +97,8 @@ describe('output', function () {
         assert(plugins.output.has(type))
       })
 
-      for (let [name, [input, expected, ...opts]] of Object.entries(outputData[type])) {
+      for (let name of Object.keys(outputData[type])) {
+        let [input, expected, ...opts] = outputData[type][name]
         let actual = plugins.output.format(type, input, ...opts)
         it(`with ${name} works`, function () {
           assert.deepStrictEqual(

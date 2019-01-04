@@ -127,7 +127,8 @@ describe('input', function () {
   describe('internal types', function () {
     for (let type in cases) {
       describe(type, function () {
-        for (let [name, [input, expected]] of Object.entries(cases[type])) {
+        for (let name of Object.keys(cases[type])) {
+          let [input, expected] = cases[type][name]
           describe(name, function () {
             it('parses type', function () {
               expect(plugins.input.type(input)).to.be(type)
