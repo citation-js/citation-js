@@ -54,7 +54,7 @@ Promise.all([
         const parents = []
           .concat(...graph[item].map(add))
           .filter((v, i, a) => v && a.indexOf(v) === i)
-        return mapping[item] = parents.length > 1 ? parents : parents[0]
+        return mapping[item] = parents[0]
       } else {
         // root
         return undefined
