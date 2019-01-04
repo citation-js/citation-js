@@ -143,8 +143,8 @@ export const removeTypeParser = type => {
 
   // Removing orphaned type refs
   const typeLists = [
-    ...Object.values(dataTypes),
-    ...Object.values(types).map(type => type.extensions).filter(list => list.length > 0)
+    ...Object.keys(dataTypes).map(key => dataTypes[key]),
+    ...Object.keys(types).map(type => types[type].extensions).filter(list => list.length > 0)
   ]
   typeLists.forEach(typeList => {
     const index = typeList.indexOf(type)
