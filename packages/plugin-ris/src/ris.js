@@ -242,7 +242,7 @@ const getRisField = ([prop, value]) => {
 }
 
 const getRisPropList = function (entry) {
-  const props = Object.entries(entry)
+  const props = Object.keys(entry).map(key => [key, entry[key]])
 
   // move type (TY) tag to start
   /* istanbul ignore next: could only happen in theory */
