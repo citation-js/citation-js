@@ -20,9 +20,10 @@ const getBibtxt = function (src, dict) {
   const entries = src.map(entry => {
     const bib = getBibTeXJSON(entry)
     bib.properties.type = bib.type
-    const properties = Object.entries(bib.properties).map(([prop, value]) =>
-      dict.listItem.join(`${prop}: ${value}`)
-    ).join('')
+    const properties = Object
+      .keys(bib.properties)
+      .map(prop => dict.listItem.join(`${prop}: ${bib.properties[prop]}`))
+      .join('')
 
     return dict.entry.join(`[${bib.label}]${dict.list.join(properties)}`)
   }).join('\n')

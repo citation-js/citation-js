@@ -83,13 +83,12 @@ function serializeValue (prop, value, dict) {
   return dict.listItem.join(`${prop}=${wrapInBrackets(prop, value)},`)
 }
 
-function serializePropertyList (properties, dict) {
-  return properties.map(([prop, value]) => serializeValue(prop, value, dict)).join('')
-}
-
 function serializeEntry (entry, dict) {
   let {type, label, properties} = getBibTeXJSON(entry)
-  properties = serializePropertyList(Object.entries(properties), dict)
+  properties = Object
+    .keys(properties)
+    .map(prop => serializeValue(prop, properties[prop], dict))
+    .join('')
 
   return dict.entry.join(`@${type}{${label},${
     dict.list.join(properties)
