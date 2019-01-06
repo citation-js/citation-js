@@ -63,6 +63,13 @@ async function main (options) {
 module.exports.pipe = pipe
 function pipe (stdin, stdout, options) {
   return new Promise((resolve, reject) => {
+    const useless = ['input', 'text', 'url', 'output'].filter(option => options[option])
+    if (useless.length) {
+      reject(new Error(`Cannot use options "${
+        useless.map(option => `--${option}`).join(', ')
+      }" together with --pipe`))
+    }
+
     stdin.on('readable', async () => {
       const input = stdin.read()
       if (input) {
