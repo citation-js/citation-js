@@ -1,8 +1,50 @@
 import deepCopy from '../../util/deepCopy'
 
+import {dataTypeOf} from './dataType'
 import {type as parseType} from './type'
 import {data as parseData, dataAsync as parseDataAsync} from './data'
 import {applyGraph, removeGraph} from './graph'
+
+class ChainParser {
+  constructor (input, options = {}) {
+    this.options = options
+    this.type = this.options.forceType || parseType(input)
+    this.data = dataTypeOf(input) === 'SimpleObject' ? deepCopy(input) : input
+    this.graph = [
+      {type: this.type, data: this.data}
+    ]
+    this.iteration = 0
+  }
+
+  iterate () {
+    if (this.iteration !== 0) {
+      this.type = parseType(this.data)
+      this.graph.push({type: this.type})
+    }
+
+    if (this.type === '@csl/list+object') {
+      return false
+    } else if (this.iteration >= this.options.maxChainLength) {
+      this.error = new RangeError('Max. number of parsing iterations reached')
+      return false
+    } else {
+      this.iteration++
+      return true
+    }
+  }
+
+  end () {
+    if (this.error) {
+      logger.error('[set]', this.error.message)
+      return []
+    } else {
+      return this.data.map(this.options.generateGraph
+        ? entry => applyGraph(entry, this.graph)
+        : removeGraph
+      )
+    }
+  }
+}
 
 /**
  * Parse input until success.
@@ -16,30 +58,14 @@ import {applyGraph, removeGraph} from './graph'
  *
  * @return {Array<CSL>} The parsed input
  */
-export const chain = (input, options = {}) => {
-  let {
-    maxChainLength = 10,
-    generateGraph = true,
-    forceType
-  } = options
+export const chain = (...args) => {
+  let chain = new ChainParser(...args)
 
-  let type = forceType || parseType(input)
-  let output = type.match(/object$/) ? deepCopy(input) : input
-
-  const graph = [{type, data: input}]
-
-  while (type !== '@csl/list+object') {
-    if (maxChainLength-- <= 0) {
-      logger.error('[set]', 'Max. number of parsing iterations reached')
-      return []
-    }
-
-    output = parseData(output, type)
-    type = parseType(output)
-    graph.push({type})
+  while (chain.iterate()) {
+    chain.data = parseData(chain.data, chain.type)
   }
 
-  return output.map(generateGraph ? entry => applyGraph(entry, graph) : removeGraph)
+  return chain.end()
 }
 
 /**
@@ -72,30 +98,14 @@ export const chainLink = (input) => {
  *
  * @return {Promise<Array<CSL>>} The parsed input
  */
-export const chainAsync = async (input, options = {}) => {
-  let {
-    maxChainLength = 10,
-    generateGraph = true,
-    forceType
-  } = options
+export const chainAsync = async (...args) => {
+  let chain = new ChainParser(...args)
 
-  let type = forceType || parseType(input)
-  let output = type.match(/array|object/) ? deepCopy(input) : input
-
-  const graph = [{type, data: input}]
-
-  while (type !== '@csl/list+object') {
-    if (maxChainLength-- <= 0) {
-      logger.error('[set]', 'Max. number of parsing iterations reached')
-      return []
-    }
-
-    output = await parseDataAsync(output, type)
-    type = parseType(output)
-    graph.push({type})
+  while (chain.iterate()) {
+    chain.data = await parseDataAsync(chain.data, chain.type)
   }
 
-  return output.map(generateGraph ? entry => applyGraph(entry, graph) : removeGraph)
+  return chain.end()
 }
 
 /**
