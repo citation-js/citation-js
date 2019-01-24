@@ -15,7 +15,7 @@ import wdk from 'wikidata-sdk'
  * @return {Object} Wikidata JSON
  */
 const parseWikidata = function (data) {
-  const list = Array.isArray(data) ? data : data.trim().split(/(?:[\s,]\s*)/g)
+  const list = [].concat(data)
   return [].concat(wdk.getEntities(list, ['en']))
 }
 

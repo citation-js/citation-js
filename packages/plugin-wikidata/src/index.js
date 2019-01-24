@@ -18,14 +18,16 @@ const formats = {
     parse: list.parse,
     parseType: {
       dataType: 'String',
-      predicate: /^\s*(Q\d+)\s*$/
+      predicate: /^Q\d+$/
     }
   },
   '@wikidata/list+text': {
-    parse: list.parse,
+    parse (data) {
+      return data.trim().split(/(?:[\s,]\s*)/g)
+    },
     parseType: {
       dataType: 'String',
-      predicate: /^\s*((?:Q\d+(?:\s+|,|))*Q\d+)\s*$/
+      predicate: /^\s*((?:Q\d+(?:[\s,]\s*))*Q\d+)\s*$/
     }
   },
   '@wikidata/api': {
