@@ -203,7 +203,7 @@ const correctField = function (fieldName, value, bestGuessConversions = true) {
 
   if (fieldType.includes(typeof value)) {
     return value
-  } else if (/^_/.test(value)) {
+  } else if (/^_/.test(fieldName)) {
     return value
   } else if (!bestGuessConversions) {
     return undefined
