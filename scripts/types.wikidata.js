@@ -1,3 +1,5 @@
+/* global fetch */
+
 const wdk = require('wikidata-sdk')
 require('isomorphic-fetch')
 
@@ -47,14 +49,16 @@ Promise.all([
 
     function add (item) {
       if (item in sourceMapping) {
-        return mapping[item] = sourceMapping[item]
+        mapping[item] = sourceMapping[item]
+        return mapping[item]
       } else if (item in mapping) {
         return mapping[item]
       } else if (item in graph) {
         const parents = []
           .concat(...graph[item].map(add))
           .filter((v, i, a) => v && a.indexOf(v) === i)
-        return mapping[item] = parents[0]
+        mapping[item] = parents[0]
+        return mapping[item]
       } else {
         // root
         return undefined
