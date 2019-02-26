@@ -1,21 +1,9 @@
-import {chainAsync as parseInputAsync} from '../plugins/input/'
 import Cite from './index'
 
 /**
  * @callback Cite~asyncCallback
  * @param {Cite} data - Cite object
  */
-
-/**
- * @access private
- *
- * @param {Promise<Array<CSL>>} data - promise returning parsed input
- * @param {Cite~InputOptions} [options] - cite options
- * @return {Promise<Cite>} promise returning Cite object
- */
-const asyncCite = async function (data, options) {
-  return new Cite(await data, options)
-}
 
 /**
  * @access public
@@ -28,18 +16,18 @@ const asyncCite = async function (data, options) {
  * @return {Promise<Cite>} if callback is omitted, returns a promise
  */
 const async = function (data, options, callback) {
-  const promise = parseInputAsync(data)
-
   if (typeof options === 'function' && !callback) {
     callback = options
     options = undefined
   }
 
+  const promise = Cite().setAsync(data, options)
+
   if (typeof callback === 'function') {
-    promise.then(data => callback(new Cite(data, options)))
+    promise.then(callback)
     return undefined
   } else {
-    return asyncCite(promise, options)
+    return promise
   }
 }
 

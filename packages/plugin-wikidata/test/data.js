@@ -17,17 +17,17 @@ module.exports = {
   '@wikidata/list+text': {
     'spaces': [
       'Q21972834 Q27795847',
-      ['https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q21972834%7CQ27795847&format=json&languages=en'],
+      ['Q21972834', 'Q27795847'],
       opts
     ],
     'newlines': [
       'Q21972834\nQ27795847',
-      ['https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q21972834%7CQ27795847&format=json&languages=en'],
+      ['Q21972834', 'Q27795847'],
       opts
     ],
     'commas': [
       'Q21972834,Q27795847',
-      ['https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q21972834%7CQ27795847&format=json&languages=en'],
+      ['Q21972834', 'Q27795847'],
       opts
     ]
   },
