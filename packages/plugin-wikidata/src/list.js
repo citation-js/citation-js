@@ -16,7 +16,7 @@ import wdk from 'wikidata-sdk'
  */
 const parseWikidata = function (data) {
   const list = [].concat(data)
-  return [].concat(wdk.getEntities(list, ['en']))
+  return [].concat(wdk.getManyEntities(list, ['en']))
 }
 
 export {
