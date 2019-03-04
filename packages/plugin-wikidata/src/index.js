@@ -7,12 +7,11 @@ import {plugins} from '@citation-js/core'
 import * as list from './list'
 import * as json from './json'
 import * as prop from './prop'
-import * as type from './type'
 import * as url from './url'
 import * as api from './api'
 
 const ref = '@wikidata'
-const parsers = {list, json, prop, type, url, api}
+const parsers = {list, json, prop, url, api}
 const formats = {
   '@wikidata/id': {
     parse: list.parse,
@@ -63,10 +62,11 @@ const formats = {
     }
   },
   '@wikidata/prop': {
-    parse: prop.parse
+    parse: prop.parseProp,
+    parseAsync: prop.parsePropAsync
   },
   '@wikidata/type': {
-    parse: type.parse
+    parse: prop.parsePropType
   }
 }
 

@@ -1,0 +1,37 @@
+{
+  "props": {
+    "P31": "type",
+    "P50": "author",
+    "P57": "director",
+    "P86": "composer",
+    "P98": "editor",
+    "P110": "illustrator",
+    "P123": "publisher",
+    "P136": "genre",
+    "P212": "ISBN",
+    "P236": "ISSN",
+    "P291": "publisher-place",
+    "P304": "page",
+    "P348": "version",
+    "P356": "DOI",
+    "P393": "edition",
+    "P433": "issue",
+    "P478": "volume",
+    "P577": "issued",
+    "P655": "translator",
+    "P698": "PMID",
+    "P932": "PMCID",
+    "P953": "URL",
+    "P957": "ISBN",
+    "P1104": "number-of-pages",
+    "P1433": "container-title",
+    "P1476": "title",
+    "P2093": "author"
+  },
+  "ignoredProps": {
+    "P2860": "Cites",
+    "P921": "Main subject",
+    "P3181": "OpenCitations bibliographic resource ID",
+    "P364": "Original language of work"
+  }
+}

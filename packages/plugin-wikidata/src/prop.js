@@ -2,101 +2,131 @@
  * @module input/wikidata
  */
 
-import wdk from 'wikidata-sdk'
+import {simplify} from 'wikidata-sdk'
 import {util} from '@citation-js/core'
-
-import fetchWikidataType from './type'
-import {parse as parseName} from '@citation-js/name'
+import {parse as parseNameString} from '@citation-js/name'
 import {parse as parseDate} from '@citation-js/date'
+
+import getUrls from './list'
+
+/**
+ * CSL mappings for Wikidata fields.
+ * @constant propMap
+ * @property {Object} props
+ * @property {Object} ignoredProps - known common props without CSL mapping
+ */
+import {props, ignoredProps} from './props'
+
+/**
+ * CSL mappings for Wikidata instances.
+ * @constant types
+ */
+import types from './types'
 
 /**
  * Get series ordinal from qualifiers object
  *
  * @access private
- * @method parseWikidataProp
- *
- * @param {Object} qualifiers - qualifiers object
- *
+ * @param {Object} qualifiers - qualifiers
  * @return {Number} series ordinal or -1
  */
-const getSeriesOrdinal = qualifiers => qualifiers.P1545 ? parseInt(qualifiers.P1545[0]) : -1
-
-const getStatedAs = qualifiers => qualifiers.P1932 || qualifiers.P1810
+const getSeriesOrdinal = ({P1545}) => P1545 ? parseInt(P1545[0]) : -1
 
 /**
- * Map holding information on Wikidata fields.
- *
- *  * If false, field should be ignored
- *  * If string, use as field name
+ * Some name fields have, in addition to a Wikidata ID, a qualifier stating
+ * how the name is actually represented. That's what we want to cite.
  *
  * @access private
- * @constant propMap
- * @default
+ * @param {Object} qualifiers
+ * @return {Array<String>} names
  */
-const propMap = {
-  P31: 'type',
-  P50: 'author',
-  P57: 'director',
-  P86: 'composer',
-  P98: 'editor',
-  P110: 'illustrator',
-  P123: 'publisher',
-  P136: 'genre',
-  P212: 'ISBN',
-  P236: 'ISSN',
-  P291: 'publisher-place',
-  P304: 'page',
-  P348: 'version',
-  P356: 'DOI',
-  P393: 'edition',
-  P433: 'issue',
-  P478: 'volume',
-  P577: 'issued',
-  P655: 'translator',
-  P698: 'PMID',
-  P932: 'PMCID',
-  P953: 'URL',
-  P957: 'ISBN',
-  P1104: 'number-of-pages',
-  P1433: 'container-title',
-  P1476: 'title',
-  P2093: 'author',
+const getStatedAs = qualifiers => [].concat(...[
+  qualifiers.P1932,
+  qualifiers.P1810
+].filter(Boolean))
 
-  // ignore
-  P2860: false, // Cites
-  P921: false, // Main subject
-  P3181: false, // OpenCitations bibliographic resource ID
-  P364: false // Original language of work
+/**
+ * Get the labels of objects
+ *
+ * @access private
+ * @param {Object} entity - Wikidata API response
+ * @param {String} lang - Language
+ *
+ * @return {String} label
+ */
+const getLabel = ({labels}, lang) => labels[lang]
+
+/**
+ * @access private
+ * @param {String} name
+ * @param {Object} qualifiers
+ *
+ * @return {Object} CSL name object
+ */
+const parseName = (name, qualifiers) => {
+  name = parseNameString(name)
+  name._ordinal = getSeriesOrdinal(qualifiers)
+  return name
 }
 
 /**
- * Get the names of objects from Wikidata IDs
+ * Get the names of objects
  *
  * @access private
- * @method fetchWikidataLabel
- *
- * @param {String|Array<String>} q - Wikidata IDs
- * @param {String} lang - Language
+ * @param {Object} values
+ * @param {String} lang
  *
  * @return {Array<String>} Array with labels of each prop
  */
-const fetchWikidataLabel = function (q, lang) {
-  const ids = Array.isArray(q) ? q : typeof q === 'string' ? q.split('|') : ''
-  const url = wdk.getEntities(ids, [lang], 'labels')
-  const entities = JSON.parse(util.fetchFile(url)).entities || {}
-
-  return Object.keys(entities).map(entityKey => (entities[entityKey].labels[lang] || {}).value)
+const getNameUrls = (values, lang) => {
+  const toFetch = values
+    .filter(({qualifiers}) => !getStatedAs(qualifiers).length)
+    .map(({value}) => value)
+  return getUrls(toFetch, lang)
 }
 
-const parseWikidataName = ({value, qualifiers}, lang) => {
-  let statedAs = getStatedAs(qualifiers)
-
-  let name = statedAs || fetchWikidataLabel(value, lang)[0]
-  name = parseName(name)
-  name._ordinal = getSeriesOrdinal(qualifiers)
-
-  return name
+/**
+ * Get the names of objects
+ *
+ * @access private
+ * @param {Array<Object>} values
+ * @param {Array<String>} names
+ * @param {Array<Object>} fetched
+ * @param {String} lang
+ *
+ * @return {Array<String>} Array with labels of each prop
+ */
+const parseNames = (values, fetched, lang) => {
+  return values.map(({value, qualifiers}) => {
+    const [name] = getStatedAs(qualifiers)
+    return parseName(name || getLabel(fetched[value], lang), qualifiers)
+  })
 }
+
+/**
+ * @access private
+ * @param {Array<Object>} responses
+ * @return {Object} single response
+ */
+const mergeApi = responses => Object.assign({}, ...responses)
+
+/**
+ * @access private
+ * @param {Array<String>} urls
+ * @return {Object} response
+ */
+const fetchApi = urls => mergeApi(urls.map(url =>
+  simplify.entities(JSON.parse(util.fetchFile(url)).entities)
+))
+
+/**
+ * @access private
+ * @param {Array<String>} urls
+ * @return {Object} response
+ */
+const fetchApiAsync = async urls => mergeApi(Promise.all(urls.map(async url =>
+  simplify.entities(JSON.parse(await util.fetchFileAsync(url)).entities)
+)))
 
 /**
  * Transform property and value from Wikidata format to CSL.
@@ -104,101 +134,43 @@ const parseWikidataName = ({value, qualifiers}, lang) => {
  * Returns additional _ordinal property on authors.
  *
  * @access protected
- * @method parseWikidataProp
  *
- * @param {String} name - Property name
- * @param {String|Number} [value] - Value
- * @param {String} [lang] - Language
+ * @param {String} prop
+ * @param {Array} values
+ * @param {String} [lang]
  *
- * @return {Array<String>|String} Array with new prop and value or just the prop when function is called without value
+ * @return {String|Array<Object>} CSL value
  */
-const parseWikidataProp = function (name, value, lang) {
-  if (!propMap.hasOwnProperty(name)) {
-    logger.info('[set]', `Unknown property: ${name}`)
-    return undefined
-  } else if (propMap[name] === false) {
-    return undefined
+export function parseProp (prop, values, lang) {
+  const value = values[0].value
+
+  switch (prop) {
+    case 'P31':
+      return parseType(value)
+
+    case 'P50':
+    case 'P57':
+    case 'P86':
+    case 'P98':
+    case 'P110':
+    case 'P655':
+      return parseNames(values, fetchApi(getNameUrls(values, lang)), lang)
+
+    case 'P2093':
+      return values.map(({value, qualifiers}) => parseName(value, qualifiers))
+
+    case 'P577':
+      return parseDate(value)
+
+    case 'P123':
+    case 'P136':
+    case 'P291':
+    case 'P1433':
+      return getLabel(fetchApi(getUrls(value))[value], lang)
+
+    default:
+      return value
   }
-
-  const cslProp = propMap[name]
-
-  if (!value) {
-    return cslProp
-  }
-
-  const cslValue = ((prop, valueList) => {
-    const value = valueList[0].value
-
-    switch (prop) {
-      case 'P31':
-        const type = fetchWikidataType(value)
-
-        if (!type) {
-          logger.warn('[set]', `Wikidata entry type not recognized: ${value}. Defaulting to "book".`)
-          return 'book'
-        }
-
-        return type
-
-      case 'P50':
-      case 'P57':
-      case 'P86':
-      case 'P98':
-      case 'P110':
-      case 'P655':
-        return valueList.map(name => parseWikidataName(name, lang))
-
-      case 'P577':
-        return parseDate(value)
-
-      case 'P123':
-      case 'P136':
-      case 'P291':
-      case 'P1433':
-        return fetchWikidataLabel(value, lang)[0]
-
-      case 'P2093':
-        return valueList.map(({value, qualifiers}) => {
-          const name = parseName(value)
-          name._ordinal = getSeriesOrdinal(qualifiers)
-          return name
-        })
-
-      default:
-        return value
-    }
-  })(name, value)
-
-  return [cslProp, cslValue]
-}
-
-/**
- * Get the names of objects from Wikidata IDs (async)
- *
- * @access private
- * @method fetchWikidataLabelAsync
- *
- * @param {String|Array<String>} q - Wikidata IDs
- * @param {String} lang - Language
- *
- * @return {Promise<Array<String>>} Array with labels of each prop
- */
-const fetchWikidataLabelAsync = async function (q, lang) {
-  const ids = Array.isArray(q) ? q : typeof q === 'string' ? q.split('|') : ''
-  const url = wdk.getEntities(ids, [lang], 'labels')
-  const entities = JSON.parse(await util.fetchFileAsync(url)).entities || {}
-
-  return Object.keys(entities).map(entityKey => (entities[entityKey].labels[lang] || {}).value)
-}
-
-const parseWikidataNameAsync = async ({value, qualifiers}, lang) => {
-  let statedAs = getStatedAs(qualifiers)
-
-  let name = statedAs || (await fetchWikidataLabelAsync(value, lang))[0]
-  name = parseName(name)
-  name._ordinal = getSeriesOrdinal(qualifiers)
-
-  return name
 }
 
 /**
@@ -207,44 +179,68 @@ const parseWikidataNameAsync = async ({value, qualifiers}, lang) => {
  * Returns additional _ordinal property on authors.
  *
  * @access protected
- * @method parseWikidataPropAsync
  *
- * @param {String} prop - Property
- * @param {String|Number} value - Value
- * @param {String} lang - Language
+ * @param {String} prop
+ * @param {Array} values
+ * @param {String} [lang]
  *
- * @return {Promise<Array<String>>} Array with new prop and value
+ * @return {Promise<String|Array<Object>>} Array with new prop and value
  */
-const parseWikidataPropAsync = async function (prop, value, lang) {
-  const cslValue = await (async (prop, valueList) => {
-    const value = valueList[0].value
+export async function parsePropAsync (prop, values, lang) {
+  const value = values[0].value
 
-    switch (prop) {
-      case 'P50':
-      case 'P57':
-      case 'P86':
-      case 'P98':
-      case 'P110':
-      case 'P655':
-        return Promise.all(valueList.map(name => parseWikidataNameAsync(name, lang)))
+  switch (prop) {
+    case 'P50':
+    case 'P57':
+    case 'P86':
+    case 'P98':
+    case 'P110':
+    case 'P655':
+      return parseNames(values, await fetchApiAsync(getNameUrls(values, lang)), lang)
 
-      case 'P123':
-      case 'P136':
-      case 'P291':
-      case 'P1433':
-        return (await fetchWikidataLabelAsync(value, lang))[0]
-    }
-  })(prop, value)
+    case 'P123':
+    case 'P136':
+    case 'P291':
+    case 'P1433':
+      return getLabel(await fetchApiAsync(getUrls(values, lang))[value], lang)
 
-  if (cslValue) {
-    return [parseWikidataProp(prop), cslValue]
-  } else {
-    return parseWikidataProp(prop, value, lang)
+    default:
+      return parseProp(prop, value, lang)
   }
 }
 
+/**
+ * @access protected
+ * @param {String} prop
+ * @return {String} CSL prop
+ */
+export function parsePropName (prop) {
+  if (prop in ignoredProps) {
+    return undefined
+  } else if (!props[prop]) {
+    logger.info('[plugin-wikidata]', `Unmapped property: ${prop}`)
+    return undefined
+  }
+
+  return props[prop]
+}
+
+/**
+ * @access protected
+ * @param {String} type - P31 Wikidata ID value
+ * @return {String} CSL type
+ */
+export function parseType (type) {
+  if (!types[type]) {
+    logger.warn('[plugin-wikidata]', `Unmapped entry type: ${type}`)
+    return 'book'
+  }
+
+  return types[type]
+}
+
 export {
-  parseWikidataProp as parse,
-  parseWikidataPropAsync as parseAsync,
-  parseWikidataProp as default
+  parseProp as parse,
+  parsePropAsync as parseAsync,
+  parseProp as default
 }
