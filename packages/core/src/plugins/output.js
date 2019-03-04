@@ -4,6 +4,7 @@
  */
 
 import Register from '../util/register'
+import logger from '../logger'
 
 /**
  * @callback Cite.plugins.output~formatter

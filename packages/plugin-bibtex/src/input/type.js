@@ -2,6 +2,8 @@
  * @module input/bibtex
  */
 
+import {logger} from '@citation-js/core'
+
 /**
  * Map holding information on BibTeX pub types.
  *
@@ -43,7 +45,7 @@ const typeMap = {
  */
 const parseBibTeXType = function (pubType) {
   if (!typeMap.hasOwnProperty(pubType)) {
-    logger.warn('[set]', `BibTeX publication type not recognized: ${pubType}. Defaulting to "book".`)
+    logger.debug('[set]', `Unmapped publication type: ${pubType}`)
     return 'book'
   } else if (typeMap[pubType] === false) {
     return 'book'

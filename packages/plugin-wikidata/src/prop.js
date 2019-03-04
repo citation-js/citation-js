@@ -3,7 +3,7 @@
  */
 
 import {simplify} from 'wikidata-sdk'
-import {util} from '@citation-js/core'
+import {util, logger} from '@citation-js/core'
 import {parse as parseNameString} from '@citation-js/name'
 import {parse as parseDate} from '@citation-js/date'
 

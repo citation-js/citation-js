@@ -1,3 +1,4 @@
+import logger from '../../logger'
 import {dataTypeOf} from './dataType'
 
 // register
@@ -92,7 +93,7 @@ export const addTypeParser = (format, {dataType, predicate, extends: extend}) =>
   if (format in unregExts) {
     extensions = unregExts[format]
     delete unregExts[format]
-    logger.info('[set]', `Subclasses "${extensions}" finally registered to parent type "${format}"`)
+    logger.debug('[set]', `Subclasses "${extensions}" finally registered to parent type "${format}"`)
   }
 
   // 2. create object with parser info
@@ -113,7 +114,7 @@ export const addTypeParser = (format, {dataType, predicate, extends: extend}) =>
         unregExts[extend] = []
       }
       unregExts[extend].push(format)
-      logger.info('[set]', `Subclass "${format}" is waiting on parent type "${extend}"`)
+      logger.debug('[set]', `Subclass "${format}" is waiting on parent type "${extend}"`)
     }
   } else {
     // 3.2. else, add

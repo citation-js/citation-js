@@ -1,3 +1,5 @@
+import logger from '../logger'
+
 import {validateOutputOptions as validate} from './static'
 import {format as formatData} from '../plugins/output'
 import {clean as parseCsl} from '../plugins/input/csl'

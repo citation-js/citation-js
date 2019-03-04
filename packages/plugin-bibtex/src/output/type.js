@@ -2,6 +2,8 @@
  * @module output/bibtex
  */
 
+import {logger} from '@citation-js/core'
+
 /**
  * @access private
  */
@@ -38,7 +40,7 @@ const fetchBibTeXType = function (pubType) {
   if (pubType in bibtexTypes) {
     return bibtexTypes[pubType]
   } else {
-    logger.warn(`CSL publication type not recognized: ${pubType}. Interpreting as "misc".`)
+    logger.debug('[plugin-bibtex]', `Unmapped publication type: ${pubType}`)
     return 'misc'
   }
 }

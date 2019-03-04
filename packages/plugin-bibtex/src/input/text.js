@@ -2,7 +2,7 @@
  * @module input/bibtex
  */
 
-import {util} from '@citation-js/core'
+import {util, logger} from '@citation-js/core'
 
 /**
  * Mapping of BibTeX Escaped Chars to Unicode.

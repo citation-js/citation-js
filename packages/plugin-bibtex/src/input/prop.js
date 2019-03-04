@@ -2,6 +2,7 @@
  * @module input/bibtex
  */
 
+import {logger} from '@citation-js/core'
 import {parse as parseName} from '@citation-js/name'
 import {parse as parseDate} from '@citation-js/date'
 
@@ -211,7 +212,7 @@ const propMap = {
  */
 const parseBibTeXProp = function (name, value) {
   if (!propMap.hasOwnProperty(name)) {
-    logger.info('[set]', `Unknown property: ${name}`)
+    logger.debug('[plugin-bibtex]', `Unmapped property: ${name}`)
     return undefined
   } else if (propMap[name] === false) {
     return undefined

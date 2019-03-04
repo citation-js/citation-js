@@ -1,4 +1,5 @@
 import deepCopy from '../../util/deepCopy'
+import logger from '../../logger'
 
 import {dataTypeOf} from './dataType'
 import {type as parseType} from './type'

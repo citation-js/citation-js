@@ -4,6 +4,7 @@
 
 import * as plugins from '../../plugins/'
 import * as util from '../../util/'
+import logger from '../../logger'
 
 /**
  * Append commas to every item but the last. Should unfortunately, probably be a utility.

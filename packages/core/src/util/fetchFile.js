@@ -1,4 +1,5 @@
 import request from 'sync-request'
+import logger from '../logger'
 
 /**
  * Fetch file
@@ -17,6 +18,8 @@ const fetchFile = function (url, opts = {}) {
     reqOpts.headers = opts.headers
     reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
   }
+
+  logger.http('[core]', 'GET', url, reqOpts)
 
   try {
     return request('GET', url, reqOpts).getBody('utf8')

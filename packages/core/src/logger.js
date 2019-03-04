@@ -1,22 +1,28 @@
-let logger
+const logger = {
+  _output (level, scope, msg) {
+    this._log.push(scope, msg)
 
-/* istanbul ignore else: coverage tools always in testing environment */
-if (process.env.TEST_MOCHA === 'true') {
-  // If testing from CLI, use noop logger, to not interfere with the mocha reporter
-  // (see issues mochajs/mocha#1998, mochajs/mocha#2107, etc.)
+    if (this._levels.indexOf(level) < this._levels.indexOf(this.level)) {
+      return
+    }
 
-  // code only uses these methods, so this should be enough
-  logger = {error () {}, warn () {}, info () {}}
-} else if (typeof console.Console === 'function') {
-  // If possible, make a stderr-only console, so that you can redirect the CLI output to a
-  // file (see issue #73).
-  logger = new console.Console(process.stderr)
-} else {
-  // Else a browser environment is assumed. This should hold for all supported Node
-  // versions, which is >= v6
-  logger = console
+    this._console.log(scope, ...msg)
+  },
+  _console: null,
+  _log: [],
+  _levels: ['http', 'debug', 'info', 'warn', 'error', 'silent'],
+
+  level: 'silent'
 }
 
-global.logger = logger
+for (let level of logger._levels) {
+  logger[level] = (scope, ...msg) => logger._output(level, scope, msg)
+}
 
-export {logger}
+if (typeof console.Console === 'function') {
+  logger._console = new console.Console(process.stderr)
+} else {
+  logger._console = console
+}
+
+export default logger

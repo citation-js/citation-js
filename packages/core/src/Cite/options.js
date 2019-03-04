@@ -1,3 +1,4 @@
+import logger from '../logger'
 import {validateOutputOptions as validate} from './validate'
 
 /**

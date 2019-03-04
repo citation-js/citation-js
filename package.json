@@ -37,9 +37,6 @@
     "instrument": false
   },
   "standard": {
-    "parser": "babel-eslint",
-    "globals": [
-      "logger"
-    ]
+    "parser": "babel-eslint"
   }
 }

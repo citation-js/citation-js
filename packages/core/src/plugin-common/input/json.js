@@ -2,6 +2,8 @@
  * @module input/other
  */
 
+import logger from '../../logger'
+
 /**
  *
  * @access private
@@ -33,7 +35,7 @@ const parseJSON = function (str) {
   try {
     return JSON.parse(str)
   } catch (e) {
-    logger.info('[set]', 'Input was not valid JSON, switching to experimental parser for invalid JSON')
+    logger.debug('[set]', 'Input was not valid JSON, switching to experimental parser for invalid JSON')
     try {
       substituters.forEach(([regex, subst]) => { str = str.replace(regex, subst) })
       return JSON.parse(str)

@@ -1,4 +1,5 @@
 import 'isomorphic-fetch'
+import logger from '../logger'
 
 /* global fetch */
 
@@ -19,6 +20,8 @@ const fetchFileAsync = async function (url, opts = {}) {
     reqOpts.headers = opts.headers
     reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
   }
+
+  logger.http('[core]', 'GET', url, reqOpts)
 
   try {
     return fetch(url, reqOpts).then(response => response.text())

@@ -1,3 +1,4 @@
+import logger from '../../logger'
 import {chain, chainAsync} from './chain'
 
 const flatten = array => [].concat(...array)
