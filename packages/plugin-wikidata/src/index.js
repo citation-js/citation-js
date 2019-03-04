@@ -4,17 +4,17 @@
 
 import {plugins} from '@citation-js/core'
 
-import * as list from './list'
-import * as json from './json'
+import * as id from './id'
+import * as entity from './entity'
 import * as prop from './prop'
 import * as url from './url'
 import * as api from './api'
 
 const ref = '@wikidata'
-const parsers = {list, json, prop, url, api}
+const parsers = {id, entity, prop, url, api}
 const formats = {
   '@wikidata/id': {
-    parse: list.parse,
+    parse: id.parse,
     parseType: {
       dataType: 'String',
       predicate: /^Q\d+$/
@@ -47,15 +47,15 @@ const formats = {
     }
   },
   '@wikidata/list+object': {
-    parse: list.parse,
+    parse: id.parse,
     parseType: {
       dataType: 'Array',
       elementConstraint: '@wikidata/id'
     }
   },
   '@wikidata/object': {
-    parse: json.parse,
-    parseAsync: json.parseAsync,
+    parse: entity.parse,
+    parseAsync: entity.parseAsync,
     parseType: {
       dataType: 'SimpleObject',
       propertyConstraint: {props: 'entities'}
