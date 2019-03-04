@@ -79,9 +79,10 @@ export function parseEntity (entity, langs) {
  * @return {Promise<Array<CSL>>} The formatted input data
  */
 export async function parseEntitiesAsync ({entities}) {
-  return Promise.all(Object.values(simplify.entities(entities, SIMPLIFY_OPTS))
-    .map(async entity => parseEntityAsync(entity, config.langs))
-  )
+  return Promise.all(Object.keys(entities).map(async id => parseEntityAsync(
+    simplify.entity(entities[id], SIMPLIFY_OPTS),
+    config.langs
+  )))
 }
 
 /**
@@ -93,8 +94,10 @@ export async function parseEntitiesAsync ({entities}) {
  * @return {Array<CSL>} The formatted input data
  */
 export function parseEntities ({entities}) {
-  return Object.values(simplify.entities(entities, SIMPLIFY_OPTS))
-    .map(entity => parseEntity(entity, config.langs))
+  return Object.keys(entities).map(id => parseEntity(
+    simplify.entity(entities[id], SIMPLIFY_OPTS),
+    config.langs
+  ))
 }
 
 export {
