@@ -18,7 +18,7 @@ function promisify (fn) {
   }
 }
 
-const Cite = require('@citation-js/core').Cite
+const {Cite, logger} = require('@citation-js/core')
 require('@citation-js/plugin-bibjson')
 require('@citation-js/plugin-bibtex')
 require('@citation-js/plugin-csl')
@@ -44,6 +44,8 @@ program
   .option('-s, --output-style <option>', 'Output scheme. A combination of --output-format json and --output-style citation-* is considered invalid. ' + 'Options: csl (Citation Style Lanugage JSON), bibtex, citation-* (where * is any formatting style)', 'csl')
   .option('-l, --output-language <option>', 'Output language. [RFC 5646](https://tools.ietf.org/html/rfc5646) codes', 'en-US')
 
+  .option('--log-level <level>', 'Log level: silent, error, warn, info, debug, http', 'warn')
+
   .parse(process.argv)
 
 main(program).catch(console.error)
@@ -51,6 +53,8 @@ main(program).catch(console.error)
 module.exports = main
 async function main (options) {
   process.stdin.setEncoding('utf8')
+
+  logger.level = options.logLevel
 
   if (options.pipe) {
     await pipe(process.stdin, process.stdout, options)
