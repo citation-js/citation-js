@@ -3,10 +3,13 @@
  */
 
 import {simplify} from 'wikidata-sdk'
+
+import config from './config'
 import {
   parseProp,
   parsePropAsync,
-  parsePropName
+  parsePropName,
+  getLabel
 } from './prop'
 
 const SIMPLIFY_OPTS = {
@@ -27,7 +30,7 @@ function addValues (data, prop, value) {
   }
 }
 
-function postProcess (data, {labels}, lang) {
+function postProcess (data, {labels}, langs) {
   for (let prop in data) {
     if (Array.isArray(data[prop])) {
       data[prop].sort(({_ordinal: a}, {_ordinal: b}) => a - b)
@@ -35,36 +38,36 @@ function postProcess (data, {labels}, lang) {
   }
 
   if (!data.title) {
-    data.title = labels[lang]
+    data.title = getLabel(langs)
   }
 
   return data
 }
 
-export async function parseEntityAsync (entity, lang) {
+export async function parseEntityAsync (entity, langs) {
   const csl = preProcess({}, entity)
 
   await Promise.all(Object.keys(entity.claims).map(async prop => {
     const cslProp = parsePropName(prop)
     if (cslProp) {
-      addValues(csl, cslProp, await parsePropAsync(prop, entity.claims[prop], lang))
+      addValues(csl, cslProp, await parsePropAsync(prop, entity.claims[prop], langs))
     }
   }))
 
-  return postProcess(csl, entity, lang)
+  return postProcess(csl, entity, langs)
 }
 
-export function parseEntity (entity, lang) {
+export function parseEntity (entity, langs) {
   const csl = preProcess({}, entity)
 
   Object.keys(entity.claims).map(prop => {
     const cslProp = parsePropName(prop)
     if (cslProp) {
-      addValues(csl, cslProp, parseProp(prop, entity.claims[prop], lang))
+      addValues(csl, cslProp, parseProp(prop, entity.claims[prop], langs))
     }
   })
 
-  return postProcess(csl, entity, lang)
+  return postProcess(csl, entity, langs)
 }
 
 /**
@@ -77,7 +80,7 @@ export function parseEntity (entity, lang) {
  */
 export async function parseEntitiesAsync ({entities}) {
   return Promise.all(Object.values(simplify.entities(entities, SIMPLIFY_OPTS))
-    .map(async entity => parseEntityAsync(entity, 'en'))
+    .map(async entity => parseEntityAsync(entity, config.langs))
   )
 }
 
@@ -91,7 +94,7 @@ export async function parseEntitiesAsync ({entities}) {
  */
 export function parseEntities ({entities}) {
   return Object.values(simplify.entities(entities, SIMPLIFY_OPTS))
-    .map(entity => parseEntity(entity, 'en'))
+    .map(entity => parseEntity(entity, config.langs))
 }
 
 export {

@@ -46,17 +46,6 @@ const getStatedAs = qualifiers => [].concat(...[
 ].filter(Boolean))
 
 /**
- * Get the labels of objects
- *
- * @access private
- * @param {Object} entity - Wikidata API response
- * @param {String} lang - Language
- *
- * @return {String} label
- */
-const getLabel = ({labels}, lang) => labels[lang]
-
-/**
  * @access private
  * @param {String} name
  * @param {Object} qualifiers
@@ -74,15 +63,15 @@ const parseName = (name, qualifiers) => {
  *
  * @access private
  * @param {Object} values
- * @param {String} lang
+ * @param {Array<String>} langs
  *
  * @return {Array<String>} Array with labels of each prop
  */
-const getNameUrls = (values, lang) => {
+const getNameUrls = (values, langs) => {
   const toFetch = values
     .filter(({qualifiers}) => !getStatedAs(qualifiers).length)
     .map(({value}) => value)
-  return getUrls(toFetch, lang)
+  return getUrls(toFetch, langs)
 }
 
 /**
@@ -92,14 +81,14 @@ const getNameUrls = (values, lang) => {
  * @param {Array<Object>} values
  * @param {Array<String>} names
  * @param {Array<Object>} fetched
- * @param {String} lang
+ * @param {Array<String>} langs
  *
  * @return {Array<String>} Array with labels of each prop
  */
-const parseNames = (values, fetched, lang) => {
+const parseNames = (values, fetched, langs) => {
   return values.map(({value, qualifiers}) => {
     const [name] = getStatedAs(qualifiers)
-    return parseName(name || getLabel(fetched[value], lang), qualifiers)
+    return parseName(name || getLabel(fetched[value], langs), qualifiers)
   })
 }
 
@@ -137,11 +126,11 @@ const fetchApiAsync = async urls => mergeApi(Promise.all(urls.map(async url =>
  *
  * @param {String} prop
  * @param {Array} values
- * @param {String} [lang]
+ * @param {Array<String>} langs
  *
  * @return {String|Array<Object>} CSL value
  */
-export function parseProp (prop, values, lang) {
+export function parseProp (prop, values, langs) {
   const value = values[0].value
 
   switch (prop) {
@@ -154,7 +143,7 @@ export function parseProp (prop, values, lang) {
     case 'P98':
     case 'P110':
     case 'P655':
-      return parseNames(values, fetchApi(getNameUrls(values, lang)), lang)
+      return parseNames(values, fetchApi(getNameUrls(values, langs)), langs)
 
     case 'P2093':
       return values.map(({value, qualifiers}) => parseName(value, qualifiers))
@@ -166,7 +155,7 @@ export function parseProp (prop, values, lang) {
     case 'P136':
     case 'P291':
     case 'P1433':
-      return getLabel(fetchApi(getUrls(value))[value], lang)
+      return getLabel(fetchApi(getUrls(value))[value], langs)
 
     default:
       return value
@@ -182,11 +171,11 @@ export function parseProp (prop, values, lang) {
  *
  * @param {String} prop
  * @param {Array} values
- * @param {String} [lang]
+ * @param {Array<String>} langs
  *
  * @return {Promise<String|Array<Object>>} Array with new prop and value
  */
-export async function parsePropAsync (prop, values, lang) {
+export async function parsePropAsync (prop, values, langs) {
   const value = values[0].value
 
   switch (prop) {
@@ -196,16 +185,16 @@ export async function parsePropAsync (prop, values, lang) {
     case 'P98':
     case 'P110':
     case 'P655':
-      return parseNames(values, await fetchApiAsync(getNameUrls(values, lang)), lang)
+      return parseNames(values, await fetchApiAsync(getNameUrls(values, langs)), langs)
 
     case 'P123':
     case 'P136':
     case 'P291':
     case 'P1433':
-      return getLabel(await fetchApiAsync(getUrls(values, lang))[value], lang)
+      return getLabel(await fetchApiAsync(getUrls(values, langs))[value], langs)
 
     default:
-      return parseProp(prop, value, lang)
+      return parseProp(prop, value, langs)
   }
 }
 
@@ -237,6 +226,19 @@ export function parseType (type) {
   }
 
   return types[type]
+}
+
+/**
+ * Get the labels of objects
+ *
+ * @param {Object} entity - Wikidata API response
+ * @param {Array<String>} langs
+ *
+ * @return {String} label
+ */
+export function getLabel ({labels}, langs) {
+  const lang = langs.find(lang => labels[lang])
+  return labels[lang]
 }
 
 export {

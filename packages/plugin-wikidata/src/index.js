@@ -9,6 +9,7 @@ import * as entity from './entity'
 import * as prop from './prop'
 import * as url from './url'
 import * as api from './api'
+import config from './config'
 
 const ref = '@wikidata'
 const parsers = {id, entity, prop, url, api}
@@ -71,7 +72,8 @@ const formats = {
 }
 
 plugins.add(ref, {
-  input: formats
+  input: formats,
+  config
 })
 
 export {ref, parsers, formats}
