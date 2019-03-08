@@ -40,7 +40,11 @@ class ChainParser {
   end () {
     if (this.error) {
       logger.error('[core]', this.error.message)
-      return []
+      if (this.options.strict !== false) {
+        throw this.error
+      } else {
+        return []
+      }
     } else {
       return this.data.map(this.options.generateGraph
         ? entry => applyGraph(entry, this.graph)
