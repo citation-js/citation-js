@@ -1,5 +1,3 @@
-import logger from '../logger'
-
 import {validateOutputOptions as validate} from './static'
 import {format as formatData} from '../plugins/output'
 import {clean as parseCsl} from '../plugins/input/csl'
@@ -42,11 +40,7 @@ const format = function (format, ...options) {
  * @return {String|Array<Object>} The formatted data
  */
 const get = function (options = {}) {
-  try {
-    validate(options)
-  } catch ({message}) {
-    logger.error('[get]', message)
-  }
+  validate(options)
 
   const parsedOptions = Object.assign({}, this.defaultOptions, this._options.output, options)
 
@@ -72,7 +66,7 @@ const get = function (options = {}) {
       break
 
     default:
-      logger.error('[get]', 'Invalid options')
+      throw new Error(`Invalid style "${newStyle}"`)
       break
   }
 

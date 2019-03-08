@@ -207,7 +207,7 @@ export function parsePropName (prop) {
   if (prop in ignoredProps) {
     return undefined
   } else if (!props[prop]) {
-    logger.info('[plugin-wikidata]', `Unmapped property: ${prop}`)
+    logger.debug('[plugin-wikidata]', `Unmapped property: ${prop}`)
     return undefined
   }
 
@@ -221,7 +221,7 @@ export function parsePropName (prop) {
  */
 export function parseType (type) {
   if (!types[type]) {
-    logger.warn('[plugin-wikidata]', `Unmapped entry type: ${type}`)
+    logger.debug('[plugin-wikidata]', `Unmapped entry type: ${type}`)
     return 'book'
   }
 

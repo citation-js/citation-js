@@ -1,4 +1,3 @@
-import logger from '../logger'
 import {validateOutputOptions as validate} from './validate'
 
 /**
@@ -19,16 +18,13 @@ const defaultOptions = {format: 'real', type: 'json', style: 'csl', lang: 'en-US
  * @return {Cite} The updated parent object
  */
 const options = function (options, log) {
+  validate(options)
+
   if (log) {
     this.save()
   }
 
-  try {
-    validate(options)
-    Object.assign(this._options, options)
-  } catch ({message}) {
-    logger.warn('[options]', message)
-  }
+  Object.assign(this._options, options)
 
   return this
 }

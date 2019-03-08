@@ -115,8 +115,7 @@ export const list = () => {
  */
 export const format = (name, data, ...options) => {
   if (!register.has(name)) {
-    logger.error('[get]', `Output plugin "${name}" unavailable`)
-    return undefined
+    throw new Error(`Output format "${name}" unavailable`)
   }
   return register.get(name)(data, ...options)
 }

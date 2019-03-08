@@ -33,7 +33,6 @@ const parseNativeTypes = (input, dataType) => {
       return '@csl/object'
 
     default:
-      logger.warn('[set]', 'This format is not supported or recognized')
       return '@invalid'
   }
 }
@@ -93,7 +92,7 @@ export const addTypeParser = (format, {dataType, predicate, extends: extend}) =>
   if (format in unregExts) {
     extensions = unregExts[format]
     delete unregExts[format]
-    logger.debug('[set]', `Subclasses "${extensions}" finally registered to parent type "${format}"`)
+    logger.debug('[core]', `Subclasses "${extensions}" finally registered to parent type "${format}"`)
   }
 
   // 2. create object with parser info
@@ -114,7 +113,7 @@ export const addTypeParser = (format, {dataType, predicate, extends: extend}) =>
         unregExts[extend] = []
       }
       unregExts[extend].push(format)
-      logger.debug('[set]', `Subclass "${format}" is waiting on parent type "${extend}"`)
+      logger.debug('[core]', `Subclass "${format}" is waiting on parent type "${extend}"`)
     }
   } else {
     // 3.2. else, add

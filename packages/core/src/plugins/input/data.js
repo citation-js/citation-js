@@ -1,4 +1,3 @@
-import logger from '../../logger'
 import {chain, chainAsync} from './chain'
 
 const flatten = array => [].concat(...array)
@@ -10,7 +9,7 @@ const nativeParsers = {
   '@csl/object': input => [input],
   '@csl/list+object': input => input,
   '@else/list+object': input => flatten(input.map(chain)),
-  '@invalid': () => []
+  '@invalid': () => { throw new Error('This format is not supported or recognized') }
 }
 const nativeAsyncParsers = {
   '@else/list+object': async input => flatten(await Promise.all(input.map(chainAsync)))
@@ -32,8 +31,7 @@ export const data = (input, type) => {
   } else if (nativeParsers.hasOwnProperty(type)) {
     return nativeParsers[type](input)
   } else {
-    logger.error('[set]', `No synchronous parser found for ${type}`)
-    return null
+    throw new TypeError(`No synchronous parser found for ${type}`)
   }
 }
 
@@ -55,8 +53,7 @@ export const dataAsync = async (input, type) => {
   } else if (hasDataParser(type, false)) {
     return data(input, type)
   } else {
-    logger.error('[set]', `No parser found for ${type}`)
-    return null
+    throw new TypeError(`No parser found for ${type}`)
   }
 }
 

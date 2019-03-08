@@ -23,7 +23,10 @@ class ChainParser {
       this.graph.push({type: this.type})
     }
 
-    if (this.type === '@csl/list+object') {
+    const hasErrored = !!this.error
+    const hasFinished = this.type === '@csl/list+object'
+
+    if (hasErrored || hasFinished) {
       return false
     } else if (this.iteration >= this.options.maxChainLength) {
       this.error = new RangeError('Max. number of parsing iterations reached')
@@ -36,7 +39,7 @@ class ChainParser {
 
   end () {
     if (this.error) {
-      logger.error('[set]', this.error.message)
+      logger.error('[core]', this.error.message)
       return []
     } else {
       return this.data.map(this.options.generateGraph
@@ -63,7 +66,11 @@ export const chain = (...args) => {
   let chain = new ChainParser(...args)
 
   while (chain.iterate()) {
-    chain.data = parseData(chain.data, chain.type)
+    try {
+      chain.data = parseData(chain.data, chain.type)
+    } catch (e) {
+      chain.error = e
+    }
   }
 
   return chain.end()
@@ -103,7 +110,7 @@ export const chainAsync = async (...args) => {
   let chain = new ChainParser(...args)
 
   while (chain.iterate()) {
-    chain.data = await parseDataAsync(chain.data, chain.type)
+    chain.data = await parseDataAsync(chain.data, chain.type).catch(e => chain.error = e)
   }
 
   return chain.end()

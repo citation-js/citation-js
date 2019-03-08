@@ -144,8 +144,7 @@ export const list = () => {
  */
 export const get = (name) => {
   if (!register.has(name)) {
-    logger.error('[get]', `Dict "${name}" unavailable`)
-    return undefined
+    throw new Error(`Dict "${name}" unavailable`)
   }
   return register.get(name)
 }

@@ -21,12 +21,7 @@ const fetchFile = function (url, opts = {}) {
 
   logger.http('[core]', 'GET', url, reqOpts)
 
-  try {
-    return request('GET', url, reqOpts).getBody('utf8')
-  } catch (e) {
-    logger.error('[set]', `File '${url}' could not be fetched:`, e.message)
-    return '[]'
-  }
+  return request('GET', url, reqOpts).getBody('utf8')
 }
 
 export default fetchFile

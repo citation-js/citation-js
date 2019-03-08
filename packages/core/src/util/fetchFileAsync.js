@@ -23,12 +23,8 @@ const fetchFileAsync = async function (url, opts = {}) {
 
   logger.http('[core]', 'GET', url, reqOpts)
 
-  try {
-    return fetch(url, reqOpts).then(response => response.text())
-  } catch (e) {
-    logger.error('[set]', `File '${url}' could not be fetched:`, e.message)
-    return '[]'
-  }
+  return fetch(url, reqOpts).then(response => response.text())
+    .catch(e => { throw e })
 }
 
 export default fetchFileAsync
