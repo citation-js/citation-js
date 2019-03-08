@@ -142,7 +142,7 @@ const parseBibTeX = function (str) {
           }
         }, {tokenMap})
 
-        properties[key] = val.replace(/\s+/g, ' ')
+        properties[key] = val.replace(/[ \t\n]+/g, ' ')
 
         stack.consumeN(endDelimiter.length)
         stack.consumeWhitespace()
