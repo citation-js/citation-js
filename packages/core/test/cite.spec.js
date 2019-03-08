@@ -132,8 +132,8 @@ describe('Cite instance', () => {
 
       it('validates', () => {
         test.options({format: 'real'})
-        test.options({format: 'foo'})
         expect(test._options.format).to.be('real')
+        expect(test.options.bind(test)).withArgs({format: 'foo'}).to.throwException()
       })
     })
 

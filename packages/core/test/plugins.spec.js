@@ -65,7 +65,7 @@ describe('plugins', function () {
       plugins.dict.add(ref, dict)
       plugins.dict.remove(ref)
       expect(plugins.dict.has(ref)).to.not.be.ok()
-      expect(plugins.dict.get(ref)).to.not.be.ok()
+      expect(plugins.dict.get).withArgs(ref).to.throwException()
     })
     it('lists', function () {
       plugins.dict.add(ref, dict)
@@ -110,7 +110,7 @@ describe('plugins', function () {
       plugins.output.add(ref, format)
       plugins.output.remove(ref)
       expect(plugins.output.has(ref)).to.not.be.ok()
-      expect(plugins.output.format(ref)).to.not.be.ok()
+      expect(plugins.output.format).withArgs(ref).to.throwException()
     })
     it('lists', function () {
       plugins.output.add(ref, format)
@@ -458,7 +458,7 @@ describe('plugins', function () {
         plugins.input.add(type, {parse})
         plugins.input.remove(type)
         expect(plugins.input.hasDataParser(type)).to.not.be.ok()
-        expect(plugins.input.data('foo', type)).to.not.be(type)
+        expect(plugins.input.data).withArgs('foo', type).to.throwException()
       })
 
       describe('async', function () {
@@ -476,7 +476,12 @@ describe('plugins', function () {
           plugins.input.add(type, {parseAsync})
           plugins.input.remove(type)
           expect(plugins.input.hasDataParser(type, true)).to.not.be.ok()
-          expect(await plugins.input.dataAsync('foo', type)).to.not.be(type)
+          try {
+            await plugins.input.dataAsync('foo', type)
+            expect(a).fail('dataAsync should fail if format is not available')
+          } catch (e) {
+            expect(e.message).to.match(new RegExp(`No parser found for ${type}`))
+          }
         })
       })
 

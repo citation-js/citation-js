@@ -35,8 +35,7 @@ const label = [{'id': 'b', 'citation-label': 'foo', 'type': 'book'}]
 const inputData = {
   '@else/json': {
     'as JSON string': [JSON.stringify(simple), simple],
-    'as JS Object string': [string, simple],
-    'with a syntax error': ['{"hi"}', []]
+    'as JS Object string': [string, simple]
   },
   '@empty/text': {
     simple: ['', []]

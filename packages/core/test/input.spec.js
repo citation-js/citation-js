@@ -4,9 +4,6 @@ const {plugins} = require('../src/')
 const expect = require('expect.js')
 
 const cases = {
-  '@invalid': {
-    'random text': ['anything not covered by the parsers above', []]
-  },
   '@csl/object': {
     'with no properties': [{}, [{}]],
     'with nonsense properties': [{a: 1}, [{a: 1}]],
@@ -62,11 +59,11 @@ describe('input', function () {
         })
         it('maxChainLength', function () {
           expect(chain({}, {maxChainLength: 1, generateGraph: false})).to.eql([{}])
-          expect(chain({}, {maxChainLength: 0, generateGraph: false})).to.eql([])
+          expect(chain).withArgs({}, {maxChainLength: 0}).to.throwException()
         })
         it('forceType', function () {
           expect(chain({}, {generateGraph: false})).to.eql([{}])
-          expect(chain({}, {forceType: '@foo/bar', generateGraph: false})).to.eql([])
+          expect(chain).withArgs({}, {forceType: '@foo/bar'}).to.throwException()
         })
       })
     })
@@ -102,11 +99,21 @@ describe('input', function () {
         })
         it('maxChainLength', async function () {
           expect(await chainAsync({}, {maxChainLength: 1, generateGraph: false})).to.eql([{}])
-          expect(await chainAsync({}, {maxChainLength: 0, generateGraph: false})).to.eql([])
+          try {
+            await chainAsync({}, {maxChainLength: 0})
+            expect(a).fail('chainAsync should fail if maxChainLength is exceeded')
+          } catch (e) {
+            expect(e.message).to.match(/Max\. number of parsing iterations reached/)
+          }
         })
         it('forceType', async function () {
           expect(await chainAsync({}, {generateGraph: false})).to.eql([{}])
-          expect(await chainAsync({}, {forceType: '@foo/bar', generateGraph: false})).to.eql([])
+          try {
+            await chainAsync({}, {forceType: '@foo/bar'})
+            expect().fail('chainAsync should fail if format is not available')
+          } catch (e) {
+            expect(e.message).to.match(/No parser found for @foo\/bar/)
+          }
         })
       })
     })
