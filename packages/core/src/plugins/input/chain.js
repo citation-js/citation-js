@@ -8,8 +8,15 @@ import {applyGraph, removeGraph} from './graph'
 
 class ChainParser {
   constructor (input, options = {}) {
-    this.options = options
-    this.type = this.options.forceType || parseType(input)
+    this.options = Object.assign({
+      generateGraph: false,
+      forceType: parseType(input),
+      maxChainLength: 10,
+      strict: true,
+      target: '@csl/list+object'
+    }, options)
+
+    this.type = this.options.forceType
     this.data = dataTypeOf(input) === 'SimpleObject' ? deepCopy(input) : input
     this.graph = [
       {type: this.type, data: this.data}
@@ -23,10 +30,7 @@ class ChainParser {
       this.graph.push({type: this.type})
     }
 
-    const hasErrored = !!this.error
-    const hasFinished = this.type === (this.options.target || '@csl/list+object')
-
-    if (hasErrored || hasFinished) {
+    if (this.error || this.type === this.options.target) {
       return false
     } else if (this.iteration >= this.options.maxChainLength) {
       this.error = new RangeError('Max. number of parsing iterations reached')
