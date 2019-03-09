@@ -1,7 +1,6 @@
 import deepCopy from '../../util/deepCopy'
 import logger from '../../logger'
 
-import {dataTypeOf} from './dataType'
 import {type as parseType} from './type'
 import {data as parseData, dataAsync as parseDataAsync} from './data'
 import {applyGraph, removeGraph} from './graph'
@@ -9,7 +8,7 @@ import {applyGraph, removeGraph} from './graph'
 class ChainParser {
   constructor (input, options = {}) {
     this.options = Object.assign({
-      generateGraph: false,
+      generateGraph: true,
       forceType: parseType(input),
       maxChainLength: 10,
       strict: true,
@@ -17,9 +16,9 @@ class ChainParser {
     }, options)
 
     this.type = this.options.forceType
-    this.data = dataTypeOf(input) === 'SimpleObject' ? deepCopy(input) : input
+    this.data = typeof input === 'object' ? deepCopy(input) : input
     this.graph = [
-      {type: this.type, data: this.data}
+      {type: this.type, data: input}
     ]
     this.iteration = 0
   }
