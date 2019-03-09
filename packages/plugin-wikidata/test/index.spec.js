@@ -31,3 +31,33 @@ describe('input', function () {
     })
   }
 })
+
+describe('configuration', function () {
+  describe('langs', function () {
+    const qid = 'Q27795847'
+    const config = plugins.config.get('@wikidata')
+
+    it('changes default', function () {
+      config.langs.unshift('ja')
+      assert.strictEqual(
+        plugins.input.chain(qid)[0]['container-title'],
+        'ネイチャー バイオテクノロジー'
+      )
+      config.langs.shift()
+    })
+    it('falls back', function () {
+      config.langs.unshift('foo')
+      assert.strictEqual(
+        plugins.input.chain(qid)[0]['container-title'],
+        'Nature Biotechnology'
+      )
+      config.langs.shift()
+    })
+    it('deals with no available labels', function () {
+      const langs = config.langs
+      config.langs = []
+      plugins.input.chain(qid)
+      config.langs = langs
+    })
+  })
+})
