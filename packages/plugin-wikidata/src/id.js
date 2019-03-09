@@ -3,6 +3,7 @@
  */
 
 import wdk from 'wikidata-sdk'
+import config from './config'
 
 /**
  * Get Wikidata JSON from Wikidata IDs
@@ -10,13 +11,14 @@ import wdk from 'wikidata-sdk'
  * @access protected
  * @method parseWikidata
  *
- * @param {String} data - Wikidata IDs
+ * @param {String|Array<String>} data - Wikidata IDs
+ * @param {Array<String>} [langs]
  *
  * @return {Object} Wikidata JSON
  */
-const parseWikidata = function (data) {
+const parseWikidata = function (data, langs) {
   const list = [].concat(data)
-  return [].concat(wdk.getManyEntities(list, ['en']))
+  return [].concat(wdk.getManyEntities(list, langs || config.langs))
 }
 
 export {
