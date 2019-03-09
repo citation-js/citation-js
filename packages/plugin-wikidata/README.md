@@ -34,3 +34,16 @@ This plugin accepts [Wikidata](https://wikidata.org) IDs in the following format
   * `@wikidata/list+object`: array of IDs
 
 API responses (`@wikidata/object`) are also supported. Additionally, this plugin exposes input parsing methods concerning individual properties and types, under the types `@wikidata/prop` and `@wikidata/type`.
+
+### Configuration
+
+Input languages can be specified:
+
+```js
+const {plugins} = require('@citation-js/core')
+
+const config = plugins.config.get('@wikidata')
+
+config.langs // ['en']
+config.langs = ['fr', 'de', 'en'] // searches for French, then German then English labels
+```
