@@ -53,7 +53,7 @@ const getStatedAs = qualifiers => [].concat(...[
  * @return {Object} CSL name object
  */
 const parseName = (name, qualifiers) => {
-  name = parseNameString(name)
+  name = name ? parseNameString(name) : { literal: name }
   name._ordinal = getSeriesOrdinal(qualifiers)
   return name
 }
