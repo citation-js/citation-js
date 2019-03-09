@@ -24,7 +24,7 @@ class ChainParser {
     }
 
     const hasErrored = !!this.error
-    const hasFinished = this.type === '@csl/list+object'
+    const hasFinished = this.type === (this.options.target || '@csl/list+object')
 
     if (hasErrored || hasFinished) {
       return false
