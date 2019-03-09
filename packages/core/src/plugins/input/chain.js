@@ -49,11 +49,13 @@ class ChainParser {
       } else {
         return []
       }
-    } else {
+    } else if (this.options.target === '@csl/list+object') {
       return this.data.map(this.options.generateGraph
         ? entry => applyGraph(entry, this.graph)
         : removeGraph
       )
+    } else {
+      return this.data
     }
   }
 }
