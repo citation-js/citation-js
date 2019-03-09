@@ -65,6 +65,20 @@ describe('input', function () {
           expect(chain({}, {generateGraph: false})).to.eql([{}])
           expect(chain).withArgs({}, {forceType: '@foo/bar'}).to.throwException()
         })
+        it('strict', function () {
+          expect(chain('bogus', {strict: false})).to.eql([])
+          expect(chain).withArgs('bogus').to.throwException()
+
+          expect(chain('{"bogus"}', {strict: false})).to.eql([])
+          expect(chain).withArgs('{"bogus"}').to.throwException()
+
+          expect(chain(undefined, {forceType: '@foo/bar', strict: false})).to.eql([])
+          expect(chain).withArgs(undefined, {forceType: '@foo/bar'}).to.throwException()
+        })
+        it('target', function () {
+          expect(chain({}, {generateGraph: false, target: '@csl/object'})).to.eql({})
+          expect(chain).withArgs({}, {target: '@foo/bar'}).to.throwException()
+        })
       })
     })
     describe('chainLink', function () {
@@ -112,7 +126,35 @@ describe('input', function () {
             await chainAsync({}, {forceType: '@foo/bar'})
             expect().fail('chainAsync should fail if format is not available')
           } catch (e) {
-            expect(e.message).to.match(/No parser found for @foo\/bar/)
+            expect(e.message).to.be('No parser found for @foo/bar')
+          }
+        })
+        it('strict', async function () {
+          expect(await chainAsync('bogus', {strict: false})).to.eql([])
+          try {
+            await chainAsync('bogus')
+            expect().fail('chainAsync should fail if input is not recognised')
+          } catch (e) {}
+
+          expect(await chainAsync('{"bogus"}', {strict: false})).to.eql([])
+          try {
+            await chainAsync('{"bogus"}')
+            expect().fail('chainAsync should fail if input fails to parse')
+          } catch (e) {}
+
+          expect(await chainAsync(undefined, {forceType: '@foo/bar', strict: false})).to.eql([])
+          try {
+            await chainAsync(undefined, {forceType: '@foo/bar'})
+            expect().fail('chainAsync should fail if format is not available')
+          } catch (e) {}
+        })
+        it('target', async function () {
+          expect(await chainAsync({}, {generateGraph: false, target: '@csl/object'})).to.eql({})
+          try {
+            await chainAsync({}, {target: '@foo/bar'})
+            expect().fail('chainAsync should fail if target format is not available')
+          } catch (e) {
+            expect(e.message).to.be('Max. number of parsing iterations reached')
           }
         })
       })
