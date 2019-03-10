@@ -10,7 +10,7 @@ const logger = {
   },
   _console: null,
   _log: [],
-  _levels: ['http', 'debug', 'info', 'warn', 'error', 'silent'],
+  _levels: ['http', 'debug', 'unmapped', 'info', 'warn', 'error', 'silent'],
 
   level: 'silent'
 }

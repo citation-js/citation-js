@@ -45,7 +45,7 @@ const typeMap = {
  */
 const parseBibTeXType = function (pubType) {
   if (!typeMap.hasOwnProperty(pubType)) {
-    logger.debug('[plugin-bibtex]', `Unmapped publication type: ${pubType}`)
+    logger.unmapped('[plugin-bibtex]', 'publication type', pubType)
     return 'book'
   } else if (typeMap[pubType] === false) {
     return 'book'

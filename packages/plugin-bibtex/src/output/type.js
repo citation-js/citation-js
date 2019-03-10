@@ -40,7 +40,7 @@ const fetchBibTeXType = function (pubType) {
   if (pubType in bibtexTypes) {
     return bibtexTypes[pubType]
   } else {
-    logger.debug('[plugin-bibtex]', `Unmapped publication type: ${pubType}`)
+    logger.unmapped('[plugin-bibtex]', 'publication type', pubType)
     return 'misc'
   }
 }

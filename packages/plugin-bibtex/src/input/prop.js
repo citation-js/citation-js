@@ -212,7 +212,7 @@ const propMap = {
  */
 const parseBibTeXProp = function (name, value) {
   if (!propMap.hasOwnProperty(name)) {
-    logger.debug('[plugin-bibtex]', `Unmapped property: ${name}`)
+    logger.unmapped('[plugin-bibtex]', 'property', name)
     return undefined
   } else if (propMap[name] === false) {
     return undefined
