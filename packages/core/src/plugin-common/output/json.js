@@ -36,7 +36,10 @@ const getJsonObject = function (src, dict) {
   if (isArray) {
     entries = src.map(entry => getJsonValue(entry, dict))
   } else {
-    entries = Object.entries(src).map(([prop, value]) => `"${prop}": ${getJsonValue(value, dict)}`)
+    entries = Object.entries(src)
+      // remove values that cannot be stringified, as is custom
+      .filter(([prop, value]) => JSON.stringify(value))
+      .map(([prop, value]) => `"${prop}": ${getJsonValue(value, dict)}`)
   }
 
   entries = entries.map(appendCommas).map(entry => dict.listItem.join(entry))
@@ -65,7 +68,10 @@ const getJsonValue = function (src, dict) {
       return getJsonObject(src, dict)
     }
   } else {
-    return JSON.stringify(src) + ''
+    // Primitive values are generally fine, and if they're not JSON.stringify
+    // returns undefined which is the only falsy value it returns (no empty
+    // strings).
+    return JSON.stringify(src) || 'null'
   }
 }
 
