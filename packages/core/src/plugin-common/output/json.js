@@ -36,10 +36,10 @@ const getJsonObject = function (src, dict) {
   if (isArray) {
     entries = src.map(entry => getJsonValue(entry, dict))
   } else {
-    entries = Object.entries(src)
+    entries = Object.keys(src)
       // remove values that cannot be stringified, as is custom
-      .filter(([prop, value]) => JSON.stringify(value))
-      .map(([prop, value]) => `"${prop}": ${getJsonValue(value, dict)}`)
+      .filter(prop => JSON.stringify(src[prop]))
+      .map(prop => `"${prop}": ${getJsonValue(src[prop], dict)}`)
   }
 
   entries = entries.map(appendCommas).map(entry => dict.listItem.join(entry))

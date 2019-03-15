@@ -172,8 +172,10 @@ export const treeTypeParser = /* istanbul ignore next: debugging */ () => {
   const attachNode = name => ({name, children: types[name].extensions.map(attachNode)})
   return {
     name: 'Type tree',
-    children: Object.entries(dataTypes)
-      .map(([name, children]) => ({name, children: children.map(attachNode)}))
+    children: Object.keys(dataTypes).map(name => ({
+      name,
+      children: dataTypes[name].map(attachNode)
+    }))
   }
 }
 
