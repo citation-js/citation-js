@@ -61,8 +61,8 @@ const validate = (name, dict) => {
  */
 export const register = new Register({
   html: {
-    bibliographyContainer: ['<div class="csl-bib-body>', '</div>'],
-    entry: ['<div class="csl-entry>', '</div>'],
+    bibliographyContainer: ['<div class="csl-bib-body">', '</div>'],
+    entry: ['<div class="csl-entry">', '</div>'],
     list: ['<ul style="list-style-type:none">', '</ul>'],
     listItem: ['<li>', '</li>']
   },
