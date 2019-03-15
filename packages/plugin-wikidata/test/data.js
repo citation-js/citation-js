@@ -41,7 +41,7 @@ module.exports = {
         {
           _wikiId: 'Q21972834',
           id: 'Q21972834',
-          type: 'article',
+          type: 'article-journal',
           title: 'Assembling the 20 Gb white spruce (Picea glauca) genome from whole-genome shotgun sequencing data',
           volume: '29',
           issue: '12',
@@ -190,7 +190,7 @@ module.exports = {
         {
           _wikiId: 'Q27795847',
           id: 'Q27795847',
-          type: 'article',
+          type: 'article-journal',
           issued: {
             'date-parts': [
               [
