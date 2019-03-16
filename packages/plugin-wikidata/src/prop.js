@@ -113,7 +113,7 @@ const fetchApi = urls => mergeApi(urls.map(url =>
  * @param {Array<String>} urls
  * @return {Object} response
  */
-const fetchApiAsync = async urls => mergeApi(Promise.all(urls.map(async url =>
+const fetchApiAsync = async urls => mergeApi(await Promise.all(urls.map(async url =>
   simplify.entities(JSON.parse(await util.fetchFileAsync(url)).entities)
 )))
 
