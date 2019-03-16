@@ -7,6 +7,7 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
+    "conventional-changelog-cli": "^2.0.12",
     "expect.js": "^0.3.1",
     "isomorphic-fetch": "^2.2.1",
     "lerna": "^3.13.1",
@@ -26,7 +27,9 @@
     "coverage": "npm run coverage:test && npm run coverage:report",
     "coverage:test": "npm run lerna -- nyc --require @babel/register npm test",
     "coverage:report": "npm run lerna -- nyc report --reporter=text-lcov \">\" coverage.lcov",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "preversion": "npm run lint && npm test",
+    "version": "npm run changelog",
     "postversion": "npm run babel"
   },
   "nyc": {

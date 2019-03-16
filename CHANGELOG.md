@@ -1,34 +1,3 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.2...v) (2019-03-10)
-
-
-### Bug Fixes
-
-* **core:** fix 'generateGraph' ([60106db](https://github.com/citation-js/citation-js/commit/60106db))
-* **core:** fix post-processing with 'target' set ([ec3100b](https://github.com/citation-js/citation-js/commit/ec3100b))
-* **core:** set default input options ([4843b40](https://github.com/citation-js/citation-js/commit/4843b40))
-* **plugin-bibtex:** in-field whitespace ([3f081bc](https://github.com/citation-js/citation-js/commit/3f081bc)), closes [larsgw/citation-js#158](https://github.com/larsgw/citation-js/issues/158)
-* **plugin-bibtex:** preserve nbsp ([e1974c3](https://github.com/citation-js/citation-js/commit/e1974c3))
-* **plugin-wikidata:** fallback for no labels ([9dc3640](https://github.com/citation-js/citation-js/commit/9dc3640))
-* **plugin-wikidata:** fix langs support ([aec2e72](https://github.com/citation-js/citation-js/commit/aec2e72))
-* **plugin-wikidata:** node 6 support ([fdf4127](https://github.com/citation-js/citation-js/commit/fdf4127))
-
-
-### Features
-
-* actually throw errors ([f025426](https://github.com/citation-js/citation-js/commit/f025426)), closes [#14](https://github.com/citation-js/citation-js/issues/14)
-* **cli:** add --log-level option ([bdd718b](https://github.com/citation-js/citation-js/commit/bdd718b))
-* **core:** add 'strict' option ([ad158b3](https://github.com/citation-js/citation-js/commit/ad158b3)), closes [#14](https://github.com/citation-js/citation-js/issues/14)
-* **core:** add 'target' option ([89b9e8b](https://github.com/citation-js/citation-js/commit/89b9e8b))
-* **logger:** add log level support ([83bdb4b](https://github.com/citation-js/citation-js/commit/83bdb4b)), closes [#10](https://github.com/citation-js/citation-js/issues/10)
-* **plugin-wikidata:** langs option ([aaeb28d](https://github.com/citation-js/citation-js/commit/aaeb28d)), closes [#7](https://github.com/citation-js/citation-js/issues/7)
-
-
-### BREAKING CHANGES
-
-* **core:** Aformentioned functions might throw errors
-
-
-
 # [0.4.0-rc.2](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.1...v0.4.0-rc.2) (2019-02-26)
 
 
