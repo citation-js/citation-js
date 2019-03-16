@@ -31,11 +31,11 @@ const htmlRegex = /^([^>]+>)([\s\S]+)(<[^<]+)$/i
  *
  * @return {String} Wrapped HTML string
  */
-const getWrappedEntry = (value, source, {prepend, append}) => {
+const getWrappedEntry = (value, source, { prepend, append }) => {
   const [, start = '', content = value, end = ''] = value.match(htmlRegex) || []
   const prefix = getAffix(source, prepend)
   const suffix = getAffix(source, append)
   return start + prefix + content + suffix + end
 }
 
-export {getWrappedEntry}
+export { getWrappedEntry }

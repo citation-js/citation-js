@@ -1,12 +1,12 @@
-const {URL} = require('url')
+const { URL } = require('url')
 const wikidata = require('./data/api/wikidata')
 const doi = require('./data/api/doi')
 
 const configs = [{
   domain: /^(www\.)?wikidata\.org/,
   path: /^\/w\/api\.php/,
-  response ({searchParams}) {
-    const response = {entities: {}}
+  response ({ searchParams }) {
+    const response = { entities: {} }
     const ids = searchParams.get('ids').split('|')
     for (const id of ids) {
       response.entities[id] = wikidata.entities[id]
@@ -16,15 +16,15 @@ const configs = [{
 }, {
   domain: /^((www|dx)\.)?doi\.org/,
   path: /^\//,
-  response ({pathname}) {
+  response ({ pathname }) {
     return JSON.stringify(doi[pathname.slice(1)][0])
   }
 }]
 
 const mockResponse = function (request, opts) {
   const url = new URL(request)
-  const {hostname, pathname: path} = url
-  const {response} = configs.find(config => config.domain.test(hostname) && config.path.test(path))
+  const { hostname, pathname: path } = url
+  const { response } = configs.find(config => config.domain.test(hostname) && config.path.test(path))
   return response(url)
 }
 

@@ -35,7 +35,7 @@ const getLabel = (entry) => {
   return res
 }
 
-export {getLabel}
+export { getLabel }
 export default {
   label (data) {
     return data.reduce((object, entry) => { object[entry.id] = getLabel(entry); return object }, {})

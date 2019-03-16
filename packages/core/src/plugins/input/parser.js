@@ -1,4 +1,4 @@
-import {type, typeMatcher} from './type'
+import { type, typeMatcher } from './type'
 
 // ============================================================================
 // Type definitions
@@ -162,10 +162,10 @@ export class TypeParser {
     if (!tokenList) {
       return []
     } else if (tokenList instanceof RegExp) {
-      tokenList = {token: tokenList}
+      tokenList = { token: tokenList }
     }
 
-    let {token, split = /\s+/, trim = true, every = true} = tokenList
+    let { token, split = /\s+/, trim = true, every = true } = tokenList
 
     let trimInput = (input) => trim ? input.trim() : input
     let testTokens = every ? 'every' : 'some'
@@ -179,7 +179,7 @@ export class TypeParser {
   parsePropertyConstraint () {
     let constraints = [].concat(this.data.propertyConstraint || [])
 
-    return constraints.map(({props, match = 'every', value = () => true}) => {
+    return constraints.map(({ props, match = 'every', value = () => true }) => {
       props = [].concat(props)
 
       return input => props[match](prop => prop in input && value(input[prop]))
@@ -257,7 +257,7 @@ export class DataParser {
    * @param {Object} options
    * @param {Boolean} [options.async=false]
    */
-  constructor (parser, {async} = {}) {
+  constructor (parser, { async } = {}) {
     this.parser = parser
     this.async = async
   }
@@ -288,10 +288,10 @@ export class FormatParser {
       this.typeParser = new TypeParser(parsers.parseType)
     }
     if (parsers.parse) {
-      this.dataParser = new DataParser(parsers.parse, {async: false})
+      this.dataParser = new DataParser(parsers.parse, { async: false })
     }
     if (parsers.parseAsync) {
-      this.asyncDataParser = new DataParser(parsers.parseAsync, {async: true})
+      this.asyncDataParser = new DataParser(parsers.parseAsync, { async: true })
     }
   }
 

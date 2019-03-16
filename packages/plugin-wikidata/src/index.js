@@ -2,7 +2,7 @@
  * @module input/wikidata
  */
 
-import {plugins} from '@citation-js/core'
+import { plugins } from '@citation-js/core'
 
 import * as id from './id'
 import * as entity from './entity'
@@ -12,7 +12,7 @@ import * as api from './api'
 import config from './config'
 
 const ref = '@wikidata'
-const parsers = {id, entity, prop, url, api}
+const parsers = { id, entity, prop, url, api }
 const formats = {
   '@wikidata/id': {
     parse: id.parse,
@@ -59,7 +59,7 @@ const formats = {
     parseAsync: entity.parseAsync,
     parseType: {
       dataType: 'SimpleObject',
-      propertyConstraint: {props: 'entities'}
+      propertyConstraint: { props: 'entities' }
     }
   },
   '@wikidata/prop': {
@@ -76,4 +76,4 @@ plugins.add(ref, {
   config
 })
 
-export {ref, parsers, formats}
+export { ref, parsers, formats }

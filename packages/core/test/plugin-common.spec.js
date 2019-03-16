@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const {plugins} = require('../src/')
+const { plugins } = require('../src/')
 
 const simple = [{
   id: 'Q23571040',
@@ -29,8 +29,8 @@ const simple = [{
 
 const string = '[\n  {\n    id: "Q23571040",\n    type: "article-journal",\n    title: "Correlation of the Base Strengths of Amines 1",\n    DOI: "10.1021/ja01577a030",\n    author: [\n      {\n\tgiven: "H. K.",\n\tfamily: "Hall"\n      }\n    ],\n    issued: {\n      date-parts: [\n\t[ "1957", "1", "1" ]\n      ]\n    },\n    container-title: "Journal of the American Chemical Society",\n    volume: "79",\n    issue: "20",\n    page: "5441-5444"\n  }\n]'
 
-const yearSuffix = [{id: 'a', author: [{literal: 'foo'}], issued: {'date-parts': [[2018]]}, 'year-suffix': 'a'}]
-const label = [{'id': 'b', 'citation-label': 'foo', 'type': 'book'}]
+const yearSuffix = [{ id: 'a', author: [{ literal: 'foo' }], issued: { 'date-parts': [[2018]] }, 'year-suffix': 'a' }]
+const label = [{ 'id': 'b', 'citation-label': 'foo', 'type': 'book' }]
 
 const inputData = {
   '@else/json': {
@@ -64,7 +64,7 @@ describe('input', function () {
           })
           it('parses data', function () {
             assert.deepStrictEqual(
-              plugins.input.chain(input, {generateGraph: false}),
+              plugins.input.chain(input, { generateGraph: false }),
               expected
             )
           })
@@ -77,15 +77,15 @@ describe('input', function () {
 const outputData = {
   data: {
     'plain text': [simple, JSON.stringify(simple, null, 2)],
-    'object': [simple, simple, {format: 'object'}]
+    'object': [simple, simple, { format: 'object' }]
   },
   ndjson: {
     'normal': [simple, simple.map(entry => JSON.stringify(entry)).join('\n')]
   },
   label: {
-    'normal': [simple, {[simple[0].id]: 'Hall1957Correlation'}],
-    'with year-suffix': [yearSuffix, {[yearSuffix[0].id]: 'foo2018a'}],
-    'with own label': [label, {[label[0].id]: 'foo'}]
+    'normal': [simple, { [simple[0].id]: 'Hall1957Correlation' }],
+    'with year-suffix': [yearSuffix, { [yearSuffix[0].id]: 'foo2018a' }],
+    'with own label': [label, { [label[0].id]: 'foo' }]
   }
 }
 

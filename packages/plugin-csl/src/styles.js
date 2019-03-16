@@ -2,7 +2,7 @@
  * @module output/csl
  */
 
-import {util} from '@citation-js/core'
+import { util } from '@citation-js/core'
 
 /**
  * Object containing CSL templates
@@ -41,4 +41,4 @@ const fetchStyle = style => {
 }
 
 export default fetchStyle
-export {templates}
+export { templates }

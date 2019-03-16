@@ -32,7 +32,7 @@ module.exports = {
     ]
   },
   '@wikidata/url': {
-    simple: ['https://www.wikidata.org/wiki/Q21972834', 'Q21972834', {link: true}]
+    simple: ['https://www.wikidata.org/wiki/Q21972834', 'Q21972834', { link: true }]
   },
   '@wikidata/object': {
     'no linked authors': [

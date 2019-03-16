@@ -9,7 +9,7 @@ import * as type from './type'
 import * as bibtxt from './bibtxt'
 
 export const ref = '@bibtex'
-export const parsers = {text, json, prop, type, bibtxt}
+export const parsers = { text, json, prop, type, bibtxt }
 export const formats = {
   '@bibtex/text': {
     parse: text.parse,
@@ -29,7 +29,7 @@ export const formats = {
     parse: json.parse,
     parseType: {
       dataType: 'SimpleObject',
-      propertyConstraint: {props: ['type', 'label', 'properties']}
+      propertyConstraint: { props: ['type', 'label', 'properties'] }
     }
   },
   '@bibtex/prop': {

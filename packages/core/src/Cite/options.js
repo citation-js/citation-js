@@ -1,11 +1,11 @@
-import {validateOutputOptions as validate} from './validate'
+import { validateOutputOptions as validate } from './validate'
 
 /**
  * @memberof Cite#
  *
  * @property {Cite~OutputOptions} defaultOptions - default output options
  */
-const defaultOptions = {format: 'real', type: 'json', style: 'csl', lang: 'en-US'}
+const defaultOptions = { format: 'real', type: 'json', style: 'csl', lang: 'en-US' }
 
 /**
  * Change the default options of a `Cite` object.

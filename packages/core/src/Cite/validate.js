@@ -21,7 +21,7 @@ const validateOutputOptions = function (options) {
     throw new TypeError('Options not an object!')
   }
 
-  const {format, type, style, lang, append, prepend} = options
+  const { format, type, style, lang, append, prepend } = options
 
   if (format && !formats.includes(format)) {
     throw new TypeError(`Option format ("${format}") should be one of: ${formats}`)
@@ -74,4 +74,4 @@ const validateOptions = function (options) {
   return true
 }
 
-export {validateOptions, validateOutputOptions}
+export { validateOptions, validateOutputOptions }

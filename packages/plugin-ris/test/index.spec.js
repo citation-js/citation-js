@@ -2,7 +2,7 @@
 
 const assert = require('assert')
 require('../src/')
-const {plugins} = require('@citation-js/core')
+const { plugins } = require('@citation-js/core')
 const data = require('./data')
 
 describe('output', function () {

@@ -20,7 +20,7 @@ function getWikidataMapping () {
   return fetch(wdk.sparqlQuery(SOURCE_QUERY))
     .then(results => results.json())
     .then(wdk.simplify.sparqlResults)
-    .then(results => results.reduce((obj, {item, type}) => {
+    .then(results => results.reduce((obj, { item, type }) => {
       obj[item] = type.substring(PREFIX.length)
       return obj
     }, {}))
@@ -30,7 +30,7 @@ function getWikidataGraph () {
   return fetch(wdk.sparqlQuery(TREE_QUERY))
     .then(results => results.json())
     .then(wdk.simplify.sparqlResults)
-    .then(results => results.reduce((obj, {item, parent}) => {
+    .then(results => results.reduce((obj, { item, parent }) => {
       if (obj[item]) {
         obj[item].push(parent)
       } else {

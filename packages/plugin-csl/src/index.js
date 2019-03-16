@@ -14,10 +14,10 @@
  * @return {String} CSL Locale
  */
 
-import {plugins} from '@citation-js/core'
+import { plugins } from '@citation-js/core'
 
-import {locales} from './locales'
-import {templates} from './styles'
+import { locales } from './locales'
+import { templates } from './styles'
 import engine from './engines'
 
 import bibliography from './bibliography'

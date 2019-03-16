@@ -1,5 +1,5 @@
-import {getLabel} from '../plugin-common/output/label'
-import {format as getName} from '@citation-js/name'
+import { getLabel } from '../plugin-common/output/label'
+import { format as getName } from '@citation-js/name'
 
 /**
  * @callback Cite~sort

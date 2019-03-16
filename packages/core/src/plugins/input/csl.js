@@ -1,4 +1,4 @@
-import {parse as parseName} from '@citation-js/name'
+import { parse as parseName } from '@citation-js/name'
 
 const NAME = 1
 const NAME_LIST = 2
@@ -157,22 +157,22 @@ const correctDate = function (date, bestGuessConversions = true) {
   // "{'date-parts': [[2000, 1, 1], ...]}"
   if (date && date[dp] instanceof Array && date[dp].every(part => part instanceof Array)) {
     if (date[dp].every(part => part.every(datePart => typeof datePart === 'number'))) {
-      return {[dp]: date[dp].map(part => part.slice())}
+      return { [dp]: date[dp].map(part => part.slice()) }
     } else if (!bestGuessConversions) {
       return undefined
     } else if (date[dp].some(part => part.some(datePart => typeof datePart === 'string'))) {
-      return {[dp]: date[dp].map(part => part.map(parseFloat))}
+      return { [dp]: date[dp].map(part => part.map(parseFloat)) }
     }
 
   // LEGACY support
   // "[{'date-parts': [2000, 1, 1]}, ...]"
   } else if (date && date instanceof Array && date[0][dp] instanceof Array) {
     if (date[0][dp].every(datePart => typeof datePart === 'number')) {
-      return {[dp]: [date[0][dp].slice()]}
+      return { [dp]: [date[0][dp].slice()] }
     } else if (!bestGuessConversions) {
       return undefined
     } else if (date[0][dp].every(datePart => typeof datePart === 'string')) {
-      return {[dp]: [date[0][dp].map(parseFloat)]}
+      return { [dp]: [date[0][dp].map(parseFloat)] }
     }
   }
 }
@@ -241,4 +241,4 @@ const parseCsl = function (data) {
   })
 }
 
-export {parseCsl as clean}
+export { parseCsl as clean }

@@ -1,6 +1,6 @@
-import {FormatParser} from './parser'
-import {addTypeParser, removeTypeParser} from './type'
-import {addDataParser, removeDataParser} from './data'
+import { FormatParser } from './parser'
+import { addTypeParser, removeTypeParser } from './type'
+import { addDataParser, removeDataParser } from './data'
 
 const formats = {}
 

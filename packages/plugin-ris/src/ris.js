@@ -2,8 +2,8 @@
  * @module output/ris
  */
 
-import {format as getName} from '@citation-js/name'
-import {format as getDate} from '@citation-js/date'
+import { format as getName } from '@citation-js/name'
+import { format as getDate } from '@citation-js/date'
 
 const typeMap = {
   graphic: 'ART',
@@ -45,17 +45,17 @@ const name = names => names.map(name => getName(name, true))
 
 const fieldMap = {
   // convert
-  TY: {fieldName: 'type', convert (type) { return typeMap[type] || 'GEN' }},
+  TY: { fieldName: 'type', convert (type) { return typeMap[type] || 'GEN' } },
   AU: [
     // If it's a review, RIS has a separate field for the reviewers (which are
     // authors in CSL-JSON), while CSL-JSON has a separate field for reviewed
     // authors (which are authors in RIS). See also the C4 mapping
-    {type: ['review', 'review-book'], fieldName: 'reviewed-author', convert: name},
-    {type: '__default', fieldName: 'author', convert: name}
+    { type: ['review', 'review-book'], fieldName: 'reviewed-author', convert: name },
+    { type: '__default', fieldName: 'author', convert: name }
   ],
-  DA: {fieldName: 'issued', convert (date) { return getDate(date, '/') }},
-  PY: {fieldName: 'issued', convert (date) { return date['date-parts'][0][0] + '' }},
-  Y2: {fieldName: 'accessed', convert (date) { return getDate(date, '/') }},
+  DA: { fieldName: 'issued', convert (date) { return getDate(date, '/') } },
+  PY: { fieldName: 'issued', convert (date) { return date['date-parts'][0][0] + '' } },
+  Y2: { fieldName: 'accessed', convert (date) { return getDate(date, '/') } },
 
   // somewhat simple
   AB: 'abstract',
@@ -89,7 +89,7 @@ const fieldMap = {
     fieldName: 'number'
   }],
   // TODO better processing for SP
-  SP: {fieldName: ['first-page', 'page']},
+  SP: { fieldName: ['first-page', 'page'] },
   T2: ['container-title', 'collection-title'],
   T3: {
     fieldName: ['container-title', 'collection-title'],
@@ -111,16 +111,16 @@ const fieldMap = {
 
   // composite fields - I'm using whatever's available on
   // https://github.com/aurimasv/translators/wiki/RIS-Tag-Map
-  A2: {fieldName: 'editor', convert: name},
+  A2: { fieldName: 'editor', convert: name },
   // TODO other author fields
   C1: [
-    {type: 'chapter', fieldName: 'section'},
-    {type: 'paper-conference', fieldName: 'publisher-place'},
-    {type: 'map', fieldName: 'scale'},
-    {type: 'musical_score', fieldName: 'medium'}
+    { type: 'chapter', fieldName: 'section' },
+    { type: 'paper-conference', fieldName: 'publisher-place' },
+    { type: 'map', fieldName: 'scale' },
+    { type: 'musical_score', fieldName: 'medium' }
   ],
   C2: [
-    {type: ['article-journal', 'article'], fieldName: 'PMCID'},
+    { type: ['article-journal', 'article'], fieldName: 'PMCID' },
     {
       type: 'paper-conference',
       fieldName: 'issued',
@@ -129,32 +129,32 @@ const fieldMap = {
         return date['date-parts'][0][0]
       }
     },
-    {type: 'article-newspaper', fieldName: 'issue'}
+    { type: 'article-newspaper', fieldName: 'issue' }
   ],
   C3: [
-    {type: ['graphic', 'speech', 'sound', 'map'], fieldName: 'dimensions'},
-    {type: 'paper-conference', fieldName: 'container-title'}
+    { type: ['graphic', 'speech', 'sound', 'map'], fieldName: 'dimensions' },
+    { type: 'paper-conference', fieldName: 'container-title' }
   ],
   C4: [
-    {type: ['review', 'review-book'], fieldName: 'author', convert: name},
-    {type: ['motion_picture', 'broadcast'], fieldName: 'genre'}
+    { type: ['review', 'review-book'], fieldName: 'author', convert: name },
+    { type: ['motion_picture', 'broadcast'], fieldName: 'genre' }
   ],
   C5: [
-    {type: ['graphic', 'speech', 'sound', 'motion_picture', 'broadcast'], fieldName: 'medium'}
+    { type: ['graphic', 'speech', 'sound', 'motion_picture', 'broadcast'], fieldName: 'medium' }
   ],
   C6: [
-    {type: 'report', fieldName: 'issue'},
-    {type: 'patent', fieldName: 'status'}
+    { type: 'report', fieldName: 'issue' },
+    { type: 'patent', fieldName: 'status' }
   ],
   C7: [
-    {type: ['article-journal', 'article'], fieldName: 'number'}
+    { type: ['article-journal', 'article'], fieldName: 'number' }
   ],
 
   // debatable
-  BT: [{type: 'chapter', fieldName: 'container-title'}],
+  BT: [{ type: 'chapter', fieldName: 'container-title' }],
   DB: 'archive',
   DP: 'source',
-  ED: {fieldName: 'editor', convert: name},
+  ED: { fieldName: 'editor', convert: name },
   ID: 'id',
   NV: 'number-of-volumes',
   OP: 'references',
@@ -165,10 +165,10 @@ const fieldMap = {
 const parseFieldInfo = function (fieldInfo, field, entry) {
   if (typeof fieldInfo === 'string') {
     // If info is string, source field is that string
-    return {sourceFields: [fieldInfo]}
+    return { sourceFields: [fieldInfo] }
   } else if (Array.isArray(fieldInfo) && typeof fieldInfo[0] === 'string') {
     // If info is a list of strings, source fields are those strings
-    return {sourceFields: fieldInfo}
+    return { sourceFields: fieldInfo }
   } else if (Array.isArray(fieldInfo) && typeof fieldInfo[0] === 'object') {
     // If info is a list of objects, source fields depend on the entry type
     let specificInfo
@@ -265,7 +265,7 @@ const getRis = function (entries) {
 }
 
 export default {
-  ris (data, {type, format = type || 'text'} = {}) {
+  ris (data, { type, format = type || 'text' } = {}) {
     if (format === 'object') {
       return data.map(json)
     } else {

@@ -135,7 +135,7 @@ class TokenStack {
    * @return {String} token
    * @throws {SyntaxError} Unexpected token at index: Expected pattern, got token
    */
-  consumeToken (pattern = /^[\s\S]$/, {inverse = false, spaced = true} = {}) {
+  consumeToken (pattern = /^[\s\S]$/, { inverse = false, spaced = true } = {}) {
     if (spaced) {
       this.consumeWhitespace()
     }
@@ -167,8 +167,8 @@ class TokenStack {
    * @return {String} matched whitespace
    * @throws {SyntaxError} Unexpected token at index: Expected whitespace, got token
    */
-  consumeWhitespace (pattern = /^\s$/, {optional = true} = {}) {
-    return this.consume(pattern, {min: +!optional})
+  consumeWhitespace (pattern = /^\s$/, { optional = true } = {}) {
+    return this.consume(pattern, { min: +!optional })
   }
 
   /**

@@ -18,7 +18,7 @@ function promisify (fn) {
   }
 }
 
-const {Cite, logger} = require('@citation-js/core')
+const { Cite, logger } = require('@citation-js/core')
 require('@citation-js/plugin-bibjson')
 require('@citation-js/plugin-bibtex')
 require('@citation-js/plugin-csl')

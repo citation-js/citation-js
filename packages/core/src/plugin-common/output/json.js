@@ -109,9 +109,9 @@ const getJsonWrapper = function (src) {
   return getJson(src, plugins.dict.get('html'))
 }
 
-export {getJsonWrapper}
+export { getJsonWrapper }
 export default {
-  data (data, {type, format = type || 'text'} = {}) {
+  data (data, { type, format = type || 'text' } = {}) {
     if (format === 'object') {
       return util.deepCopy(data)
     } else if (format === 'text') {

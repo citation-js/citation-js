@@ -11,7 +11,7 @@ import * as jquery from './jquery'
 import * as html from './html'
 
 export const ref = '@else'
-export const parsers = {empty, url, json, jquery, html}
+export const parsers = { empty, url, json, jquery, html }
 export const formats = {
   '@empty/text': {
     parse: empty.parse,

@@ -4,8 +4,8 @@
 
 import CSL from 'citeproc'
 
-import {templates} from './styles'
-import {locales} from './locales'
+import { templates } from './styles'
+import { locales } from './locales'
 
 // BEGIN add sys function
 const getWrapperProxy = (original) => function (state, entry) {
@@ -51,7 +51,7 @@ const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocal
     engine = engines[engineHash]
     engine.sys.retrieveItem = retrieveItem
   } else {
-    engine = engines[engineHash] = new CSL.Engine({retrieveLocale, retrieveItem}, template, lang, true)
+    engine = engines[engineHash] = new CSL.Engine({ retrieveLocale, retrieveItem }, template, lang, true)
   }
 
   return engine
@@ -81,4 +81,4 @@ const prepareEngine = function (data, templateName, language, format) {
 }
 
 export default prepareEngine
-export {fetchEngine}
+export { fetchEngine }

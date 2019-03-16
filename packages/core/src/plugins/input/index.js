@@ -12,7 +12,7 @@ import * as csl from './csl'
  * @namespace util
  * @memberof Cite.plugins.input
  */
-export const util = {...dataType, ...graph, ...parser, ...csl}
+export const util = { ...dataType, ...graph, ...parser, ...csl }
 
 export * from './register'
 

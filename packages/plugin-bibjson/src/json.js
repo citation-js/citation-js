@@ -2,8 +2,8 @@
  * @module input/bibjson
  */
 
-import {parse as parseDate} from '@citation-js/date'
-import {parse as parseName} from '@citation-js/name'
+import { parse as parseDate } from '@citation-js/date'
+import { parse as parseName } from '@citation-js/name'
 
 function nameProps (person) {
   let {
@@ -14,7 +14,7 @@ function nameProps (person) {
   } = person
 
   if (given && family) {
-    return {given, family}
+    return { given, family }
   } else if (person.name) {
     return parseName(person.name)
   }
@@ -45,7 +45,7 @@ function idProps (input, identifiers) {
   }
 
   if (input.identifier) {
-    for (let {id, type = ''} of input.identifier) {
+    for (let { id, type = '' } of input.identifier) {
       type = type.toUpperCase()
       if (identifiers.includes(type)) {
         output[type] = id
@@ -108,7 +108,7 @@ function generalProps (input) {
     if (dates.submitted) { output.submitted = parseDate(dates.submitted) }
     if (dates.published) { output.issued = parseDate(dates.published) }
   } else if (input.year) {
-    output.issued = {'date-parts': [[+input.year]]}
+    output.issued = { 'date-parts': [[+input.year]] }
   }
   if (input.journal) {
     let journal = input.journal

@@ -10,7 +10,7 @@ const simple = [
         family: 'Hall'
       }
     ],
-    issued: {'date-parts': [[1957, 1, 1]]},
+    issued: { 'date-parts': [[1957, 1, 1]] },
     'container-title': 'Journal of the American Chemical Society',
     volume: '79',
     issue: '20',
@@ -113,7 +113,7 @@ ER  -`
         VL: '28',
         ID: 'Q37108228'
       }],
-      {format: 'object'}
+      { format: 'object' }
     ],
     object: [
       simple,
@@ -130,7 +130,7 @@ ER  -`
         VL: '79',
         ID: 'Q23571040'
       }],
-      {format: 'object'}
+      { format: 'object' }
     ]
   }
 }

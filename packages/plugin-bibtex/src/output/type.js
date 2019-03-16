@@ -2,7 +2,7 @@
  * @module output/bibtex
  */
 
-import {logger} from '@citation-js/core'
+import { logger } from '@citation-js/core'
 
 /**
  * @access private

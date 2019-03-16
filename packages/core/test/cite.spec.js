@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 
-const {Cite} = require('../src/')
+const { Cite } = require('../src/')
 const input = require('./data.json')
 const expect = require('expect.js')
 
-const noGraph = {generateGraph: false}
+const noGraph = { generateGraph: false }
 
 describe('Cite instance', () => {
   describe('initialisation', () => {
@@ -119,21 +119,21 @@ describe('Cite instance', () => {
 
     describe('options()', () => {
       it('works', () => {
-        test.options({lang: '1'})
+        test.options({ lang: '1' })
         expect(test._options.lang).to.be('1')
         expect(test.log).to.have.length(1)
       })
 
       it('saves', () => {
-        test.options({lang: '2'}, true)
+        test.options({ lang: '2' }, true)
         expect(test._options.lang).to.be('2')
         expect(test.log).to.have.length(2)
       })
 
       it('validates', () => {
-        test.options({format: 'real'})
+        test.options({ format: 'real' })
         expect(test._options.format).to.be('real')
-        expect(test.options.bind(test)).withArgs({format: 'foo'}).to.throwException()
+        expect(test.options.bind(test)).withArgs({ format: 'foo' }).to.throwException()
       })
     })
 

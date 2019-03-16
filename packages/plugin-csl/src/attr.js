@@ -28,4 +28,4 @@ const getAttributedEntry = (string, name, value) =>
  */
 const getPrefixedEntry = (value, id) => getAttributedEntry(value, 'csl-entry-id', id)
 
-export {getAttributedEntry, getPrefixedEntry}
+export { getAttributedEntry, getPrefixedEntry }

@@ -2,7 +2,7 @@
  * @module input/bibtex
  */
 
-import {util} from '@citation-js/core'
+import { util } from '@citation-js/core'
 
 /**
  * Mapping of BibTeX Escaped Chars to Unicode.
@@ -88,21 +88,21 @@ const parseBibTeX = function (str) {
   stack.consumeWhitespace()
 
   while (stack.tokensLeft()) {
-    stack.consumeToken('@', {spaced: false})
+    stack.consumeToken('@', { spaced: false })
     stack.consumeWhitespace()
 
-    const type = stack.consume([whitespace, syntax], {inverse: true}).toLowerCase()
+    const type = stack.consume([whitespace, syntax], { inverse: true }).toLowerCase()
 
     stack.consumeToken('{')
 
-    const label = stack.consume([whitespace, syntax], {inverse: true})
+    const label = stack.consume([whitespace, syntax], { inverse: true })
 
     stack.consumeToken(',')
 
     const properties = {}
 
     while (stack.tokensLeft()) {
-      const key = stack.consume([whitespace, '='], {inverse: true}).toLowerCase()
+      const key = stack.consume([whitespace, '='], { inverse: true }).toLowerCase()
 
       stack.consumeToken('=')
 
@@ -139,7 +139,7 @@ const parseBibTeX = function (str) {
         } else {
           return (token === '}' && openBrackets--) || !stack.matchesSequence(endDelimiter)
         }
-      }, {tokenMap})
+      }, { tokenMap })
 
       properties[key] = val.replace(/[ \t\n]+/g, ' ')
 
@@ -149,14 +149,14 @@ const parseBibTeX = function (str) {
       // Last entry (no trailing comma)
       if (stack.matches('}')) { break }
 
-      stack.consumeToken(',', {spaced: false})
+      stack.consumeToken(',', { spaced: false })
       stack.consumeWhitespace()
 
       // Last entry (trailing comma)
       if (stack.matches('}')) { break }
     }
 
-    stack.consumeToken('}', {spaced: false})
+    stack.consumeToken('}', { spaced: false })
     stack.consumeWhitespace()
 
     // records can be also ended with comma
@@ -165,7 +165,7 @@ const parseBibTeX = function (str) {
       stack.consumeWhitespace()
     }
 
-    entries.push({type, label, properties})
+    entries.push({ type, label, properties })
   }
 
   return entries

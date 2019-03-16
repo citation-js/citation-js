@@ -2,7 +2,7 @@
  * @module input/wikidata
  */
 
-import {simplify} from 'wikidata-sdk'
+import { simplify } from 'wikidata-sdk'
 
 import config from './config'
 import {
@@ -16,7 +16,7 @@ const SIMPLIFY_OPTS = {
   keepQualifiers: true
 }
 
-function preProcess (data, {id}) {
+function preProcess (data, { id }) {
   data._wikiId = id
   data.id = id
   return data
@@ -30,10 +30,10 @@ function addValues (data, prop, value) {
   }
 }
 
-function postProcess (data, {labels}, langs) {
+function postProcess (data, { labels }, langs) {
   for (let prop in data) {
     if (Array.isArray(data[prop])) {
-      data[prop].sort(({_ordinal: a}, {_ordinal: b}) => a - b)
+      data[prop].sort(({ _ordinal: a }, { _ordinal: b }) => a - b)
     }
   }
 
@@ -78,7 +78,7 @@ export function parseEntity (entity, langs) {
  *
  * @return {Promise<Array<CSL>>} The formatted input data
  */
-export async function parseEntitiesAsync ({entities}) {
+export async function parseEntitiesAsync ({ entities }) {
   return Promise.all(Object.keys(entities).map(async id => parseEntityAsync(
     simplify.entity(entities[id], SIMPLIFY_OPTS),
     config.langs
@@ -93,7 +93,7 @@ export async function parseEntitiesAsync ({entities}) {
  *
  * @return {Array<CSL>} The formatted input data
  */
-export function parseEntities ({entities}) {
+export function parseEntities ({ entities }) {
   return Object.keys(entities).map(id => parseEntity(
     simplify.entity(entities[id], SIMPLIFY_OPTS),
     config.langs

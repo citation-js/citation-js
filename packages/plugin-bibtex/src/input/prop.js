@@ -2,9 +2,9 @@
  * @module input/bibtex
  */
 
-import {logger} from '@citation-js/core'
-import {parse as parseName} from '@citation-js/name'
-import {parse as parseDate} from '@citation-js/date'
+import { logger } from '@citation-js/core'
+import { parse as parseName } from '@citation-js/name'
+import { parse as parseDate } from '@citation-js/date'
 
 /**
  * To match months.
@@ -40,7 +40,7 @@ const months = [
  */
 const parseBibtexDate = function (value) {
   if (/{|}/.test(value)) {
-    return {literal: value.replace(/[{}]/g, '')}
+    return { literal: value.replace(/[{}]/g, '') }
   } else {
     return parseDate(value)
   }
@@ -57,7 +57,7 @@ const parseBibtexDate = function (value) {
  */
 const parseBibtexName = function (name) {
   if (/{|}/.test(name)) {
-    return {literal: name.replace(/[{}]/g, '')}
+    return { literal: name.replace(/[{}]/g, '') }
   } else {
     return parseName(name)
   }

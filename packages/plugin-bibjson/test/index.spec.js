@@ -2,7 +2,7 @@
 
 const assert = require('assert')
 require('../src/')
-const {plugins} = require('@citation-js/core')
+const { plugins } = require('@citation-js/core')
 const data = require('./data')
 
 function padStart (str, len, chr) {
@@ -28,7 +28,7 @@ describe('input', function () {
           })
           it('parses data', function () {
             assert.deepStrictEqual(
-              plugins.input.chain(input, {generateGraph: false}),
+              plugins.input.chain(input, { generateGraph: false }),
               expected
             )
           })

@@ -1,4 +1,4 @@
-import {chain, chainAsync} from './chain'
+import { chain, chainAsync } from './chain'
 
 const flatten = array => [].concat(...array)
 
@@ -66,7 +66,7 @@ export const dataAsync = async (input, type) => {
  * @param {Object} [options={}]
  * @param {Boolean} [options.async=false]
  */
-export const addDataParser = (format, {parser, async}) => {
+export const addDataParser = (format, { parser, async }) => {
   if (async) {
     asyncParsers[format] = parser
   } else {

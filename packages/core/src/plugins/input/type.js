@@ -1,5 +1,5 @@
 import logger from '../../logger'
-import {dataTypeOf} from './dataType'
+import { dataTypeOf } from './dataType'
 
 // register
 const types = {}
@@ -86,7 +86,7 @@ export const type = (input) => {
  * @param {Cite.plugins.input~format} format
  * @param {Cite.plugins.input.TypeParser} typeParser
  */
-export const addTypeParser = (format, {dataType, predicate, extends: extend}) => {
+export const addTypeParser = (format, { dataType, predicate, extends: extend }) => {
   // 1. check if any subclass formats are waiting for this format
   let extensions = []
   if (format in unregExts) {
@@ -96,7 +96,7 @@ export const addTypeParser = (format, {dataType, predicate, extends: extend}) =>
   }
 
   // 2. create object with parser info
-  const object = {predicate, extensions}
+  const object = { predicate, extensions }
   types[format] = object
 
   // 3. determine which type lists the type should be added to
@@ -169,7 +169,7 @@ export const listTypeParser = () => Object.keys(types)
  * @return {Object} tree structure
  */
 export const treeTypeParser = /* istanbul ignore next: debugging */ () => {
-  const attachNode = name => ({name, children: types[name].extensions.map(attachNode)})
+  const attachNode = name => ({ name, children: types[name].extensions.map(attachNode) })
   return {
     name: 'Type tree',
     children: Object.keys(dataTypes).map(name => ({

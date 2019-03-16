@@ -2,10 +2,10 @@
  * @module input/wikidata
  */
 
-import {simplify} from 'wikidata-sdk'
-import {util, logger} from '@citation-js/core'
-import {parse as parseNameString} from '@citation-js/name'
-import {parse as parseDate} from '@citation-js/date'
+import { simplify } from 'wikidata-sdk'
+import { util, logger } from '@citation-js/core'
+import { parse as parseNameString } from '@citation-js/name'
+import { parse as parseDate } from '@citation-js/date'
 
 import getUrls from './id'
 
@@ -15,7 +15,7 @@ import getUrls from './id'
  * @property {Object} props
  * @property {Object} ignoredProps - known common props without CSL mapping
  */
-import {props, ignoredProps} from './props'
+import { props, ignoredProps } from './props'
 
 /**
  * CSL mappings for Wikidata instances.
@@ -30,7 +30,7 @@ import types from './types'
  * @param {Object} qualifiers - qualifiers
  * @return {Number} series ordinal or -1
  */
-const getSeriesOrdinal = ({P1545}) => P1545 ? parseInt(P1545[0]) : -1
+const getSeriesOrdinal = ({ P1545 }) => P1545 ? parseInt(P1545[0]) : -1
 
 /**
  * Some name fields have, in addition to a Wikidata ID, a qualifier stating
@@ -69,8 +69,8 @@ const parseName = (name, qualifiers) => {
  */
 const getNameUrls = (values, langs) => {
   const toFetch = values
-    .filter(({qualifiers}) => !getStatedAs(qualifiers).length)
-    .map(({value}) => value)
+    .filter(({ qualifiers }) => !getStatedAs(qualifiers).length)
+    .map(({ value }) => value)
   return getUrls(toFetch, langs)
 }
 
@@ -86,7 +86,7 @@ const getNameUrls = (values, langs) => {
  * @return {Array<String>} Array with labels of each prop
  */
 const parseNames = (values, fetched, langs) => {
-  return values.map(({value, qualifiers}) => {
+  return values.map(({ value, qualifiers }) => {
     const [name] = getStatedAs(qualifiers)
     return parseName(name || getLabel(fetched[value], langs), qualifiers)
   })
@@ -146,7 +146,7 @@ export function parseProp (prop, values, langs) {
       return parseNames(values, fetchApi(getNameUrls(values, langs)), langs)
 
     case 'P2093':
-      return values.map(({value, qualifiers}) => parseName(value, qualifiers))
+      return values.map(({ value, qualifiers }) => parseName(value, qualifiers))
 
     case 'P577':
       return parseDate(value)
@@ -236,7 +236,7 @@ export function parseType (type) {
  *
  * @return {String} label
  */
-export function getLabel ({labels}, langs) {
+export function getLabel ({ labels }, langs) {
   const lang = langs.find(lang => labels[lang])
   return labels[lang]
 }

@@ -2,7 +2,7 @@
  * @module output/csl
  */
 
-import {util} from '@citation-js/core'
+import { util } from '@citation-js/core'
 
 /**
  * Object containing CSL locales
@@ -41,4 +41,4 @@ const fetchLocale = lang => {
 }
 
 export default fetchLocale
-export {locales}
+export { locales }

@@ -4,7 +4,6 @@
  */
 
 import Register from '../util/register'
-import logger from '../logger'
 
 /**
  * @typedef Cite.plugins.dict~dictName

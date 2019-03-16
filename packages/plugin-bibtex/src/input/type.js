@@ -2,7 +2,7 @@
  * @module input/bibtex
  */
 
-import {logger} from '@citation-js/core'
+import { logger } from '@citation-js/core'
 
 /**
  * Map holding information on BibTeX pub types.

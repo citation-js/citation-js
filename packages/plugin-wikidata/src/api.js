@@ -2,9 +2,9 @@
  * @module input/wikidata
  */
 
-import {util} from '@citation-js/core'
+import { util } from '@citation-js/core'
 
-const {fetchFile, fetchFileAsync} = util
+const { fetchFile, fetchFileAsync } = util
 
 export {
   fetchFile as parse,

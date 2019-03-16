@@ -82,4 +82,4 @@ export const has = (ref) => ref in indices
  */
 export const list = () => Object.keys(indices)
 
-export {input, output, dict, config}
+export { input, output, dict, config }

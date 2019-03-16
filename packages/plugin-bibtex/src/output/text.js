@@ -3,7 +3,7 @@
  */
 
 import getBibTeXJSON from './json'
-import {plugins} from '@citation-js/core'
+import { plugins } from '@citation-js/core'
 
 /**
  * Mapping of BibTeX syntax chars to BibTeX Escaped Chars.
@@ -84,7 +84,7 @@ function serializeValue (prop, value, dict) {
 }
 
 function serializeEntry (entry, dict) {
-  let {type, label, properties} = getBibTeXJSON(entry)
+  let { type, label, properties } = getBibTeXJSON(entry)
   properties = Object
     .keys(properties)
     .map(prop => serializeValue(prop, properties[prop], dict))
@@ -130,5 +130,5 @@ const getBibTeXWrapper = function (src, html) {
   return getBibtex(src, dict)
 }
 
-export {getBibtex}
+export { getBibtex }
 export default getBibTeXWrapper

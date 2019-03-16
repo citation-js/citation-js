@@ -3,12 +3,12 @@
  */
 
 import * as json from './json'
-import {plugins} from '@citation-js/core'
+import { plugins } from '@citation-js/core'
 
 let scraperLinks = ['fulltext_html', 'fulltext_xml', 'fulltext_pdf']
 
 const ref = '@bibjson'
-const parsers = {json}
+const parsers = { json }
 const formats = {
   '@bibjson/quickscrape+record+object': {
     parse: json.quickscrapeRecord,
@@ -16,7 +16,7 @@ const formats = {
       propertyConstraint: {
         props: 'link',
         value (links) {
-          return scraperLinks.some(link => links.find(({type}) => type === link))
+          return scraperLinks.some(link => links.find(({ type }) => type === link))
         }
       },
       extends: '@bibjson/record+object'
@@ -58,4 +58,4 @@ plugins.add(ref, {
   input: formats
 })
 
-export {ref, parsers, formats}
+export { ref, parsers, formats }

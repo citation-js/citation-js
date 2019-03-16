@@ -1,6 +1,6 @@
-import {validateOutputOptions as validate} from './static'
-import {format as formatData} from '../plugins/output'
-import {clean as parseCsl} from '../plugins/input/csl'
+import { validateOutputOptions as validate } from './static'
+import { format as formatData } from '../plugins/output'
+import { clean as parseCsl } from '../plugins/input/csl'
 
 /**
  * Get a list of the data entry IDs, in the order of that list
@@ -44,7 +44,7 @@ const get = function (options = {}) {
 
   const parsedOptions = Object.assign({}, this.defaultOptions, this._options.output, options)
 
-  const {type, style} = parsedOptions
+  const { type, style } = parsedOptions
   const [styleType, styleFormat] = style.split('-')
   const newStyle = styleType === 'citation' ? 'bibliography' : styleType === 'csl' ? 'data' : styleType
   const newType = type === 'string' ? 'text' : type === 'json' ? 'object' : type
@@ -53,8 +53,8 @@ const get = function (options = {}) {
 
   switch (newStyle) {
     case 'bibliography':
-      const {lang, append, prepend} = parsedOptions
-      formatOptions = {template: styleFormat, lang, format: newType, append, prepend}
+      const { lang, append, prepend } = parsedOptions
+      formatOptions = { template: styleFormat, lang, format: newType, append, prepend }
       break
 
     case 'data':
@@ -62,17 +62,16 @@ const get = function (options = {}) {
     case 'bibtxt':
     case 'ndjson':
     case 'ris':
-      formatOptions = {type: newType}
+      formatOptions = { type: newType }
       break
 
     default:
       throw new Error(`Invalid style "${newStyle}"`)
-      break
   }
 
   const result = this.format(newStyle, formatOptions)
 
-  const {format} = parsedOptions
+  const { format } = parsedOptions
   if (format === 'real' && newType === 'html' && typeof document !== 'undefined' && typeof document.createElement === 'function') {
     const tmp = document.createElement('div')
     tmp.innerHTML = result
@@ -84,4 +83,4 @@ const get = function (options = {}) {
   }
 }
 
-export {format, getIds, get}
+export { format, getIds, get }
