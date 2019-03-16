@@ -145,10 +145,18 @@ describe('plugins', function () {
         expect(plugins.input.type('foo')).to.be(type)
       })
       it('removes', function () {
-        plugins.input.add(type, {parseType: {}})
+        plugins.input.add(type, {parseType: {predicate: /foo/}})
         plugins.input.remove(type)
         expect(plugins.input.hasTypeParser(type)).to.not.be.ok()
         expect(plugins.input.type('foo')).to.not.be(type)
+      })
+      it('removes overwritten indices', function () {
+        plugins.input.add(type, {parseType: {}})
+        plugins.input.add(type, {parse () {}})
+        plugins.input.remove(type)
+        expect(plugins.input.hasTypeParser(type)).to.not.be.ok()
+        expect(plugins.input.hasDataParser(type)).to.not.be.ok()
+
       })
       it('removes non-existing', function () {
         expect(plugins.input.remove).withArgs(type).not.to.throwException()

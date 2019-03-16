@@ -19,7 +19,7 @@ export const add = (format, parsers) => {
   let formatParser = new FormatParser(format, parsers)
   formatParser.validate()
 
-  let index = formats[format] = {}
+  let index = formats[format] || (formats[format] = {})
 
   if (formatParser.typeParser) {
     addTypeParser(format, formatParser.typeParser)
