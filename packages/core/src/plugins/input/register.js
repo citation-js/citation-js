@@ -33,6 +33,10 @@ export const add = (format, parsers) => {
     addDataParser(format, formatParser.asyncDataParser)
     index.asyncData = true
   }
+
+  if (parsers.outputs) {
+    index.outputs = parsers.outputs
+  }
 }
 
 /**

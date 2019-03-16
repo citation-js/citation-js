@@ -1,6 +1,7 @@
 import deepCopy from '../../util/deepCopy'
 import logger from '../../logger'
 
+import {get as getTypeInfo} from './register'
 import {type as parseType} from './type'
 import {data as parseData, dataAsync as parseDataAsync} from './data'
 import {applyGraph, removeGraph} from './graph'
@@ -25,7 +26,14 @@ class ChainParser {
 
   iterate () {
     if (this.iteration !== 0) {
-      this.type = parseType(this.data)
+      const typeInfo = getTypeInfo(this.type)
+
+      if (typeInfo && typeInfo.outputs) {
+        this.type = typeInfo.outputs
+      } else {
+        this.type = parseType(this.data)
+      }
+
       this.graph.push({type: this.type})
     }
 

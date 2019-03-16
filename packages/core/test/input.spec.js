@@ -45,12 +45,16 @@ describe('input', function () {
         expect(chain({}, {generateGraph: false})).to.eql([{}])
       })
       it('parses until success', function () {
-        // TODO non-builtin type
         expect(chain('{}', {generateGraph: false})).to.eql([{}])
       })
       it('copies', function () {
         const object = {}
         expect(chain(object)[0]).not.to.be(object)
+      })
+      it('uses `outputs` information', function () {
+        plugins.input.add('@foo', {parse () {}, outputs: '@else/json'})
+        expect(chain).withArgs('foo', {forceType: '@foo'}).to.throwException()
+        plugins.input.remove('@foo')
       })
       describe('options', function () {
         it('generateGraph', function () {
@@ -106,6 +110,16 @@ describe('input', function () {
         const object = {}
         expect((await chainAsync(object))[0]).not.to.be(object)
       })
+      it('uses `outputs` information', async function () {
+        plugins.input.add('@foo', {parse () {}, outputs: '@else/json'})
+        try {
+          await chain('foo', {forceType: '@foo'})
+          expect().fail('chainAsync should fail as `undefined` is invalid JSON')
+        } catch (e) {
+          expect(e.message).to.match(/Unexpected token u in JSON at position 0/)
+        }
+        plugins.input.remove('@foo')
+      })
       describe('options', function () {
         it('generateGraph', async function () {
           expect((await chainAsync({}, {generateGraph: true}))[0]).to.have.property('_graph')
@@ -115,7 +129,7 @@ describe('input', function () {
           expect(await chainAsync({}, {maxChainLength: 1, generateGraph: false})).to.eql([{}])
           try {
             await chainAsync({}, {maxChainLength: 0})
-            expect(a).fail('chainAsync should fail if maxChainLength is exceeded')
+            expect().fail('chainAsync should fail if maxChainLength is exceeded')
           } catch (e) {
             expect(e.message).to.match(/Max\. number of parsing iterations reached/)
           }
