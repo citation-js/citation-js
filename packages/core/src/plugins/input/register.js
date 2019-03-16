@@ -40,6 +40,17 @@ export const add = (format, parsers) => {
  * @memberof Cite.plugins.input
  *
  * @param {Cite.plugins.input~format} format - input format name
+ * @returns {Object} index
+ */
+export const get = (format) => {
+  return formats[format]
+}
+
+/**
+ * @access public
+ * @memberof Cite.plugins.input
+ *
+ * @param {Cite.plugins.input~format} format - input format name
  */
 export const remove = (format) => {
   let index = formats[format]
