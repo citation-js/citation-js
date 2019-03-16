@@ -1,3 +1,44 @@
+# [](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.2...v) (2019-03-16)
+
+
+### Bug Fixes
+
+* **core:** fix 'generateGraph' ([60106db](https://github.com/citation-js/citation-js/commit/60106db))
+* **core:** fix html dict ([8a06ce1](https://github.com/citation-js/citation-js/commit/8a06ce1))
+* **core:** fix post-processing with 'target' set ([ec3100b](https://github.com/citation-js/citation-js/commit/ec3100b))
+* **core:** remove Object.entries for Node 6 ([47b3d9f](https://github.com/citation-js/citation-js/commit/47b3d9f))
+* **core:** remove overwritten input formats ([4f52124](https://github.com/citation-js/citation-js/commit/4f52124))
+* **core:** set default input options ([4843b40](https://github.com/citation-js/citation-js/commit/4843b40))
+* **plugin-bibtex:** fix invalid output labels ([5624eaf](https://github.com/citation-js/citation-js/commit/5624eaf))
+* **plugin-bibtex:** in-field whitespace ([3f081bc](https://github.com/citation-js/citation-js/commit/3f081bc)), closes [larsgw/citation-js#158](https://github.com/larsgw/citation-js/issues/158)
+* **plugin-bibtex:** preserve nbsp ([e1974c3](https://github.com/citation-js/citation-js/commit/e1974c3))
+* **plugin-common:** handle non-JSON ([539bb6c](https://github.com/citation-js/citation-js/commit/539bb6c))
+* **plugin-common:** improve output json ([49e0d45](https://github.com/citation-js/citation-js/commit/49e0d45))
+* **plugin-wikidata:** fallback for no labels ([9dc3640](https://github.com/citation-js/citation-js/commit/9dc3640))
+* **plugin-wikidata:** fix langs support ([aec2e72](https://github.com/citation-js/citation-js/commit/aec2e72))
+* **plugin-wikidata:** node 6 support ([fdf4127](https://github.com/citation-js/citation-js/commit/fdf4127))
+* **plugin-wikidata:** update type index ([d74dc21](https://github.com/citation-js/citation-js/commit/d74dc21)), closes [/github.com/larsgw/citation.js/issues/166#issuecomment-472323555](https://github.com//github.com/larsgw/citation.js/issues/166/issues/issuecomment-472323555)
+
+
+### Features
+
+* actually throw errors ([f025426](https://github.com/citation-js/citation-js/commit/f025426)), closes [#14](https://github.com/citation-js/citation-js/issues/14)
+* **cli:** add --log-level option ([bdd718b](https://github.com/citation-js/citation-js/commit/bdd718b))
+* **core:** add 'strict' option ([ad158b3](https://github.com/citation-js/citation-js/commit/ad158b3)), closes [#14](https://github.com/citation-js/citation-js/issues/14)
+* **core:** add 'target' option ([89b9e8b](https://github.com/citation-js/citation-js/commit/89b9e8b))
+* **core:** add method to get input format info ([3d9493c](https://github.com/citation-js/citation-js/commit/3d9493c))
+* **core:** input format 'outputs' option ([57645a2](https://github.com/citation-js/citation-js/commit/57645a2))
+* **logger:** add log level support ([83bdb4b](https://github.com/citation-js/citation-js/commit/83bdb4b)), closes [#10](https://github.com/citation-js/citation-js/issues/10)
+* **plugin-common:** throw errors ([3a67db4](https://github.com/citation-js/citation-js/commit/3a67db4))
+* **plugin-wikidata:** langs option ([aaeb28d](https://github.com/citation-js/citation-js/commit/aaeb28d)), closes [#7](https://github.com/citation-js/citation-js/issues/7)
+
+
+### BREAKING CHANGES
+
+* **core:** Aformentioned functions might throw errors
+
+
+
 # [0.4.0-rc.2](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.1...v0.4.0-rc.2) (2019-02-26)
 
 
@@ -23,7 +64,7 @@
 
 # [0.4.0-rc.1](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.0...v0.4.0-rc.1) (2018-12-27)
 
-Some documentation and npm configuration changes.
+
 
 # [0.4.0-rc.0](https://github.com/citation-js/citation-js/compare/88aabc9...v0.4.0-rc.0) (2018-12-06)
 
@@ -32,9 +73,5 @@ Some documentation and npm configuration changes.
 
 * **plugin-ris:** output year always string ([88aabc9](https://github.com/citation-js/citation-js/commit/88aabc9))
 
-### BREAKING CHANGES
 
-* **core:** exports are now structured like the following:
-```js
-const {Cite, plugins, util, logger, version} = require('@citation-js/core')
-```
+
