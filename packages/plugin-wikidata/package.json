@@ -31,7 +31,7 @@
   "dependencies": {
     "@citation-js/date": "^0.4.3",
     "@citation-js/name": "^0.4.2",
-    "wikidata-sdk": "^5.15.10"
+    "wikidata-sdk": "^5.16.1"
   },
   "devDependencies": {
     "@citation-js/core": "^0.4.0-rc.2"
