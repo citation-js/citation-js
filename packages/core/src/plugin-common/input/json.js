@@ -32,6 +32,10 @@ const substituters = [
  * @return {Object|Array<Object>|Array<String>} The parsed object
  */
 const parseJSON = function (str) {
+  if (typeof str !== 'string') {
+    return JSON.parse(str)
+  }
+
   try {
     return JSON.parse(str)
   } catch (e) {
