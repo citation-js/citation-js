@@ -69,7 +69,7 @@ const parseName = (name, qualifiers) => {
  */
 const getNameUrls = (values, langs) => {
   const toFetch = values
-    .filter(({ qualifiers }) => !getStatedAs(qualifiers).length)
+    .filter(({ value, qualifiers }) => value && !getStatedAs(qualifiers).length)
     .map(({ value }) => value)
   return getUrls(toFetch, langs)
 }
@@ -236,9 +236,13 @@ export function parseType (type) {
  *
  * @return {String} label
  */
-export function getLabel ({ labels }, langs) {
-  const lang = langs.find(lang => labels[lang])
-  return labels[lang]
+export function getLabel (entity, langs) {
+  if (!entity) {
+    return undefined
+  }
+
+  const lang = langs.find(lang => entity.labels[lang])
+  return entity.labels[lang]
 }
 
 export {
