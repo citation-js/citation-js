@@ -19,10 +19,17 @@ describe('input', function () {
           it('parses type', function () {
             assert.strictEqual(plugins.input.type(input), type)
           })
-          it('parses data', function () {
+          it('parses data', async function () {
             let method = link ? plugins.input.chainLink : plugins.input.chain
             assert.deepStrictEqual(
               method(input, Object.assign({ generateGraph: false }, opts || {})),
+              expected
+            )
+          })
+          it('parses data async', async function () {
+            let method = link ? plugins.input.chainLinkAsync : plugins.input.chainAsync
+            assert.deepStrictEqual(
+              await method(input, Object.assign({ generateGraph: false }, opts || {})),
               expected
             )
           })
