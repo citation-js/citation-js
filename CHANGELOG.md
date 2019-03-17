@@ -1,4 +1,4 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.2...v) (2019-03-16)
+# [0.4.0-rc.3](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.2...v0.4.0-rc.3) (2019-03-16)
 
 
 ### Bug Fixes
@@ -17,7 +17,7 @@
 * **plugin-wikidata:** fallback for no labels ([9dc3640](https://github.com/citation-js/citation-js/commit/9dc3640))
 * **plugin-wikidata:** fix langs support ([aec2e72](https://github.com/citation-js/citation-js/commit/aec2e72))
 * **plugin-wikidata:** node 6 support ([fdf4127](https://github.com/citation-js/citation-js/commit/fdf4127))
-* **plugin-wikidata:** update type index ([d74dc21](https://github.com/citation-js/citation-js/commit/d74dc21)), closes [/github.com/larsgw/citation.js/issues/166#issuecomment-472323555](https://github.com//github.com/larsgw/citation.js/issues/166/issues/issuecomment-472323555)
+* **plugin-wikidata:** update type index ([d74dc21](https://github.com/citation-js/citation-js/commit/d74dc21)), closes [larsgw/citation.js#166 (comment)](https://github.com/larsgw/citation.js/issues/166#issuecomment-472323555)
 
 
 ### Features
@@ -72,6 +72,3 @@
 ### Bug Fixes
 
 * **plugin-ris:** output year always string ([88aabc9](https://github.com/citation-js/citation-js/commit/88aabc9))
-
-
-
