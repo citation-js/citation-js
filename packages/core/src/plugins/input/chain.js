@@ -6,6 +6,23 @@ import { type as parseType } from './type'
 import { data as parseData, dataAsync as parseDataAsync } from './data'
 import { applyGraph, removeGraph } from './graph'
 
+function prepareParseGraph (graph) {
+  return graph
+    // collapse continuous iterations of the same type
+    .reduce((array, next) => {
+      const last = array[array.length - 1]
+      if (last && last.type === next.type) {
+        last.count = last.count + 1 || 2
+      } else {
+        array.push(next)
+      }
+      return array
+    }, [])
+    // presentation
+    .map(element => (element.count > 1 ? element.count + 'x ' : '') + element.type)
+    .join(' -> ')
+}
+
 class ChainParser {
   constructor (input, options = {}) {
     this.options = Object.assign({
@@ -40,7 +57,9 @@ class ChainParser {
     if (this.error || this.type === this.options.target) {
       return false
     } else if (this.iteration >= this.options.maxChainLength) {
-      this.error = new RangeError('Max. number of parsing iterations reached')
+      this.error = new RangeError(`Max. number of parsing iterations reached (${
+        prepareParseGraph(this.graph)
+      })`)
       return false
     } else {
       this.iteration++
