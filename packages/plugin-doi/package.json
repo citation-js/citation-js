@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-doi",
-  "version": "0.4.0-rc.3",
+  "version": "0.4.0-rc.4",
   "description": "Plugin for DOI input for Citation.js",
   "keywords": [
     "citation-js",
@@ -30,7 +30,7 @@
     "test": "mocha -c -R dot test/*.spec.js"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.4.0-rc.3"
+    "@citation-js/core": "^0.4.0-rc.4"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.4.0-rc.0"
