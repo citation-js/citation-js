@@ -168,7 +168,7 @@ describe('input', function () {
             await chainAsync({}, { target: '@foo/bar' })
             expect().fail('chainAsync should fail if target format is not available')
           } catch (e) {
-            expect(e.message).to.be('Max. number of parsing iterations reached')
+            expect(e.message).to.match(/Max\. number of parsing iterations reached/)
           }
         })
       })
