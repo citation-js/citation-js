@@ -194,7 +194,7 @@ export async function parsePropAsync (prop, values, langs) {
       return getLabel(await fetchApiAsync(getUrls(values, langs))[value], langs)
 
     default:
-      return parseProp(prop, value, langs)
+      return parseProp(prop, values, langs)
   }
 }
 
