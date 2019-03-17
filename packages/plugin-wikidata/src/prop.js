@@ -191,7 +191,7 @@ export async function parsePropAsync (prop, values, langs) {
     case 'P136':
     case 'P291':
     case 'P1433':
-      return getLabel((await fetchApiAsync(getUrls(values, langs)))[value], langs)
+      return getLabel((await fetchApiAsync(getUrls(value, langs)))[value], langs)
 
     default:
       return parseProp(prop, values, langs)
