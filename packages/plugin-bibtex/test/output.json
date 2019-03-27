@@ -20,7 +20,7 @@
           "page": "5441-5444"
         }
       ],
-      "@article{Hall1957Correlation,\n\tjournal={Journal of the American Chemical Society},\n\tdoi={10.1021/ja01577a030},\n\tnumber=20,\n\ttitle={Correlation of the Base Strengths of Amines 1},\n\tvolume=79,\n\tauthor={Hall, H. K.},\n\tpages={5441--5444},\n\tdate={1957-01-01},\n\tyear=1957,\n\tmonth=1,\n\tday=1,\n}"
+      "@article{Hall1957Correlation,\n\tjournal = {Journal of the American Chemical Society},\n\tdoi = {10.1021/ja01577a030},\n\tnumber = {20},\n\ttitle = {Correlation of the Base Strengths of Amines 1},\n\tvolume = {79},\n\tauthor = {Hall, H. K.},\n\tpages = {5441--5444},\n\tdate = {1957-01-01},\n\tyear = {1957},\n\tmonth = {1},\n\tday = {1},\n}"
     ],
     "rich text title": [
       [
@@ -28,7 +28,7 @@
         {"title": "<span style=\"font-variant:small-caps;\">sc</span>"},
         {"title": "<span class=\"nocase\">sc</span>"}
       ],
-      "@misc{ibscsupsub,\n\ttitle={\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}},\n}\n@misc{sc,\n\ttitle={\\textsc{sc}},\n}\n@misc{sc,\n\ttitle={{sc}},\n}"
+      "@misc{ibscsupsub,\n\ttitle = {\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}},\n}\n@misc{sc,\n\ttitle = {\\textsc{sc}},\n}\n@misc{sc,\n\ttitle = {{sc}},\n}"
     ],
     "editor": [
       [
@@ -66,7 +66,7 @@
           ]
         }
       ],
-      "@article{Vrandečić2013a,\n\tjournal={IEEE Intelligent Systems},\n\tdoi={10.1109/MIS.2013.119},\n\tnumber=4,\n\tnumpages=6,\n\ttitle={The Rise of Wikidata},\n\tvolume=28,\n\tauthor={Vrandečić, Denny},\n\teditor={Hendler, James and Simperl, Elena},\n\tnote={[Online; accessed 2018-07-21]},\n\tpages={90--95},\n\tdate={2013-01-01},\n\tyear=2013,\n\tmonth=1,\n\tday=1,\n}"
+      "@article{Vrandečić2013a,\n\tjournal = {IEEE Intelligent Systems},\n\tdoi = {10.1109/MIS.2013.119},\n\tnumber = {4},\n\tnumpages = {6},\n\ttitle = {The Rise of Wikidata},\n\tvolume = {28},\n\tauthor = {Vrandečić, Denny},\n\teditor = {Hendler, James and Simperl, Elena},\n\tnote = {[Online; accessed 2018-07-21]},\n\tpages = {90--95},\n\tdate = {2013-01-01},\n\tyear = {2013},\n\tmonth = {1},\n\tday = {1},\n}"
     ],
     "own label": [
       [{"id": "b", "citation-label": "foo", "type": "book"}],

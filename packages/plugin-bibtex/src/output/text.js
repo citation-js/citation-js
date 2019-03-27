@@ -33,17 +33,6 @@ function escapeValue (value) {
   return value.replace(/[|<>~^\\{}]/g, match => syntaxTokens[match])
 }
 
-const bracketMappings = {
-  '': '',
-  '{': '}'
-}
-
-function wrapInBrackets (prop, value) {
-  let delStart = !isNaN(+value) ? '' : '{'
-  let delEnd = bracketMappings[delStart]
-  return delStart + value + delEnd
-}
-
 const richTextMappings = {
   'i': '\\textit{',
   'b': '\\textbf{',
@@ -80,7 +69,7 @@ function serializeValue (prop, value, dict) {
     value = escapeValue(value)
   }
 
-  return dict.listItem.join(`${prop}=${wrapInBrackets(prop, value)},`)
+  return dict.listItem.join(`${prop} = {${value}},`)
 }
 
 function serializeEntry (entry, dict) {
