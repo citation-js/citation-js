@@ -115,6 +115,17 @@
           "date-parts": [[2016, 12, 13]]
         }
       }]
+    ],
+    "with date-range": [
+      "@a{b,date={2016--2017}}",
+      [{
+        "citation-label": "b",
+        "id": "b",
+        "type": "book",
+        "issued": {
+          "date-parts": [[2016], [2017]]
+        }
+      }]
     ]
   },
   "@bibtex/object": {
