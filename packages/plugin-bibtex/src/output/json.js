@@ -27,7 +27,10 @@ const getBibTeXJSON = function (src) {
 
   const simple = {
     'collection-title': 'series',
-    'container-title': src.type === 'chapter' ? 'booktitle' : 'journal',
+    'container-title': [
+      'chapter',
+      'inproceedings'
+    ].includes(src.type) ? 'booktitle' : 'journal',
     edition: 'edition',
     event: 'organization',
     DOI: 'doi',
