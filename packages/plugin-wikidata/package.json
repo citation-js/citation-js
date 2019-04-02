@@ -10,6 +10,7 @@
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "src/index.js",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -23,7 +24,8 @@
     "node": ">=6.0.0"
   },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "scripts": {
     "test": "mocha -c -R dot test/*.spec.js"
