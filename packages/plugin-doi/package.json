@@ -11,7 +11,7 @@
   "author": "Lars Willighagen <lars.willighagen@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "src/index.js"
+  "module": "src/index.js",
   "directories": {
     "lib": "src",
     "test": "__tests__"
