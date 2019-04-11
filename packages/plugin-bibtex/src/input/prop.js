@@ -43,9 +43,9 @@ const parseBibtexDate = function (value) {
     return { literal: value.replace(/[{}]/g, '') }
   } else if (/[—–]/.test(value)) {
     return {
-    'date-parts': value
-      .split(/[—–]/)
-      .map(part => parseDate(part)['date-parts'][0])
+      'date-parts': value
+        .split(/[—–]/)
+        .map(part => parseDate(part)['date-parts'][0])
     }
   } else {
     return parseDate(value)
