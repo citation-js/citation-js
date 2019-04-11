@@ -1,3 +1,18 @@
+# [](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.4...v) (2019-04-11)
+
+
+### Bug Fixes
+
+* **plugin-bibtex:** always output fields with braces ([c31e199](https://github.com/citation-js/citation-js/commit/c31e199)), closes [#27](https://github.com/citation-js/citation-js/issues/27)
+* **plugin-bibtex:** use booktitle for inproceedings ([149a49c](https://github.com/citation-js/citation-js/commit/149a49c)), closes [#28](https://github.com/citation-js/citation-js/issues/28)
+
+
+### Features
+
+* **plugin-bibtex:** add date ranges ([042b4e0](https://github.com/citation-js/citation-js/commit/042b4e0))
+
+
+
 # [0.4.0-rc.4](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.3...v0.4.0-rc.4) (2019-03-17)
 
 
