@@ -30,7 +30,7 @@ function addValues (data, prop, value) {
   }
 }
 
-function postProcess (data, { labels }, langs) {
+function postProcess (data, entity, langs) {
   for (let prop in data) {
     if (Array.isArray(data[prop])) {
       data[prop].sort(({ _ordinal: a }, { _ordinal: b }) => a - b)
@@ -38,7 +38,7 @@ function postProcess (data, { labels }, langs) {
   }
 
   if (!data.title) {
-    data.title = getLabel(langs)
+    data.title = getLabel(entity, langs)
   }
 
   return data
