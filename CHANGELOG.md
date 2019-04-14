@@ -1,4 +1,4 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.4...v) (2019-04-11)
+# [0.4.0](https://github.com/citation-js/citation-js/compare/v0.4.0-rc.4...v0.4.0) (2019-04-11)
 
 
 ### Bug Fixes
@@ -105,6 +105,3 @@
 ### Bug Fixes
 
 * **plugin-ris:** output year always string ([88aabc9](https://github.com/citation-js/citation-js/commit/88aabc9))
-
-
-
