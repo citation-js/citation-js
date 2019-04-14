@@ -37,7 +37,7 @@
     "sync-request": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.3.4"
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3"
   }
 }
