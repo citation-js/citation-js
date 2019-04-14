@@ -1,5 +1,6 @@
 const simple = require('./Q21972834.json')
 const author = require('./Q27795847.json')
+const weird = require('./Q1.json')
 
 let opts = {
   callback: ([data]) => data.replace(/[&?]origin=\*/, ''),
@@ -315,6 +316,17 @@ module.exports = {
               _ordinal: 21
             }
           ]
+        }
+      ]
+    ],
+    'missing title': [
+      weird,
+      [
+        {
+          _wikiId: 'Q1',
+          id: 'Q1',
+          title: 'Universe',
+          type: 'book'
         }
       ]
     ]
