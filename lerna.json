@@ -1,4 +1,10 @@
 {
+  "command": {
+    "version": {
+      "signGitTag": true,
+      "signGitCommit": true
+    }
+  },
   "packages": [
     "packages/*"
   ],
