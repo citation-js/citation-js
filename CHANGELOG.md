@@ -1,4 +1,19 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.0...v) (2019-04-14)
+# [](https://github.com/citation-js/citation-js/compare/v0.4.1...v) (2019-04-26)
+
+
+### Bug Fixes
+
+* **plugin-bibtex:** fix label creation ([c7cde40](https://github.com/citation-js/citation-js/commit/c7cde40)), closes [#35](https://github.com/citation-js/citation-js/issues/35)
+* **plugin-wikidata:** support imprecise dates ([c898db7](https://github.com/citation-js/citation-js/commit/c898db7)), closes [#33](https://github.com/citation-js/citation-js/issues/33)
+
+
+### Features
+
+* **plugin-wikidata:** support more URL properties ([#34](https://github.com/citation-js/citation-js/issues/34)) ([d489843](https://github.com/citation-js/citation-js/commit/d489843))
+
+
+
+## [0.4.1](https://github.com/citation-js/citation-js/compare/v0.4.0...v0.4.1) (2019-04-14)
 
 
 ### Bug Fixes
