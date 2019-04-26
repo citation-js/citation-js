@@ -2,6 +2,12 @@
  * @module output/bibtex
  */
 
+const stopWords = [
+  'the',
+  'a',
+  'an'
+]
+
 /**
  * Get a BibTeX label from CSL data
  *
@@ -28,7 +34,10 @@ const getBibTeXLabel = function (entry = {}) {
   if (entry['year-suffix']) {
     res += entry['year-suffix']
   } else if (entry.title) {
-    res += entry.title.replace(/<\/?.*?>/g, '').match(/^(?:(?:the|a|an)\s+)?([^@{}"=,\\\s]+)/i)[1]
+    res += entry.title
+      .replace(/<\/?.*?>/g, '')
+      .split(/\W+/)
+      .find(word => word.length && !stopWords.includes(word.toLowerCase()))
   }
 
   return res
