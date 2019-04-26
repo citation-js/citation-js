@@ -31,7 +31,7 @@
     "test": "mocha -c -R dot test/*.spec.js"
   },
   "dependencies": {
-    "@citation-js/date": "^0.4.3",
+    "@citation-js/date": "^0.4.4",
     "@citation-js/name": "^0.4.2",
     "wikidata-sdk": "^6.3.0"
   },
