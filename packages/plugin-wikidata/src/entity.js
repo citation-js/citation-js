@@ -13,7 +13,8 @@ import {
 } from './prop'
 
 const SIMPLIFY_OPTS = {
-  keepQualifiers: true
+  keepQualifiers: true,
+  timeConverter: 'simple-day'
 }
 
 function preProcess (data, { id }) {

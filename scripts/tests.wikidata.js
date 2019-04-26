@@ -4,7 +4,7 @@ require('isomorphic-fetch')
 var fs = require('fs')
 var wdk = require('wikidata-sdk')
 
-var items = ['Q21972834', 'Q27795847', 'Q1']
+var items = ['Q21972834', 'Q27795847', 'Q1', 'Q23571040']
 var props = ['P50', 'P57', 'P86', 'P98', 'P110', 'P655', 'P123', 'P136', 'P291', 'P1433']
 var prefix = (array, prefix) => array.map(item => prefix + item).join(' ')
 var json = response => response.json()

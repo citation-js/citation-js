@@ -1,6 +1,7 @@
 const simple = require('./Q21972834.json')
 const author = require('./Q27795847.json')
 const weird = require('./Q1.json')
+const imprecise = require('./Q23571040.json')
 
 let opts = {
   callback: ([data]) => data.replace(/[&?]origin=\*/, ''),
@@ -327,6 +328,30 @@ module.exports = {
           id: 'Q1',
           title: 'Universe',
           type: 'book'
+        }
+      ]
+    ],
+    'imprecise date': [
+      imprecise,
+      [
+        {
+          _wikiId: 'Q23571040',
+          id: 'Q23571040',
+          title: 'Correlation of the Base Strengths of Amines 1',
+          author: [{
+            _ordinal: 1,
+            given: 'H. K.',
+            family: 'Hall'
+          }],
+          issued: {
+            'date-parts': [[1957, 10]]
+          },
+          volume: '79',
+          issue: '20',
+          page: '5441-5444',
+          DOI: '10.1021/JA01577A030',
+          'container-title': 'Journal of the American Chemical Society',
+          type: 'article-journal'
         }
       ]
     ]

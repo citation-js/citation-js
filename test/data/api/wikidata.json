@@ -3771,8 +3771,8 @@
       "pageid": 29511090,
       "ns": 0,
       "title": "Q27795847",
-      "lastrevid": 905218274,
-      "modified": "2019-04-06T17:59:53Z",
+      "lastrevid": 922266539,
+      "modified": "2019-04-22T23:25:09Z",
       "type": "item",
       "id": "Q27795847",
       "labels": {
@@ -3832,7 +3832,7 @@
         },
         "pt-br": {
           "language": "pt-br",
-          "value": "artigo científico"
+          "value": "artigo científico (publicado na 2016)"
         },
         "sr": {
           "language": "sr",
@@ -4021,6 +4021,14 @@
         "ko": {
           "language": "ko",
           "value": "2016년 논문"
+        },
+        "ur": {
+          "language": "ur",
+          "value": "سائنسی مضمون"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "مقالهٔ علمی"
         }
       },
       "aliases": {},
@@ -7468,8 +7476,8 @@
       "pageid": 129,
       "ns": 0,
       "title": "Q1",
-      "lastrevid": 904487030,
-      "modified": "2019-04-06T05:37:33Z",
+      "lastrevid": 920823196,
+      "modified": "2019-04-21T11:55:13Z",
       "type": "item",
       "id": "Q1",
       "labels": {
@@ -8805,6 +8813,10 @@
           {
             "language": "ru",
             "value": "наша вселенная"
+          },
+          {
+            "language": "ru",
+            "value": "вселенная"
           }
         ],
         "sr": [
@@ -9161,6 +9173,18 @@
           {
             "language": "nb",
             "value": "rommet"
+          }
+        ],
+        "hy": [
+          {
+            "language": "hy",
+            "value": "Տիեզերք"
+          }
+        ],
+        "tg": [
+          {
+            "language": "tg",
+            "value": "кайҳон"
           }
         ]
       },
@@ -10445,27 +10469,6 @@
             },
             "type": "statement",
             "id": "Q1$9316D002-CFA9-4181-A197-AE32AEB0B813",
-            "rank": "normal"
-          }
-        ],
-        "P2959": [
-          {
-            "mainsnak": {
-              "snaktype": "value",
-              "property": "P2959",
-              "hash": "e30d2b89b1861a0917973350f8570008c2c25733",
-              "datavalue": {
-                "value": {
-                  "entity-type": "item",
-                  "numeric-id": 22924128,
-                  "id": "Q22924128"
-                },
-                "type": "wikibase-entityid"
-              },
-              "datatype": "wikibase-item"
-            },
-            "type": "statement",
-            "id": "Q1$3743b711-44e0-6e7b-2c59-4a7dc69fd165",
             "rank": "normal"
           }
         ],
@@ -11812,6 +11815,11 @@
           "title": "Տիեզերք",
           "badges": []
         },
+        "hywwiki": {
+          "site": "hywwiki",
+          "title": "Տիեզերք",
+          "badges": []
+        },
         "iawiki": {
           "site": "iawiki",
           "title": "Universo",
@@ -12371,12 +12379,548 @@
         }
       }
     },
+    "Q23571040": {
+      "pageid": 25579315,
+      "ns": 0,
+      "title": "Q23571040",
+      "lastrevid": 919555277,
+      "modified": "2019-04-20T04:23:36Z",
+      "type": "item",
+      "id": "Q23571040",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "Correlation of the Base Strengths of Amines 1"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "Correlation of the Base Strengths of Amines"
+        },
+        "en-gb": {
+          "language": "en-gb",
+          "value": "Correlation of the Base Strengths of Amines 1"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Correlation of the Base Strengths of Amines 1"
+        }
+      },
+      "descriptions": {
+        "en": {
+          "language": "en",
+          "value": "scientific article"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "artykuł naukowy"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "wetenschappelijk artikel (gepubliceerd op 1957-10)"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "vědecký článek publikovaný v roce 1957"
+        },
+        "de": {
+          "language": "de",
+          "value": "wissenschaftlicher Artikel (veröffentlicht in 1957-10)"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "article scientifique (publié 1957-10)"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "vetenskaplig artikel (publicerad på 1957-10)"
+        },
+        "da": {
+          "language": "da",
+          "value": "videnskabelig artikel (udgivet  1957-10)"
+        },
+        "it": {
+          "language": "it",
+          "value": "articolo scientifico (pubblicato il 1957-10)"
+        },
+        "sk": {
+          "language": "sk",
+          "value": "vedecký článok (publikovaný 1957-10)"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "artigo científico (publicado na 1957-10)"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "գիտական հոդված"
+        },
+        "ar": {
+          "language": "ar",
+          "value": "مقالة علمية (نشرت في أكتوبر 1957)"
+        },
+        "sq": {
+          "language": "sq",
+          "value": "artikull shkencor"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "1957년 논문"
+        },
+        "tg-cyrl": {
+          "language": "tg-cyrl",
+          "value": "мақолаи илмӣ"
+        },
+        "sr-el": {
+          "language": "sr-el",
+          "value": "naučni članak"
+        },
+        "bg": {
+          "language": "bg",
+          "value": "научна статия"
+        },
+        "es": {
+          "language": "es",
+          "value": "artículo científico publicado en 1957"
+        },
+        "lt": {
+          "language": "lt",
+          "value": "mokslinis straipsnis"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "bài báo khoa học"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "научная статья"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "artículu científicu espublizáu en 1957"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "სამეცნიერო სტატია"
+        },
+        "zh-my": {
+          "language": "zh-my",
+          "value": "1957年论文"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "научни чланак"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "article científic"
+        },
+        "zh-hk": {
+          "language": "zh-hk",
+          "value": "1957年論文"
+        },
+        "sr-ec": {
+          "language": "sr-ec",
+          "value": "научни чланак"
+        },
+        "he": {
+          "language": "he",
+          "value": "מאמר מדעי"
+        },
+        "tg": {
+          "language": "tg",
+          "value": "мақолаи илмӣ"
+        },
+        "nan": {
+          "language": "nan",
+          "value": "1957 nî lūn-bûn"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "1957年論文"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "scienca artikolo"
+        },
+        "yue": {
+          "language": "yue",
+          "value": "1957年論文"
+        },
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "1957年论文"
+        },
+        "nn": {
+          "language": "nn",
+          "value": "vitskapeleg artikkel"
+        },
+        "pt-br": {
+          "language": "pt-br",
+          "value": "artigo científico (publicado na 1957)"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "tudományos cikk"
+        },
+        "et": {
+          "language": "et",
+          "value": "teaduslik artikkel"
+        },
+        "zh-tw": {
+          "language": "zh-tw",
+          "value": "1957年論文"
+        },
+        "oc": {
+          "language": "oc",
+          "value": "article scientific"
+        },
+        "el": {
+          "language": "el",
+          "value": "επιστημονικό άρθρο"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "bilimsel makale"
+        },
+        "zh-cn": {
+          "language": "zh-cn",
+          "value": "1957年论文"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "vitenskapelig artikkel"
+        },
+        "zh-mo": {
+          "language": "zh-mo",
+          "value": "1957年論文"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "artigo científico"
+        },
+        "th": {
+          "language": "th",
+          "value": "บทความทางวิทยาศาสตร์"
+        },
+        "tl": {
+          "language": "tl",
+          "value": "artikulong pang-agham"
+        },
+        "ro": {
+          "language": "ro",
+          "value": "articol științific"
+        },
+        "zh-sg": {
+          "language": "zh-sg",
+          "value": "1957年论文"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "наукова стаття, опублікована в жовтні 1957"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "1957年论文"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "1957年の論文"
+        },
+        "wuu": {
+          "language": "wuu",
+          "value": "1957年论文"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "tieteellinen artikkeli"
+        },
+        "bn": {
+          "language": "bn",
+          "value": "১৯৫৭-এ প্রকাশিত বৈজ্ঞানিক নিবন্ধ"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "مقالهٔ علمی"
+        },
+        "ur": {
+          "language": "ur",
+          "value": "سائنسی مضمون"
+        }
+      },
+      "aliases": {
+        "en": [
+          {
+            "language": "en",
+            "value": "Correlation of the Base Strengths of Amines1"
+          }
+        ]
+      },
+      "claims": {
+        "P31": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P31",
+              "hash": "29465f78f13add11b617f0de4ade56cd1122c19c",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 13442814,
+                  "id": "Q13442814"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q23571040$C478E4E5-1351-4116-9396-1EDED4471BE4",
+            "rank": "normal"
+          }
+        ],
+        "P433": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P433",
+              "hash": "95accc3d52b5a4700e3806cb7ce40f8218cf35eb",
+              "datavalue": {
+                "value": "20",
+                "type": "string"
+              },
+              "datatype": "string"
+            },
+            "type": "statement",
+            "id": "Q23571040$9F3F6F6B-AC3D-41B2-9FCF-EBC125CEC629",
+            "rank": "normal"
+          }
+        ],
+        "P304": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P304",
+              "hash": "d33d8fa6b76b6386f5287e30505c67a626eb7daa",
+              "datavalue": {
+                "value": "5441-5444",
+                "type": "string"
+              },
+              "datatype": "string"
+            },
+            "type": "statement",
+            "id": "Q23571040$69D4315A-B8DF-4342-AD93-A3F77A5F7712",
+            "rank": "normal"
+          }
+        ],
+        "P478": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P478",
+              "hash": "0cbc6005946a2b9d1af1b01b9394154847bb6243",
+              "datavalue": {
+                "value": "79",
+                "type": "string"
+              },
+              "datatype": "string"
+            },
+            "type": "statement",
+            "id": "Q23571040$8794146D-F305-4931-8892-C49D22C9F955",
+            "rank": "normal"
+          }
+        ],
+        "P577": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P577",
+              "hash": "ceb33b1f16d5ebc059122e771e496e5b26095531",
+              "datavalue": {
+                "value": {
+                  "time": "+1957-10-00T00:00:00Z",
+                  "timezone": 0,
+                  "before": 0,
+                  "after": 0,
+                  "precision": 10,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                },
+                "type": "time"
+              },
+              "datatype": "time"
+            },
+            "type": "statement",
+            "id": "Q23571040$9CAF583B-0DEF-4DEF-8AA4-5DDD0AAA7E46",
+            "rank": "normal"
+          }
+        ],
+        "P921": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P921",
+              "hash": "5028618de04e657a122baaa2f0231c37deda60a6",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 82264,
+                  "id": "Q82264"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q23571040$BB037C73-9207-409C-AF88-54E5DE119EC4",
+            "rank": "normal"
+          }
+        ],
+        "P2093": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P2093",
+              "hash": "6da8c7c50aee86dc1dfdc6e2d668145b688dbe1a",
+              "datavalue": {
+                "value": "H. K. Hall",
+                "type": "string"
+              },
+              "datatype": "string"
+            },
+            "type": "statement",
+            "qualifiers": {
+              "P1545": [
+                {
+                  "snaktype": "value",
+                  "property": "P1545",
+                  "hash": "2a1ced1dca90648ea7e306acbadd74fc81a10722",
+                  "datavalue": {
+                    "value": "1",
+                    "type": "string"
+                  },
+                  "datatype": "string"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P1545"
+            ],
+            "id": "Q23571040$D476AE92-D23C-4C42-8F67-5406627FC3A1",
+            "rank": "normal"
+          }
+        ],
+        "P1476": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1476",
+              "hash": "0e14bf50bf4fb81cac4e8d2c2c176e768bb37293",
+              "datavalue": {
+                "value": {
+                  "text": "Correlation of the Base Strengths of Amines 1",
+                  "language": "en"
+                },
+                "type": "monolingualtext"
+              },
+              "datatype": "monolingualtext"
+            },
+            "type": "statement",
+            "id": "Q23571040$8EE7F55F-892F-49D7-BD5D-521BB96C7A3D",
+            "rank": "normal"
+          }
+        ],
+        "P1433": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1433",
+              "hash": "1e77325fbc34235757d854e004354de04210b19c",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 898902,
+                  "id": "Q898902"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q23571040$0442AEDA-1116-415B-92E7-8DA2FF8FA76B",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "c01f952b9e76a555eff4584f9126368cb700f3c3",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "a185ae64d472c92d128e6bcb1de168a4b46a2019",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 5188229,
+                          "id": "Q5188229"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ]
+          }
+        ],
+        "P356": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P356",
+              "hash": "eabcfda1bef278ffe87d24a596b99df1133b392f",
+              "datavalue": {
+                "value": "10.1021/JA01577A030",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q23571040$FE12B0E0-75F4-45D4-A27F-6909A0418886",
+            "rank": "normal"
+          }
+        ],
+        "P407": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P407",
+              "hash": "daf1c4fcb58181b02dff9cc89deb084004ddae4b",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 1860,
+                  "id": "Q1860"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q23571040$5736AD7E-8A0E-4B43-8951-20C7A79130E2",
+            "rank": "normal"
+          }
+        ]
+      },
+      "sitelinks": {}
+    },
     "Q30361614": {
       "pageid": 31973250,
       "ns": 0,
       "title": "Q30361614",
-      "lastrevid": 866987999,
-      "modified": "2019-02-25T12:29:25Z",
+      "lastrevid": 915080143,
+      "modified": "2019-04-15T20:25:19Z",
       "type": "item",
       "id": "Q30361614",
       "labels": {
@@ -12398,6 +12942,10 @@
         },
         "es": {
           "language": "es",
+          "value": "Andrew Mungall"
+        },
+        "ast": {
+          "language": "ast",
           "value": "Andrew Mungall"
         }
       },
@@ -13707,8 +14255,8 @@
       "pageid": 4695698,
       "ns": 0,
       "title": "Q4914910",
-      "lastrevid": 859912573,
-      "modified": "2019-02-18T02:39:38Z",
+      "lastrevid": 916723007,
+      "modified": "2019-04-17T12:34:09Z",
       "type": "item",
       "id": "Q4914910",
       "labels": {
@@ -13763,6 +14311,10 @@
         "es": {
           "language": "es",
           "value": "Bioinformática"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Bioinformatics"
         }
       },
       "descriptions": {
@@ -14728,6 +15280,1569 @@
         "enwiki": {
           "site": "enwiki",
           "title": "Bioinformatics (journal)",
+          "badges": []
+        }
+      }
+    },
+    "Q898902": {
+      "pageid": 849725,
+      "ns": 0,
+      "title": "Q898902",
+      "lastrevid": 916656509,
+      "modified": "2019-04-17T11:17:48Z",
+      "type": "item",
+      "id": "Q898902",
+      "labels": {
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "美国化学学会期刊"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "美國化學學會期刊"
+        },
+        "zh-hk": {
+          "language": "zh-hk",
+          "value": "美國化學學會期刊"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "Journal of the American Chemical Society"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "Journal of the American Chemical Society"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "미국 화학회지"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "Journal of the American Chemical Society"
+        },
+        "en": {
+          "language": "en",
+          "value": "Journal of the American Chemical Society"
+        },
+        "es": {
+          "language": "es",
+          "value": "Journal of the American Chemical Society"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Journal of the American Chemical Society"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Journal of the American Chemical Society"
+        },
+        "it": {
+          "language": "it",
+          "value": "Journal of the American Chemical Society"
+        },
+        "id": {
+          "language": "id",
+          "value": "Journal of the American Chemical Society"
+        },
+        "de": {
+          "language": "de",
+          "value": "Journal of the American Chemical Society"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "米国化学会誌"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Journal of the American Chemical Society"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "جکس (ژورنال)"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "美国化学会志"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "Journal of the American Chemical Society"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "Journal of the American Chemical Society"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "Journal of the American Chemical Society"
+        },
+        "nn": {
+          "language": "nn",
+          "value": "Journal of the American Chemical Society"
+        },
+        "da": {
+          "language": "da",
+          "value": "Journal of the American Chemical Society"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Journal of the American Chemical Society"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "Journal of the American Chemical Society"
+        },
+        "ky": {
+          "language": "ky",
+          "value": "Америка химия коомунун журналы"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Journal of the American Chemical Society"
+        }
+      },
+      "descriptions": {
+        "de": {
+          "language": "de",
+          "value": "Wissenschaftliche Fachzeitschrift"
+        },
+        "en": {
+          "language": "en",
+          "value": "journal"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "tidsskrift"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "wetenschappelijk tijdschrift van American Chemical Society"
+        },
+        "ar": {
+          "language": "ar",
+          "value": "مجلة"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "英语期刊"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "vědecký časopis"
+        }
+      },
+      "aliases": {
+        "zh": [
+          {
+            "language": "zh",
+            "value": "美国化学会刊"
+          },
+          {
+            "language": "zh",
+            "value": "The Journal of the American Chemical Society"
+          },
+          {
+            "language": "zh",
+            "value": "美國化學學會期刊"
+          },
+          {
+            "language": "zh",
+            "value": "美国化学会会志"
+          },
+          {
+            "language": "zh",
+            "value": "J. Am. Chem. Soc."
+          },
+          {
+            "language": "zh",
+            "value": "美国化学学会会刊"
+          },
+          {
+            "language": "zh",
+            "value": "Journal of the American Chemical Society"
+          },
+          {
+            "language": "zh",
+            "value": "JACS"
+          }
+        ],
+        "pt": [
+          {
+            "language": "pt",
+            "value": "J. Am. Chem. Soc."
+          }
+        ],
+        "pl": [
+          {
+            "language": "pl",
+            "value": "Journal of American Chemical Society"
+          },
+          {
+            "language": "pl",
+            "value": "JACS"
+          },
+          {
+            "language": "pl",
+            "value": "J.Am.Chem.Soc."
+          },
+          {
+            "language": "pl",
+            "value": "J. Am. Chem. Soc."
+          }
+        ],
+        "ko": [
+          {
+            "language": "ko",
+            "value": "미국화학회지"
+          },
+          {
+            "language": "ko",
+            "value": "JACS"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "J. Amer. Chem. Soc."
+          },
+          {
+            "language": "fr",
+            "value": "J. AM. Chem. Soc."
+          },
+          {
+            "language": "fr",
+            "value": "J. Am. Chem. Soc"
+          },
+          {
+            "language": "fr",
+            "value": "JACS"
+          }
+        ],
+        "es": [
+          {
+            "language": "es",
+            "value": "J Am Chem Soc"
+          },
+          {
+            "language": "es",
+            "value": "J. Am. Chem. Soc."
+          },
+          {
+            "language": "es",
+            "value": "J Am Chem Soc."
+          },
+          {
+            "language": "es",
+            "value": "JACS"
+          },
+          {
+            "language": "es",
+            "value": "J Am. Chem. Soc."
+          },
+          {
+            "language": "es",
+            "value": "J Am Chem. Soc."
+          }
+        ],
+        "uk": [
+          {
+            "language": "uk",
+            "value": "Журнал американського хімічного товариства"
+          },
+          {
+            "language": "uk",
+            "value": "J. Am. Chem. Soc."
+          }
+        ],
+        "it": [
+          {
+            "language": "it",
+            "value": "Journal of American Chemical Society"
+          },
+          {
+            "language": "it",
+            "value": "J. Am. Chem. Soc."
+          },
+          {
+            "language": "it",
+            "value": "JACS"
+          }
+        ],
+        "id": [
+          {
+            "language": "id",
+            "value": "J. Am. Chem. Soc."
+          },
+          {
+            "language": "id",
+            "value": "JACS"
+          }
+        ],
+        "de": [
+          {
+            "language": "de",
+            "value": "American Chemical Journal"
+          },
+          {
+            "language": "de",
+            "value": "JACS"
+          },
+          {
+            "language": "de",
+            "value": "J. Am. Chem. Soc."
+          }
+        ],
+        "ja": [
+          {
+            "language": "ja",
+            "value": "Journal of the American Chemical Society"
+          },
+          {
+            "language": "ja",
+            "value": "米化学会誌"
+          },
+          {
+            "language": "ja",
+            "value": "アメリカ化学会誌"
+          },
+          {
+            "language": "ja",
+            "value": "J. Am. Chem. Soc."
+          }
+        ],
+        "nl": [
+          {
+            "language": "nl",
+            "value": "Jacs"
+          },
+          {
+            "language": "nl",
+            "value": "J. Am. Chem. Soc."
+          }
+        ],
+        "en": [
+          {
+            "language": "en",
+            "value": "American Chemical Society. Journal"
+          },
+          {
+            "language": "en",
+            "value": "JACS"
+          }
+        ]
+      },
+      "claims": {
+        "P1161": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1161",
+              "hash": "23e885b3f4f246ceef2f4609e070321ab45282b1",
+              "datavalue": {
+                "value": "J Am Chem Soc",
+                "type": "string"
+              },
+              "datatype": "string"
+            },
+            "type": "statement",
+            "id": "Q898902$26f1207a-4fee-f1b2-e056-96ff90e337b0",
+            "rank": "normal"
+          }
+        ],
+        "P1160": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1160",
+              "hash": "c25dd9bc53f952786082d4ed569b7d282851abb1",
+              "datavalue": {
+                "value": "J. Am. Chem. Soc.",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$7b933476-4597-fb86-6e36-34dba314a6d4",
+            "rank": "normal"
+          }
+        ],
+        "P31": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P31",
+              "hash": "79be89a40eb5519d22350a1eb211ad5c13106a0b",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 5633421,
+                  "id": "Q5633421"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "q898902$F8700507-8095-4319-897E-B46026668AFB",
+            "rank": "normal"
+          }
+        ],
+        "P646": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P646",
+              "hash": "80941a5ac896413f19f2abfb60b950d9bb0a68c1",
+              "datavalue": {
+                "value": "/m/05tcxt",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$D7C5D322-D000-4F00-881F-7950D6EF15AB",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2b00cb481cddcac7623114367489b5c194901c4a",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "a94b740202b097dd33355e0e6c00e54b9395e5e0",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 15241312,
+                          "id": "Q15241312"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ],
+                  "P577": [
+                    {
+                      "snaktype": "value",
+                      "property": "P577",
+                      "hash": "fde79ecb015112d2f29229ccc1ec514ed3e71fa2",
+                      "datavalue": {
+                        "value": {
+                          "time": "+2013-10-28T00:00:00Z",
+                          "timezone": 0,
+                          "before": 0,
+                          "after": 0,
+                          "precision": 11,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                        },
+                        "type": "time"
+                      },
+                      "datatype": "time"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P577"
+                ]
+              }
+            ]
+          }
+        ],
+        "P236": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P236",
+              "hash": "929548991fa15d80189e77969b394dd4f4ac01f1",
+              "datavalue": {
+                "value": "0002-7863",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$F855F0B3-9190-47D0-B533-B6D3949D4F03",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P236",
+              "hash": "dae41e33d770ebbfe882dbf7da75058c8b89aaa3",
+              "datavalue": {
+                "value": "1520-5126",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$F6912444-1547-47CA-8B65-BF9A3CEA8BDF",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P236",
+              "hash": "fca9d98d3d5300fbb81164bbbd92f97da475af2e",
+              "datavalue": {
+                "value": "1943-2984",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$14C5CE34-ECC6-4277-8D8B-88AA030F4CD3",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "cb027ec1dd27a771321740db85c04f34345e3922",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "cc68ab6eb4937cd68bb3a5f7e022e3e5f748f774",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 15794938,
+                          "id": "Q15794938"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1058": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1058",
+              "hash": "8744edfca11b1f8781c9b2112a7bcef9abfa2e3c",
+              "datavalue": {
+                "value": "1359",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$82BE4184-5B0A-40BA-95AA-EA9E1A914978",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "1643281ef6e577673e4272176fc12a9fcfa37747",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "f6009fd3828dc6dd3aa4404e34225a959e76842a",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 15735759,
+                          "id": "Q15735759"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1144": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1144",
+              "hash": "b16ef745ba3cd20b2c7d18164dacf0ade63c5dfb",
+              "datavalue": {
+                "value": "16003159",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$759B6880-1F5E-4075-89B1-3B08DC1E0BDA",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P243": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P243",
+              "hash": "98c67e3035f10f41bfd6adad98c3ee36bf861ba1",
+              "datavalue": {
+                "value": "01226990",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$8C7D2DB1-0CBE-482F-87BE-86F5CD0ACDB5",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1159": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1159",
+              "hash": "368d57c8798e8027ee31e08f1a026ac700fdcf6b",
+              "datavalue": {
+                "value": "JACSAT",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$B8490E49-7D80-4A7F-A441-F7B49F6AB457",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1156": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1156",
+              "hash": "51904018628b662efe3878c478ea61b7adb9adae",
+              "datavalue": {
+                "value": "22680",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$B831FD0B-640C-4BAE-8BA0-9138A8A30F1F",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9ccc1e0c185178a3f1a9b5c8602f72bfd426259f",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "c8372b1b3ba931384b6187f6a67a1e738e3f297c",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 371467,
+                          "id": "Q371467"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1250": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1250",
+              "hash": "ce3bb9a39ac52c3853c7e6d4becb1b7f35c5029b",
+              "datavalue": {
+                "value": "16441",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$A567D045-91CA-487E-8865-F3C024D51900",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "e05828e3a52a380a8566c836caa2359ef12680db",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "11e3ae0d38894ef4bcef08f92efa2566bcf07b46",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 16335771,
+                          "id": "Q16335771"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1240": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1240",
+              "hash": "dbda008446b0208c8ab0ebfef46be0228c71ca97",
+              "datavalue": {
+                "value": "2",
+                "type": "string"
+              },
+              "datatype": "string"
+            },
+            "type": "statement",
+            "id": "Q898902$E87C4FD4-A33D-49A2-8CD8-E0FCFA796317",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "e05828e3a52a380a8566c836caa2359ef12680db",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "11e3ae0d38894ef4bcef08f92efa2566bcf07b46",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 16335771,
+                          "id": "Q16335771"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ]
+          }
+        ],
+        "P98": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P98",
+              "hash": "4ca8cf5d73a257e7ac5aee44a05b71ae1197f662",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 7174903,
+                  "id": "Q7174903"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q898902$D77079AB-41F2-456E-BBD2-5FACCA76225D",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P123": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P123",
+              "hash": "04d234328085b54209eae5a0f21f6a92b54a88ca",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 247556,
+                  "id": "Q247556"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q898902$537628BE-5124-4EF9-9116-DEEB671B09EC",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P856": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P856",
+              "hash": "1f236ffc2c979453b3ec5f94f6c7896fe2355652",
+              "datavalue": {
+                "value": "http://pubs.acs.org/journals/jacsat/index.html",
+                "type": "string"
+              },
+              "datatype": "url"
+            },
+            "type": "statement",
+            "qualifiers": {
+              "P407": [
+                {
+                  "snaktype": "value",
+                  "property": "P407",
+                  "hash": "daf1c4fcb58181b02dff9cc89deb084004ddae4b",
+                  "datavalue": {
+                    "value": {
+                      "entity-type": "item",
+                      "numeric-id": 1860,
+                      "id": "Q1860"
+                    },
+                    "type": "wikibase-entityid"
+                  },
+                  "datatype": "wikibase-item"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P407"
+            ],
+            "id": "Q898902$BD6CC596-7BE7-41B3-8DAC-6B1DF142C65B",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1476": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1476",
+              "hash": "7a508da64e91c86bb634a86d96a2045d54bc17ec",
+              "datavalue": {
+                "value": {
+                  "text": "Journal of the American Chemical Society",
+                  "language": "en"
+                },
+                "type": "monolingualtext"
+              },
+              "datatype": "monolingualtext"
+            },
+            "type": "statement",
+            "id": "Q898902$45814C5B-D8F9-4664-944C-C236E4DB3894",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1609": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1609",
+              "hash": "6be1e9a4b9f749ecfa91190c5bb6d6e3b60a7bcb",
+              "datavalue": {
+                "value": "4012",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$61139033-5603-46C8-B8CD-845ABD867AE9",
+            "rank": "normal"
+          }
+        ],
+        "P1844": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1844",
+              "hash": "bca223777043fec3d4e7db7053b157481f8a8484",
+              "datavalue": {
+                "value": "008892384",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$dbbe1db2-4cab-74e2-475e-5828008d9936",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1844",
+              "hash": "1f689461c2d7c67936530beb4d13cb8179be5599",
+              "datavalue": {
+                "value": "000674499",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$86a78ed3-49db-d76f-f3f5-7df568e79aa2",
+            "rank": "normal"
+          }
+        ],
+        "P571": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P571",
+              "hash": "7831e4444f9e77323787a40ca3b2e5a4b69cb164",
+              "datavalue": {
+                "value": {
+                  "time": "+1879-00-00T00:00:00Z",
+                  "timezone": 0,
+                  "before": 0,
+                  "after": 0,
+                  "precision": 9,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                },
+                "type": "time"
+              },
+              "datatype": "time"
+            },
+            "type": "statement",
+            "id": "Q898902$afbd1536-422a-20e3-b85a-d66483072702",
+            "rank": "normal"
+          }
+        ],
+        "P2896": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P2896",
+              "hash": "7f5cf458de65fe48419af5a9c19dd74378a886ff",
+              "datavalue": {
+                "value": {
+                  "amount": "+1",
+                  "unit": "http://www.wikidata.org/entity/Q23387",
+                  "upperBound": "+2",
+                  "lowerBound": "+0"
+                },
+                "type": "quantity"
+              },
+              "datatype": "quantity"
+            },
+            "type": "statement",
+            "id": "Q898902$f5b2a48c-4836-fbed-0b91-e6242ed0f04a",
+            "rank": "normal"
+          }
+        ],
+        "P921": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P921",
+              "hash": "1d9e2b2ed423ab270d7d8e308c6f454ff7c33348",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 2329,
+                  "id": "Q2329"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q898902$ed31c12c-46ce-126c-59af-32be6c97b567",
+            "rank": "normal"
+          }
+        ],
+        "P3181": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3181",
+              "hash": "21a07eb55ee54414b8a60184aca22a90ca09f4d7",
+              "datavalue": {
+                "value": "2264",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$AE16ADF9-8847-4F2E-A781-9A8FBDB0B433",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2141c141d6fda0c6620a2fcd1bc11ef1f43fc6c5",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "204fcaf280347be9e514e2a51294750a36e4807d",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 26382154,
+                          "id": "Q26382154"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248"
+                ]
+              }
+            ]
+          }
+        ],
+        "P1055": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1055",
+              "hash": "07e10bc731e912f092ef314f3fbefaacaf6dfaf5",
+              "datavalue": {
+                "value": "7503056",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$30071124-EAD1-452C-9D58-1B676600FE42",
+            "rank": "normal"
+          }
+        ],
+        "P407": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P407",
+              "hash": "daf1c4fcb58181b02dff9cc89deb084004ddae4b",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 1860,
+                  "id": "Q1860"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q898902$469614C6-EFB9-4A62-8732-287A21792F07",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9a24f7c0208b05d6be97077d855671d1dfdbc0dd",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "d38375ffe6fe142663ff55cd783aa4df4301d83d",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 48183,
+                          "id": "Q48183"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              },
+              {
+                "hash": "d4bd87b862b12d99d26e86472d44f26858dee639",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "f30cbd35620c4ea6d0633aaf0210a8916130469b",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 8447,
+                          "id": "Q8447"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              },
+              {
+                "hash": "c456dc5cd2117249948c288206ff3f8b1bf574f0",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e17507043402fe54ae6c4d65cc51f46cec987de9",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 8449,
+                          "id": "Q8449"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P495": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P495",
+              "hash": "7f985e15819b74ed189d022e004890e66d2ae42e",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 30,
+                  "id": "Q30"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q898902$B0FD8D84-7C8A-4895-9BE5-C9555AB80E51",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "9a24f7c0208b05d6be97077d855671d1dfdbc0dd",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "d38375ffe6fe142663ff55cd783aa4df4301d83d",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 48183,
+                          "id": "Q48183"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P143"
+                ]
+              }
+            ]
+          }
+        ],
+        "P4616": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P4616",
+              "hash": "94a4364ce918f1615efa0de45c0cefeee8c33527",
+              "datavalue": {
+                "value": "0941",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$0F9961F2-DDBF-4EB7-B5BD-471073791685",
+            "rank": "normal"
+          }
+        ],
+        "P1813": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1813",
+              "hash": "d244b4692b8336c49af83169abfff2772fdb19fc",
+              "datavalue": {
+                "value": {
+                  "text": "J Am Chem Soc",
+                  "language": "en"
+                },
+                "type": "monolingualtext"
+              },
+              "datatype": "monolingualtext"
+            },
+            "type": "statement",
+            "id": "Q898902$be1adb9a-44e9-cccc-cd33-fa6ae48cac9a",
+            "rank": "normal"
+          }
+        ],
+        "P1277": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P1277",
+              "hash": "19fbd8f4a212f776ccbc7afbdc58318e9cf96021",
+              "datavalue": {
+                "value": "61812",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q898902$F0BC258C-5D13-400E-8020-2E1DDB98FEDB",
+            "rank": "normal"
+          }
+        ]
+      },
+      "sitelinks": {
+        "cawiki": {
+          "site": "cawiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "dewiki": {
+          "site": "dewiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "enwiki": {
+          "site": "enwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "eswiki": {
+          "site": "eswiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "fawiki": {
+          "site": "fawiki",
+          "title": "جکس (ژورنال)",
+          "badges": []
+        },
+        "frwiki": {
+          "site": "frwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "idwiki": {
+          "site": "idwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "itwiki": {
+          "site": "itwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "jawiki": {
+          "site": "jawiki",
+          "title": "米国化学会誌",
+          "badges": []
+        },
+        "kowiki": {
+          "site": "kowiki",
+          "title": "미국 화학회지",
+          "badges": []
+        },
+        "kywiki": {
+          "site": "kywiki",
+          "title": "Америка химия коомунун журналы",
+          "badges": []
+        },
+        "nlwiki": {
+          "site": "nlwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "plwiki": {
+          "site": "plwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "ptwiki": {
+          "site": "ptwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "srwiki": {
+          "site": "srwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "trwiki": {
+          "site": "trwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "ukwiki": {
+          "site": "ukwiki",
+          "title": "Journal of the American Chemical Society",
+          "badges": []
+        },
+        "zhwiki": {
+          "site": "zhwiki",
+          "title": "美国化学会志",
           "badges": []
         }
       }
@@ -18223,8 +20338,8 @@
       "pageid": 29572300,
       "ns": 0,
       "title": "Q27863244",
-      "lastrevid": 908733827,
-      "modified": "2019-04-10T08:29:20Z",
+      "lastrevid": 918691951,
+      "modified": "2019-04-19T07:23:38Z",
       "type": "item",
       "id": "Q27863244",
       "labels": {
@@ -18262,10 +20377,6 @@
         }
       },
       "descriptions": {
-        "en": {
-          "language": "en",
-          "value": "Swiss scientist"
-        },
         "id": {
           "language": "id",
           "value": "ahli biologi"
@@ -18331,12 +20442,12 @@
             "mainsnak": {
               "snaktype": "value",
               "property": "P106",
-              "hash": "7568a19123ca4c38f800b10685a969d778f98ae0",
+              "hash": "657b9db452f9d3eeb80822f8eaa8aff5143475aa",
               "datavalue": {
                 "value": {
                   "entity-type": "item",
-                  "numeric-id": 864503,
-                  "id": "Q864503"
+                  "numeric-id": 593644,
+                  "id": "Q593644"
                 },
                 "type": "wikibase-entityid"
               },
@@ -18344,6 +20455,25 @@
             },
             "type": "statement",
             "id": "Q27863244$f14aed66-4ac0-884e-1f8f-e0388ef6ee9d",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P106",
+              "hash": "f1a5c4515fb96dc0f611c02be12ccaafb5826b78",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 21002290,
+                  "id": "Q21002290"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q27863244$28b41352-43cf-2027-7731-5f45dba599d2",
             "rank": "normal"
           }
         ],
@@ -18504,6 +20634,102 @@
               "P1545"
             ],
             "id": "Q27863244$DCF7D6AF-53FA-43B2-ADEC-910EDA76D490",
+            "rank": "normal"
+          }
+        ],
+        "P69": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P69",
+              "hash": "25b78d9d4c0186c1247f3851327ed239b56f7ee0",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 1517021,
+                  "id": "Q1517021"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q27863244$fd36f192-4a53-4f99-3b49-5d4dbf3b237e",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P69",
+              "hash": "54007128f6294f8d4a61217558d159f0b9286a20",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 689854,
+                  "id": "Q689854"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q27863244$f31a50b3-4dfc-fd4c-ac5f-c8bd161a1a1a",
+            "rank": "normal"
+          }
+        ],
+        "P2002": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P2002",
+              "hash": "903e1f3411a0a64719301aad40ed6e559a302e8f",
+              "datavalue": {
+                "value": "ESchymanski",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q27863244$ed7450cc-4cc3-2cc9-51c1-6b1d36576c20",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "cb176d30eb6ea84fec47524b62e79021d1ddb7ca",
+                "snaks": {
+                  "P854": [
+                    {
+                      "snaktype": "value",
+                      "property": "P854",
+                      "hash": "acb5b793f3019dd9d56385e4a59f86cc1b21ae48",
+                      "datavalue": {
+                        "value": "https://twitter.com/ESchymanski/status/1118845664870449155",
+                        "type": "string"
+                      },
+                      "datatype": "url"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854"
+                ]
+              }
+            ]
+          }
+        ],
+        "P2037": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P2037",
+              "hash": "2174b9b0b8f924264f3cf1e0b39da30cd0518851",
+              "datavalue": {
+                "value": "schymane",
+                "type": "string"
+              },
+              "datatype": "external-id"
+            },
+            "type": "statement",
+            "id": "Q27863244$f011106e-4ed1-fceb-b336-1e5b4b4e0385",
             "rank": "normal"
           }
         ]
@@ -20818,8 +23044,8 @@
       "pageid": 44592470,
       "ns": 0,
       "title": "Q43370330",
-      "lastrevid": 907558458,
-      "modified": "2019-04-08T22:41:28Z",
+      "lastrevid": 917639612,
+      "modified": "2019-04-18T08:28:10Z",
       "type": "item",
       "id": "Q43370330",
       "labels": {
@@ -21168,6 +23394,27 @@
               }
             ]
           }
+        ],
+        "P21": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P21",
+              "hash": "85ad4b1c7348f7a5aac521135040d74e91fb5939",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 6581097,
+                  "id": "Q6581097"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q43370330$999cd494-4b53-1c49-e8e8-31d8a4fd1cff",
+            "rank": "normal"
+          }
         ]
       },
       "sitelinks": {}
@@ -21176,8 +23423,8 @@
       "pageid": 44592472,
       "ns": 0,
       "title": "Q43370332",
-      "lastrevid": 897104160,
-      "modified": "2019-03-29T22:37:09Z",
+      "lastrevid": 917640134,
+      "modified": "2019-04-18T08:28:57Z",
       "type": "item",
       "id": "Q43370332",
       "labels": {
@@ -21417,6 +23664,27 @@
                 ]
               }
             ]
+          }
+        ],
+        "P21": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P21",
+              "hash": "85ad4b1c7348f7a5aac521135040d74e91fb5939",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 6581097,
+                  "id": "Q6581097"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q43370332$d3699505-4c7c-c2aa-f50c-51e726fec347",
+            "rank": "normal"
           }
         ]
       },
@@ -22043,8 +24311,8 @@
       "pageid": 1823960,
       "ns": 0,
       "title": "Q1893837",
-      "lastrevid": 856815027,
-      "modified": "2019-02-12T18:30:59Z",
+      "lastrevid": 921476064,
+      "modified": "2019-04-22T04:18:56Z",
       "type": "item",
       "id": "Q1893837",
       "labels": {
@@ -22143,6 +24411,10 @@
         "uk": {
           "language": "uk",
           "value": "Nature Biotechnology"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Nature Biotechnology"
         }
       },
       "descriptions": {
@@ -22156,7 +24428,7 @@
         },
         "nl": {
           "language": "nl",
-          "value": "wetenschappelijk tijdschrift"
+          "value": "wetenschappelijk tijdschrift van Nature Publishing Group"
         },
         "ar": {
           "language": "ar",
