@@ -1,4 +1,8 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.1...v) (2019-04-26)
+# [](https://github.com/citation-js/citation-js/compare/v0.4.2...v) (2019-05-02)
+
+
+
+## [0.4.2](https://github.com/citation-js/citation-js/compare/v0.4.1...v0.4.2) (2019-04-26)
 
 
 ### Bug Fixes
