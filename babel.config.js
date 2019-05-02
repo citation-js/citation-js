@@ -5,6 +5,11 @@ module.exports = {
     } }]
   ],
   env: {
+    'mjs': {
+      presets: [
+        ['@babel/env', { modules: false }]
+      ]
+    },
     test: {
       plugins: ['istanbul']
     }

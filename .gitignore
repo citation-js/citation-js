@@ -16,6 +16,7 @@ build/
 coverage/
 jsdoc/
 lib/
+lib-mjs/
 
 # coverage
 .nyc_output/

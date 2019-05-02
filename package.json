@@ -18,7 +18,8 @@
     "wikidata-sdk": "^6.3.0"
   },
   "scripts": {
-    "babel": "lerna exec --parallel -- babel src -d lib --copy-files --root $PWD",
+    "babel": "lerna exec --parallel -- babel src -d lib --copy-files",
+    "babel-mjs": "lerna exec --parallel -- babel src -d lib-mjs --copy-files --env-name mjs",
     "lint": "standard",
     "lerna": "lerna exec --ignore '*/cli' --no-bail --stream --",
     "test": "npm run lerna -- npm test -- -r @babel/register",
