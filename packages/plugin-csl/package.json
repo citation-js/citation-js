@@ -31,7 +31,7 @@
     "test": "mocha -c -R dot test/*.spec.js"
   },
   "dependencies": {
-    "citeproc": "^2.1.220"
+    "citeproc": "^2.2.1"
   },
   "devDependencies": {
     "@citation-js/core": "^0.4.3-alpha.0"
