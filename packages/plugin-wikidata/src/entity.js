@@ -2,36 +2,33 @@
  * @module input/wikidata
  */
 
-import { simplify } from 'wikidata-sdk'
-
+import * as response from './response'
 import config from './config'
 import {
   parseProp,
-  parsePropAsync,
   parsePropName,
   getLabel
 } from './prop'
 
-const SIMPLIFY_OPTS = {
-  keepQualifiers: true,
-  timeConverter: 'simple-day'
-}
-
-function preProcess (data, { id }) {
-  data._wikiId = id
-  data.id = id
-  return data
-}
-
-function addValues (data, prop, value) {
-  if (Array.isArray(data[prop])) {
-    data[prop] = data[prop].concat(value)
-  } else if (!data.hasOwnProperty(prop)) {
-    data[prop] = value
+export function parseEntity (entity, langs) {
+  const data = {
+    id: entity.id,
+    _wikiId: entity.id
   }
-}
 
-function postProcess (data, entity, langs) {
+  Object.keys(entity.claims).map(prop => {
+    const cslProp = parsePropName(prop)
+    if (cslProp) {
+      const value = parseProp(prop, entity.claims[prop], langs)
+
+      if (Array.isArray(data[cslProp])) {
+        data[cslProp] = data[cslProp].concat(value)
+      } else if (!data.hasOwnProperty(cslProp)) {
+        data[cslProp] = value
+      }
+    }
+  })
+
   for (let prop in data) {
     if (Array.isArray(data[prop])) {
       data[prop].sort(({ _ordinal: a }, { _ordinal: b }) => a - b)
@@ -45,32 +42,6 @@ function postProcess (data, entity, langs) {
   return data
 }
 
-export async function parseEntityAsync (entity, langs) {
-  const csl = preProcess({}, entity)
-
-  await Promise.all(Object.keys(entity.claims).map(async prop => {
-    const cslProp = parsePropName(prop)
-    if (cslProp) {
-      addValues(csl, cslProp, await parsePropAsync(prop, entity.claims[prop], langs))
-    }
-  }))
-
-  return postProcess(csl, entity, langs)
-}
-
-export function parseEntity (entity, langs) {
-  const csl = preProcess({}, entity)
-
-  Object.keys(entity.claims).map(prop => {
-    const cslProp = parsePropName(prop)
-    if (cslProp) {
-      addValues(csl, cslProp, parseProp(prop, entity.claims[prop], langs))
-    }
-  })
-
-  return postProcess(csl, entity, langs)
-}
-
 /**
  * Format Wikidata data (async)
  *
@@ -80,10 +51,8 @@ export function parseEntity (entity, langs) {
  * @return {Promise<Array<CSL>>} The formatted input data
  */
 export async function parseEntitiesAsync ({ entities }) {
-  return Promise.all(Object.keys(entities).map(async id => parseEntityAsync(
-    simplify.entity(entities[id], SIMPLIFY_OPTS),
-    config.langs
-  )))
+  return (await response.parseAsync(entities))
+    .map(entity => parseEntity(entity, config.langs))
 }
 
 /**
@@ -95,10 +64,8 @@ export async function parseEntitiesAsync ({ entities }) {
  * @return {Array<CSL>} The formatted input data
  */
 export function parseEntities ({ entities }) {
-  return Object.keys(entities).map(id => parseEntity(
-    simplify.entity(entities[id], SIMPLIFY_OPTS),
-    config.langs
-  ))
+  return response.parse(entities)
+    .map(entity => parseEntity(entity, config.langs))
 }
 
 export {

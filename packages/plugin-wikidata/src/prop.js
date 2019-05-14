@@ -2,12 +2,9 @@
  * @module input/wikidata
  */
 
-import { simplify } from 'wikidata-sdk'
-import { util, logger } from '@citation-js/core'
+import { logger } from '@citation-js/core'
 import { parse as parseNameString } from '@citation-js/name'
 import { parse as parseDate } from '@citation-js/date'
-
-import getUrls from './id'
 
 /**
  * CSL mappings for Wikidata fields.
@@ -53,25 +50,7 @@ const getStatedAs = qualifiers => [].concat(...[
  * @return {Object} CSL name object
  */
 const parseName = (name, qualifiers) => {
-  name = name ? parseNameString(name) : { literal: name }
-  name._ordinal = getSeriesOrdinal(qualifiers)
   return name
-}
-
-/**
- * Get the names of objects
- *
- * @access private
- * @param {Object} values
- * @param {Array<String>} langs
- *
- * @return {Array<String>} Array with labels of each prop
- */
-const getNameUrls = (values, langs) => {
-  const toFetch = values
-    .filter(({ value, qualifiers }) => value && !getStatedAs(qualifiers).length)
-    .map(({ value }) => value)
-  return getUrls(toFetch, langs)
 }
 
 /**
@@ -85,37 +64,17 @@ const getNameUrls = (values, langs) => {
  *
  * @return {Array<String>} Array with labels of each prop
  */
-const parseNames = (values, fetched, langs) => {
+const parseNames = (values, langs) => {
   return values.map(({ value, qualifiers }) => {
-    const [name] = getStatedAs(qualifiers)
-    return parseName(name || getLabel(fetched[value], langs), qualifiers)
+    let [name] = getStatedAs(qualifiers)
+    if (!name) {
+      name = typeof value === 'string' ? value : getLabel(value, langs)
+    }
+    name = name ? parseNameString(name) : { literal: name }
+    name._ordinal = getSeriesOrdinal(qualifiers)
+    return name
   })
 }
-
-/**
- * @access private
- * @param {Array<Object>} responses
- * @return {Object} single response
- */
-const mergeApi = responses => Object.assign({}, ...responses)
-
-/**
- * @access private
- * @param {Array<String>} urls
- * @return {Object} response
- */
-const fetchApi = urls => mergeApi(urls.map(url =>
-  simplify.entities(JSON.parse(util.fetchFile(url)).entities)
-))
-
-/**
- * @access private
- * @param {Array<String>} urls
- * @return {Object} response
- */
-const fetchApiAsync = async urls => mergeApi(await Promise.all(urls.map(async url =>
-  simplify.entities(JSON.parse(await util.fetchFileAsync(url)).entities)
-)))
 
 /**
  * Transform property and value from Wikidata format to CSL.
@@ -143,10 +102,8 @@ export function parseProp (prop, values, langs) {
     case 'P98':
     case 'P110':
     case 'P655':
-      return parseNames(values, fetchApi(getNameUrls(values, langs)), langs)
-
     case 'P2093':
-      return values.map(({ value, qualifiers }) => parseName(value, qualifiers))
+      return parseNames(values, langs)
 
     case 'P577':
       return parseDate(value)
@@ -155,46 +112,10 @@ export function parseProp (prop, values, langs) {
     case 'P136':
     case 'P291':
     case 'P1433':
-      return getLabel(fetchApi(getUrls(value))[value], langs)
+      return getLabel(value, langs)
 
     default:
       return value
-  }
-}
-
-/**
- * Transform property and value from Wikidata format to CSL (async).
- *
- * Returns additional _ordinal property on authors.
- *
- * @access protected
- *
- * @param {String} prop
- * @param {Array} values
- * @param {Array<String>} langs
- *
- * @return {Promise<String|Array<Object>>} Array with new prop and value
- */
-export async function parsePropAsync (prop, values, langs) {
-  const value = values[0].value
-
-  switch (prop) {
-    case 'P50':
-    case 'P57':
-    case 'P86':
-    case 'P98':
-    case 'P110':
-    case 'P655':
-      return parseNames(values, await fetchApiAsync(getNameUrls(values, langs)), langs)
-
-    case 'P123':
-    case 'P136':
-    case 'P291':
-    case 'P1433':
-      return getLabel((await fetchApiAsync(getUrls(value, langs)))[value], langs)
-
-    default:
-      return parseProp(prop, values, langs)
   }
 }
 
@@ -247,6 +168,5 @@ export function getLabel (entity, langs) {
 
 export {
   parseProp as parse,
-  parsePropAsync as parseAsync,
   parseProp as default
 }

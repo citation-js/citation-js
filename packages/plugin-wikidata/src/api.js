@@ -6,7 +6,10 @@ import { util } from '@citation-js/core'
 
 const { fetchFile, fetchFileAsync } = util
 
-export {
-  fetchFile as parse,
-  fetchFileAsync as parseAsync
+export function parse (urls) {
+  return [].concat(urls).map(fetchFile)
+}
+
+export function parseAsync (urls) {
+  return Promise.all([].concat(urls).map(fetchFileAsync))
 }

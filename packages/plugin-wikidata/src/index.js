@@ -39,6 +39,14 @@ const formats = {
       extends: '@else/url'
     }
   },
+  '@wikidata/array+api': {
+    parse: api.parse,
+    parseAsync: api.parseAsync,
+    parseType: {
+      dataType: 'Array',
+      elementConstraint: '@wikidata/api'
+    }
+  },
   '@wikidata/url': {
     parse: url.parse,
     parseType: {
@@ -62,9 +70,23 @@ const formats = {
       propertyConstraint: { props: 'entities' }
     }
   },
+  '@wikidata/array+object': {
+    parse (responses) {
+      // merge results
+      return responses.reduce((combined, { success, entities }) => {
+        combined.success &= success
+        Object.assign(combined.entities, entities)
+        return combined
+      }, {})
+    },
+    parseType: {
+      dataType: 'Array',
+      elementConstraint: '@wikidata/object'
+    },
+    outputs: '@wikidata/object'
+  },
   '@wikidata/prop': {
-    parse: prop.parseProp,
-    parseAsync: prop.parsePropAsync
+    parse: prop.parseProp
   },
   '@wikidata/type': {
     parse: prop.parsePropType
