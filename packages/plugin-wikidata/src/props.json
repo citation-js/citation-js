@@ -1,34 +1,54 @@
 {
   "props": {
-    "P31": "type",
-    "P50": "author",
-    "P57": "director",
-    "P86": "composer",
-    "P98": "editor",
-    "P110": "illustrator",
-    "P123": "publisher",
-    "P136": "genre",
-    "P212": "ISBN",
-    "P236": "ISSN",
-    "P291": "publisher-place",
-    "P304": "page",
-    "P348": "version",
-    "P356": "DOI",
-    "P393": "edition",
-    "P433": "issue",
-    "P478": "volume",
-    "P577": "issued",
-    "P655": "translator",
-    "P698": "PMID",
-    "P856": "URL",
-    "P932": "PMCID",
-    "P953": "URL",
-    "P957": "ISBN",
-    "P1104": "number-of-pages",
-    "P1433": "container-title",
-    "P1476": "title",
-    "P2093": "author",
-    "P2699": "URL"
+    "author": {
+      "values": "all",
+      "props": ["P50", "P2093"]
+    },
+    "composer": {
+      "values": "all",
+      "props": ["P86"]
+    },
+    "container-title": "P1433",
+    "director": {
+      "values": "all",
+      "props": ["P57"]
+    },
+    "DOI": "P356",
+    "edition": "P393",
+    "editor": {
+      "values": "all",
+      "props": ["P98"]
+    },
+    "illustrator": {
+      "values": "all",
+      "props": ["P110"]
+    },
+    "ISBN": {
+      "values": "any",
+      "props": ["P212", "P957"]
+    },
+    "ISSN": "P236",
+    "issue": "P433",
+    "issued": "P577",
+    "genre": "P136",
+    "number-of-pages": "P1104",
+    "page": "P304",
+    "PMID": "P698",
+    "PMCID": "P932",
+    "publisher": "P123",
+    "publisher-place": "P291",
+    "title": "P1476",
+    "translator": {
+      "values": "all",
+      "props": ["P655"]
+    },
+    "type": "P31",
+    "version": "P348",
+    "volume": "P478",
+    "URL": {
+      "values": "any",
+      "props": ["P856", "P953", "P2699"]
+    }
   },
   "ignoredProps": {
     "P2860": "Cites",

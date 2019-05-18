@@ -2,41 +2,64 @@
  * @module input/wikidata
  */
 
+import { logger } from '@citation-js/core'
 import * as response from './response'
-import config from './config'
-import {
-  parseProp,
-  parsePropName,
-  getLabel
-} from './prop'
+import { parseProp, getLabel } from './prop'
 
-export function parseEntity (entity, langs) {
+/**
+ * CSL mappings for Wikidata fields.
+ * @constant propMap
+ * @property {Object} props
+ * @property {Object} ignoredProps - known common props without CSL mapping
+ */
+import { props, ignoredProps } from './props'
+
+function prepareValue (statement, { claims }, unkown) {
+  if (typeof statement !== 'object') {
+    unkown.delete(statement)
+    return claims[statement] && claims[statement][0].value
+  }
+
+  const values = [].concat(...statement.props
+    .map(prop => {
+      unkown.delete(prop)
+      return claims[prop]
+    })
+    .filter(Boolean)
+  )
+
+  if (statement.values === 'all') {
+    return values[0] && values
+  } else {
+    return values[0] && values[0].value
+  }
+}
+
+export function parseEntity (entity) {
   const data = {
     id: entity.id,
     _wikiId: entity.id
   }
 
-  Object.keys(entity.claims).map(prop => {
-    const cslProp = parsePropName(prop)
-    if (cslProp) {
-      const value = parseProp(prop, entity.claims[prop], langs)
+  const unkown = new Set(Object.keys(entity.claims))
 
-      if (Array.isArray(data[cslProp])) {
-        data[cslProp] = data[cslProp].concat(value)
-      } else if (!data.hasOwnProperty(cslProp)) {
-        data[cslProp] = value
-      }
-    }
-  })
-
-  for (let prop in data) {
-    if (Array.isArray(data[prop])) {
-      data[prop].sort(({ _ordinal: a }, { _ordinal: b }) => a - b)
+  for (let prop in props) {
+    const value = prepareValue(props[prop], entity, unkown)
+    if (value) {
+      data[prop] = parseProp(prop, value, entity)
     }
   }
 
+  for (let prop of unkown) {
+    if (prop in ignoredProps) {
+      continue
+    }
+
+    logger.unmapped('[plugin-wikidata]', 'property', prop)
+  }
+
   if (!data.title) {
-    data.title = getLabel(entity, langs)
+    data.title = getLabel(entity)
   }
 
   return data
@@ -51,8 +74,7 @@ export function parseEntity (entity, langs) {
  * @return {Promise<Array<CSL>>} The formatted input data
  */
 export async function parseEntitiesAsync ({ entities }) {
-  return (await response.parseAsync(entities))
-    .map(entity => parseEntity(entity, config.langs))
+  return (await response.parseAsync(entities)).map(parseEntity)
 }
 
 /**
@@ -64,8 +86,7 @@ export async function parseEntitiesAsync ({ entities }) {
  * @return {Array<CSL>} The formatted input data
  */
 export function parseEntities ({ entities }) {
-  return response.parse(entities)
-    .map(entity => parseEntity(entity, config.langs))
+  return response.parse(entities).map(parseEntity)
 }
 
 export {

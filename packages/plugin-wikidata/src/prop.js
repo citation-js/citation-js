@@ -6,13 +6,7 @@ import { logger } from '@citation-js/core'
 import { parse as parseNameString } from '@citation-js/name'
 import { parse as parseDate } from '@citation-js/date'
 
-/**
- * CSL mappings for Wikidata fields.
- * @constant propMap
- * @property {Object} props
- * @property {Object} ignoredProps - known common props without CSL mapping
- */
-import { props, ignoredProps } from './props'
+import config from './config'
 
 /**
  * CSL mappings for Wikidata instances.
@@ -43,37 +37,34 @@ const getStatedAs = qualifiers => [].concat(...[
 ].filter(Boolean))
 
 /**
- * @access private
- * @param {String} name
- * @param {Object} qualifiers
+ * Get a single name
  *
- * @return {Object} CSL name object
+ * @access private
+ * @param {Object} claim - name claim
+ * @return {Object} Name object
  */
-const parseName = (name, qualifiers) => {
+const parseName = ({ value, qualifiers }) => {
+  let [name] = getStatedAs(qualifiers)
+  if (!name) {
+    name = typeof value === 'string' ? value : getLabel(value)
+  }
+  name = name ? parseNameString(name) : { literal: name }
+  name._ordinal = getSeriesOrdinal(qualifiers)
   return name
 }
 
 /**
- * Get the names of objects
+ * Get names
  *
  * @access private
  * @param {Array<Object>} values
- * @param {Array<String>} names
- * @param {Array<Object>} fetched
- * @param {Array<String>} langs
  *
- * @return {Array<String>} Array with labels of each prop
+ * @return {Array<Object>} Array with name objects
  */
-const parseNames = (values, langs) => {
-  return values.map(({ value, qualifiers }) => {
-    let [name] = getStatedAs(qualifiers)
-    if (!name) {
-      name = typeof value === 'string' ? value : getLabel(value, langs)
-    }
-    name = name ? parseNameString(name) : { literal: name }
-    name._ordinal = getSeriesOrdinal(qualifiers)
-    return name
-  })
+const parseNames = (values) => {
+  return values
+    .map(parseName)
+    .sort((a, b) => a._ordinal - b._ordinal)
 }
 
 /**
@@ -84,55 +75,36 @@ const parseNames = (values, langs) => {
  * @access protected
  *
  * @param {String} prop
- * @param {Array} values
- * @param {Array<String>} langs
+ * @param {Array|String} values
+ * @param {Object} entity
  *
  * @return {String|Array<Object>} CSL value
  */
-export function parseProp (prop, values, langs) {
-  const value = values[0].value
-
+export function parseProp (prop, value, entity) {
   switch (prop) {
-    case 'P31':
+    case 'type':
       return parseType(value)
 
-    case 'P50':
-    case 'P57':
-    case 'P86':
-    case 'P98':
-    case 'P110':
-    case 'P655':
-    case 'P2093':
-      return parseNames(values, langs)
+    case 'author':
+    case 'director':
+    case 'composer':
+    case 'editor':
+    case 'illustrator':
+    case 'translator':
+      return parseNames(value)
 
-    case 'P577':
+    case 'issued':
       return parseDate(value)
 
-    case 'P123':
-    case 'P136':
-    case 'P291':
-    case 'P1433':
-      return getLabel(value, langs)
+    case 'container-title':
+    case 'genre':
+    case 'publisher':
+    case 'publisher-place':
+      return getLabel(value)
 
     default:
       return value
   }
-}
-
-/**
- * @access protected
- * @param {String} prop
- * @return {String} CSL prop
- */
-export function parsePropName (prop) {
-  if (prop in ignoredProps) {
-    return undefined
-  } else if (!props[prop]) {
-    logger.unmapped('[plugin-wikidata]', 'property', prop)
-    return undefined
-  }
-
-  return props[prop]
 }
 
 /**
@@ -162,7 +134,7 @@ export function getLabel (entity, langs) {
     return undefined
   }
 
-  const lang = langs.find(lang => entity.labels[lang])
+  const lang = config.langs.find(lang => entity.labels[lang])
   return entity.labels[lang]
 }
 
