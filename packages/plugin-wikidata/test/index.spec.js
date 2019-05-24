@@ -41,22 +41,22 @@ describe('input', function () {
 
 describe('configuration', function () {
   describe('langs', function () {
-    const qid = 'Q27795847'
+    const qid = 'Q1'
     const config = plugins.config.get('@wikidata')
 
     it('changes default', function () {
       config.langs.unshift('ja')
       assert.strictEqual(
-        plugins.input.chain(qid)[0]['container-title'],
-        'ネイチャー バイオテクノロジー'
+        plugins.input.chain(qid)[0].title,
+        '宇宙'
       )
       config.langs.shift()
     })
     it('falls back', function () {
       config.langs.unshift('foo')
       assert.strictEqual(
-        plugins.input.chain(qid)[0]['container-title'],
-        'Nature Biotechnology'
+        plugins.input.chain(qid)[0].title,
+        'Universe'
       )
       config.langs.shift()
     })

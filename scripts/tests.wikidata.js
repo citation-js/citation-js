@@ -3,28 +3,36 @@ require('isomorphic-fetch')
 
 var fs = require('fs')
 var wdk = require('wikidata-sdk')
+var response = require('../packages/plugin-wikidata/lib/response.js')
 
-var items = ['Q21972834', 'Q27795847', 'Q1', 'Q23571040']
-var props = ['P50', 'P57', 'P86', 'P98', 'P110', 'P655', 'P123', 'P136', 'P291', 'P1433']
-var prefix = (array, prefix) => array.map(item => prefix + item).join(' ')
-var json = response => response.json()
+var items = [
+  'Q21972834',
+  'Q27795847',
+  'Q1',
+  'Q23571040',
+  'Q7878315',
+  'Q50237325',
+  'Q43361',
+  'Q63862629',
+  'Q7017193',
+  'Q61642258',
+  'Q51615345'
+]
 
-var query = wdk.sparqlQuery(`select ?item where {
-  values ?subject {${prefix(items, 'wd:')}} .
-  values ?prop {${prefix(props, 'wdt:')}} .
-  ?subject ?prop ?object .
-  bind(strAfter(str(?object), str(wd:)) as ?item)
-}`)
+async function getItems (ids) {
+  return {
+    entities: Object.assign(...await Promise.all(wdk
+      .getManyEntities(ids)
+      .map(url => fetch(url)
+        .then(res => res.json())
+        .then(res => res.entities)
+      )
+    ))
+  }
+}
 
-fetch(query)
-  .then(json)
-  .then(wdk.simplifySparqlResults)
-  .then(results => results.map(result => result.item))
-  .then(results => [].concat(items, results))
-  .then(wdk.getManyEntities)
-  .then(urls => Promise.all(urls.map(fetch)))
-  .then(urls => Promise.all(urls.map(json)))
-  .then(results => results.map(result => result.entities))
-  .then(results => Object.assign.apply(Object, results))
-  .then(results => JSON.stringify({ entities: results }, null, 2))
+getItems(items)
+  .then(({ entities }) => response.fillCacheAsync(entities))
+  .then(results => getItems(Object.keys(results)))
+  .then(entities => JSON.stringify(entities, null, 2))
   .then(result => fs.writeFileSync('test/data/api/wikidata.json', result))

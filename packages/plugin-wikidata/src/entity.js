@@ -14,17 +14,29 @@ import { parseProp, getLabel } from './prop'
  */
 import { props, ignoredProps } from './props'
 
-function prepareValue (statement, { claims }, unkown) {
+function resolveProp (prop_, entity, unkown) {
+  function resolve ([prop, ...parts], { claims }) {
+    if (!parts.length) {
+      return claims[prop]
+    } else if (claims[prop] && claims[prop].length) {
+      return resolve(parts, claims[prop][0].value)
+    }
+  }
+
+  const parts = prop_.split('.')
+  unkown.delete(parts[0])
+
+  return resolve(parts, entity)
+}
+
+function prepareValue (statement, entity, unkown) {
   if (typeof statement !== 'object') {
-    unkown.delete(statement)
-    return claims[statement] && claims[statement][0].value
+    const value = resolveProp(statement, entity, unkown)
+    return value && value[0].value
   }
 
   const values = [].concat(...statement.props
-    .map(prop => {
-      unkown.delete(prop)
-      return claims[prop]
-    })
+    .map(prop => resolveProp(prop, entity, unkown))
     .filter(Boolean)
   )
 
@@ -38,15 +50,19 @@ function prepareValue (statement, { claims }, unkown) {
 export function parseEntity (entity) {
   const data = {
     id: entity.id,
-    _wikiId: entity.id
+    _wikiId: entity.id,
+    source: 'Wikidata'
   }
 
   const unkown = new Set(Object.keys(entity.claims))
 
   for (let prop in props) {
-    const value = prepareValue(props[prop], entity, unkown)
-    if (value) {
-      data[prop] = parseProp(prop, value, entity)
+    const input = prepareValue(props[prop], entity, unkown)
+    if (input) {
+      const output = parseProp(prop, input, entity)
+      if (output) {
+        data[prop] = output
+      }
     }
   }
 
@@ -61,6 +77,28 @@ export function parseEntity (entity) {
   if (!data.title) {
     data.title = getLabel(entity)
   }
+
+  // BEGIN: Hot-fix some types
+
+  if (data['reviewed-title'] || data['reviewed-author']) {
+    // not all
+    if (data.type.slice(0, 6) !== 'review') {
+      data.type = 'review'
+    }
+
+    // P921 (main subject) is used for review subjects and keywords
+    delete data.keyword
+  }
+
+  if (data.recipient) {
+    data.type = 'personal_communication'
+  }
+
+  if (data.event) {
+    data.type = 'paper-conference'
+  }
+
+  // END
 
   return data
 }

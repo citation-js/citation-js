@@ -67,6 +67,31 @@ const parseNames = (values) => {
     .sort((a, b) => a._ordinal - b._ordinal)
 }
 
+const getPlace = value => {
+  // console.log(value.claims)
+  const country = value.claims.P17[0].value
+  return getLabel(value) + ', ' + country.claims.P1813[0].value
+}
+
+const getTitle = value => {
+  return value.claims.P1476
+    ? value.claims.P1476[0].value
+    : getLabel(value)
+}
+
+const parseKeywords = values => {
+  return values
+    .map(({ value }) => getLabel(value))
+    .join(',')
+}
+
+const parseDateRange = dates => ({
+  'date-parts': dates
+    .map(date => parseDate(date.value))
+    .filter(date => date && date['date-parts'])
+    .map(date => date['date-parts'][0])
+})
+
 /**
  * Transform property and value from Wikidata format to CSL.
  *
@@ -87,20 +112,45 @@ export function parseProp (prop, value, entity) {
 
     case 'author':
     case 'director':
+    case 'container-author':
+    case 'collection-editor':
     case 'composer':
     case 'editor':
     case 'illustrator':
+    case 'original-author':
+    case 'recipient':
+    case 'reviewed-author':
     case 'translator':
       return parseNames(value)
 
     case 'issued':
+    case 'original-date':
       return parseDate(value)
 
+    case 'event-date':
+      return parseDateRange(value)
+
+    case 'keyword':
+      return parseKeywords(value)
+
     case 'container-title':
-    case 'genre':
+    case 'collection-title':
+    case 'event':
+    case 'medium':
     case 'publisher':
+    case 'original-publisher':
+      return getTitle(value)
+
+    case 'event-place':
+    case 'original-publisher-place':
     case 'publisher-place':
-      return getLabel(value)
+      return getPlace(value)
+
+    case 'collection-number':
+      return getSeriesOrdinal(value[0].qualifiers)
+
+    case 'number-of-volumes':
+      return value.length
 
     default:
       return value
@@ -125,11 +175,10 @@ export function parseType (type) {
  * Get the labels of objects
  *
  * @param {Object} entity - Wikidata API response
- * @param {Array<String>} langs
  *
  * @return {String} label
  */
-export function getLabel (entity, langs) {
+export function getLabel (entity) {
   if (!entity) {
     return undefined
   }

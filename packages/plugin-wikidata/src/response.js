@@ -11,6 +11,16 @@ const SIMPLIFY_OPTS = {
   timeConverter: 'simple-day'
 }
 
+const FETCH_PLACE = {
+  P17: null
+}
+
+const FETCH_PUBLISHER = {
+  // publisher-place
+  P740: FETCH_PLACE,
+  P159: FETCH_PLACE
+}
+
 const FETCH_ADDITIONAL = {
   // name variables
   P50: null,
@@ -19,28 +29,50 @@ const FETCH_ADDITIONAL = {
   P98: null,
   P110: null,
   P655: null,
+  P1817: null,
+
+  // keyword & reviewed-title
+  P921: {
+    // reviewed-author
+    P50: null
+  },
+
+  // language
+  P407: null,
+  P364: null,
 
   // publisher
-  P123: null,
+  P123: FETCH_PUBLISHER,
 
-  // genre
-  P136: null,
+  // original
+  P629: {
+    P50: null,
+    P123: FETCH_PUBLISHER
+  },
 
-  // publisher-place
-  P291: null,
+  // medium
+  P437: null,
+  P186: null,
+
+  // collection-title
+  P179: {
+    // collection-editor
+    P98: null
+  },
 
   // container-title
-  P1433: null
-}
-
-function flatUnique (set, array) {
-  for (let element of array) {
-    if (!set.includes(element)) {
-      set.push(element)
+  P1433: {
+    // event
+    P4745: {
+      // event-place
+      P276: FETCH_PLACE
     }
-  }
+  },
 
-  return set
+  // other container-title (has no event)
+  P361: {
+    P50: null
+  }
 }
 
 function flat (array, part) {
@@ -53,7 +85,7 @@ function collectAdditionalIds (entity, needed) {
     return []
   }
 
-  entity._needed = needed
+  entity._needed = Object.assign(entity._needed || {}, needed)
   return Object.keys(entity.claims)
     .filter(prop => prop in needed)
     .map(prop => entity.claims[prop].map(({ value }) => value))
@@ -62,9 +94,16 @@ function collectAdditionalIds (entity, needed) {
 
 function completeResponse (entities, old) {
   if (!old) {
-    return Object.keys(entities)
-      .map(id => collectAdditionalIds(entities[id], FETCH_ADDITIONAL))
-      .reduce(flatUnique, [])
+    let allIds = []
+    for (let id in entities) {
+      const ids = collectAdditionalIds(entities[id], FETCH_ADDITIONAL)
+      for (let id of ids) {
+        if (!allIds.includes(id)) {
+          allIds.push(id)
+        }
+      }
+    }
+    return allIds
   }
 
   const ids = []
@@ -72,19 +111,23 @@ function completeResponse (entities, old) {
   for (var id of old) {
     var entity = entities[id]
 
+    if (!entity._needed) {
+      continue
+    }
+
     for (var prop in entity.claims) {
       if (prop in entity._needed) {
-        entity.claims[prop].forEach(claim => {
-          claim.value = { ...entities[claim.value] }
+        for (let claim of entity.claims[prop]) {
+          claim.value = entities[claim.value]
           ids.push(...collectAdditionalIds(claim.value, entity._needed[prop]))
-        })
+        }
       }
     }
 
     delete entity._needed
   }
 
-  return [...new Set(ids)]
+  return ids.filter((id, i) => !(id in entities) && ids.indexOf(id) === i)
 }
 
 export function parse (entities) {
@@ -105,7 +148,7 @@ export function parse (entities) {
   return Object.keys(entities).map(id => cache[id])
 }
 
-export async function parseAsync (entities) {
+export async function fillCacheAsync (entities) {
   const cache = simplify.entities(entities, SIMPLIFY_OPTS)
 
   let needed = completeResponse(cache)
@@ -119,6 +162,12 @@ export async function parseAsync (entities) {
 
     ;[needed, incomplete] = [completeResponse(cache, incomplete), needed]
   }
+
+  return cache
+}
+
+export async function parseAsync (entities) {
+  const cache = await fillCacheAsync(entities)
 
   return Object.keys(entities).map(id => cache[id])
 }
