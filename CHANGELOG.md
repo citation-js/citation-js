@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.3-alpha.0...v) (2019-05-11)
+# [](https://github.com/citation-js/citation-js/compare/v0.4.3...v) (2019-05-24)
+
+
+### Features
+
+* **plugin-wikidata:** additional mappings ([01be936](https://github.com/citation-js/citation-js/commit/01be936)), closes [#18](https://github.com/citation-js/citation-js/issues/18)
+
+
+
+## [0.4.3](https://github.com/citation-js/citation-js/compare/v0.4.3-alpha.0...v0.4.3) (2019-05-11)
 
 
 
