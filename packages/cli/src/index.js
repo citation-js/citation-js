@@ -45,6 +45,7 @@ program
   .option('-l, --output-language <option>', 'Output language. [RFC 5646](https://tools.ietf.org/html/rfc5646) codes', 'en-US')
 
   .option('--log-level <level>', 'Log level: silent, error, warn, info, debug, http', 'warn')
+  .option('--plugins <names>', 'Plugin names (@citation-js/plugin-NAME)', names => names.split(','), [])
 
   .parse(process.argv)
 
@@ -55,6 +56,14 @@ async function main (options) {
   process.stdin.setEncoding('utf8')
 
   logger.level = options.logLevel
+
+  for (let plugin of options.plugins) {
+    try {
+      require(`@citation-js/plugin-${plugin}`)
+    } catch (e) {
+      logger.error(`Could not load plugin "@citation-js/plugin-${plugin}"`)
+    }
+  }
 
   if (options.pipe) {
     await pipe(process.stdin, process.stdout, options)
