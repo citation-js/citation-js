@@ -69,7 +69,7 @@ const get = function (options = {}) {
       throw new Error(`Invalid style "${newStyle}"`)
   }
 
-  const result = this.format(newStyle, formatOptions)
+  const result = this.format(newStyle, Object.assign(formatOptions, options._newOptions))
 
   const { format } = parsedOptions
   if (format === 'real' && newType === 'html' && typeof document !== 'undefined' && typeof document.createElement === 'function') {

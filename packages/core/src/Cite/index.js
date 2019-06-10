@@ -36,6 +36,7 @@ import * as staticMethods from './static'
  * @property {String} lang
  * @property {String|Cite~wrapper} prepend
  * @property {String|Cite~wrapper} append
+ * @property {Object} _newOptions - used internally (for the CLI), if you need this move to Cite#format() probably
  */
 
 /**
