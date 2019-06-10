@@ -7,6 +7,12 @@ import getBibTeXLabel from './label'
 import { format as getName } from '@citation-js/name'
 import { format as getDate } from '@citation-js/date'
 
+function getNames (names) {
+  return names
+    .map(name => getName(name, true))
+    .join(' and ')
+}
+
 /**
  * Get BibTeX-JSON from CSL(-JSON)
  *
@@ -57,10 +63,10 @@ const getBibTeXJSON = function (src, opts) {
   }
 
   if (src.author) {
-    props.author = src.author.map(name => getName(name, true)).join(' and ')
+    props.author = getNames(src.author)
   }
   if (src.editor) {
-    props.editor = src.editor.map(name => getName(name, true)).join(' and ')
+    props.editor = getNames(src.editor)
   }
 
   if (!src.note && src.accessed) {
