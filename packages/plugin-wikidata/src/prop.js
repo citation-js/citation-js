@@ -70,7 +70,7 @@ const parseNames = (values) => {
 const getPlace = value => {
   const country = value.claims.P17[0].value
   // only short names that are not an instance of (P31) emoji flag seqs. (Q28840786)
-  const shortNames = country.claims.P1813.filter(({ qualifiers: { P31 } }) => P31[0] !== 'Q28840786')
+  const shortNames = country.claims.P1813.filter(({ qualifiers: { P31 } }) => !P31 || P31[0] !== 'Q28840786')
   return getLabel(value) + ', ' + (shortNames[0] || country.claims.P1448[0]).value
 }
 
