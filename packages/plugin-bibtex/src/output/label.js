@@ -8,6 +8,13 @@ const stopWords = [
   'an'
 ]
 
+const safeSlug = text => {
+  return text
+    .replace(/<\/?.*?>/g, '')
+    .split(/\W+/)
+    .find(word => word.length && !stopWords.includes(word.toLowerCase()))
+}
+
 /**
  * Get a BibTeX label from CSL data
  *
@@ -26,7 +33,7 @@ const getBibTeXLabel = function (entry = {}) {
   let res = ''
 
   if (entry.author) {
-    res += entry.author[0].family || entry.author[0].literal
+    res += safeSlug(entry.author[0].family || entry.author[0].literal)
   }
   if (entry.issued && entry.issued['date-parts'] && entry.issued['date-parts'][0]) {
     res += entry.issued['date-parts'][0][0]
@@ -34,10 +41,7 @@ const getBibTeXLabel = function (entry = {}) {
   if (entry['year-suffix']) {
     res += entry['year-suffix']
   } else if (entry.title) {
-    res += entry.title
-      .replace(/<\/?.*?>/g, '')
-      .split(/\W+/)
-      .find(word => word.length && !stopWords.includes(word.toLowerCase()))
+    res += safeSlug(entry.title)
   }
 
   return res

@@ -80,6 +80,18 @@
       [{"id": "b", "citation-label": "foo", "type": "book"}],
       "@book{foo,\n}"
     ],
+    "safe labels": [
+      [{
+        "id": "b",
+        "title": "An Introduction: \"Safety\"",
+        "issued": {
+          "date-parts": [[2050]]
+        },
+        "author": [{"literal": "The Foundation"}],
+        "type": "book"
+      }],
+      "@book{Foundation2050Introduction,\n\ttitle = {An Introduction: \"Safety\"},\n\tauthor = {The Foundation},\n\tdate = {2050},\n\tyear = {2050},\n}"
+    ],
     "object": [
       [
         {
