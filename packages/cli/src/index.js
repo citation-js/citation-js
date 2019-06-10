@@ -18,7 +18,7 @@ function promisify (fn) {
   }
 }
 
-const { Cite, logger } = require('@citation-js/core')
+const { Cite, plugins, logger } = require('@citation-js/core')
 require('@citation-js/plugin-bibjson')
 require('@citation-js/plugin-bibtex')
 require('@citation-js/plugin-csl')
@@ -45,9 +45,24 @@ program
   .option('-l, --output-language <option>', 'Output language. [RFC 5646](https://tools.ietf.org/html/rfc5646) codes', 'en-US')
 
   .option('--log-level <level>', 'Log level: silent, error, warn, info, debug, http', 'warn')
-  .option('--plugins <names>', 'Plugin names (@citation-js/plugin-NAME)', names => names.split(','), [])
+
+  .option('--plugins <names>', 'Plugin names (@citation-js/plugin-NAME); bibjson, bibtex, csl, doi, ris & wikidata are preloaded',
+          names => names.split(','), [])
+  .option('--plugin-config <config>', '@plugin.property.path=value;...',
+          splitOptions, [])
+  .option('--formatter-options <config>', 'property.path=value;...',
+          splitOptions, [])
 
   .parse(process.argv)
+
+function splitOptions (options) {
+  return options
+    .split(';')
+    .map(pair => {
+      const [key, value] = pair.split('=')
+      return [key.split('.'), value]
+    })
+}
 
 main(program).catch(console.error)
 
@@ -65,11 +80,55 @@ async function main (options) {
     }
   }
 
+  setConfig(options.pluginConfig)
+  options.formatterOptions = assignOptions({}, options.formatterOptions)
+
   if (options.pipe) {
     await pipe(process.stdin, process.stdout, options)
   } else {
     const input = await getInput(options)
     await writeOutput(await processInput(input, options), options)
+  }
+}
+
+function setConfig (newConfigs) {
+  newConfigs = newConfigs.reduce((plugins, newConfig) => {
+    const plugin = newConfig[0].shift()
+    if (!plugins[plugin]) { plugins[plugin] = [] }
+    plugins[plugin].push(newConfig)
+    return plugins
+  }, {})
+
+  for (let plugin in newConfigs) {
+    const oldConfig = plugins.config.get(plugin)
+    if (oldConfig) { assignOptions(oldConfig, newConfigs[plugin]) }
+  }
+}
+
+function assignOptions (object, options) {
+  for (let [path, value] of options) {
+    const key = path.pop()
+    const assigner = path.reduce((object, key) => {
+      return object[key] || (object[key] = {})
+    }, object)
+    assigner[key] = parseValue(value)
+  }
+  return object
+}
+
+function parseValue (value) {
+  if (!isNaN(+value)) {
+    return +value
+  } else if (/^\[/.test(value)) {
+    return value.replace(/^\[|\]$/g, '').split(',').map(parseValue)
+  } else {
+    return {
+      false: false,
+      true: true,
+      undefined: undefined,
+      null: null,
+      NaN: NaN
+    }[value] || value
   }
 }
 
@@ -116,7 +175,8 @@ async function processInput (input, options) {
     format: 'string',
     type: options.outputType,
     style: options.outputStyle,
-    lang: options.outputLanguage
+    lang: options.outputLanguage,
+    _newOptions: options.formatterOptions
   })
 
   if (!options.outputNonReal && options.outputType === 'html') {
