@@ -118,6 +118,7 @@ function completeResponse (entities, old) {
     for (var prop in entity.claims) {
       if (prop in entity._needed) {
         for (let claim of entity.claims[prop]) {
+          if (claim.value && claim.value.id) { continue }
           claim.value = entities[claim.value]
           ids.push(...collectAdditionalIds(claim.value, entity._needed[prop]))
         }
@@ -130,38 +131,69 @@ function completeResponse (entities, old) {
   return ids
 }
 
-export function parse (entities) {
-  const cache = simplify.entities(entities, SIMPLIFY_OPTS)
+function simplifyEntities (entities) {
+  return simplify.entities(entities, SIMPLIFY_OPTS)
+}
 
-  let needed = completeResponse(cache)
-  let incomplete = Object.keys(entities)
-
-  while (needed.length) {
-    const shouldFetch = needed.filter((id, i) => !(id in cache) && needed.indexOf(id) === i)
-    Object.assign(cache, ...getUrls(shouldFetch).map(url => {
-      const { entities } = JSON.parse(fetch(url))
-      return simplify.entities(entities, SIMPLIFY_OPTS)
-    }))
-
-    ;[needed, incomplete] = [completeResponse(cache, incomplete), needed]
+function initLoopState (entities, cache) {
+  return {
+    needed: completeResponse(cache),
+    incomplete: Object.keys(entities)
   }
+}
 
+function filterIdsAndGetUrls (needed, cache) {
+  const shouldFetch = needed.filter((id, i) => !(id in cache) && needed.indexOf(id) === i)
+  return getUrls(shouldFetch)
+}
+
+function addItemsToCache (response, cache) {
+  const { entities } = JSON.parse(response)
+  Object.assign(cache, simplifyEntities(entities))
+}
+
+function updateLoopState (state, cache) {
+  return {
+    needed: completeResponse(cache, state.incomplete),
+    incomplete: state.needed
+  }
+}
+
+function finalizeItems (entities, cache) {
   return Object.keys(entities).map(id => cache[id])
 }
 
+export function fillCache (entities) {
+  const cache = simplifyEntities(entities)
+  let state = initLoopState(entities, cache)
+
+  while (state.needed.length) {
+    const urls = filterIdsAndGetUrls(state.needed, cache)
+    urls.map(url => addItemsToCache(fetch(url), cache))
+
+    state = updateLoopState(state, cache)
+  }
+
+  return cache
+}
+
+export function parse (entities) {
+  const cache = fillCache(entities)
+
+  return finalizeItems(entities, cache)
+}
+
 export async function fillCacheAsync (entities) {
-  const cache = simplify.entities(entities, SIMPLIFY_OPTS)
+  const cache = simplifyEntities(entities)
+  let state = initLoopState(entities, cache)
 
-  let needed = completeResponse(cache)
-  let incomplete = Object.keys(entities)
+  while (state.needed.length) {
+    const urls = filterIdsAndGetUrls(state.needed, cache)
+    await Promise.all(
+      urls.map(async url => addItemsToCache(await fetchAsync(url), cache))
+    )
 
-  while (needed.length) {
-    Object.assign(cache, ...await Promise.all(getUrls(needed).map(async url => {
-      const { entities } = JSON.parse(await fetchAsync(url))
-      return simplify.entities(entities, SIMPLIFY_OPTS)
-    })))
-
-    ;[needed, incomplete] = [completeResponse(cache, incomplete), needed]
+    state = updateLoopState(state, cache)
   }
 
   return cache
@@ -170,5 +202,5 @@ export async function fillCacheAsync (entities) {
 export async function parseAsync (entities) {
   const cache = await fillCacheAsync(entities)
 
-  return Object.keys(entities).map(id => cache[id])
+  return finalizeItems(entities, cache)
 }
