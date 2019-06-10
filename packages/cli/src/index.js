@@ -47,11 +47,11 @@ program
   .option('--log-level <level>', 'Log level: silent, error, warn, info, debug, http', 'warn')
 
   .option('--plugins <names>', 'Plugin names (@citation-js/plugin-NAME); bibjson, bibtex, csl, doi, ris & wikidata are preloaded',
-          names => names.split(','), [])
+    names => names.split(','), [])
   .option('--plugin-config <config>', '@plugin.property.path=value;...',
-          splitOptions, [])
+    splitOptions, [])
   .option('--formatter-options <config>', 'property.path=value;...',
-          splitOptions, [])
+    splitOptions, [])
   .option('--no-input-generate-graph')
   .option('--input-force-type <type>')
   .option('--input-max-chain-length <number>')
