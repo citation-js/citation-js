@@ -11,7 +11,8 @@ const stopWords = [
 const safeSlug = text => {
   return text
     .replace(/<\/?.*?>/g, '')
-    .split(/\W+/)
+    // exclude all non-alphanumerical ASCII (and include underscore)
+    .split(/[\u0000-\u002F\u003A-\u0040\u005B-\u005E\u0060\u007B-\u007F]+/)
     .find(word => word.length && !stopWords.includes(word.toLowerCase()))
 }
 
