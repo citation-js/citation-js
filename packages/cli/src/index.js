@@ -52,6 +52,11 @@ program
           splitOptions, [])
   .option('--formatter-options <config>', 'property.path=value;...',
           splitOptions, [])
+  .option('--no-input-generate-graph')
+  .option('--input-force-type <type>')
+  .option('--input-max-chain-length <number>')
+  .option('--no-input-strict')
+  .option('--input-target <type>')
 
   .parse(process.argv)
 
@@ -170,7 +175,7 @@ async function getInput (options) {
 }
 
 async function processInput (input, options) {
-  const data = await Cite.async(input)
+  const data = await Cite.async(input, getPrefixedOptions(options, 'input'))
   let output = data.get({
     format: 'string',
     type: options.outputType,
@@ -183,6 +188,18 @@ async function processInput (input, options) {
     output = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' + output + '</body></html>'
   }
 
+  return output
+}
+
+function getPrefixedOptions (options, prefix) {
+  const output = {}
+  for (let prop in options) {
+    if (prop.slice(0, prefix.length) === prefix && prop.length !== prefix) {
+      let newProp = prop.slice(prefix.length)
+      newProp = newProp[0].toLowerCase() + newProp.slice(1)
+      output[newProp] = options[prop]
+    }
+  }
   return output
 }
 
