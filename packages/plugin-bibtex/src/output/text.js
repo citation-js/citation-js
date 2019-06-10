@@ -72,8 +72,8 @@ function serializeValue (prop, value, dict) {
   return dict.listItem.join(`${prop} = {${value}},`)
 }
 
-function serializeEntry (entry, dict) {
-  let { type, label, properties } = getBibTeXJSON(entry)
+function serializeEntry (entry, dict, opts) {
+  let { type, label, properties } = getBibTeXJSON(entry, opts)
   properties = Object
     .keys(properties)
     .map(prop => serializeValue(prop, properties[prop], dict))
@@ -92,11 +92,12 @@ function serializeEntry (entry, dict) {
  *
  * @param {Array<CSL>} src - Input CSL
  * @param {Cite.get.dict~dict} dict - Dictionary
+ * @param {Object} opts
  *
  * @return {String} BibTeX string
  */
-const getBibtex = function (src, dict) {
-  let entries = src.map(entry => serializeEntry(entry, dict)).join('')
+const getBibtex = function (src, dict, opts) {
+  let entries = src.map(entry => serializeEntry(entry, dict, opts)).join('')
 
   return dict.bibliographyContainer.join(entries)
 }

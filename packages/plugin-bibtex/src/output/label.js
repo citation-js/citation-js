@@ -25,9 +25,15 @@ const safeSlug = text => {
  *
  * @return {String} The label
  */
-const getBibTeXLabel = function (entry = {}) {
+const getBibTeXLabel = function (entry = {}, opts = {}) {
+  const {
+    generateLabel = true
+  } = opts
+
   if (entry['citation-label']) {
     return entry['citation-label']
+  } else if (!generateLabel) {
+    return entry.id
   }
 
   let res = ''

@@ -8,11 +8,16 @@ import { getBibtex } from './text'
 import { getBibtxt } from './bibtxt'
 
 const factory = function (formatter) {
-  return function (data, { type, format = type || 'text' } = {}) {
+  return function (data, opts = {}) {
+    const { type, format = type || 'text' } = opts
+
     if (format === 'object') {
       return data.map(json)
+    } else if (plugins.dict.has(format)) {
+      return formatter(data, plugins.dict.get(format), opts)
     } else {
-      return plugins.dict.has(format) ? formatter(data, plugins.dict.get(format)) : ''
+      // throw new RangeError(`Output dictionary "${format}" not available`)
+      return ''
     }
   }
 }

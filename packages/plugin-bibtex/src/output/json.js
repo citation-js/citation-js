@@ -14,12 +14,13 @@ import { format as getDate } from '@citation-js/date'
  * @method getBibTeXJSON
  *
  * @param {CSL} src - Input CSL
+ * @param {Object} opts
  *
  * @return {Object} Output BibTeX-JSON
  */
-const getBibTeXJSON = function (src) {
+const getBibTeXJSON = function (src, opts) {
   const res = {
-    label: getBibTeXLabel(src),
+    label: getBibTeXLabel(src, opts),
     type: fetchBibTeXType(src.type)
   }
 

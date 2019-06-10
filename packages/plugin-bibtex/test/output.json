@@ -80,6 +80,11 @@
       [{"id": "b", "citation-label": "foo", "type": "book"}],
       "@book{foo,\n}"
     ],
+    "non-generated label": [
+      [{"id": "b", "type": "book"}],
+      "@book{b,\n}",
+      {"generateLabel": false}
+    ],
     "safe labels": [
       [{
         "id": "b",

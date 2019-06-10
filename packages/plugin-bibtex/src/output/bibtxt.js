@@ -13,12 +13,13 @@ import { plugins } from '@citation-js/core'
  *
  * @param {Array<CSL>} src - Input CSL
  * @param {Cite.get.dict~dict} dict - Dictionary
+ * @param {Object} opts
  *
  * @return {String} Bib.TXT string
  */
-const getBibtxt = function (src, dict) {
+const getBibtxt = function (src, dict, opts) {
   const entries = src.map(entry => {
-    const bib = getBibTeXJSON(entry)
+    const bib = getBibTeXJSON(entry, opts)
     bib.properties.type = bib.type
     const properties = Object
       .keys(bib.properties)
