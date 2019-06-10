@@ -127,7 +127,7 @@ function completeResponse (entities, old) {
     delete entity._needed
   }
 
-  return ids.filter((id, i) => !(id in entities) && ids.indexOf(id) === i)
+  return ids
 }
 
 export function parse (entities) {
@@ -137,7 +137,8 @@ export function parse (entities) {
   let incomplete = Object.keys(entities)
 
   while (needed.length) {
-    Object.assign(cache, ...getUrls(needed).map(url => {
+    const shouldFetch = needed.filter((id, i) => !(id in cache) && needed.indexOf(id) === i)
+    Object.assign(cache, ...getUrls(shouldFetch).map(url => {
       const { entities } = JSON.parse(fetch(url))
       return simplify.entities(entities, SIMPLIFY_OPTS)
     }))
