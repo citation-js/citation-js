@@ -111,7 +111,7 @@ const richTextMappings = {
  */
 const parseBibtexRichText = function (text) {
   // tokens at even indices are text, odd indices are markup
-  let tokens = text.split(/((?:\\text[a-z]+)?{|})/)
+  let tokens = text.split(/((?:\\[a-z]+)?{|})/)
 
   let closingTags = []
 
@@ -124,11 +124,20 @@ const parseBibtexRichText = function (text) {
     if (index % 2 === 0) {
       return token
 
-    // handle style tags
+    // handle commands
     } else if (token[0] === '\\') {
       let tag = richTextMappings[token.slice(1, -1)]
-      closingTags.push(`</${tag}>`)
-      return `<${tag}>`
+
+      // handle known style tags
+      if (tag) {
+        closingTags.push(`</${tag}>`)
+        return `<${tag}>`
+
+      // handle other commands
+      } else {
+        closingTags.push('')
+        return ''
+      }
 
     // handle nocase tags (e.g. text wrapped in {...})
     } else if (token === '{') {
