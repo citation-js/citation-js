@@ -91,7 +91,7 @@ const parseBibtexNameList = function (list) {
   // ...split the string...
   return list.split(' and ')
   // ...re-insert all literals and unescape all '%'s...
-    .map(name => name.replace(/%\[(\d+)\]/, (_, i) => literals[+i]).replace(/%0/g, '%'))
+    .map(name => name.replace(/%\[(\d+)\]/g, (_, i) => literals[+i]).replace(/%0/g, '%'))
   // ...and parse the names to make sure literals are actually preserved.
     .map(parseBibtexName)
 }
