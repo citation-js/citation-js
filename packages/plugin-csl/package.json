@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-csl",
-  "version": "0.4.3",
+  "version": "0.4.5",
   "description": "Plugin for CSL output for Citation.js",
   "keywords": [
     "citation-js",
@@ -34,7 +34,7 @@
     "citeproc": "^2.2.9"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.4.3"
+    "@citation-js/core": "^0.4.5"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.4.0-rc.0"
