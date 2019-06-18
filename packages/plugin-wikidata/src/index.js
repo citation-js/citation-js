@@ -89,7 +89,7 @@ const formats = {
     parse: prop.parseProp
   },
   '@wikidata/type': {
-    parse: prop.parsePropType
+    parse: prop.parseType
   }
 }
 
