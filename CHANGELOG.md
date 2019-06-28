@@ -1,4 +1,4 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.4...v) (2019-06-12)
+# [0.4.5](https://github.com/citation-js/citation-js/compare/v0.4.4...v0.4.5) (2019-06-12)
 
 
 ### Bug Fixes
@@ -22,7 +22,7 @@
 
 ### BREAKING CHANGES
 
-* **plugin-bibtex:** strips unkown commands entirely instead of replacing 
+* **plugin-bibtex:** strips unkown commands entirely instead of replacing
 the braces with no-case tags
 
 
@@ -175,6 +175,3 @@ the braces with no-case tags
 ### Bug Fixes
 
 * **plugin-ris:** output year always string ([88aabc9](https://github.com/citation-js/citation-js/commit/88aabc9))
-
-
-
