@@ -69,30 +69,30 @@ function sameType (request, response) {
  * @return {Object} response
  * @throws If response is invalid
  */
- function checkResponse (response, opts) {
-   if (opts.checkResponse === false) {
-     return
-   }
+function checkResponse (response, opts) {
+  if (opts.checkResponse === false) {
+    return
+  }
 
-   const status = response.status || response.statusCode
-   const headers = response.headers._headers || response.headers
-   let error
+  const status = response.status || response.statusCode
+  const headers = response.headers._headers || response.headers
+  let error
 
-   if (status >= 400) {
-     error = new Error(`Server responded with status code ${status}`)
-   } else if (!sameType(normaliseHeaders(opts.headers), normaliseHeaders(headers))) {
-     error = new Error(`Server responded with content-type ${headers['content-type']}`)
-   }
+  if (status >= 400) {
+    error = new Error(`Server responded with status code ${status}`)
+  } else if (!sameType(normaliseHeaders(opts.headers), normaliseHeaders(headers))) {
+    error = new Error(`Server responded with content-type ${headers['content-type']}`)
+  }
 
-   if (error) {
-     error.status = status
-     error.headers = headers
-     error.body = response.body
-     throw error
-   }
+  if (error) {
+    error.status = status
+    error.headers = headers
+    error.body = response.body
+    throw error
+  }
 
-   return response
- }
+  return response
+}
 
 /**
  * Fetch file
