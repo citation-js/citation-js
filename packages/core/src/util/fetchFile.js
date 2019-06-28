@@ -51,7 +51,13 @@ export function fetchFile (url, opts) {
 
   logger.http('[core]', reqOpts.method, url, reqOpts)
 
-  return request(reqOpts.method, url, reqOpts).getBody('utf8')
+  const response = request(reqOpts.method, url, reqOpts)
+
+  if (response.statusCode >= 400) {
+    return response.getBody('utf8')
+  } else {
+    return response.body.toString('utf8')
+  }
 }
 
 /**
