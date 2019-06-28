@@ -1,5 +1,31 @@
 import request from 'sync-request'
+/* global fetch */
+import 'isomorphic-fetch'
+
 import logger from '../logger'
+
+/**
+ * Parse options
+ *
+ * @access protected
+ *
+ * @param {Object} [opts={}] - Request options
+ *
+ * @return {Object} new options
+ */
+function parseOpts (opts = {}) {
+  const reqOpts = {
+    headers: {},
+    method: 'GET'
+  }
+
+  if (opts.headers) {
+    reqOpts.headers = opts.headers
+    reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
+  }
+
+  return reqOpts
+}
 
 /**
  * Fetch file
@@ -8,20 +34,36 @@ import logger from '../logger'
  * @memberof Cite.util
  *
  * @param {String} url - The input url
- * @param {Object} opts - Request options
+ * @param {Object} [opts] - Request options
  *
  * @return {String} The fetched string
  */
-const fetchFile = function (url, opts = {}) {
-  const reqOpts = {}
-  if (opts.headers) {
-    reqOpts.headers = opts.headers
-    reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
-  }
+export function fetchFile (url, opts) {
+  const reqOpts = parseOpts(opts)
 
-  logger.http('[core]', 'GET', url, reqOpts)
+  logger.http('[core]', reqOpts.method, url, reqOpts)
 
-  return request('GET', url, reqOpts).getBody('utf8')
+  return request(reqOpts.method, url, reqOpts).getBody('utf8')
+}
+
+/**
+ * Fetch file (async)
+ *
+ * @access protected
+ * @memberof Cite.util
+ *
+ * @param {String} url - The input url
+ * @param {Object} [opts] - Request options
+ *
+ * @return {Promise<String>} The fetched string
+ */
+export async function fetchFileAsync (url, opts) {
+  const reqOpts = parseOpts(opts)
+
+  logger.http('[core]', reqOpts.method, url, reqOpts)
+
+  return fetch(url, reqOpts).then(response => response.text())
+    .catch(e => { throw e })
 }
 
 export default fetchFile
