@@ -51,7 +51,6 @@ function parseOpts (opts = {}) {
  * @return {Boolean}
  */
 function sameType (request, response) {
-  console.log(request, response)
   if (!request.accept || !response['content-type']) {
     return true
   }
