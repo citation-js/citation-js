@@ -1,4 +1,21 @@
-# [0.4.5](https://github.com/citation-js/citation-js/compare/v0.4.4...v0.4.5) (2019-06-12)
+# [](https://github.com/citation-js/citation-js/compare/v0.4.5...v) (2019-06-28)
+
+
+### Bug Fixes
+
+* **core:** check if fetchFile response matches request ([e9f9132](https://github.com/citation-js/citation-js/commit/e9f9132)), closes [#36](https://github.com/citation-js/citation-js/issues/36)
+* **core:** fix getBody in fetchFile ([e4247da](https://github.com/citation-js/citation-js/commit/e4247da))
+* **core:** remove console.log call ([e0b1790](https://github.com/citation-js/citation-js/commit/e0b1790))
+* **plugin-wikidata:** fix typo ([8916446](https://github.com/citation-js/citation-js/commit/8916446))
+
+
+### Features
+
+* **core:** support POST in fetchFile ([ece8a2d](https://github.com/citation-js/citation-js/commit/ece8a2d))
+
+
+
+## [0.4.5](https://github.com/citation-js/citation-js/compare/v0.4.4...v0.4.5) (2019-06-12)
 
 
 ### Bug Fixes
@@ -22,7 +39,7 @@
 
 ### BREAKING CHANGES
 
-* **plugin-bibtex:** strips unkown commands entirely instead of replacing
+* **plugin-bibtex:** strips unkown commands entirely instead of replacing 
 the braces with no-case tags
 
 
@@ -175,3 +192,6 @@ the braces with no-case tags
 ### Bug Fixes
 
 * **plugin-ris:** output year always string ([88aabc9](https://github.com/citation-js/citation-js/commit/88aabc9))
+
+
+
