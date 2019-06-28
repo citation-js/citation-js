@@ -6,6 +6,19 @@ import logger from '../logger'
 
 /**
  * @access private
+ * @param {Object} headers
+ * @return {Object}
+ */
+function normaliseHeaders (headers) {
+  const result = {}
+  for (let header in headers) {
+    result[header.toLowerCase()] = [].concat(headers[header])
+  }
+  return result
+}
+
+/**
+ * @access private
  * @param {Object} [opts={}] - Request options
  * @return {Object} new options
  */
@@ -33,6 +46,25 @@ function parseOpts (opts = {}) {
 
 /**
  * @access private
+ * @param {Object} request - request headers
+ * @param {Object} response - response headers
+ * @return {Boolean}
+ */
+function sameType (request, response) {
+  console.log(request, response)
+  if (!request.accept || !response['content-type']) {
+    return true
+  }
+
+  const [a, b] = response['content-type'][0].split(';')[0].split('/')
+  return !!request.accept
+    .reduce((array, header) => array.concat(header.split(/\s*,\s*/)), [])
+    .map(type => type.split(';')[0].split('/'))
+    .find(([c, d]) => (c === a || c === '*') && (d === b || d === '*'))
+}
+
+/**
+ * @access private
  * @param {Object} response
  * @param {Object} opts - request options
  * @return {Object} response
@@ -44,15 +76,18 @@ function parseOpts (opts = {}) {
    }
 
    const status = response.status || response.statusCode
+   const headers = response.headers._headers || response.headers
    let error
 
    if (status >= 400) {
      error = new Error(`Server responded with status code ${status}`)
+   } else if (!sameType(normaliseHeaders(opts.headers), normaliseHeaders(headers))) {
+     error = new Error(`Server responded with content-type ${headers['content-type']}`)
    }
 
    if (error) {
      error.status = status
-     error.headers = response.headers
+     error.headers = headers
      error.body = response.body
      throw error
    }
