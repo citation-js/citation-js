@@ -24,6 +24,14 @@ function parseOpts (opts = {}) {
     reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
   }
 
+  if (opts.body) {
+    reqOpts.method = 'POST'
+    const isJson = typeof opts.body !== 'string'
+    reqOpts.body = isJson ? JSON.stringify(opts.body) : opts.body
+    reqOpts.headers['content-type'] = reqOpts.headers['content-type'] ||
+      isJson ? 'application/json' : 'text/plain'
+  }
+
   return reqOpts
 }
 
