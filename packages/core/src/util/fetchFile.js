@@ -5,12 +5,8 @@ import 'isomorphic-fetch'
 import logger from '../logger'
 
 /**
- * Parse options
- *
- * @access protected
- *
+ * @access private
  * @param {Object} [opts={}] - Request options
- *
  * @return {Object} new options
  */
 function parseOpts (opts = {}) {
@@ -36,6 +32,35 @@ function parseOpts (opts = {}) {
 }
 
 /**
+ * @access private
+ * @param {Object} response
+ * @param {Object} opts - request options
+ * @return {Object} response
+ * @throws If response is invalid
+ */
+ function checkResponse (response, opts) {
+   if (opts.checkResponse === false) {
+     return
+   }
+
+   const status = response.status || response.statusCode
+   let error
+
+   if (status >= 400) {
+     error = new Error(`Server responded with status code ${status}`)
+   }
+
+   if (error) {
+     error.status = status
+     error.headers = response.headers
+     error.body = response.body
+     throw error
+   }
+
+   return response
+ }
+
+/**
  * Fetch file
  *
  * @access protected
@@ -51,13 +76,8 @@ export function fetchFile (url, opts) {
 
   logger.http('[core]', reqOpts.method, url, reqOpts)
 
-  const response = request(reqOpts.method, url, reqOpts)
-
-  if (response.statusCode >= 400) {
-    return response.getBody('utf8')
-  } else {
-    return response.body.toString('utf8')
-  }
+  const response = checkResponse(request(reqOpts.method, url, reqOpts), reqOpts)
+  return response.body.toString('utf8')
 }
 
 /**
@@ -76,8 +96,9 @@ export async function fetchFileAsync (url, opts) {
 
   logger.http('[core]', reqOpts.method, url, reqOpts)
 
-  return fetch(url, reqOpts).then(response => response.text())
-    .catch(e => { throw e })
+  return fetch(url, reqOpts)
+    .then(response => checkResponse(response, reqOpts))
+    .then(response => response.text())
 }
 
 export default fetchFile
