@@ -1,4 +1,14 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.5...v) (2019-06-28)
+# [](https://github.com/citation-js/citation-js/compare/v0.4.6...v) (2019-06-29)
+
+
+### Bug Fixes
+
+* **core:** make fetchFile checkResponse optional ([a51a185](https://github.com/citation-js/citation-js/commit/a51a185))
+* **plugin-doi:** use new checkContentType option ([92df863](https://github.com/citation-js/citation-js/commit/92df863))
+
+
+
+## [0.4.6](https://github.com/citation-js/citation-js/compare/v0.4.5...v0.4.6) (2019-06-28)
 
 
 ### Bug Fixes
