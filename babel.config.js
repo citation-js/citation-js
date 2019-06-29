@@ -1,13 +1,15 @@
+const targets = {
+  node: '6'
+}
+
 module.exports = {
   presets: [
-    ['@babel/env', { targets: {
-      node: '6'
-    } }]
+    ['@babel/env', { targets }]
   ],
   env: {
     'mjs': {
       presets: [
-        ['@babel/env', { modules: false }]
+        ['@babel/env', { modules: false, targets }]
       ]
     },
     test: {
