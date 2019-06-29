@@ -6,12 +6,15 @@ import parseDoiJson from './json'
 import { util } from '@citation-js/core'
 
 /**
- * DOI API headers
+ * DOI API options
  *
  * @access private
  */
-const apiHeaders = {
-  Accept: 'application/vnd.citationstyles.csl+json'
+const apiOptions = {
+  checkContentType: true,
+  headers: {
+    Accept: 'application/vnd.citationstyles.csl+json'
+  }
 }
 
 /**
@@ -25,7 +28,7 @@ const apiHeaders = {
  * @return {Promise<CSL>} The fetched JSON
  */
 const fetchDoiApiAsync = async function (url) {
-  const result = await util.fetchFileAsync(url, { headers: apiHeaders })
+  const result = await util.fetchFileAsync(url, apiOptions)
   return result === '[]' ? {} : JSON.parse(result)
 }
 
@@ -55,7 +58,7 @@ const parseDoiApiAsync = async function (data) {
  * @return {CSL} The fetched JSON
  */
 const fetchDoiApi = function (url) {
-  const result = util.fetchFile(url, { headers: apiHeaders })
+  const result = util.fetchFile(url, apiOptions)
   return result === '[]' ? {} : JSON.parse(result)
 }
 
