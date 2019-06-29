@@ -88,7 +88,7 @@ function collectAdditionalIds (entity, needed) {
   entity._needed = Object.assign(entity._needed || {}, needed)
   return Object.keys(entity.claims)
     .filter(prop => prop in needed)
-    .map(prop => entity.claims[prop].map(({ value }) => value))
+    .map(prop => entity.claims[prop].map(({ value }) => value.id || value))
     .reduce(flat, [])
 }
 
