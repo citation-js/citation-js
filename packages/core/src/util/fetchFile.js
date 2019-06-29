@@ -5,6 +5,14 @@ import 'isomorphic-fetch'
 import logger from '../logger'
 
 /**
+ * @typedef Cite.util.fetchFile~options
+ * @type {Object}
+ * @property {Boolean} checkContentType
+ * @property {Object} headers
+ * @property {String|Object} body
+ */
+
+/**
  * @access private
  * @param {Object} headers
  * @return {Object}
@@ -19,7 +27,7 @@ function normaliseHeaders (headers) {
 
 /**
  * @access private
- * @param {Object} [opts={}] - Request options
+ * @param {Cite.util.fetchFile~options} [opts={}] - Request options
  * @return {Object} new options
  */
 function parseOpts (opts = {}) {
@@ -70,17 +78,14 @@ function sameType (request, response) {
  * @throws If response is invalid
  */
 function checkResponse (response, opts) {
-  if (opts.checkResponse === false) {
-    return
-  }
-
   const status = response.status || response.statusCode
   const headers = response.headers._headers || response.headers
   let error
 
   if (status >= 400) {
     error = new Error(`Server responded with status code ${status}`)
-  } else if (!sameType(normaliseHeaders(opts.headers), normaliseHeaders(headers))) {
+  } else if (opts.checkContentType === true &&
+             !sameType(normaliseHeaders(opts.headers), normaliseHeaders(headers))) {
     error = new Error(`Server responded with content-type ${headers['content-type']}`)
   }
 
@@ -101,7 +106,7 @@ function checkResponse (response, opts) {
  * @memberof Cite.util
  *
  * @param {String} url - The input url
- * @param {Object} [opts] - Request options
+ * @param {Cite.util.fetchFile~options} [opts] - Request options
  *
  * @return {String} The fetched string
  */
@@ -121,7 +126,7 @@ export function fetchFile (url, opts) {
  * @memberof Cite.util
  *
  * @param {String} url - The input url
- * @param {Object} [opts] - Request options
+ * @param {Cite.util.fetchFile~options} [opts] - Request options
  *
  * @return {Promise<String>} The fetched string
  */
