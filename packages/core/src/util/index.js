@@ -4,10 +4,17 @@
  */
 
 import deepCopy from './deepCopy'
-import fetchFile from './fetchFile'
-import fetchFileAsync from './fetchFileAsync'
+import { fetchFile, fetchFileAsync, setUserAgent } from './fetchFile'
 import fetchId from './fetchId'
 import TokenStack from './stack'
 import Register from './register'
 
-export { deepCopy, fetchFile, fetchFileAsync, fetchId, TokenStack, Register }
+export {
+  deepCopy,
+  fetchFile,
+  fetchFileAsync,
+  setUserAgent,
+  fetchId,
+  TokenStack,
+  Register
+}

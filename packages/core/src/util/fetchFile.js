@@ -3,6 +3,9 @@ import request from 'sync-request'
 import 'isomorphic-fetch'
 
 import logger from '../logger'
+import { version } from '../../package.json'
+
+let userAgent = `Citation.js/${version} Node.js/${process.version}`
 
 /**
  * @typedef Cite.util.fetchFile~options
@@ -36,8 +39,12 @@ function parseOpts (opts = {}) {
     method: 'GET'
   }
 
+  if (userAgent) {
+    reqOpts['user-agent'] = userAgent
+  }
+
   if (opts.headers) {
-    reqOpts.headers = opts.headers
+    reqOpts.headers = normaliseHeaders(opts.headers)
     reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
   }
 
@@ -138,6 +145,21 @@ export async function fetchFileAsync (url, opts) {
   return fetch(url, reqOpts)
     .then(response => checkResponse(response, reqOpts))
     .then(response => response.text())
+}
+
+/**
+ * Fetch file (async)
+ *
+ * @access protected
+ * @memberof Cite.util
+ *
+ * @param {String} url - The input url
+ * @param {Cite.util.fetchFile~options} [opts] - Request options
+ *
+ * @return {Promise<String>} The fetched string
+ */
+export function setUserAgent (newUserAgent) {
+  userAgent = newUserAgent
 }
 
 export default fetchFile
