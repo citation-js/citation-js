@@ -4,7 +4,7 @@ Central to Citation.js is the `Cite` constructor. This document explains how to 
 const example = new Cite(data, options)
 ```
 
-`data` can be any of the input types listed in {@tutorial input_types}. Some of the main ones:
+`data` can be any of the input types listed in {@tutorial input_formats}. Some of the main ones:
 
   * DOIs, lists of DOIs, a file with DOIs, or a `doi.org` URL
   * Wikidata IDs, lists of IDs, a file with IDs, a Wikidata API URL, Wikidata JSON response

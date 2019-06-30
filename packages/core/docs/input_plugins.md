@@ -44,7 +44,7 @@ _*: optional_
 
 ### `type`
 
-The `type` is the name of the {@tutorial input_types}, and are recommended to be in the syntax shown below. Alternative syntaxes include `@scope` and `@scope/format`. Examples:
+The `type` is the name of the {@tutorial input_formats}, and are recommended to be in the syntax shown below. Alternative syntaxes include `@scope` and `@scope/format`. Examples:
 
   * `@bibtex/text` for a series of BibTeX entries
   * `@wikidata/list+string` for a list of Wikidata IDs separated by spaces/newlines/commas

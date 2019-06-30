@@ -4,7 +4,7 @@ Create a new instance of `Cite`:
 new Cite(data[, options])
 ```
 
-* `data` can be any of the input types listed in {@tutorial input_types}
+* `data` can be any of the input types listed in {@tutorial input_formats}
 * `options` is an optional object with the input options listed in {@tutorial input_options}
 
 ## Example
