@@ -6,10 +6,10 @@ import * as get from './get'
 import * as staticMethods from './static'
 
 /**
- * Citation.js input data, see {@tutorial input_types}
+ * Citation.js input data, see {@tutorial input_formats}
  *
  * @typedef InputData
- * @tutorial input_types
+ * @tutorial input_formats
  */
 
 /**
