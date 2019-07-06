@@ -1,4 +1,19 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.6...v) (2019-06-29)
+# [](https://github.com/citation-js/citation-js/compare/v0.4.7...v) (2019-07-06)
+
+
+### Bug Fixes
+
+* **core:** do not attempt to clone non-standard objects ([5309d08](https://github.com/citation-js/citation-js/commit/5309d08)), closes [#52](https://github.com/citation-js/citation-js/issues/52)
+* **plugin-wikidata:** properly collect id from fetched items ([710a276](https://github.com/citation-js/citation-js/commit/710a276))
+
+
+### Features
+
+* **core:** use central User-Agent in fetchFile ([3fa8863](https://github.com/citation-js/citation-js/commit/3fa8863)), closes [#39](https://github.com/citation-js/citation-js/issues/39)
+
+
+
+## [0.4.7](https://github.com/citation-js/citation-js/compare/v0.4.6...v0.4.7) (2019-06-29)
 
 
 ### Bug Fixes
