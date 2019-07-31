@@ -391,6 +391,18 @@ describe('plugins', function () {
             expect(predicate({})).not.to.be.ok()
             expect(predicate({ baz: 3 })).not.to.be.ok()
           })
+          it('outputs properly for match=none', function () {
+            var { predicate } = new TypeParser({ propertyConstraint: {
+              props: ['foo', 'bar'],
+              match: 'none'
+            } })
+            expect(predicate({})).to.be.ok()
+            expect(predicate({ baz: 3 })).to.be.ok()
+            expect(predicate({ foo: 1, bar: 2 })).not.to.be.ok()
+            expect(predicate({ foo: 1, bar: 2, baz: 3 })).not.to.be.ok()
+            expect(predicate({ foo: 1 })).not.to.be.ok()
+            expect(predicate({ foo: 1, baz: 3 })).not.to.be.ok()
+          })
           it('validates objects', function () {
             var instance = new TypeParser({ propertyConstraint: {} })
             expect(instance.validate.bind(instance)).to.not.throwException()

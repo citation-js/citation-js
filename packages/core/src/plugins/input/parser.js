@@ -179,10 +179,15 @@ export class TypeParser {
   parsePropertyConstraint () {
     let constraints = [].concat(this.data.propertyConstraint || [])
 
-    return constraints.map(({ props, match = 'every', value = () => true }) => {
+    return constraints.map(({ props, match = 'every', value }) => {
       props = [].concat(props)
 
-      return input => props[match](prop => prop in input && value(input[prop]))
+      switch (match) {
+        case 'every': return input => props.every(prop => prop in input && (!value || value(input[prop])))
+        case 'any': // fall-through
+        case 'some': return input => props.some(prop => prop in input && (!value || value(input[prop])))
+        case 'none': return input => !props.some(prop => prop in input && (!value || value(input[prop])))
+      }
     })
   }
 
