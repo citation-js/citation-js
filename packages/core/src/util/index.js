@@ -8,6 +8,7 @@ import { fetchFile, fetchFileAsync, setUserAgent } from './fetchFile'
 import fetchId from './fetchId'
 import TokenStack from './stack'
 import Register from './register'
+import { Translator } from './translator'
 
 export {
   deepCopy,
@@ -16,5 +17,6 @@ export {
   setUserAgent,
   fetchId,
   TokenStack,
-  Register
+  Register,
+  Translator
 }
