@@ -1,0 +1,606 @@
+[
+  {
+    "source": [
+      "T1",
+      "BT"
+    ],
+    "target": "title",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "ADVS",
+          "AGGR",
+          "ANCIENT",
+          "ART",
+          "BILL",
+          "BLOG",
+          "BOOK",
+          "CASE",
+          "CHAP",
+          "CHART",
+          "CLSWK",
+          "COMP",
+          "CONF",
+          "CPAPER",
+          "CTLG",
+          "DATA",
+          "DBASE",
+          "DICT",
+          "EBOOK",
+          "ECHAP",
+          "EDBOOK",
+          "EJOUR",
+          "ELEC",
+          "ENCYC",
+          "EQUA",
+          "FIGURE",
+          "GEN",
+          "GOVDOC",
+          "GRANT",
+          "HEAR",
+          "ICOMM",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "LEGAL",
+          "MANSCPT",
+          "MAP",
+          "MGZN",
+          "MPCT",
+          "MULTI",
+          "MUSIC",
+          "NEWS",
+          "PAMP",
+          "PAT",
+          "PCOMM",
+          "RPRT",
+          "SER",
+          "SLIDE",
+          "SOUND",
+          "STAND",
+          "STAT",
+          "THES",
+          "UNBILL",
+          "UNPB",
+          "VIDEO"
+        ],
+        "TI": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "A1",
+    "target": "author",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "ADVS",
+          "AGGR",
+          "ANCIENT",
+          "ART",
+          "BLOG",
+          "BOOK",
+          "CHAP",
+          "CHART",
+          "CLSWK",
+          "COMP",
+          "CONF",
+          "CPAPER",
+          "CTLG",
+          "DATA",
+          "DBASE",
+          "DICT",
+          "EBOOK",
+          "ECHAP",
+          "EJOUR",
+          "ELEC",
+          "ENCYC",
+          "EQUA",
+          "FIGURE",
+          "GEN",
+          "GOVDOC",
+          "GRANT",
+          "ICOMM",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "LEGAL",
+          "MANSCPT",
+          "MAP",
+          "MGZN",
+          "MULTI",
+          "PAMP",
+          "PAT",
+          "PCOMM",
+          "RPRT",
+          "SER",
+          "SLIDE",
+          "SOUND",
+          "STAND",
+          "THES",
+          "UNPB",
+          "VIDEO"
+        ],
+        "AU": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "CONF"
+        ],
+        "C2": false,
+        "DA": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "PAT"
+        ],
+        "C2": false,
+        "DA": false,
+        "PY": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "EBOOK"
+        ],
+        "C5": false,
+        "PY": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "ADVS",
+          "ANCIENT",
+          "ART",
+          "BILL",
+          "BLOG",
+          "BOOK",
+          "CASE",
+          "CHART",
+          "CPAPER",
+          "CTLG",
+          "DATA",
+          "EDBOOK",
+          "ELEC",
+          "ENCYC",
+          "EQUA",
+          "FIGURE",
+          "GEN",
+          "GRANT",
+          "HEAR",
+          "ICOMM",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "LEGAL",
+          "MANSCPT",
+          "MAP",
+          "MGZN",
+          "MPCT",
+          "MUSIC",
+          "PAMP",
+          "PCOMM",
+          "RPRT",
+          "SER",
+          "SLIDE",
+          "SOUND",
+          "STAND",
+          "THES",
+          "UNBILL",
+          "UNPB",
+          "VIDEO"
+        ],
+        "DA": false,
+        "PY": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "STAT"
+        ],
+        "DA": false,
+        "PY": false,
+        "Y2": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "AGGR",
+          "DBASE"
+        ],
+        "ET": false,
+        "PY": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "CHAP",
+          "CLSWK",
+          "COMP",
+          "DICT",
+          "ECHAP",
+          "GOVDOC",
+          "MULTI",
+          "NEWS"
+        ],
+        "PY": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "Y1",
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "EJOUR"
+        ],
+        "PY": false,
+        "SE": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": [
+      "JO",
+      "JF",
+      "J1"
+    ],
+    "target": "container-title",
+    "when": {
+      "source": {
+        "TY": [
+          "CONF"
+        ],
+        "C3": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": [
+      "JO",
+      "JF",
+      "J1"
+    ],
+    "target": "container-title",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "ANCIENT",
+          "BILL",
+          "BLOG",
+          "CHAP",
+          "DICT",
+          "EBOOK",
+          "ECHAP",
+          "EDBOOK",
+          "EJOUR",
+          "ENCYC",
+          "GEN",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "MGZN",
+          "MUSIC",
+          "NEWS",
+          "PAMP",
+          "PAT",
+          "SER",
+          "STAT",
+          "THES",
+          "UNBILL"
+        ],
+        "T2": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "JA",
+    "target": "container-title-short",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "ANCIENT",
+          "BOOK",
+          "CHAP",
+          "CTLG",
+          "DATA",
+          "DICT",
+          "ENCYC",
+          "GRANT",
+          "ICOMM",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "LEGAL",
+          "MANSCPT",
+          "MGZN",
+          "PAMP",
+          "PCOMM",
+          "SER",
+          "STAND",
+          "STAT",
+          "UNPB"
+        ],
+        "J2": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "N2",
+    "target": "abstract",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "ADVS",
+          "AGGR",
+          "ANCIENT",
+          "ART",
+          "BILL",
+          "BLOG",
+          "BOOK",
+          "CASE",
+          "CHAP",
+          "CHART",
+          "CLSWK",
+          "COMP",
+          "CONF",
+          "CPAPER",
+          "CTLG",
+          "DATA",
+          "DBASE",
+          "DICT",
+          "EBOOK",
+          "ECHAP",
+          "EDBOOK",
+          "EJOUR",
+          "ELEC",
+          "ENCYC",
+          "EQUA",
+          "FIGURE",
+          "GEN",
+          "GOVDOC",
+          "GRANT",
+          "HEAR",
+          "ICOMM",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "LEGAL",
+          "MANSCPT",
+          "MAP",
+          "MGZN",
+          "MPCT",
+          "MULTI",
+          "MUSIC",
+          "NEWS",
+          "PAMP",
+          "PAT",
+          "PCOMM",
+          "RPRT",
+          "SER",
+          "SLIDE",
+          "SOUND",
+          "STAND",
+          "STAT",
+          "THES",
+          "UNBILL",
+          "UNPB",
+          "VIDEO"
+        ],
+        "AB": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": [
+      "SP",
+      "EP"
+    ],
+    "target": "page",
+    "when": {
+      "source": {
+        "TY": [
+          "BOOK"
+        ],
+        "SE": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": [
+      "SP",
+      "EP"
+    ],
+    "target": "page",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "AGGR",
+          "ANCIENT",
+          "BILL",
+          "CHAP",
+          "CONF",
+          "CPAPER",
+          "CTLG",
+          "DBASE",
+          "DICT",
+          "ECHAP",
+          "EJOUR",
+          "ENCYC",
+          "GEN",
+          "GOVDOC",
+          "GRANT",
+          "HEAR",
+          "ICOMM",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "LEGAL",
+          "MANSCPT",
+          "MGZN",
+          "MUSIC",
+          "NEWS",
+          "PAMP",
+          "PAT",
+          "PCOMM",
+          "RPRT",
+          "SER",
+          "STAND",
+          "STAT",
+          "UNBILL",
+          "UNPB"
+        ],
+        "SP": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "AV",
+    "target": "archive_location",
+    "when": {
+      "target": false
+    }
+  },
+  {
+    "source": "LK",
+    "target": "URL",
+    "when": {
+      "source": {
+        "TY": [
+          "HEAR"
+        ],
+        "L4": false,
+        "UR": false
+      },
+      "target": false
+    }
+  },
+  {
+    "source": "LK",
+    "target": "URL",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "ADVS",
+          "AGGR",
+          "ANCIENT",
+          "ART",
+          "BILL",
+          "BLOG",
+          "BOOK",
+          "CASE",
+          "CHAP",
+          "CHART",
+          "CLSWK",
+          "COMP",
+          "CONF",
+          "CPAPER",
+          "CTLG",
+          "DATA",
+          "DBASE",
+          "DICT",
+          "EBOOK",
+          "ECHAP",
+          "EDBOOK",
+          "EJOUR",
+          "ELEC",
+          "ENCYC",
+          "EQUA",
+          "FIGURE",
+          "GEN",
+          "GOVDOC",
+          "GRANT",
+          "ICOMM",
+          "INPR",
+          "JFULL",
+          "JOUR",
+          "LEGAL",
+          "MANSCPT",
+          "MAP",
+          "MGZN",
+          "MPCT",
+          "MULTI",
+          "MUSIC",
+          "NEWS",
+          "PAMP",
+          "PAT",
+          "PCOMM",
+          "RPRT",
+          "SER",
+          "SLIDE",
+          "SOUND",
+          "STAND",
+          "STAT",
+          "THES",
+          "UNBILL",
+          "UNPB",
+          "VIDEO"
+        ],
+        "UR": false
+      },
+      "target": false
+    }
+  }
+]

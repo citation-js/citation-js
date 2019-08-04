@@ -1,0 +1,28 @@
+{
+  "author": "NAME",
+  "collection-editor": "NAME",
+  "composer": "NAME",
+  "container-author": "NAME",
+  "director": "NAME",
+  "editor": "NAME",
+  "editorial-director": "NAME",
+  "interviewer": "NAME",
+  "illustrator": "NAME",
+  "original-author": "NAME",
+  "recipient": "NAME",
+  "reviewed-author": "NAME",
+  "translator": "NAME",
+
+  "accessed": "DATE",
+  "container": "DATE",
+  "event-date": "DATE",
+  "issued": "DATE",
+  "original-date": "DATE",
+  "submitted": "DATE",
+
+  "id": "ID",
+  "ISSN,ISBN": "ISBN",
+  "keyword": "KEYWORD",
+  "page": "PAGE",
+  "type": "TYPE"
+}

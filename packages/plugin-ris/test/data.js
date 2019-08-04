@@ -76,15 +76,14 @@ module.exports = {
       simple,
       `TY  - JOUR
 AU  - Hall, H. K.
-DA  - 1957/01/01
-PY  - 1957
+DA  - 1957/1/1/
 DO  - 10.1021/ja01577a030
+ID  - Q23571040
 IS  - 20
 SP  - 5441-5444
 T2  - Journal of the American Chemical Society
 TI  - Correlation of the Base Strengths of Amines 1
 VL  - 79
-ID  - Q23571040
 ER  -`
     ],
     editor: [
@@ -94,17 +93,8 @@ ER  -`
         AU: [
           'Vrandečić, Denny'
         ],
-        A2: [
-          'Hendler, James',
-          'Simperl, Elena'
-        ],
-        ED: [
-          'Hendler, James',
-          'Simperl, Elena'
-        ],
-        DA: '2013/01/01',
-        Y2: '2018/07/21',
-        PY: '2013',
+        DA: '2013/1/1/',
+        Y2: '2018/7/21/',
         DO: '10.1109/MIS.2013.119',
         IS: '4',
         SP: '90-95',
@@ -120,8 +110,7 @@ ER  -`
       [{
         TY: 'JOUR',
         AU: ['Hall, H. K.'],
-        DA: '1957/01/01',
-        PY: '1957',
+        DA: '1957/1/1/',
         DO: '10.1021/ja01577a030',
         IS: '20',
         SP: '5441-5444',
