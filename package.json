@@ -10,7 +10,7 @@
     "conventional-changelog-cli": "^2.0.21",
     "expect.js": "^0.3.1",
     "isomorphic-fetch": "^2.2.1",
-    "lerna": "^3.15.0",
+    "lerna": "3.15.0",
     "mocha": "^6.1.4",
     "mock-require": "^3.0.3",
     "nyc": "^14.1.1",
