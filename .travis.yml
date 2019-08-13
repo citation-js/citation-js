@@ -1,4 +1,9 @@
 language: node_js
+
+# "Please note that as of July 2019, npm is cached by default on Travis CI"
+cache:
+  npm: false
+
 node_js:
   - "node"
   - "8"
