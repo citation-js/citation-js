@@ -2,18 +2,28 @@ Usage: citation-js [options]
 
 Options:
 
-  -h, --help                      output usage information
-  -V, --version                   output the version number
+  -h, --help                         output usage information
+  -V, --version                      output the version number
 
-  -i, --input <path>              Input file. If all input options are omitted, it uses stdin
-  -t, --text <string>             Input text. If all input options are omitted, it uses stdin
-  --pipe                          Pipe and transform from stdin to stdout
-  -o, --output <path>             Output file (omit file extension). If this option is omitted, the output is written to stdout
+  -i, --input <path>                 Input file. If all input options are omitted, it uses stdin
+  -t, --text <string>                Input text. If all input options are omitted, it uses stdin
+  -u, --url <string>                 Deprecated in favor of -t, --text. If all input options are omitted, it uses stdin
+  -o, --output <path>                Output file (omit file extension). If this option is omitted, the output is written to stdout
+  --pipe                             Pipe and transform from stdin to stdout
 
-  -R, --output-non-real           Output as a text file
-  -f, --output-type <option>      Output structure type: string, html, json
-  -s, --output-style <option>     Output scheme. A combination of --output-format json and --output-style citation-* is considered invalid. Options: csl (Citation Style Lanugage JSON), bibtex, citation-* (where * is any formatting style)
-  -l, --output-language <option>  Output language. [RFC 5646](https://tools.ietf.org/html/rfc5646) codes
+  -R, --output-non-real              Output as a text file
+  -f, --output-type <option>         Output structure type: string, html, json (default: "json")
+  -s, --output-style <option>        Output scheme. A combination of --output-format json and --output-style citation-* is considered invalid. Options: csl (Citation Style Lanugage JSON), bibtex, citation-* (where * is any formatting style) (default: "csl")
+  -l, --output-language <option>     Output language. [RFC 5646](https://tools.ietf.org/html/rfc5646) codes (default: "en-US")
 
-  --log-level <level>             Log level: silent, error, warn, info, debug, http (default: "warn")
-  --plugins <names>               Plugin names (@citation-js/plugin-NAME)
+  --log-level <level>                Log level: silent, error, warn, info, debug, http (default: "warn")
+
+  --plugins <names>                  Plugin names (@citation-js/plugin-NAME); bibjson, bibtex, csl, doi, ris & wikidata are preloaded (default: [])
+  --plugin-config <config>           @plugin.property.path=value;... (default: [])
+  --formatter-options <config>       property.path=value;... (default: [])
+
+  --no-input-generate-graph          Do not include the parsing graph in CSL output
+  --input-force-type <type>          Force parsing as a certain type
+  --input-max-chain-length <number>  Set the maximal number of parsing iterations
+  --no-input-strict                  Do not use the strict parsing mode
+  --input-target <type>              Stop parsing when a certain type is reached
