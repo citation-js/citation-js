@@ -13,7 +13,7 @@ const getWrapperProxy = (original) => function (state, entry) {
     let [prefix, postfix] = state.sys.wrapBibliographyEntry(this.system_id)
     entry = [prefix, entry, postfix].join('')
   }
-  return original(state, entry)
+  return original.call(this, state, entry)
 }
 
 for (let format in CSL.Output.Formats) {
