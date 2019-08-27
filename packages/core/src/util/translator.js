@@ -4,7 +4,8 @@ function createConditionEval (condition) {
       return condition
     }
 
-    return Object.entries(condition).every(([prop, value]) => {
+    return Object.keys(condition).every(prop => {
+      const value = condition[prop]
       if (value === true) {
         return prop in input
       } else if (value === false) {
