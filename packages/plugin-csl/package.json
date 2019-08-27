@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-csl",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "description": "Plugin for CSL output for Citation.js",
   "keywords": [
     "citation-js",

@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.8...v) (2019-08-27)
+# [](https://github.com/citation-js/citation-js/compare/v0.4.9...v) (2019-08-27)
+
+
+### Bug Fixes
+
+* **plugin-csl:** use global symbol registry ([dd8e839](https://github.com/citation-js/citation-js/commit/dd8e839))
+
+
+
+## [0.4.9](https://github.com/citation-js/citation-js/compare/v0.4.8...v0.4.9) (2019-08-27)
 
 
 ### Bug Fixes
