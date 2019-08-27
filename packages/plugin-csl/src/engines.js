@@ -8,16 +8,23 @@ import { templates } from './styles'
 import { locales } from './locales'
 
 // BEGIN add sys function
-const getWrapperProxy = (original) => function (state, entry) {
-  if (state.sys.wrapBibliographyEntry) {
-    let [prefix, postfix] = state.sys.wrapBibliographyEntry(this.system_id)
-    entry = [prefix, entry, postfix].join('')
+const proxied = Symbol('proxied')
+const getWrapperProxy = function (original) {
+  const proxy = function (state, entry) {
+    if (state.sys.wrapBibliographyEntry) {
+      let [prefix, postfix] = state.sys.wrapBibliographyEntry(this.system_id)
+      entry = [prefix, entry, postfix].join('')
+    }
+    return original.call(this, state, entry)
   }
-  return original.call(this, state, entry)
+  proxy[proxied] = true
 }
 
 for (let format in CSL.Output.Formats) {
   let original = CSL.Output.Formats[format]['@bibliography/entry']
+
+  if (original[proxied]) { continue }
+
   CSL.Output.Formats[format]['@bibliography/entry'] = getWrapperProxy(original)
 }
 // END
