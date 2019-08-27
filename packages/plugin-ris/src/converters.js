@@ -15,7 +15,7 @@ const CONVERTERS = {
   },
 
   ISBN: {
-    toTarget (id) { return ISSN_REGEX.test(id) ? [id] : [, id] },
+    toTarget (id) { return ISSN_REGEX.test(id) ? [id] : [undefined, id] },
     toSource (...ids) { return ids.find(Boolean) }
   },
 
@@ -26,7 +26,7 @@ const CONVERTERS = {
     toSource (date) {
       const parts = Array(4).fill('')
       date['date-parts'][0].forEach((part, index) => { parts[index] = part })
-      if (date.season) { part[3] = date.season }
+      if (date.season) { parts[3] = date.season }
       return parts.join('/')
     }
   },
@@ -43,7 +43,7 @@ const CONVERTERS = {
             return { family, given }
           case 1:
             if (family.indexOf(' ') > -1) { return { family } }
-            // fall-through
+            // fall through
           default:
             return { literal: name }
         }

@@ -11,7 +11,7 @@ plugins.add('@ris', {
       parse,
       parseType: {
         dataType: 'String',
-        predicate: /^TY  - /m
+        predicate: /^TY {2}- /m
       }
     },
     '@ris/record': {

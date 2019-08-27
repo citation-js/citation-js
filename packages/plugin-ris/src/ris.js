@@ -9,8 +9,8 @@ import { SPECS } from './spec'
 import CONVERTERS from './converters'
 import DATA_TYPES from './dataTypes'
 
-const LINE_MATCH = /^[A-Z][A-Z0-9]  -( |$)/
-const LINE_SPLIT = /  -(?: |$)/
+const LINE_MATCH = /^[A-Z][A-Z0-9] {2}-( |$)/
+const LINE_SPLIT = / {2}-(?: |$)/
 const TRANSLATORS = new Map()
 
 function prepareTranslator (spec) {
@@ -60,7 +60,7 @@ export function parse (text) {
       case 'TY':
         lastEntry = {}
         entries.push(lastEntry)
-        // fall-through
+        // fall through
       default:
         if (Array.isArray(lastEntry[tag])) {
           lastEntry[tag].push(value)
