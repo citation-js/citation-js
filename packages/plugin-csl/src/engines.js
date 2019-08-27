@@ -8,7 +8,7 @@ import { templates } from './styles'
 import { locales } from './locales'
 
 // BEGIN add sys function
-const proxied = Symbol('proxied')
+const proxied = Symbol.for('proxied')
 const getWrapperProxy = function (original) {
   const proxy = function (state, entry) {
     if (state.sys.wrapBibliographyEntry) {
