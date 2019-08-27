@@ -24,7 +24,7 @@ const getWrapperProxy = function (original) {
 for (let format in CSL.Output.Formats) {
   let original = CSL.Output.Formats[format]['@bibliography/entry']
 
-  if (original[proxied]) { continue }
+  if (!original || original[proxied]) { continue }
 
   CSL.Output.Formats[format]['@bibliography/entry'] = getWrapperProxy(original)
 }
