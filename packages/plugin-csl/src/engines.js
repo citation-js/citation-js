@@ -18,6 +18,7 @@ const getWrapperProxy = function (original) {
     return original.call(this, state, entry)
   }
   proxy[proxied] = true
+  return proxy
 }
 
 for (let format in CSL.Output.Formats) {
