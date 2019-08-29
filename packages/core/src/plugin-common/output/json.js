@@ -68,10 +68,7 @@ const getJsonValue = function (src, dict) {
       return getJsonObject(src, dict)
     }
   } else {
-    // Primitive values are generally fine, and if they're not JSON.stringify
-    // returns undefined which is the only falsy value it returns (no empty
-    // strings).
-    return JSON.stringify(src) || 'null'
+    return JSON.stringify(src)
   }
 }
 
