@@ -74,7 +74,7 @@ function Cite (data, options = {}) {
    *
    * @property {Cite~InputOptions} options
    */
-  this._options = options || {}
+  this._options = options
 
   /**
    * The saved-images-log
