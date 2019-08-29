@@ -25,5 +25,11 @@
     {
       "id": "a"
     }
+  ],
+  "invalid": [
+    {
+      "id": "a",
+      "invalid": "foo"
+    }
   ]
 }

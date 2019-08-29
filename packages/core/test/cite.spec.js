@@ -296,5 +296,13 @@ describe('Cite instance', () => {
         expect(out[1]).to.be('a')
       })
     })
+
+    describe('format()', () => {
+      it ('works', () => {
+        test.set(input.ids)
+        const out = test.format('data', { format: 'object' })
+        expect(out[0]).not.to.have.key('invalid')
+      })
+    })
   })
 })
