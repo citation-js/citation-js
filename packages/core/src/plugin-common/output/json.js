@@ -102,11 +102,10 @@ const getJson = function (src, dict) {
  *
  * @return {String} JSON HTML string
  */
-const getJsonWrapper = function (src) {
+export /* istanbul ignore next: deprecated */ function getJsonWrapper (src) {
   return getJson(src, plugins.dict.get('html'))
 }
 
-export { getJsonWrapper }
 export default {
   data (data, { type, format = type || 'text' } = {}) {
     if (format === 'object') {

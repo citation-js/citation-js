@@ -53,6 +53,7 @@ export const formats = {
     parse: jquery.parse,
     parseType: {
       dataType: 'ComplexObject',
+      // istanbul ignore next: not testable in Node
       predicate: input => typeof jQuery !== 'undefined' && input instanceof jQuery
     }
   },
@@ -60,6 +61,7 @@ export const formats = {
     parse: html.parse,
     parseType: {
       dataType: 'ComplexObject',
+      // istanbul ignore next: not testable in Node
       predicate: input => typeof HTMLElement !== 'undefined' && input instanceof HTMLElement
     }
   }

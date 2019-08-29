@@ -28,6 +28,33 @@ const simple = [{
 }]
 
 const string = '[\n  {\n    id: "Q23571040",\n    type: "article-journal",\n    title: "Correlation of the Base Strengths of Amines 1",\n    DOI: "10.1021/ja01577a030",\n    author: [\n      {\n\tgiven: "H. K.",\n\tfamily: "Hall"\n      }\n    ],\n    issued: {\n      date-parts: [\n\t[ "1957", "1", "1" ]\n      ]\n    },\n    container-title: "Journal of the American Chemical Society",\n    volume: "79",\n    issue: "20",\n    page: "5441-5444"\n  }\n]'
+const htmlString = `<div class="csl-bib-body">[
+  <div class="csl-entry">{<ul style="list-style-type:none">
+  <li>"id": "Q23571040",</li>
+  <li>"type": "article-journal",</li>
+  <li>"title": "Correlation of the Base Strengths of Amines 1",</li>
+  <li>"DOI": "10.1021/ja01577a030",</li>
+  <li>"author": [<ul style="list-style-type:none">
+    <li>{<ul style="list-style-type:none">
+      <li>"given": "H. K.",</li>
+      <li>"family": "Hall"</li>
+    </ul>}</li>
+  </ul>],</li>
+  <li>"issued": {<ul style="list-style-type:none">
+    <li>"date-parts": [<ul style="list-style-type:none">
+      <li>[<ul style="list-style-type:none">
+        <li>"1957",</li>
+        <li>"1",</li>
+        <li>"1"</li>
+      </ul>]</li>
+    </ul>]</li>
+  </ul>},</li>
+  <li>"container-title": "Journal of the American Chemical Society",</li>
+  <li>"volume": "79",</li>
+  <li>"issue": "20",</li>
+  <li>"page": "5441-5444"</li>
+  </ul>}</div>
+]</div>`.replace(/\n */g, '')
 
 const yearSuffix = [{ id: 'a', author: [{ literal: 'foo' }], issued: { 'date-parts': [[2018]] }, 'year-suffix': 'a' }]
 const label = [{ 'id': 'b', 'citation-label': 'foo', 'type': 'book' }]
@@ -77,6 +104,12 @@ describe('input', function () {
 const outputData = {
   data: {
     'plain text': [simple, JSON.stringify(simple, null, 2)],
+    'html': [simple, htmlString, { format: 'html' }],
+    'weird html': [
+      [{ author: [], editor: {} }],
+      '<div class="csl-bib-body">[<div class="csl-entry">{<ul style="list-style-type:none"><li>"author": [],</li><li>"editor": {}</li></ul>}</div>]</div>',
+      { format: 'html' }
+    ],
     'object': [simple, simple, { format: 'object' }]
   },
   ndjson: {
