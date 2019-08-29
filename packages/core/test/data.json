@@ -18,6 +18,61 @@
       "id": "a"
     }
   ],
+  "sortSpecial": [
+    {
+      "id": "g",
+      "author": [{ "family": "b" }],
+      "issued": { "date-parts": [[2018]] }
+    },
+    {
+      "id": "f",
+      "author": [{ "family": "b" }],
+      "issued": { "date-parts": [[2018]] },
+      "title": "a",
+      "page": "123-456",
+      "edition": "2nd"
+    },
+    {
+      "id": "e",
+      "author": [{ "family": "b" }],
+      "issued": { "date-parts": [[2018]] },
+      "title": "a",
+      "page": "456-789",
+      "edition": "2nd"
+    },
+    {
+      "id": "d",
+      "author": [{ "family": "b" }],
+      "issued": { "date-parts": [[2018]] },
+      "title": "a",
+      "page": "123-456",
+      "edition": 1
+    },
+    {
+      "id": "c",
+      "author": [{ "family": "a" }],
+      "issued": { "date-parts": [[2018]] },
+      "title": "b",
+      "page": "456-789",
+      "edition": "2nd"
+    },
+    {
+      "id": "b",
+      "author": [{ "family": "a" }],
+      "issued": { "date-parts": [[2018]] },
+      "title": "a",
+      "page": "456-789",
+      "edition": "2nd"
+    },
+    {
+      "id": "a",
+      "author": [{ "literal": "a" }],
+      "issued": { "date-parts": [[2017]] },
+      "title": "a",
+      "page": "456-789",
+      "edition": "2nd"
+    }
+  ],
   "ids": [
     {
       "id": "b"

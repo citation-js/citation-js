@@ -7,6 +7,7 @@ const wrapperTypes = ['string', 'function']
  * @access public
  * @memberof Cite
  *
+ * @deprecated
  * @param {Cite~OutputOptions} - options
  *
  * @return {Boolean} true (if valid)
@@ -16,7 +17,8 @@ const wrapperTypes = ['string', 'function']
  *
  * @todo check registers if styles and langs are present
  */
-const validateOutputOptions = function (options) {
+/* istanbul ignore next: deprecated */
+export function validateOutputOptions (options) {
   if (typeof options !== 'object') {
     throw new TypeError('Options not an object!')
   }
@@ -56,11 +58,12 @@ const validateOutputOptions = function (options) {
  *
  * @todo check registers if type is present
  */
-const validateOptions = function (options) {
+export function validateOptions (options) {
   if (typeof options !== 'object') {
     throw new TypeError('Options should be an object')
   }
 
+  /* istanbul ignore if: deprecated */
   if (options.output) {
     validateOutputOptions(options.output)
   } else if (options.maxChainLength && typeof options.maxChainLength !== 'number') {
@@ -71,11 +74,9 @@ const validateOptions = function (options) {
     throw new TypeError('Option generateGraph should be a boolean')
   } else if (options.strict != null && typeof options.strict !== 'boolean') {
     throw new TypeError('Option strict should be a boolean')
-  } else if (options.target != null && typeof options.target !== 'boolean') {
+  } else if (options.target != null && typeof options.target !== 'string') {
     throw new TypeError('Option target should be a boolean')
   }
 
   return true
 }
-
-export { validateOptions, validateOutputOptions }

@@ -282,6 +282,22 @@ describe('Cite instance', () => {
         expect(test.data[1].author[0].family).to.be('b')
         expect(test.log).to.have.length(2)
       })
+
+      it('works with custom sorting orders', () => {
+        test.set(input.sortSpecial)
+        const ids = test.getIds()
+
+        test.sort([
+          'author',
+          'issued',
+          'title',
+          'edition',
+          '!page'
+        ])
+        console.log(ids, test.getIds())
+
+        expect(test.getIds()).to.eql(ids.reverse())
+      })
     })
 
     describe('getIds()', () => {
@@ -298,10 +314,53 @@ describe('Cite instance', () => {
     })
 
     describe('format()', () => {
-      it ('works', () => {
+      it('works', () => {
         test.set(input.ids)
         const out = test.format('data', { format: 'object' })
         expect(out[0]).not.to.have.key('invalid')
+      })
+    })
+
+    describe('validateOptions()', () => {
+      it('throws on non-objects', () => {
+        expect(() => Cite.validateOptions({})).to.not.throwException()
+        expect(() => Cite.validateOptions(true)).to.throwException('Options should be an object')
+        expect(() => Cite.validateOptions('a')).to.throwException('Options should be an object')
+        expect(() => Cite.validateOptions(1)).to.throwException('Options should be an object')
+        expect(() => Cite.validateOptions()).to.throwException('Options should be an object')
+      })
+
+      describe('throws on invalid values for', () => {
+        it('maxChainLength', () => {
+          expect(() => Cite.validateOptions({ maxChainLength: 1 })).to.not.throwException()
+          expect(() => Cite.validateOptions({ maxChainLength: {} })).to.throwException('Option maxChainLength should be a number')
+          expect(() => Cite.validateOptions({ maxChainLength: 'a' })).to.throwException('Option maxChainLength should be a number')
+          expect(() => Cite.validateOptions({ maxChainLength: true })).to.throwException('Option maxChainLength should be a number')
+        })
+        it('generateGraph', () => {
+          expect(() => Cite.validateOptions({ generateGraph: true })).to.not.throwException()
+          expect(() => Cite.validateOptions({ generateGraph: 1 })).to.throwException('Option generateGraph should be a boolean')
+          expect(() => Cite.validateOptions({ generateGraph: {} })).to.throwException('Option generateGraph should be a boolean')
+          expect(() => Cite.validateOptions({ generateGraph: 'a' })).to.throwException('Option generateGraph should be a boolean')
+        })
+        it('strict', () => {
+          expect(() => Cite.validateOptions({ strict: true })).to.not.throwException()
+          expect(() => Cite.validateOptions({ strict: 1 })).to.throwException('Option strict should be a boolean')
+          expect(() => Cite.validateOptions({ strict: {} })).to.throwException('Option strict should be a boolean')
+          expect(() => Cite.validateOptions({ strict: 'a' })).to.throwException('Option strict should be a boolean')
+        })
+        it('target', () => {
+          expect(() => Cite.validateOptions({ target: 'a' })).to.not.throwException()
+          expect(() => Cite.validateOptions({ target: 1 })).to.throwException('Option target should be a string')
+          expect(() => Cite.validateOptions({ target: {} })).to.throwException('Option target should be a string')
+          expect(() => Cite.validateOptions({ target: true })).to.throwException('Option target should be a string')
+        })
+        it('forceType', () => {
+          expect(() => Cite.validateOptions({ forceType: 'a' })).to.not.throwException()
+          expect(() => Cite.validateOptions({ forceType: 1 })).to.throwException('Option forceType should be a string')
+          expect(() => Cite.validateOptions({ forceType: {} })).to.throwException('Option forceType should be a string')
+          expect(() => Cite.validateOptions({ forceType: true })).to.throwException('Option forceType should be a string')
+        })
       })
     })
   })
