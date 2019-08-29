@@ -9,7 +9,7 @@ import { clean as parseCsl } from '../plugins/input/csl'
  *
  * @return {Array<String>} List of IDs
  */
-const getIds = function () {
+export function getIds () {
   return this.data.map(entry => entry.id)
 }
 
@@ -23,11 +23,10 @@ const getIds = function () {
  *
  * @return {String|Array<Object>} formatted data
  */
-const format = function (format, ...options) {
+export function format (format, ...options) {
   return formatData(format, parseCsl(this.data), ...options)
 }
 
-/* istanbul ignore next: deprecated */
 /**
  * Get formatted data from your object.
  *
@@ -39,7 +38,8 @@ const format = function (format, ...options) {
  *
  * @return {String|Array<Object>} The formatted data
  */
-const get = function (options = {}) {
+/* istanbul ignore next: deprecated */
+export function get (options = {}) {
   validate(options)
 
   const parsedOptions = Object.assign({}, this.defaultOptions, this._options.output, options)
@@ -82,5 +82,3 @@ const get = function (options = {}) {
     return result
   }
 }
-
-export { format, getIds, get }

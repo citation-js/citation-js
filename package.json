@@ -7,6 +7,7 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-istanbul": "^5.2.0",
     "conventional-changelog-cli": "^2.0.21",
     "expect.js": "^0.3.1",
     "isomorphic-fetch": "^2.2.1",
@@ -26,19 +27,12 @@
     "test:live": "npm run lerna -- TEST_MOCK_HTTP=false npm test -- -r @babel/register",
     "update:test": "node scripts/tests.wikidata.js && node scripts/tests.doi.js",
     "coverage": "npm run coverage:test && npm run coverage:report",
-    "coverage:test": "npm run lerna -- nyc --require @babel/register npm test",
+    "coverage:test": "npm run lerna -- nyc npm test",
     "coverage:report": "npm run lerna -- nyc report --reporter=text-lcov \">\" coverage.lcov",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "preversion": "npm run lint && npm test",
     "version": "npm run changelog",
     "postversion": "npm run babel && npm run babel-mjs"
-  },
-  "nyc": {
-    "require": [
-      "@babel/register"
-    ],
-    "sourceMap": false,
-    "instrument": false
   },
   "standard": {
     "parser": "babel-eslint"
