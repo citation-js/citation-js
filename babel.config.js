@@ -7,12 +7,12 @@ module.exports = {
     ['@babel/env', { targets }]
   ],
   env: {
-    'mjs': {
+    mjs: {
       presets: [
         ['@babel/env', { modules: false, targets }]
       ]
     },
-    test: {
+    coverage: {
       plugins: ['istanbul']
     }
   },
