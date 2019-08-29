@@ -21,7 +21,9 @@ import * as staticMethods from './static'
  * @property {Cite~OutputOptions} output
  * @property {Number} maxChainLength
  * @property {Boolean} generateGraph
+ * @property {Boolean} strict
  * @property {Cite.parse~format} forceType
+ * @property {Cite.parse~format} target
  */
 
 /**
