@@ -52,19 +52,19 @@ const getComparisonValue = function (obj, prop, label = prop === 'label') {
  * @access private
  * @method compareProp
  *
- * @param {CSL} a - Object a
- * @param {CSL} b - Object b
+ * @param {CSL} entryA
+ * @param {CSL} entryB
  * @param {String} prop - The prop in question. Prepend ! to sort the other way around.
  * @param {Boolean} flip - Override flip
  *
  * @return {Number} positive for a > b, negative for b > a, zero for a = b (flips if prop has !)
  */
-const compareProp = function (a, b, prop, flip = /^!/.test(prop)) {
+const compareProp = function (entryA, entryB, prop, flip = /^!/.test(prop)) {
   prop = prop.replace(/^!/, '')
-  const valueA = getComparisonValue(a, prop)
-  const valueB = getComparisonValue(b, prop)
+  const a = getComparisonValue(entryA, prop)
+  const b = getComparisonValue(entryB, prop)
 
-  return valueA === valueB ? 0 : flip !== (valueA > valueB) ? 1 : -1
+  return (flip ? -1 : 1) * (a > b ? 1 : a < b ? -1 : 0)
 }
 
 /**
