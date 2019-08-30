@@ -294,7 +294,6 @@ describe('Cite instance', () => {
           'edition',
           '!page'
         ])
-        console.log(ids, test.getIds())
 
         expect(test.getIds()).to.eql(ids.reverse())
       })

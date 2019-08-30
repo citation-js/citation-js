@@ -22,18 +22,13 @@
     {
       "id": "g",
       "author": [{ "family": "b" }],
-      "issued": { "date-parts": [[2018]] }
-    },
-    {
-      "id": "f",
-      "author": [{ "family": "b" }],
       "issued": { "date-parts": [[2018]] },
       "title": "a",
       "page": "123-456",
       "edition": "2nd"
     },
     {
-      "id": "e",
+      "id": "f",
       "author": [{ "family": "b" }],
       "issued": { "date-parts": [[2018]] },
       "title": "a",
@@ -41,12 +36,17 @@
       "edition": "2nd"
     },
     {
-      "id": "d",
+      "id": "e",
       "author": [{ "family": "b" }],
       "issued": { "date-parts": [[2018]] },
       "title": "a",
       "page": "123-456",
       "edition": 1
+    },
+    {
+      "id": "d",
+      "author": [{ "family": "b" }],
+      "issued": { "date-parts": [[2018]] }
     },
     {
       "id": "c",
