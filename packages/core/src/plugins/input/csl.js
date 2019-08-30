@@ -136,7 +136,8 @@ const correctName = function (name, bestGuessConversions) {
  */
 const correctNameList = function (nameList, bestGuessConversions) {
   if (nameList instanceof Array) {
-    return nameList.map(name => correctName(name, bestGuessConversions)).filter(Boolean) || undefined
+    const names = nameList.map(name => correctName(name, bestGuessConversions)).filter(Boolean)
+    return names.length ? names : undefined
   }
 }
 
