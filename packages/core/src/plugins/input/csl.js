@@ -201,18 +201,20 @@ const correctField = function (fieldName, value, bestGuessConversions) {
       return correctDate(value, bestGuessConversions)
   }
 
+  if (/^_/.test(fieldName)) {
+    return value
+  } else if (bestGuessConversions) {
+    if (typeof value === 'string' && fieldType.includes('number') && !isNaN(+value)) {
+      return parseFloat(value)
+    } else if (typeof value === 'number' && fieldType.includes('string') && !fieldType.includes('number')) {
+      return value.toString()
+    } else if (Array.isArray(value) && value.length) {
+      return correctField(fieldName, value[0], bestGuessConversions)
+    }
+  }
+
   if (fieldType.includes(typeof value)) {
     return value
-  } else if (/^_/.test(fieldName)) {
-    return value
-  } else if (!bestGuessConversions) {
-    return undefined
-  } else if (typeof value === 'string' && fieldType.includes('number') && parseFloat(value)) {
-    return parseFloat(value)
-  } else if (typeof value === 'number' && fieldType.includes('string') && !fieldType.includes('number')) {
-    return value.toString()
-  } else if (Array.isArray(value) && value.length) {
-    return correctField(fieldName, value[0])
   }
 }
 
