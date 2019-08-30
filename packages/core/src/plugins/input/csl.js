@@ -109,11 +109,11 @@ const fieldTypes = {
  * @memberof Cite.parse
  *
  * @param {*} name - name
- * @param {Boolean} [bestGuessConversions=true] - make some best guess conversions on type mismatch, default: true
+ * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
  *
  * @return {Object} returns the (corrected) value if possible, otherwise undefined
  */
-const correctName = function (name, bestGuessConversions = true) {
+const correctName = function (name, bestGuessConversions) {
   if (typeof name === 'object' && (name.literal || (name.given || name.family))) {
     return name
   } else if (!bestGuessConversions) {
@@ -130,11 +130,11 @@ const correctName = function (name, bestGuessConversions = true) {
  * @memberof Cite.parse
  *
  * @param {*} nameList - name list
- * @param {Boolean} [bestGuessConversions=true] - make some best guess conversions on type mismatch, default: true
+ * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
  *
  * @return {Array<Object>|undefined} returns the (corrected) value if possible, otherwise undefined
  */
-const correctNameList = function (nameList, bestGuessConversions = true) {
+const correctNameList = function (nameList, bestGuessConversions) {
   if (nameList instanceof Array) {
     return nameList.map(name => correctName(name, bestGuessConversions)).filter(Boolean) || undefined
   }
@@ -147,11 +147,11 @@ const correctNameList = function (nameList, bestGuessConversions = true) {
  * @memberof Cite.parse
  *
  * @param {*} date - date
- * @param {Boolean} [bestGuessConversions=true] - make some best guess conversions on type mismatch, default: true
+ * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
  *
  * @return {Array<Object>|undefined} returns the (corrected) value if possible, otherwise undefined
  */
-const correctDate = function (date, bestGuessConversions = true) {
+const correctDate = function (date, bestGuessConversions) {
   const dp = 'date-parts'
 
   // "{'date-parts': [[2000, 1, 1], ...]}"
@@ -185,11 +185,11 @@ const correctDate = function (date, bestGuessConversions = true) {
  *
  * @param {String} fieldName - field name
  * @param {*} value - value
- * @param {Boolean} [bestGuessConversions=true] - make some best guess conversions on type mismatch, default: true
+ * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
  *
  * @return {*|undefined} returns the (corrected) value if possible, otherwise undefined
  */
-const correctField = function (fieldName, value, bestGuessConversions = true) {
+const correctField = function (fieldName, value, bestGuessConversions) {
   const fieldType = [].concat(fieldTypes[fieldName])
 
   switch (fieldTypes[fieldName]) {
@@ -223,15 +223,16 @@ const correctField = function (fieldName, value, bestGuessConversions = true) {
  * @memberof Cite.parse
  *
  * @param {Array<CSL>} data - Array of CSL
+ * @param {Boolean} [bestGuessConversions=true] - make some best guess conversions on type mismatch
  *
  * @return {Array<CSL>} Array of clean CSL
  */
-const parseCsl = function (data) {
+const parseCsl = function (data, bestGuessConversions = true) {
   return data.map(function (entry) {
     const clean = {}
 
     for (let field in entry) {
-      const correction = correctField(field, entry[field])
+      const correction = correctField(field, entry[field], bestGuessConversions)
       if (correction !== undefined) {
         clean[field] = correction
       }
