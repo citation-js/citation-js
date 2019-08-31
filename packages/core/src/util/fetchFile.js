@@ -35,7 +35,9 @@ function normaliseHeaders (headers) {
  */
 function parseOpts (opts = {}) {
   const reqOpts = {
-    headers: {},
+    headers: {
+      accept: '*/*'
+    },
     method: 'GET',
     checkContentType: opts.checkContentType
   }
@@ -44,17 +46,16 @@ function parseOpts (opts = {}) {
     reqOpts.headers['user-agent'] = userAgent
   }
 
-  if (opts.headers) {
-    reqOpts.headers = normaliseHeaders(opts.headers)
-    reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
-  }
-
   if (opts.body) {
     reqOpts.method = 'POST'
     const isJson = typeof opts.body !== 'string'
     reqOpts.body = isJson ? JSON.stringify(opts.body) : opts.body
-    reqOpts.headers['content-type'] = reqOpts.headers['content-type'] ||
-      isJson ? 'application/json' : 'text/plain'
+    reqOpts.headers['content-type'] = isJson ? 'application/json' : 'text/plain'
+  }
+
+  if (opts.headers) {
+    Object.assign(reqOpts.headers, normaliseHeaders(opts.headers))
+    reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
   }
 
   return reqOpts
