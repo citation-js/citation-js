@@ -80,6 +80,10 @@
       [{"id": "b", "citation-label": "foo", "type": "book"}],
       "@book{foo,\n}"
     ],
+    "difficult label": [
+      [{"id": "b", "author": [{"given": "foo"}], "type": "book"}],
+      "@book{b,\n\tauthor = {, foo},\n}"
+    ],
     "non-generated label": [
       [{"id": "b", "type": "book"}],
       "@book{b,\n}",
