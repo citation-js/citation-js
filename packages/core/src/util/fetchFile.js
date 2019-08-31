@@ -36,7 +36,8 @@ function normaliseHeaders (headers) {
 function parseOpts (opts = {}) {
   const reqOpts = {
     headers: {},
-    method: 'GET'
+    method: 'GET',
+    checkContentType: opts.checkContentType
   }
 
   if (userAgent) {
