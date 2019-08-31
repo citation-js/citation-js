@@ -11,5 +11,5 @@ install:
   - npm run babel
 script:
   - npm run coverage
-after_success:
+after_script:
   - codecov
