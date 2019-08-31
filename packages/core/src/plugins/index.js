@@ -27,12 +27,13 @@ const indices = {}
 export const add = (ref, plugins = {}) => {
   let mainIndex = indices[ref] = {}
 
-  if ('config' in plugins) {
-    registers.config.add(ref, plugins.config)
-    delete plugins.config
-  }
-
   for (let type in plugins) {
+    if (type === 'config') {
+      mainIndex.config = { [ref]: plugins.config }
+      registers.config.add(ref, plugins.config)
+      continue
+    }
+
     let typeIndex = mainIndex[type] = {}
     let typePlugins = plugins[type]
 
