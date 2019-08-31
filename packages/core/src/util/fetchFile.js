@@ -41,7 +41,7 @@ function parseOpts (opts = {}) {
   }
 
   if (userAgent) {
-    reqOpts['user-agent'] = userAgent
+    reqOpts.headers['user-agent'] = userAgent
   }
 
   if (opts.headers) {
