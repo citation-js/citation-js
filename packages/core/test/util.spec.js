@@ -163,9 +163,14 @@ describe('util', function () {
     it('throws for circular structures', function () {
       const input = {}
       input.a = input
-      assert.throws(() => util.deepCopy(input), {
-        name: 'TypeError',
-        message: 'Recursively copying circular structure'
+      // assert.throws(() => util.deepCopy(input), {
+      //   name: 'TypeError',
+      //   message: 'Recursively copying circular structure'
+      // })
+      assert.throws(() => util.deepCopy(input), function (error) {
+        assert.strictEqual(error.name, 'TypeError')
+        assert.strictEqual(error.message, 'Recursively copying circular structure')
+        return true
       })
     })
   })
@@ -189,7 +194,13 @@ describe('util', function () {
       const [request, expectedResponse, shouldThrow] = requests[name]
       it(name, function () {
         if (shouldThrow) {
-          assert.throws(() => util.fetchFile(serverName + request[0], request[1]), expectedResponse)
+          // assert.throws(() => util.fetchFile(serverName + request[0], request[1]), expectedResponse)
+          assert.throws(() => util.fetchFile(serverName + request[0], request[1]), function (error) {
+            for (const prop in expectedResponse) {
+              assert.strictEqual(error[prop], expectedResponse[prop])
+            }
+            return true
+          })
         } else {
           const actualResponse = util.fetchFile(serverName + request[0], request[1])
           assert.deepStrictEqual(JSON.parse(actualResponse), expectedResponse)
@@ -197,7 +208,13 @@ describe('util', function () {
       })
       it(name + ' (async)', async function () {
         if (shouldThrow) {
-          return assert.rejects(() => util.fetchFileAsync(serverName + request[0], request[1]), expectedResponse)
+          // return assert.rejects(() => util.fetchFileAsync(serverName + request[0], request[1]), expectedResponse)
+          return util.fetchFileAsync(serverName + request[0], request[1]).catch(function (error) {
+            for (const prop in expectedResponse) {
+              assert.strictEqual(error[prop], expectedResponse[prop])
+            }
+            return true
+          })
         } else {
           const actualResponse = await util.fetchFileAsync(serverName + request[0], request[1])
           assert.deepStrictEqual(JSON.parse(actualResponse), expectedResponse)
