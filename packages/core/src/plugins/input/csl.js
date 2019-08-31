@@ -142,6 +142,24 @@ const correctNameList = function (nameList, bestGuessConversions) {
 }
 
 /**
+ * Correct date parts
+ * @access private
+ * @memberof Cite.parse
+ * @param {Array} dateParts
+ * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
+ * @return {Array<Number>|undefined}
+ */
+const correctDateParts = function (dateParts, bestGuessConversions) {
+  if (dateParts.every(part => typeof part === 'number')) {
+    return dateParts
+  } else if (!bestGuessConversions || dateParts.some(part => isNaN(parseInt(part)))) {
+    return undefined
+  } else {
+    return dateParts.map(part => parseInt(part))
+  }
+}
+
+/**
  * Correct a date field.
  *
  * @access private
@@ -155,26 +173,23 @@ const correctNameList = function (nameList, bestGuessConversions) {
 const correctDate = function (date, bestGuessConversions) {
   const dp = 'date-parts'
 
+  if (typeof date !== 'object') {
+    return undefined
+
   // "{'date-parts': [[2000, 1, 1], ...]}"
-  if (date && date[dp] instanceof Array && date[dp].every(part => part instanceof Array)) {
-    if (date[dp].every(part => part.every(datePart => typeof datePart === 'number'))) {
-      return { [dp]: date[dp].map(part => part.slice()) }
-    } else if (!bestGuessConversions) {
-      return undefined
-    } else if (date[dp].some(part => part.some(datePart => typeof datePart === 'string'))) {
-      return { [dp]: date[dp].map(part => part.map(parseFloat)) }
-    }
+  } else if (date && date[dp] instanceof Array && date[dp].every(part => part instanceof Array)) {
+    const range = date[dp].map(dateParts => correctDateParts(dateParts, bestGuessConversions)).filter(Boolean)
+    return range.length ? { ...date, 'date-parts': range } : undefined
 
   // LEGACY support
   // "[{'date-parts': [2000, 1, 1]}, ...]"
-  } else if (date && date instanceof Array && date[0][dp] instanceof Array) {
-    if (date[0][dp].every(datePart => typeof datePart === 'number')) {
-      return { [dp]: [date[0][dp].slice()] }
-    } else if (!bestGuessConversions) {
-      return undefined
-    } else if (date[0][dp].every(datePart => typeof datePart === 'string')) {
-      return { [dp]: [date[0][dp].map(parseFloat)] }
-    }
+  } else if (date && date instanceof Array && date.every(part => part[dp] instanceof Array)) {
+    const range = date.map(dateParts => correctDateParts(dateParts[dp], bestGuessConversions)).filter(Boolean)
+    return range.length ? { 'date-parts': range } : undefined
+
+  // No separate date-parts
+  } else if ('literal' in date || 'raw' in date) {
+    return date
   }
 }
 
