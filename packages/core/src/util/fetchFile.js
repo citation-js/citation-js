@@ -68,6 +68,7 @@ function parseOpts (opts = {}) {
  * @return {Boolean}
  */
 function sameType (request, response) {
+  // istanbul ignore next: should not happen
   if (!request.accept || !response['content-type']) {
     return true
   }
@@ -157,8 +158,6 @@ export async function fetchFileAsync (url, opts) {
  *
  * @param {String} url - The input url
  * @param {Cite.util.fetchFile~options} [opts] - Request options
- *
- * @return {Promise<String>} The fetched string
  */
 export function setUserAgent (newUserAgent) {
   userAgent = newUserAgent
