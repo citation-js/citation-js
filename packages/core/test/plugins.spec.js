@@ -22,18 +22,34 @@ describe('plugins', function () {
     expect(plugins.has(ref)).to.be.ok()
   })
   it('works', function () {
-    plugins.add(ref, { input: { [type]: { parseType: { predicate: /foo/ } } } })
+    plugins.add(ref, {
+      input: { [type]: { parseType: { predicate: /foo/ } } },
+      output: { [type] () {} },
+      dict: { [type]: {} },
+      config: {}
+    })
     expect(plugins.input.has(type)).to.ok()
     expect(plugins.input.type('foo')).to.be(type)
+    expect(plugins.output.has(type)).to.ok()
+    expect(plugins.dict.has(type)).to.ok()
+    expect(plugins.config.has(ref)).to.ok()
   })
   it('removes', function () {
-    plugins.add(ref, { input: { [type]: { parseType: { predicate: /foo/ } } } })
+    plugins.add(ref, {
+      input: { [type]: { parseType: { predicate: /foo/ } } },
+      output: { [type] () {} },
+      dict: { [type]: {} },
+      config: {}
+    })
     plugins.remove(ref)
     expect(plugins.input.has(type)).to.not.be.ok()
     expect(plugins.input.hasTypeParser(type)).to.not.be.ok()
     expect(plugins.input.hasDataParser(type)).to.not.be.ok()
     expect(plugins.input.hasDataParser(type, true)).to.not.be.ok()
     expect(plugins.input.type('foo')).to.not.be(type)
+    expect(plugins.output.has(type)).to.not.be.ok()
+    expect(plugins.dict.has(type)).to.not.be.ok()
+    expect(plugins.config.has(ref)).to.not.be.ok()
   })
 
   describe('config', function () {
