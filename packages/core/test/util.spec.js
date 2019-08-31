@@ -240,4 +240,13 @@ describe('util', function () {
       util.setUserAgent(userAgent)
     })
   })
+
+  describe('fetchId', function () {
+    it('generates an id', function () {
+      assert.ok(/^\d+$/.test(util.fetchId([], '')), 'id does not conform to pattern')
+    })
+    it('uses prefix', function () {
+      assert.ok(/^foo\d+$/.test(util.fetchId([], 'foo')), 'id does not conform to pattern')
+    })
+  })
 })
