@@ -9,7 +9,7 @@ const stopWords = [
 ]
 
 const safeSlug = text => {
-  return text
+  return !text ? '' : text
     .replace(/<\/?.*?>/g, '')
     // exclude all non-alphanumerical ASCII (and include underscore)
     .split(/[\u0020-\u002F\u003A-\u0040\u005B-\u005E\u0060\u007B-\u007F]+/)
@@ -51,7 +51,7 @@ const getBibTeXLabel = function (entry = {}, opts = {}) {
     res += safeSlug(entry.title)
   }
 
-  return res
+  return res || entry.id
 }
 
 export default getBibTeXLabel
