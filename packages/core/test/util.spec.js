@@ -249,4 +249,37 @@ describe('util', function () {
       assert.ok(/^foo\d+$/.test(util.fetchId([], 'foo')), 'id does not conform to pattern')
     })
   })
+
+  describe('Register', function () {
+    it('takes an existing object', function () {
+      assert.strictEqual((new util.Register({ foo: 'bar' })).get('foo'), 'bar')
+    })
+    it('set()', function () {
+      const register = new util.Register()
+      register.set('foo', 'bar')
+      assert.strictEqual(register.get('foo'), 'bar')
+    })
+    it('add()', function () {
+      const register = new util.Register()
+      register.add('foo', 'bar')
+      assert.strictEqual(register.get('foo'), 'bar')
+    })
+    it('remove()', function () {
+      const register = new util.Register({ foo: 'bar' })
+      register.remove('foo')
+      assert.notStrictEqual(register.get('foo'), 'bar')
+    })
+    it('get()', function () {
+      const register = new util.Register({ foo: 'bar' })
+      assert.strictEqual(register.get('foo'), 'bar')
+    })
+    it('has()', function () {
+      const register = new util.Register({ foo: 'bar' })
+      assert.ok(register.has('foo'))
+    })
+    it('list()', function () {
+      const register = new util.Register({ foo: 'bar' })
+      assert.deepStrictEqual(register.list(), ['foo'])
+    })
+  })
 })
