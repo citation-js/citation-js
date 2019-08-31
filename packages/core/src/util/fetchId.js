@@ -12,7 +12,7 @@
 const fetchId = function (list, prefix) {
   let id
 
-  while (list.includes(id)) {
+  while (id === undefined || list.includes(id)) {
     id = `${prefix}${Math.random().toString().slice(2)}`
   }
 
