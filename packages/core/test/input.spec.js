@@ -39,7 +39,7 @@ const cases = {
 
 describe('input', function () {
   describe('interface', function () {
-    const { chain, chainAsync, chainLink, chainLinkAsync } = plugins.input
+    const { chain, chainAsync, chainLink, chainLinkAsync, util } = plugins.input
     describe('chain', function () {
       it('parses', function () {
         expect(chain({}, { generateGraph: false })).to.eql([{}])
@@ -185,6 +185,87 @@ describe('input', function () {
         expect((await chainLinkAsync(object))[0]).not.to.be(object)
       })
     })
+    describe('clean', function () {
+      it('clones input', function () {
+        const input = [{}]
+        expect(util.clean(input, false)).not.to.be(input)
+      })
+      it('removes unknown fields', function () {
+        expect(util.clean([{ foo: 1 }], false)).to.eql([{}])
+      })
+      it('keeps custom fields', function () {
+        expect(util.clean([{ _foo: 1 }], false)).to.eql([{ _foo: 1 }])
+      })
+      it('keeps valid names', function () {
+        let input
+        input = [{ author: [{ literal: 'foo' }] }]
+        expect(util.clean(input, false)).to.eql(input)
+        input = [{ author: [{ family: 'foo' }] }]
+        expect(util.clean(input, false)).to.eql(input)
+      })
+      it('removes invalid names', function () {
+        expect(util.clean([{ author: 'foo' }], false)).to.eql([{}])
+        expect(util.clean([{ author: { literal: 'foo' } }], false)).to.eql([{}])
+        expect(util.clean([{ author: ['foo'] }], false)).to.eql([{}])
+        expect(util.clean([{ author: [{ foo: 1 }] }], false)).to.eql([{}])
+      })
+      it('keeps valid dates', function () {
+        let input
+        input = [{ issued: { 'date-parts': [[1, 2, 3]] } }]
+        expect(util.clean(input, false)).to.eql(input)
+        input = [{ issued: { 'raw': 'foo' } }]
+        expect(util.clean(input, false)).to.eql(input)
+      })
+      it('keeps dates in legacy format', function () {
+        expect(util.clean([{
+          issued: [{ 'date-parts': [1, 2, 3] }]
+        }], false)).to.eql([{
+          issued: { 'date-parts': [[1, 2, 3]] }
+        }])
+      })
+      it('removes invalid dates', function () {
+        expect(util.clean([{ issued: 'foo' }], false)).to.eql([{}])
+        expect(util.clean([{ issued: ['foo'] }], false)).to.eql([{}])
+        expect(util.clean([{ issued: { 'date-parts': 'foo' } }], false)).to.eql([{}])
+        expect(util.clean([{ issued: { 'date-parts': ['foo'] } }], false)).to.eql([{}])
+        expect(util.clean([{ issued: { 'date-parts': [['foo', 'foo', 'foo']] } }], false)).to.eql([{}])
+        expect(util.clean([{ issued: [{ 'date-parts': ['foo', 'foo', 'foo'] }] }], false)).to.eql([{}])
+      })
+      describe('performs best guess conversions', function () {
+        it('on string values that should be numbers', function () {
+          expect(util.clean([{ volume: '12' }], true)).to.eql([{ volume: 12 }])
+          expect(util.clean([{ volume: '2nd' }], true)).to.eql([{ volume: '2nd' }])
+          expect(util.clean([{
+            issued: { 'date-parts': [['2019', '08', '30']] }
+          }], true)).to.eql([{
+            issued: { 'date-parts': [[2019, 8, 30]] }
+          }])
+          expect(util.clean([{
+            issued: [{ 'date-parts': ['2019', '08', '30'] }]
+          }], true)).to.eql([{
+            issued: { 'date-parts': [[2019, 8, 30]] }
+          }])
+          expect(util.clean([{ issued: { 'date-parts': [[{}, '08', '30']] } }], true)).to.eql([{}])
+          expect(util.clean([{ issued: [{ 'date-parts': [{}, '08', '30'] }] }], true)).to.eql([{}])
+        })
+        it('on number values that should (only) be strings', function () {
+          expect(util.clean([{ scale: 1e6 }], true)).to.eql([{ scale: '1000000' }])
+          expect(util.clean([{ number: 40 }], true)).to.eql([{ number: 40 }])
+        })
+        it('on arrays that should be single values', function () {
+          expect(util.clean([{ ISBN: ['12345667890'] }], true)).to.eql([{ ISBN: '12345667890' }])
+          expect(util.clean([{ ISSN: ['1234-5678', '9101-1121'] }], true)).to.eql([{ ISSN: '1234-5678' }])
+        })
+        it('on unparsed names', function () {
+          expect(util.clean([{
+            author: ['Lars G. Willighagen']
+          }])).to.eql([{
+            author: [{ given: 'Lars G.', family: 'Willighagen' }]
+          }])
+          expect(util.clean([{ author: [1] }])).to.eql([{}])
+        })
+      })
+    })
   })
 
   describe('internal types', function () {
@@ -199,6 +280,12 @@ describe('input', function () {
             it('parses data', function () {
               expect(
                 plugins.input.chain(input, { generateGraph: false })
+              )
+                .to.eql(expected)
+            })
+            it('parses data async', async function () {
+              expect(
+                await plugins.input.chainAsync(input, { generateGraph: false })
               )
                 .to.eql(expected)
             })

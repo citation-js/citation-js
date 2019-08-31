@@ -230,6 +230,7 @@ describe('plugins', function () {
           })
           it('can be inferred', function () {
             expect((new TypeParser({ predicate: /foo/ })).dataType).to.be('String')
+            expect((new TypeParser({ tokenList: /foo/ })).dataType).to.be('String')
             expect((new TypeParser({ elementConstraint: '@foo/bar' })).dataType).to.be('Array')
             expect((new TypeParser({})).dataType).to.be('Primitive')
             expect((new TypeParser({ dataType: 'Array', predicate: /foo/ })).dataType).to.be('Array')

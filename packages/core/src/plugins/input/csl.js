@@ -209,6 +209,7 @@ const correctField = function (fieldName, value, bestGuessConversions) {
   const fieldType = [].concat(fieldTypes[fieldName])
 
   switch (fieldTypes[fieldName]) {
+    /* istanbul ignore next: no field has this */
     case NAME:
       return correctName(value, bestGuessConversions)
     case NAME_LIST:
