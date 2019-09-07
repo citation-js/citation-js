@@ -21,7 +21,7 @@
     "url": "https://github.com/citation-js/citation-js/issues"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8"
   },
   "files": [
     "lib",
@@ -37,7 +37,6 @@
     "sync-fetch": "^0.1.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5"
+    "@babel/plugin-proposal-class-properties": "^7.5.5"
   }
 }

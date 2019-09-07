@@ -21,7 +21,7 @@
     "url": "https://github.com/citation-js/citation-js/issues"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8"
   },
   "files": [
     "lib",
