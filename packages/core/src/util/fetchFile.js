@@ -1,5 +1,5 @@
 import syncFetch from 'sync-fetch'
-/* global fetch */
+/* global fetch, Headers */
 import 'isomorphic-fetch'
 
 import logger from '../logger'
@@ -79,7 +79,7 @@ function sameType (request, response) {
   }
 
   const [a, b] = response['content-type'][0].split(';')[0].split('/')
-  return !!request.accept
+  return request.accept
     .reduce((array, header) => array.concat(header.split(/\s*,\s*/)), [])
     .map(type => type.split(';')[0].split('/'))
     .find(([c, d]) => (c === a || c === '*') && (d === b || d === '*'))
