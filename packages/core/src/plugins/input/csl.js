@@ -173,7 +173,7 @@ const correctDateParts = function (dateParts, bestGuessConversions) {
 const correctDate = function (date, bestGuessConversions) {
   const dp = 'date-parts'
 
-  if (typeof date !== 'object' && date !== null) {
+  if (typeof date !== 'object' || date === null) {
     return undefined
 
   // "{'date-parts': [[2000, 1, 1], ...]}"
