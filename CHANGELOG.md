@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.0...v) (2019-09-10)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.1...v) (2019-09-10)
+
+
+### Bug Fixes
+
+* **core:** fix date value null check ([f6a3ab2](https://github.com/citation-js/citation-js/commit/f6a3ab2))
+
+
+
+# [0.5.0-alpha.1](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.0...v0.5.0-alpha.1) (2019-09-10)
 
 
 ### Bug Fixes
