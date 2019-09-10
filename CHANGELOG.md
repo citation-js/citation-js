@@ -1,4 +1,14 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.10...v) (2019-09-07)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.0...v) (2019-09-10)
+
+
+### Bug Fixes
+
+* **core:** fix cleaning 'null' date values ([c927f81](https://github.com/citation-js/citation-js/commit/c927f81)), closes [/github.com/larsgw/citation.js/issues/190#issuecomment-529917382](https://github.com//github.com/larsgw/citation.js/issues/190/issues/issuecomment-529917382)
+* **core:** fix cleaning 'null' name values ([2d59a32](https://github.com/citation-js/citation-js/commit/2d59a32))
+
+
+
+# [0.5.0-alpha.0](https://github.com/citation-js/citation-js/compare/v0.4.10...v0.5.0-alpha.0) (2019-09-07)
 
 
 * chore!: drop Node 6 support ([f27d812](https://github.com/citation-js/citation-js/commit/f27d812)), closes [#55](https://github.com/citation-js/citation-js/issues/55)
