@@ -114,7 +114,7 @@ const fieldTypes = {
  * @return {Object} returns the (corrected) value if possible, otherwise undefined
  */
 const correctName = function (name, bestGuessConversions) {
-  if (typeof name === 'object' && (name.literal || (name.given || name.family))) {
+  if (typeof name === 'object' && name !== null && (name.literal || (name.given || name.family))) {
     return name
   } else if (!bestGuessConversions) {
     return undefined
