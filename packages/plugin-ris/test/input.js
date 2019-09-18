@@ -46,5 +46,36 @@ module.exports = {
         }
       ]
     ]
+  },
+  '@ris/file': {
+    'EndNote-style delimiters': [
+      `TY  - JOUR
+AU  - Willighagen, Lars
+TI  - RIS Plugin
+AB  - This is a
+multiline abstract
+ER  -
+
+
+
+TY  - EBOOK
+DA  - 2019/09/18/
+TI  - IDK
+ER  -
+`,
+      [
+        {
+          type: 'article-journal',
+          title: 'RIS Plugin',
+          abstract: 'This is a multiline abstract',
+          author: [{ family: 'Willighagen', given: 'Lars' }]
+        },
+        {
+          type: 'book',
+          title: 'IDK',
+          accessed: { 'date-parts': [[2019, 9, 18]] }
+        }
+      ]
+    ]
   }
 }
