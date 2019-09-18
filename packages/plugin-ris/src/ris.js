@@ -48,7 +48,7 @@ export function parse (text) {
   let lastEntry
   let lastTag
 
-  for (let line of text.split('\n')) {
+  for (let line of text.split(/\r?\n/)) {
     if (!LINE_MATCH.test(line)) {
       if (lastEntry && lastTag) { lastEntry[lastTag] += ' ' + line.trim() }
       continue
