@@ -4,174 +4,296 @@
 
 import { util } from '@citation-js/core'
 
-/**
- * Mapping of BibTeX Escaped Chars to Unicode.
- *
- * From [Zotero's reversed mapping table](https://github.com/zotero/translators/blob/master/BibTeX.js#L2353)
- * [REPO](https://github.com/zotero/translators)
- *
- * Accesed 11/09/2016
- *
- * @access private
- * @constant varBibTeXTokens
- * @default
- */
-import varBibTeXTokens from './tokens.json'
+import moo from 'moo'
+import * as constants from './constants'
 
-/**
- * Match any BibTeX token.
- *
- *     new RegExp(
- *       // word commands
- *       '\\\\url|\\\\href|' +
- *       '{\\\\[a-zA-Z]+}|\\$\\\\[a-zA-Z]+\\$|' +
- *       // math
- *       '\\$[_^]{[0-9()+\\-=n]}\\$|'+
- *       // symbols
- *       '`{2,3}|\'{2,3}|-{2,3}|[!?]!|!\\?|{\\\\~}|' +
- *       // escaped symbols
- *       '\\\\[#$%&~_^\\\\{}]|' +
- *       // diacritics
- *       '{\\\\(?:[a-z] |[`"\'^~=.])\\\\?[a-zA-Z]}|' +
- *       // non-breaking space
- *       '[\\s\\S]', 'g')
- *
- * @access private
- * @constant tokenPattern
- * @default
- */
-const tokenPattern = /\\url|\\href|{\\[a-zA-Z]+}|\$\\[a-zA-Z]+\$|\$[_^]{[0-9()+=\-n]}\$|`{2,3}|'{2,3}|-{2,3}|[!?]!|!\?|{\\~}|\\[#$%&~_^\\{}]|{\\(?:[a-z] |[`"'^~=.])\\?[a-zA-Z]}|[\s\S]/g
-
-const whitespace = /^\s$/
-const syntax = /^[@{}"=,\\]$/
-const delimiters = {
-  '"': '"',
-  '{': '}',
-  '': ''
+const identifier = /[a-zA-Z][a-zA-Z0-9_-]*/
+const whitespace = {
+  comment: /%.*/,
+  whitespace: { match: /\s+/, lineBreaks: true }
+}
+const text = {
+  command: /\\(?:[a-z]+|.) */,
+  lbrace: { match: '{', push: 'bracedLiteral' },
+  mathShift: { match: '$', push: 'mathLiteral' },
+  whitespace: { match: /\s+/, lineBreaks: true }
 }
 
-/**
- * Tokenize a BibTeX string
- *
- * @access private
- * @method getTokenizedBibtex
- *
- * @param {String} str - Input BibTeX
- *
- * @return {Array<String>} list of tokens
- */
-const getTokenizedBibtex = function (str) {
-  // Substitute command of form "\X{X}" into "{\X X}"
-  str = str
-    .replace(/(\\[`"'^~=.]){\\?([A-Za-z])}/g, '{$1$2}')
-    .replace(/(\\[a-z]) ?{\\?([A-Za-z])}/g, '{$1 $2}')
-
-  // Tokenize, with escaped characters in mind
-  return str.match(tokenPattern)
-}
-
-/**
- * Format BibTeX data
- *
- * @access protected
- * @method parseBibTeX
- *
- * @param {String} str - The input data
- *
- * @return {Array<CSL>} The formatted input data
- */
-const parseBibTeX = function (str) {
-  const entries = []
-  const tokens = getTokenizedBibtex(str)
-  const stack = new util.TokenStack(tokens)
-
-  stack.consumeWhitespace()
-
-  while (stack.tokensLeft()) {
-    stack.consumeToken('@', { spaced: false })
-    stack.consumeWhitespace()
-
-    const type = stack.consume([whitespace, syntax], { inverse: true }).toLowerCase()
-
-    stack.consumeToken('{')
-
-    const label = stack.consume([whitespace, syntax], { inverse: true })
-
-    stack.consumeToken(',')
-
-    const properties = {}
-
-    while (stack.tokensLeft()) {
-      const key = stack.consume([whitespace, '='], { inverse: true }).toLowerCase()
-
-      stack.consumeToken('=')
-
-      const startDelimiter = stack.consume(/^({|"|)$/g)
-      const endDelimiter = delimiters[startDelimiter]
-
-      if (!delimiters.hasOwnProperty(startDelimiter)) {
-        throw new SyntaxError(`Unexpected field delimiter at index ${stack.index}. Expected ` +
-          `${Object.keys(delimiters).map(v => `"${v}"`).join(', ')}; got "${startDelimiter}"`)
-      }
-
-      const tokenMap = token => {
-        if (varBibTeXTokens.hasOwnProperty(token)) {
-          return varBibTeXTokens[token]
-        } else if (token.match(/^\\[#$%&~_^\\{}]$/)) {
-          return token.slice(1)
-        } else if (token.length > 1) {
-          throw new SyntaxError(`Escape sequence not recognized: ${token}`)
-        } else {
-          return token
-        }
-      }
-
-      let openBrackets = 0
-      const val = stack.consume((token, index) => {
-        if (token === '{') {
-          openBrackets++
-        }
-
-        if (stack.tokensLeft() < endDelimiter.length) {
-          throw new SyntaxError(`Unmatched delimiter at index ${stack.index}: Expected ${endDelimiter}`)
-        } else if (!endDelimiter.length) {
-          return ![whitespace, syntax].some(rgx => rgx.test(token))
-        } else {
-          return (token === '}' && openBrackets--) || !stack.matchesSequence(endDelimiter)
-        }
-      }, { tokenMap })
-
-      properties[key] = val.replace(/[ \t\n]+/g, ' ')
-
-      stack.consumeN(endDelimiter.length)
-      stack.consumeWhitespace()
-
-      // Last entry (no trailing comma)
-      if (stack.matches('}')) { break }
-
-      stack.consumeToken(',', { spaced: false })
-      stack.consumeWhitespace()
-
-      // Last entry (trailing comma)
-      if (stack.matches('}')) { break }
-    }
-
-    stack.consumeToken('}', { spaced: false })
-    stack.consumeWhitespace()
-
-    // records can be also ended with comma
-    if (stack.matches(',')) {
-      stack.consumeToken(',')
-      stack.consumeWhitespace()
-    }
-
-    entries.push({ type, label, properties })
+const lexer = moo.states({
+  main: {
+    junk: { match: /@[cC][oO][mM][mM][eE][nN][tT].+|[^@]+/, lineBreaks: true },
+    at: { match: '@', push: 'entry' }
+  },
+  entry: {
+    ...whitespace,
+    otherEntryType: {
+      match: /[sS][tT][rR][iI][nN][gG]|[pP][rR][eE][aA][mM][bB][lL][eE]/,
+      next: 'otherEntryContents'
+    },
+    dataEntryType: {
+      match: identifier,
+      next: 'dataEntryContents'
+    },
+  },
+  otherEntryContents: {
+    ...whitespace,
+    lbrace: { match: /[{(]/, next: 'fields' }
+  },
+  dataEntryContents: {
+    ...whitespace,
+    lbrace: { match: /[{(]/, next: 'dataEntryContents' },
+    label: /[^,\s]+/,
+    comma: { match: ',', next: 'fields' }
+  },
+  fields: {
+    ...whitespace,
+    identifier,
+    number: /-?\d+/,
+    hash: '#',
+    equals: '=',
+    comma: ',',
+    quote: { match: '"', push: 'quotedLiteral' },
+    lbrace: { match: '{', push: 'bracedLiteral' },
+    rbrace: { match: /[})]/, pop: true }
+  },
+  quotedLiteral: {
+    ...text,
+    quote: { match: '"', pop: true },
+    text: /[^{$"\s\\]+/
+  },
+  bracedLiteral: {
+    ...text,
+    rbrace: { match: '}', pop: true },
+    text: /[^{$}\s\\]+/
+  },
+  mathLiteral: {
+    ...text,
+    mathShift: { match: '$', pop: true },
+    script: /[\^_]/,
+    text: /[^{$}\s\\\^_]+/
   }
+})
 
-  return entries
+const delimiters = {
+  '(': ')',
+  '{': '}'
 }
 
-export {
-  parseBibTeX as parse,
-  parseBibTeX as default
+export const bibtexGrammar = new util.Grammar({
+  Main () {
+    let entries = []
+
+    while (true) {
+      while (this.matchToken('junk')) {
+        this.consumeToken('junk')
+      }
+
+      if (this.matchEndOfFile()) {
+        break
+      }
+
+      entries.push(this.consumeRule('Entry'))
+    }
+
+    return entries.filter(Boolean)
+  },
+
+  _ () {
+    let oldToken
+    while (oldToken !== this.token) {
+      oldToken = this.token
+      this.consumeToken('whitespace', true)
+      this.consumeToken('comment', true)
+    }
+  },
+
+  Entry () {
+    this.consumeToken('at')
+    this.consumeRule('_')
+
+    const type = (
+      this.matchToken('otherEntryType')
+      ? this.consumeToken('otherEntryType')
+      : this.consumeToken('dataEntryType')
+    ).value.toLowerCase()
+
+    this.consumeRule('_')
+    const openBrace = this.consumeToken('lbrace').value
+    this.consumeRule('_')
+
+    let result
+
+    if (type === 'string') {
+      const [key, value] = this.consumeRule('Field')
+      this.state.strings[key] = value
+    } else if (type === 'preamble') {
+      this.consumeRule('Expression')
+    } else {
+      const label = this.consumeToken('label').value
+
+      this.consumeRule('_')
+      this.consumeToken('comma')
+      this.consumeRule('_')
+
+      const properties = this.consumeRule('EntryBody')
+
+      result = { type, label, properties }
+    }
+
+    this.consumeRule('_')
+    const closeBrace = this.consumeToken('rbrace')
+    if (closeBrace !== delimiters[openBrace]) {
+      // TODO warn
+    }
+
+    return result
+  },
+
+  EntryBody () {
+    let properties = {}
+
+    while (this.matchToken('identifier')) {
+      let [field, value] = this.consumeRule('Field')
+      properties[field] = value
+
+      this.consumeRule('_')
+      if (this.consumeToken('comma', true)) {
+        this.consumeRule('_')
+      } else {
+        break
+      }
+    }
+
+    return properties
+  },
+
+  Field () {
+    const field = this.consumeToken('identifier')
+
+    this.consumeRule('_')
+    this.consumeToken('equals')
+    this.consumeRule('_')
+
+    const value = this.consumeRule('Expression')
+
+    return [field, value]
+  },
+
+  Expression () {
+    let output = this.consumeRule('ExpressionPart')
+    this.consumeRule('_')
+
+    while (this.matchToken('hash')) {
+      this.consumeToken('hash')
+      this.consumeRule('_')
+      output += this.consumeRule('ExpressionPart').toString()
+      this.consumeRule('_')
+    }
+
+    return output
+  },
+
+  ExpressionPart () {
+    if (this.matchToken('identifier')) {
+      return this.state.strings[this.consumeToken('identifier').value] || ''
+    } else if (this.matchToken('number')) {
+      return this.consumeToken('number').value
+    } else if (this.matchToken('quote')){
+      return this.consumeRule('QuoteString')
+    } else if (this.matchToken('lbrace')) {
+      return this.consumeRule('BracketString')
+    }
+  },
+
+  QuoteString () {
+    let output = ''
+    this.consumeToken('quote')
+    while (!this.matchToken('quote')) {
+      output += this.consumeRule('Text')
+    }
+    this.consumeToken('quote')
+    return output
+  },
+
+  BracketString () {
+    let output = ''
+    this.consumeToken('lbrace')
+    while (!this.matchToken('rbrace')) {
+      output += this.consumeRule('Text')
+    }
+    this.consumeToken('rbrace')
+    return output
+  },
+
+  MathString () {
+    let output = ''
+    this.consumeToken('mathShift')
+    while (!this.matchToken('mathShift')) {
+      if (this.matchToken('script')) {
+        const script = this.consumeToken('script').value
+        const text = this.consumeRule('Text').replace(/^{|}$/g, '')
+        output += constants.mathScripts[script][text[0]] + text.slice(1)
+      } else {
+        output += this.consumeRule('Text')
+      }
+    }
+    this.consumeToken('mathShift')
+    return output
+  },
+
+  Text () {
+    if (this.matchToken('lbrace')) {
+      return `{${this.consumeRule('BracketString')}}`
+
+    } else if (this.matchToken('mathShift')) {
+      return this.consumeRule('MathString')
+
+    } else if (this.matchToken('whitespace')) {
+      this.consumeToken('whitespace')
+      return ' '
+
+    } else if (this.matchToken('command')) {
+      return this.consumeRule('Command')
+
+    } else {
+      return this.consumeToken('text').value.replace(
+        constants.ligaturePattern,
+        ligature => constants.ligatures[ligature]
+      )
+    }
+  },
+
+  Command () {
+    const command = this.consumeToken('command').value.slice(1).trimEnd()
+
+    // command
+    if (command in constants.commands) {
+      return constants.commands[command]
+
+    // diacritics
+    } else if (command in constants.diacritics && !this.matchEndOfFile()) {
+      if (this.matchToken('text')) {
+        const text = this.consumeToken('text').value
+        return text[0] + constants.diacritics[command] + text.slice(1)
+      } else {
+        return this.consumeRule('Text') + constants.diacritics[command]
+      }
+
+    // escapes
+    } else if (/^\W$/.test(command)) {
+      return command
+
+    // unknown commands
+    } else {
+      return '\\' + command
+    }
+  }
+}, {
+  strings: Object.assign({}, constants.defaultStrings)
+})
+
+export function parse (text) {
+  return bibtexGrammar.parse(lexer.reset(text))
 }
+
+export default parse
