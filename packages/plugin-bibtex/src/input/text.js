@@ -33,7 +33,7 @@ const lexer = moo.states({
     dataEntryType: {
       match: identifier,
       next: 'dataEntryContents'
-    },
+    }
   },
   otherEntryContents: {
     ...whitespace,
@@ -70,7 +70,7 @@ const lexer = moo.states({
     ...text,
     mathShift: { match: '$', pop: true },
     script: /[\^_]/,
-    text: /[^{$}\s\\\^_]+/
+    text: /[^{$}\s\\^_]+/
   }
 })
 
@@ -113,8 +113,8 @@ export const bibtexGrammar = new util.Grammar({
 
     const type = (
       this.matchToken('otherEntryType')
-      ? this.consumeToken('otherEntryType')
-      : this.consumeToken('dataEntryType')
+        ? this.consumeToken('otherEntryType')
+        : this.consumeToken('dataEntryType')
     ).value.toLowerCase()
 
     this.consumeRule('_')
@@ -198,7 +198,7 @@ export const bibtexGrammar = new util.Grammar({
       return this.state.strings[this.consumeToken('identifier').value] || ''
     } else if (this.matchToken('number')) {
       return this.consumeToken('number').value
-    } else if (this.matchToken('quote')){
+    } else if (this.matchToken('quote')) {
       return this.consumeRule('QuoteString')
     } else if (this.matchToken('lbrace')) {
       return this.consumeRule('BracketString')
@@ -244,17 +244,13 @@ export const bibtexGrammar = new util.Grammar({
   Text () {
     if (this.matchToken('lbrace')) {
       return `{${this.consumeRule('BracketString')}}`
-
     } else if (this.matchToken('mathShift')) {
       return this.consumeRule('MathString')
-
     } else if (this.matchToken('whitespace')) {
       this.consumeToken('whitespace')
       return ' '
-
     } else if (this.matchToken('command')) {
       return this.consumeRule('Command')
-
     } else {
       return this.consumeToken('text').value.replace(
         constants.ligaturePattern,

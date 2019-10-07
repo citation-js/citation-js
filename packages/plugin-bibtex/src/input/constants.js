@@ -60,7 +60,7 @@ export const diacritics = {
 export const commands = {
   // other
   '~': '\u223C',
-  'c\\ ': '\u00B8', //TODO
+  'c\\ ': '\u00B8', // TODO
   href: '',
   url: '',
 
@@ -182,7 +182,7 @@ export const commands = {
   phi: '\u03D5',
   varpi: '\u03D6',
   varrho: '\u03F1',
-  epsilon: '\u03F5',
+  epsilon: '\u03F5'
 }
 
 export const ligaturePattern = /---?|'''?|```?|!!|\?!|!\?|\bTEL\b|~/g
@@ -249,6 +249,6 @@ export const mathScripts = {
     'n': '\u2099',
     's': '\u209A',
     'p': '\u209B',
-    't': '\u209C',
+    't': '\u209C'
   }
 }
