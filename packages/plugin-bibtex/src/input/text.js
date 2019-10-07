@@ -276,7 +276,7 @@ export const bibtexGrammar = new util.Grammar({
         const text = this.consumeToken('text').value
         return text[0] + constants.diacritics[command] + text.slice(1)
       } else {
-        return this.consumeRule('Text') + constants.diacritics[command]
+        return this.consumeRule('Text').replace(/^{|}$/g, '') + constants.diacritics[command]
       }
 
     // escapes
