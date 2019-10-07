@@ -264,7 +264,7 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   Command () {
-    const command = this.consumeToken('command').value.slice(1).trimEnd()
+    const command = this.consumeToken('command').value.slice(1).trim()
 
     // command
     if (command in constants.commands) {
