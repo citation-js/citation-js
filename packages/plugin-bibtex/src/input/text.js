@@ -2,7 +2,7 @@
  * @module input/bibtex
  */
 
-import { util } from '@citation-js/core'
+import { util, logger } from '@citation-js/core'
 
 import moo from 'moo'
 import * as constants from './constants'
@@ -143,7 +143,7 @@ export const bibtexGrammar = new util.Grammar({
     this.consumeRule('_')
     const closeBrace = this.consumeToken('rbrace')
     if (closeBrace !== delimiters[openBrace]) {
-      // TODO warn
+      logger.warn('[plugin-bibtex]', `entry started with "${openBrace}", but ends with "${closeBrace}"`)
     }
 
     return result
