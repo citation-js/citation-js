@@ -23,12 +23,11 @@ let userAgent = `Citation.js/${version} Node.js/${process.version}`
 function normaliseHeaders (headers) {
   const result = {}
 
-  if (headers instanceof Headers || headers instanceof syncFetch.Headers) {
-    return Object.assign(result, headers.raw())
-  }
-
-  for (let header in headers) {
-    result[header.toLowerCase()] = [].concat(headers[header])
+  const entries = headers instanceof Headers || headers instanceof syncFetch.Headers
+    ? Array.from(headers)
+    : Object.entries(headers)
+  for (let [name, header] of entries) {
+    result[name.toLowerCase()] = header.toString()
   }
 
   return result
@@ -42,7 +41,7 @@ function normaliseHeaders (headers) {
 function parseOpts (opts = {}) {
   const reqOpts = {
     headers: {
-      accept: ['*/*']
+      accept: '*/*'
     },
     method: 'GET',
     checkContentType: opts.checkContentType
@@ -78,11 +77,11 @@ function sameType (request, response) {
     return true
   }
 
-  const [a, b] = response['content-type'][0].split(';')[0].split('/')
+  const [a, b] = response['content-type'].split(';')[0].trim().split('/')
   return request.accept
-    .reduce((array, header) => array.concat(header.split(/\s*,\s*/)), [])
-    .map(type => type.split(';')[0].split('/'))
-    .find(([c, d]) => (c === a || c === '*') && (d === b || d === '*'))
+    .split(',')
+    .map(type => type.split(';')[0].trim().split('/'))
+    .some(([c, d]) => (c === a || c === '*') && (d === b || d === '*'))
 }
 
 /**
