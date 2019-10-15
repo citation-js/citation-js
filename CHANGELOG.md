@@ -1,4 +1,15 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.2...v) (2019-10-07)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.3...v) (2019-10-15)
+
+
+### Bug Fixes
+
+* **core:** fix normalising headers code for the browser ([d4693a7](https://github.com/citation-js/citation-js/commit/d4693a7))
+* **plugin-bibtex:** do not try to format raw dates ([b28eca8](https://github.com/citation-js/citation-js/commit/b28eca8))
+* **plugin-bibtex:** warn for umatched entry braces ([7905667](https://github.com/citation-js/citation-js/commit/7905667))
+
+
+
+# [0.5.0-alpha.3](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.2...v0.5.0-alpha.3) (2019-10-07)
 
 
 ### Bug Fixes
