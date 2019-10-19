@@ -225,6 +225,27 @@ export const bibtexGrammar = new util.Grammar({
     return output
   },
 
+  BracketText () {
+    let output = ''
+    this.consumeToken('lbrace')
+
+    // Ignore braces as long as they are used for grouping commands
+    while (this.matchToken('command')) {
+      output += this.consumeRule('Command')
+    }
+
+    // If a non-command is encountered before closing, add braces to output
+    if (!this.matchToken('rbrace')) {
+      do {
+        output += this.consumeRule('Text')
+      } while (!this.matchToken('rbrace'))
+      output = `{${output}}`
+    }
+
+    this.consumeToken('rbrace')
+    return output
+  },
+
   MathString () {
     let output = ''
     this.consumeToken('mathShift')
@@ -243,7 +264,7 @@ export const bibtexGrammar = new util.Grammar({
 
   Text () {
     if (this.matchToken('lbrace')) {
-      return `{${this.consumeRule('BracketString')}}`
+      return this.consumeRule('BracketText')
     } else if (this.matchToken('mathShift')) {
       return this.consumeRule('MathString')
     } else if (this.matchToken('whitespace')) {
