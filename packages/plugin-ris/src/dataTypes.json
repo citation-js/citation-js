@@ -24,5 +24,6 @@
   "ISSN,ISBN": "ISBN",
   "keyword": "KEYWORD",
   "page": "PAGE",
-  "type": "TYPE"
+  "type": "TYPE",
+  "DOI": "DOI"
 }
