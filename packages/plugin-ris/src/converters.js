@@ -70,8 +70,8 @@ const CONVERTERS = {
   },
 
   DOI: {
-    toTarget (doi) { return doi.match(DOI_REGEX) },
-    toSource (doi) { return doi.match(DOI_REGEX) }
+    toTarget (doi) { return doi.match(DOI_REGEX)[0] },
+    toSource (doi) { return doi.match(DOI_REGEX)[0] }
   }
 }
 
