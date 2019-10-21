@@ -5,6 +5,9 @@ import 'isomorphic-fetch'
 import logger from '../logger'
 import { version } from '../../package.json'
 
+// Browser environments have CORS enabled
+const corsEnabled = typeof location !== 'undefined' && typeof document !== 'undefined'
+
 let userAgent = `Citation.js/${version} Node.js/${process.version}`
 
 /**
@@ -47,7 +50,7 @@ function parseOpts (opts = {}) {
     checkContentType: opts.checkContentType
   }
 
-  if (userAgent) {
+  if (userAgent && !corsEnabled) {
     reqOpts.headers['user-agent'] = userAgent
   }
 
