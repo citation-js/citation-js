@@ -24,7 +24,7 @@
     "lint": "standard",
     "test": "node test/run-tests.js",
     "test:live": "TEST_MOCK_HTTP=false npm test",
-    "update:test": "node scripts/tests.wikidata.js && node scripts/tests.doi.js",
+    "test:update": "node scripts/tests.wikidata.js && node scripts/tests.doi.js",
     "lerna": "lerna exec --ignore '*/cli' --no-bail --stream --",
     "coverage": "npm run coverage:test && npm run coverage:report",
     "coverage:test": "npm run lerna -- NODE_ENV=coverage nyc npm test",
