@@ -52,6 +52,14 @@ New test go in the `test/` directories of the various packages in `packages/`. T
 
     npm test
 
+If you want to test single packages, run
+
+    npm test -- --scope '@citation-js/plugin-...'
+
+If you want to run single test cases, run
+
+    npm test -- --scope '@citation-js/plugin-...' -- --grep 'pattern'
+
 `@citation-js/cli` depends on all the plugins, and the plugins all depend on `@citation-js/core`. To test changes in `@citation-js` dependencies on different packages, run
 
     npm run babel
@@ -64,7 +72,7 @@ The tests for Wikidata and DOIs use cached data, to save time and take it easier
 
 To update the caches, run
 
-    npm run update:test
+    npm run test:update
 
 If you need new Wikidata or DOI data in the cache, check out the scripts in `scripts/`. Note that for the Wikidata cache, you would also need to add sub-items such as authors and journals, as the code has to fetch their labels separately.
 
