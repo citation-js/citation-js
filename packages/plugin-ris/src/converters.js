@@ -56,7 +56,7 @@ const CONVERTERS = {
   },
 
   KEYWORD: {
-    toTarget (words) { return words.join(',') },
+    toTarget (words) { words = [].concat(words); return words.join(',') },
     toSource (words) { return words.split(',') }
   },
 
