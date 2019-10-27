@@ -51,7 +51,7 @@ export function parse (text) {
   for (let line of text.split(/\r?\n/)) {
     line = line.trim()
     if (!LINE_MATCH.test(line)) {
-      if (lastEntry && lastTag) { lastEntry[lastTag] += ' ' + line.trim() }
+      if (lastEntry && lastTag) { lastEntry[lastTag] += ' ' + line }
       continue
     }
 
