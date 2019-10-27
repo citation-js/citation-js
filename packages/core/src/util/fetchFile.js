@@ -1,9 +1,12 @@
-import request from 'sync-request'
-/* global fetch */
+import syncFetch from 'sync-fetch'
+/* global fetch, Headers */
 import 'isomorphic-fetch'
 
 import logger from '../logger'
 import { version } from '../../package.json'
+
+// Browser environments have CORS enabled
+const corsEnabled = typeof location !== 'undefined' && typeof document !== 'undefined'
 
 let userAgent = `Citation.js/${version} Node.js/${process.version}`
 
@@ -22,9 +25,14 @@ let userAgent = `Citation.js/${version} Node.js/${process.version}`
  */
 function normaliseHeaders (headers) {
   const result = {}
-  for (let header in headers) {
-    result[header.toLowerCase()] = [].concat(headers[header])
+
+  const entries = headers instanceof Headers || headers instanceof syncFetch.Headers
+    ? Array.from(headers)
+    : Object.entries(headers)
+  for (let [name, header] of entries) {
+    result[name.toLowerCase()] = header.toString()
   }
+
   return result
 }
 
@@ -42,7 +50,7 @@ function parseOpts (opts = {}) {
     checkContentType: opts.checkContentType
   }
 
-  if (userAgent) {
+  if (userAgent && !corsEnabled) {
     reqOpts.headers['user-agent'] = userAgent
   }
 
@@ -55,7 +63,6 @@ function parseOpts (opts = {}) {
 
   if (opts.headers) {
     Object.assign(reqOpts.headers, normaliseHeaders(opts.headers))
-    reqOpts.allowRedirectHeaders = Object.keys(opts.headers)
   }
 
   return reqOpts
@@ -69,15 +76,15 @@ function parseOpts (opts = {}) {
  */
 function sameType (request, response) {
   // istanbul ignore next: should not happen
-  if (!request.accept || !response['content-type']) {
+  if (!request.accept || request.accept === '*/*' || !response['content-type']) {
     return true
   }
 
-  const [a, b] = response['content-type'][0].split(';')[0].split('/')
-  return !!request.accept
-    .reduce((array, header) => array.concat(header.split(/\s*,\s*/)), [])
-    .map(type => type.split(';')[0].split('/'))
-    .find(([c, d]) => (c === a || c === '*') && (d === b || d === '*'))
+  const [a, b] = response['content-type'].split(';')[0].trim().split('/')
+  return request.accept
+    .split(',')
+    .map(type => type.split(';')[0].trim().split('/'))
+    .some(([c, d]) => (c === a || c === '*') && (d === b || d === '*'))
 }
 
 /**
@@ -88,15 +95,13 @@ function sameType (request, response) {
  * @throws If response is invalid
  */
 function checkResponse (response, opts) {
-  const status = response.status || response.statusCode
-  const headers = response.headers._headers || response.headers
+  const { status, headers } = response
   let error
 
   if (status >= 400) {
     error = new Error(`Server responded with status code ${status}`)
-  } else if (opts.checkContentType === true &&
-             !sameType(normaliseHeaders(opts.headers), normaliseHeaders(headers))) {
-    error = new Error(`Server responded with content-type ${headers['content-type']}`)
+  } else if (opts.checkContentType === true && !sameType(opts.headers, normaliseHeaders(headers))) {
+    error = new Error(`Server responded with content-type ${headers.get('content-type')}`)
   }
 
   if (error) {
@@ -125,8 +130,8 @@ export function fetchFile (url, opts) {
 
   logger.http('[core]', reqOpts.method, url, reqOpts)
 
-  const response = checkResponse(request(reqOpts.method, url, reqOpts), reqOpts)
-  return response.body.toString('utf8')
+  const response = checkResponse(syncFetch(url, reqOpts), reqOpts)
+  return response.text()
 }
 
 /**

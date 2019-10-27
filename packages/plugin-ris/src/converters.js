@@ -2,6 +2,7 @@ import { parse as parseDate } from '@citation-js/date'
 import TYPES from './spec/types'
 
 const ISSN_REGEX = /^\d{4}-\d{4}$/
+const DOI_REGEX = /10(?:\.[0-9]{4,})?\/[^\s]*[^\s\.,]/
 const CONVERTERS = {
   ANY: {
     toTarget (...values) { return values.find(Boolean) },
@@ -55,7 +56,7 @@ const CONVERTERS = {
   },
 
   KEYWORD: {
-    toTarget (words) { return words.join(',') },
+    toTarget (words) { words = [].concat(words); return words.join(',') },
     toSource (words) { return words.split(',') }
   },
 
@@ -66,6 +67,11 @@ const CONVERTERS = {
   TYPE: {
     toTarget (type) { return TYPES.RIS[type] },
     toSource (type) { return TYPES.CSL[type] }
+  },
+
+  DOI: {
+    toTarget (doi) { return doi.match(DOI_REGEX)[0] },
+    toSource (doi) { return doi.match(DOI_REGEX)[0] }
   }
 }
 

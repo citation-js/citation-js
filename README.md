@@ -2,6 +2,8 @@
 
 Citation.js converts formats like BibTeX, Wikidata JSON and BibJSON to CSL-JSON to convert to other formats like APA, Vancouver, RIS and back to BibTeX.
 
+Read the paper "Citation.js: a format-independent, modular bibliography tool for the browser and command line" on [PeerJ Computer Science](https://peerj.com/articles/cs-214/?td=bl).
+
 ---
 
 <p align="center"><a href="https://citation.js.org">Site</a> • <a href="https://github.com/citation-js/citation-js">Repo</a> • <a href="https://citation.js.org/api/tutorial-getting_started.html">Getting Started</a> • <a href="https://citation.js.org/api">Documentation</a> • <a href="https://citation.js.org/demo">Demo</a></p>

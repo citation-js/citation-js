@@ -61,7 +61,7 @@
         "author": [
           {"given": "J.W.", "family": "Goethe"}
         ],
-        "title": "Faust. Der Tragödie Erster Teil",
+        "title": "Faust. Der Tragödie Erster Teil",
         "publisher": "Reclam",
         "issued": {"date-parts": [["1986"]]},
         "publisher-place": "Stuttgart",
@@ -93,6 +93,22 @@
           "literal": "13th Century"
         }
       }]
+    ],
+    "with authors with non-ASCII characters": [
+      "@article{myarticle, author={von Helmholtz, Hermann and von Helmhöltz, Hermänn and von Helmh\\\"oltz, Herm\\\"ann and von Helmh{\\\"o}ltz, Herm{\\\"a}nn}}",
+      [
+        {
+          "citation-label": "myarticle",
+          "id": "myarticle",
+          "type": "article-journal",
+          "author": [
+            {"family": "Helmholtz", "given": "Hermann", "non-dropping-particle": "von"},
+            {"family": "Helmhöltz", "given": "Hermänn", "non-dropping-particle": "von"},
+            {"family": "Helmhöltz", "given": "Hermänn", "non-dropping-particle": "von"},
+            {"family": "Helmhöltz", "given": "Hermänn", "non-dropping-particle": "von"}
+          ]
+        }
+      ]
     ],
     "with year and month without date": [
       "@a{b,year=2017,month=8}",

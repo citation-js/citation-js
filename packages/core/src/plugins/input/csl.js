@@ -114,7 +114,7 @@ const fieldTypes = {
  * @return {Object} returns the (corrected) value if possible, otherwise undefined
  */
 const correctName = function (name, bestGuessConversions) {
-  if (typeof name === 'object' && (name.literal || (name.given || name.family))) {
+  if (typeof name === 'object' && name !== null && (name.literal || (name.given || name.family))) {
     return name
   } else if (!bestGuessConversions) {
     return undefined
@@ -173,17 +173,17 @@ const correctDateParts = function (dateParts, bestGuessConversions) {
 const correctDate = function (date, bestGuessConversions) {
   const dp = 'date-parts'
 
-  if (typeof date !== 'object') {
+  if (typeof date !== 'object' || date === null) {
     return undefined
 
   // "{'date-parts': [[2000, 1, 1], ...]}"
-  } else if (date && date[dp] instanceof Array && date[dp].every(part => part instanceof Array)) {
+  } else if (date[dp] instanceof Array && date[dp].every(part => part instanceof Array)) {
     const range = date[dp].map(dateParts => correctDateParts(dateParts, bestGuessConversions)).filter(Boolean)
     return range.length ? { ...date, 'date-parts': range } : undefined
 
   // LEGACY support
   // "[{'date-parts': [2000, 1, 1]}, ...]"
-  } else if (date && date instanceof Array && date.every(part => part[dp] instanceof Array)) {
+  } else if (date instanceof Array && date.every(part => part[dp] instanceof Array)) {
     const range = date.map(dateParts => correctDateParts(dateParts[dp], bestGuessConversions)).filter(Boolean)
     return range.length ? { 'date-parts': range } : undefined
 

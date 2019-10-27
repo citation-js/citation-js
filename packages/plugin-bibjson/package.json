@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-bibjson",
-  "version": "0.4.9",
+  "version": "0.5.0-alpha.4",
   "description": "Plugin for BibJSON formats for Citation.js",
   "keywords": [
     "citation-js",
@@ -20,7 +20,7 @@
     "url": "https://github.com/citation-js/citation-js/issues"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8"
   },
   "files": [
     "lib",
@@ -34,9 +34,9 @@
     "@citation-js/name": "^0.4.2"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.4.9"
+    "@citation-js/core": "^0.5.0-alpha.4"
   },
   "peerDependencies": {
-    "@citation-js/core": "^0.4.0-rc.0"
+    "@citation-js/core": "^0.5.0-alpha.0"
   }
 }

@@ -77,7 +77,7 @@ const getBibTeXJSON = function (src, opts) {
     props.pages = src.page.replace('-', '--')
   }
 
-  if (src.issued) {
+  if (src.issued && src.issued['date-parts']) {
     let dateParts = src.issued['date-parts'][0]
 
     if (dateParts.length > 0) {

@@ -1,4 +1,84 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.4.9...v) (2019-08-27)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.3...v) (2019-10-15)
+
+
+### Bug Fixes
+
+* **core:** fix normalising headers code for the browser ([d4693a7](https://github.com/citation-js/citation-js/commit/d4693a7))
+* **plugin-bibtex:** do not try to format raw dates ([b28eca8](https://github.com/citation-js/citation-js/commit/b28eca8))
+* **plugin-bibtex:** warn for umatched entry braces ([7905667](https://github.com/citation-js/citation-js/commit/7905667))
+
+
+
+# [0.5.0-alpha.3](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.2...v0.5.0-alpha.3) (2019-10-07)
+
+
+### Bug Fixes
+
+* **plugin-bibtex:** remove nocase from diacritics ([7f7e52f](https://github.com/citation-js/citation-js/commit/7f7e52f))
+* **plugin-bibtex:** replace trimEnd() with trim() ([b59da57](https://github.com/citation-js/citation-js/commit/b59da57))
+* **plugin-ris:** fix handling of multiline values ([eba2bfe](https://github.com/citation-js/citation-js/commit/eba2bfe))
+* **plugin-ris:** handle \r\n line endings ([f0a3b29](https://github.com/citation-js/citation-js/commit/f0a3b29))
+
+
+### Features
+
+* **bibtex:** add new BibTeX parser ([3c3588e](https://github.com/citation-js/citation-js/commit/3c3588e))
+* **core:** add Grammar class to utils ([052754f](https://github.com/citation-js/citation-js/commit/052754f))
+
+
+
+# [0.5.0-alpha.2](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.1...v0.5.0-alpha.2) (2019-09-10)
+
+
+### Bug Fixes
+
+* **core:** fix date value null check ([f6a3ab2](https://github.com/citation-js/citation-js/commit/f6a3ab2))
+
+
+
+# [0.5.0-alpha.1](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.0...v0.5.0-alpha.1) (2019-09-10)
+
+
+### Bug Fixes
+
+* **core:** fix cleaning 'null' date values ([c927f81](https://github.com/citation-js/citation-js/commit/c927f81)), closes [/github.com/larsgw/citation.js/issues/190#issuecomment-529917382](https://github.com//github.com/larsgw/citation.js/issues/190/issues/issuecomment-529917382)
+* **core:** fix cleaning 'null' name values ([2d59a32](https://github.com/citation-js/citation-js/commit/2d59a32))
+
+
+
+# [0.5.0-alpha.0](https://github.com/citation-js/citation-js/compare/v0.4.10...v0.5.0-alpha.0) (2019-09-07)
+
+
+* chore!: drop Node 6 support ([f27d812](https://github.com/citation-js/citation-js/commit/f27d812)), closes [#55](https://github.com/citation-js/citation-js/issues/55)
+
+
+### Bug Fixes
+
+* **core:** do not return empty name lists when cleaning ([d31ca8a](https://github.com/citation-js/citation-js/commit/d31ca8a))
+* **core:** fix Cite#sort handling of multi-value props ([3a7751c](https://github.com/citation-js/citation-js/commit/3a7751c))
+* **core:** fix handling of generic best guesses ([c8e8c78](https://github.com/citation-js/citation-js/commit/c8e8c78))
+* **core:** fix util.fetchId ([7850e75](https://github.com/citation-js/citation-js/commit/7850e75))
+* **core:** improve date handling when cleaning ([08da3e7](https://github.com/citation-js/citation-js/commit/08da3e7))
+* **core:** only overwrite individual headers in fetchFile ([8d47684](https://github.com/citation-js/citation-js/commit/8d47684))
+* **core:** pass around bestGuessConversions ([50fa283](https://github.com/citation-js/citation-js/commit/50fa283))
+* **core:** pass checkContentType in fetchFile ([e415f76](https://github.com/citation-js/citation-js/commit/e415f76))
+* **core:** set userAgent properly in fetchFile ([a91fd7b](https://github.com/citation-js/citation-js/commit/a91fd7b))
+* **plugin-bibtex:** fix label for incomplete author ([352ca4f](https://github.com/citation-js/citation-js/commit/352ca4f)), closes [#56](https://github.com/citation-js/citation-js/issues/56)
+
+
+### Features
+
+* **core:** complete input option validation ([d9be626](https://github.com/citation-js/citation-js/commit/d9be626))
+* **core:** support has() & list() on plugins.config ([fe7f59f](https://github.com/citation-js/citation-js/commit/fe7f59f))
+
+
+### BREAKING CHANGES
+
+* drops Node 6 support
+
+
+
+## [0.4.10](https://github.com/citation-js/citation-js/compare/v0.4.9...v0.4.10) (2019-08-27)
 
 
 ### Bug Fixes

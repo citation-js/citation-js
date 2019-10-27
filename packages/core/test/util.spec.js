@@ -10,15 +10,12 @@ const userAgent = `Citation.js/${require('../package').version} Node.js/${proces
 
 function deepNotEqual (a, b) {
   if (a == null && b == null) {
-    return
   } else if (a.constructor === Array && b.constructor === Array) {
     assert.notStrictEqual(a, b)
     a.forEach((v, i) => deepNotEqual(v, b[i]))
   } else if (a.constructor === Object && b.constructor === Object) {
     assert.notStrictEqual(a, b)
     Object.keys(a).forEach(v => deepNotEqual(v, b[v]))
-  } else {
-    return
   }
 }
 
