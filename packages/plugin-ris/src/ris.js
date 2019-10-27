@@ -49,6 +49,7 @@ export function parse (text) {
   let lastTag
 
   for (let line of text.split('\n')) {
+    line = line.trim()
     if (!LINE_MATCH.test(line)) { lastEntry[lastTag] += line }
 
     const [tag, value] = line.split(LINE_SPLIT)
