@@ -2,7 +2,7 @@ import { parse as parseDate } from '@citation-js/date'
 import TYPES from './spec/types'
 
 const ISSN_REGEX = /^\d{4}-\d{4}$/
-const DOI_REGEX = /10(?:\.[0-9]{4,})?\/[^\s]*[^\s\.,]/
+const DOI_REGEX = /10(?:\.[0-9]{4,})?\/[^\s]*[^\s.,]/
 const CONVERTERS = {
   ANY: {
     toTarget (...values) { return values.find(Boolean) },
