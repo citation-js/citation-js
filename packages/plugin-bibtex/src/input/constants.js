@@ -60,6 +60,9 @@ export const diacritics = {
 export const commands = {
   // other
   '~': '\u223C',
+  '_': '\u005f',
+  '{': '\u007B',
+  '}': '\u007D',
   'c\\ ': '\u00B8', // TODO
   href: '',
   url: '',
@@ -94,6 +97,8 @@ export const commands = {
   textasciicircum: '\u02C6',
   textasciidieresis: '\u00A8',
   textasciimacron: '\u00AF',
+  textasciitilde: '\u223C',
+  textbackslash: '\u005C',
   textbardbl: '\u2016',
   textbrokenbar: '\u00A6',
   textbullet: '\u2022',
