@@ -199,6 +199,7 @@ const propMap = {
   pmid: 'PMID',
   pmcid: 'PMCID',
   publisher: true,
+  school: 'publisher',
   series: 'collection-title',
   title: true,
   url: 'URL',

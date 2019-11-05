@@ -325,6 +325,7 @@
           { "family": "Adams", "given": "Alice" }
         ],
         "title": "Lorem Ipsum",
+        "publisher": "The University",
         "issued": {
           "date-parts": [[ "2020", "02" ]]
         },
@@ -358,6 +359,7 @@
           { "family": "Adams", "given": "Alice" }
         ],
         "title": "Lorem Ipsum",
+        "publisher": "The University",
         "issued": {
           "date-parts": [[ "2020", "02" ]]
         },
