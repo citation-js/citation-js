@@ -70,6 +70,12 @@
         "citation-label": "Fau86"
       }]
     ],
+    "with escaped characters": [
+      "@article{escape, title={a\\&b\\%c\\$d\\#e\\_f\\textasciitilde{}\\textasciicircum{}\\textbackslash{}}}",
+      [
+        {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f∼ˆ\\"}
+      ]
+    ],
     "with rich text": [
       "@misc{ibscsupsub, title={{\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}}}, } @misc{sc, title={{\\textsc{sc}}}, } @misc{sc, title={{{sc}}}, }",
       [
