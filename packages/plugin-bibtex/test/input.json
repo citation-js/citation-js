@@ -399,6 +399,7 @@
           { "family": "Brody", "given": "Bob" }
         ],
         "title": "Lorem Ipsum",
+        "publisher": "The Institution",
         "issued": {
           "date-parts": [[ "2020", "02" ]]
         },
