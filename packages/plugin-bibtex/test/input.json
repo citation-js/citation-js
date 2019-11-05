@@ -148,6 +148,279 @@
           "date-parts": [[2016], [2017]]
         }
       }]
+    ],
+    "with a complete article": [
+      "@article{Article,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  journal = {The BibTeX Journal},\n  year = 2020,\n  volume = 5,\n  number = 6,\n  pages = {200--210},\n  month = feb,\n  note = {This is a note.},\n}",
+      [{
+        "type": "article-journal",
+        "id": "Article",
+        "citation-label": "Article",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "title": "Lorem Ipsum",
+        "container-title": "The BibTeX Journal",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "volume": "5",
+        "issue": "6",
+        "page": "200-210",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete book": [
+      "@book{Book,\n  author = {Adams, Alice and Brody, Bob},\n  editor = {Coburn, Carol},\n  title = {Lorem Ipsum},\n  publisher = {BibTeX Publishers},\n  year = 2020,\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  note = {This is a note.},\n}",
+      [{
+        "type": "book",
+        "id": "Book",
+        "citation-label": "Book",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "editor": [
+          { "family": "Coburn", "given": "Carol" }
+        ],
+        "title": "Lorem Ipsum",
+        "publisher": "BibTeX Publishers",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "volume": "5",
+        "issue": "6",
+        "collection-title": "Good Series",
+        "publisher-place": "Goodville",
+        "edition": "Second",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete booklet": [
+      "@booklet{Booklet,\n  title = {Lorem Ipsum},\n  author = {Adams, Alice and Brody, Bob},\n  howpublished = {BibTeX},\n  address = {Goodville},\n  month = feb,\n  year = 2020,\n  note = {This is a note.},\n}",
+      [{
+        "type": "book",
+        "id": "Booklet",
+        "citation-label": "Booklet",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "title": "Lorem Ipsum",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "publisher-place": "Goodville",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete inbook": [
+      "@inbook{InBook,\n  author = {Adams, Alice and Brody, Bob},\n  editor = {Coburn, Carol},\n  title = {Lorem Ipsum},\n  chapter = 3,\n  pages = {200-210},\n  publisher = {BibTeX Publishers},\n  year = 2020,\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  type = {Section},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  note = {This is a note.},\n}",
+      [{
+        "type": "chapter",
+        "id": "InBook",
+        "citation-label": "InBook",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "editor": [
+          { "family": "Coburn", "given": "Carol" }
+        ],
+        "title": "Lorem Ipsum",
+        "page": "200-210",
+        "publisher": "BibTeX Publishers",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "volume": "5",
+        "issue": "6",
+        "collection-title": "Good Series",
+        "publisher-place": "Goodville",
+        "edition": "Second",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete incollection": [
+      "@incollection{InCollection,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  booktitle = {Dolor Sit Amet},\n  publisher = {BibTeX Publishers},\n  year = 2020,\n  editor = {Coburn, Carol},\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  type = {Section},\n  chapter = 3,\n  pages = {200-210},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  note = {This is a note.},\n}",
+      [{
+        "type": "chapter",
+        "id": "InCollection",
+        "citation-label": "InCollection",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "title": "Lorem Ipsum",
+        "container-title": "Dolor Sit Amet",
+        "publisher": "BibTeX Publishers",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "editor": [
+          { "family": "Coburn", "given": "Carol" }
+        ],
+        "volume": "5",
+        "issue": "6",
+        "collection-title": "Good Series",
+        "page": "200-210",
+        "publisher-place": "Goodville",
+        "edition": "Second",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete inproceedings": [
+      "@inproceedings{InProceedings,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  booktitle = {Dolor Sit Amet},\n  year = 2020,\n  editor = {Coburn, Carol},\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  pages = {200-210},\n  address = {Goodville},\n  month = feb,\n  organization = {The Organizers},\n  publisher = {BibTeX Publishers},\n  note = {This is a note.},\n}",
+      [{
+        "type": "paper-conference",
+        "id": "InProceedings",
+        "citation-label": "InProceedings",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "title": "Lorem Ipsum",
+        "container-title": "Dolor Sit Amet",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "editor": [
+          { "family": "Coburn", "given": "Carol" }
+        ],
+        "volume": "5",
+        "issue": "6",
+        "collection-title": "Good Series",
+        "page": "200-210",
+        "publisher-place": "Goodville",
+        "publisher": "BibTeX Publishers",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete manual": [
+      "@manual{Manual,\n  title = {Lorem Ipsum},\n  author = {Adams, Alice and Brody, Bob},\n  organization = {The Organizers},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  year = 2020,\n  note = {This is a note.},\n}",
+      [{
+        "type": "book",
+        "id": "Manual",
+        "citation-label": "Manual",
+        "title": "Lorem Ipsum",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "publisher-place": "Goodville",
+        "edition": "Second",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete mastersthesis": [
+      "@mastersthesis{MastersThesis,\n  author = {Adams, Alice},\n  title = {Lorem Ipsum},\n  school = {The University},\n  year = 2020,\n  type = {Diploma Thesis},\n  month = feb,\n  note = {This is a note.},\n}",
+      [{
+        "type": "thesis",
+        "id": "MastersThesis",
+        "citation-label": "MastersThesis",
+        "author": [
+          { "family": "Adams", "given": "Alice" }
+        ],
+        "title": "Lorem Ipsum",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete misc": [
+      "@misc{Misc,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  howpublished = {Online},\n  month = feb,\n  year = 2020,\n  note = {This is a note.},\n}",
+      [{
+        "type": "book",
+        "id": "Misc",
+        "citation-label": "Misc",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "title": "Lorem Ipsum",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete phdthesis": [
+      "@phdthesis{PhdThesis,\n  author = {Adams, Alice},\n  title = {Lorem Ipsum},\n  school = {The University},\n  year = 2020,\n  type = {Doctoral Thesis},\n  address = {Goodville},\n  month = feb,\n  note = {This is a note.},\n}",
+      [{
+        "type": "thesis",
+        "id": "PhdThesis",
+        "citation-label": "PhdThesis",
+        "author": [
+          { "family": "Adams", "given": "Alice" }
+        ],
+        "title": "Lorem Ipsum",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "publisher-place": "Goodville",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete proceedings": [
+      "@proceedings{Proceedings,\n  title = {Lorem Ipsum},\n  year = 2020,\n  editor = {Coburn, Carol},\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  address = {Goodville},\n  publisher = {BibTeX Publishers},\n  note = {This is a note.},\n  month = feb,\n  organization = {The Organizers},\n}",
+      [{
+        "type": "book",
+        "id": "Proceedings",
+        "citation-label": "Proceedings",
+        "title": "Lorem Ipsum",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "editor": [
+          { "family": "Coburn", "given": "Carol" }
+        ],
+        "volume": "5",
+        "issue": "6",
+        "collection-title": "Good Series",
+        "publisher-place": "Goodville",
+        "publisher": "BibTeX Publishers",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete techreport": [
+      "@techreport{TechReport,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  institution = {The Institution},\n  year = 2020,\n  type = {Recommendation},\n  number = {ABC-123},\n  address = {Goodville},\n  month = feb,\n  note = {This is a note.},\n}",
+      [{
+        "type": "report",
+        "id": "TechReport",
+        "citation-label": "TechReport",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "title": "Lorem Ipsum",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        },
+        "issue": "ABC-123",
+        "publisher-place": "Goodville",
+        "note": "This is a note."
+      }]
+    ],
+    "with a complete unpublished": [
+      "@unpublished{Unpublished,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  note = {This is a note.},\n  month = feb,\n  year = 2020,\n}",
+      [{
+        "type": "manuscript",
+        "id": "Unpublished",
+        "citation-label": "Unpublished",
+        "author": [
+          { "family": "Adams", "given": "Alice" },
+          { "family": "Brody", "given": "Bob" }
+        ],
+        "title": "Lorem Ipsum",
+        "note": "This is a note.",
+        "issued": {
+          "date-parts": [[ "2020", "02" ]]
+        }
+      }]
     ]
   },
   "@bibtex/object": {
