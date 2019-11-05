@@ -238,6 +238,7 @@
         "volume": "5",
         "issue": "6",
         "collection-title": "Good Series",
+        "genre": "Section",
         "publisher-place": "Goodville",
         "edition": "Second",
         "note": "This is a note."
@@ -265,6 +266,7 @@
         "volume": "5",
         "issue": "6",
         "collection-title": "Good Series",
+        "genre": "Section",
         "chapter-number": "3",
         "page": "200-210",
         "publisher-place": "Goodville",
@@ -332,6 +334,7 @@
         "issued": {
           "date-parts": [[ "2020", "02" ]]
         },
+        "genre": "Diploma Thesis",
         "note": "This is a note."
       }]
     ],
@@ -367,6 +370,7 @@
         "issued": {
           "date-parts": [[ "2020", "02" ]]
         },
+        "genre": "Doctoral Thesis",
         "publisher-place": "Goodville",
         "note": "This is a note."
       }]
@@ -407,6 +411,7 @@
         "issued": {
           "date-parts": [[ "2020", "02" ]]
         },
+        "genre": "Recommendation",
         "issue": "ABC-123",
         "publisher-place": "Goodville",
         "note": "This is a note."

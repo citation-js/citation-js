@@ -187,6 +187,7 @@ const propMap = {
   date: 'issued',
   edition: true,
   editor: true,
+  type: 'genre',
   howpublished: 'publisher',
   institution: 'publisher',
   isbn: 'ISBN',
