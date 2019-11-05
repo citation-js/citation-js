@@ -182,6 +182,7 @@ const propMap = {
   address: 'publisher-place',
   author: true,
   booktitle: 'container-title',
+  chapter: 'chapter-number',
   doi: 'DOI',
   date: 'issued',
   edition: true,

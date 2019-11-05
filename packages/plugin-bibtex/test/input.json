@@ -229,6 +229,7 @@
           { "family": "Coburn", "given": "Carol" }
         ],
         "title": "Lorem Ipsum",
+        "chapter-number": "3",
         "page": "200-210",
         "publisher": "BibTeX Publishers",
         "issued": {
@@ -264,6 +265,7 @@
         "volume": "5",
         "issue": "6",
         "collection-title": "Good Series",
+        "chapter-number": "3",
         "page": "200-210",
         "publisher-place": "Goodville",
         "edition": "Second",
