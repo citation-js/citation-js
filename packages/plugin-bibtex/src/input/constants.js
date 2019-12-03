@@ -59,7 +59,6 @@ export const diacritics = {
 // https://github.com/zotero/translators/blob/da31de8/BibTeX.js#L2352-L2875
 export const commands = {
   // other
-  '~': '\u223C',
   '_': '\u005f',
   '{': '\u007B',
   '}': '\u007D',

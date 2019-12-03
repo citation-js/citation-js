@@ -101,7 +101,7 @@
       }]
     ],
     "with authors with non-ASCII characters": [
-      "@article{myarticle, author={von Helmholtz, Hermann and von Helmhöltz, Hermänn and von Helmh\\\"oltz, Herm\\\"ann and von Helmh{\\\"o}ltz, Herm{\\\"a}nn}}",
+      "@article{myarticle, author={von Helmholtz, Hermann and von Helmhöltz, Hermänñ and von Helmh\\\"oltz, Herm\\\"an\\~n and von Helmh{\\\"o}ltz, Herm{\\\"a}n{\\~n}}}",
       [
         {
           "citation-label": "myarticle",
@@ -109,9 +109,9 @@
           "type": "article-journal",
           "author": [
             {"family": "Helmholtz", "given": "Hermann", "non-dropping-particle": "von"},
-            {"family": "Helmhöltz", "given": "Hermänn", "non-dropping-particle": "von"},
-            {"family": "Helmhöltz", "given": "Hermänn", "non-dropping-particle": "von"},
-            {"family": "Helmhöltz", "given": "Hermänn", "non-dropping-particle": "von"}
+            {"family": "Helmhöltz", "given": "Hermänñ", "non-dropping-particle": "von"},
+            {"family": "Helmhöltz", "given": "Hermänñ", "non-dropping-particle": "von"},
+            {"family": "Helmhöltz", "given": "Hermänñ", "non-dropping-particle": "von"}
           ]
         }
       ]
