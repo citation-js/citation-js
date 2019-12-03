@@ -263,21 +263,23 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   Text () {
+    let raw;
     if (this.matchToken('lbrace')) {
-      return this.consumeRule('BracketText')
+      raw = this.consumeRule('BracketText')
     } else if (this.matchToken('mathShift')) {
-      return this.consumeRule('MathString')
+      raw = this.consumeRule('MathString')
     } else if (this.matchToken('whitespace')) {
       this.consumeToken('whitespace')
-      return ' '
+      raw = ' '
     } else if (this.matchToken('command')) {
-      return this.consumeRule('Command')
+      raw = this.consumeRule('Command')
     } else {
-      return this.consumeToken('text').value.replace(
+      raw = this.consumeToken('text').value.replace(
         constants.ligaturePattern,
         ligature => constants.ligatures[ligature]
       )
     }
+    return raw.normalize();
   },
 
   Command () {
