@@ -76,6 +76,12 @@
         {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f∼ˆ\\"}
       ]
     ],
+    "with math": [
+      "@article{math, title={$e=mc^2$}}",
+      [
+        {"type": "article-journal", "id": "math", "citation-label": "math", "title": "e=mc²"}
+      ]
+    ],
     "with rich text": [
       "@misc{ibscsupsub, title={{\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}}}, } @misc{sc, title={{\\textsc{sc}}}, } @misc{sc, title={{{sc}}}, }",
       [
