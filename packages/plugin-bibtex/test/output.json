@@ -32,8 +32,8 @@
     ],
     "rich text title": [
       [
-        {"title": "<i>i</i><b>b</b><sc>sc</sc><sup>sup</sup><sub>sub</sub>"},
-        {"title": "<span style=\"font-variant:small-caps;\">sc</span>"},
+        {"title": "<i>i</i><b>b</b><span style=\"font-variant: small-caps;\">sc</span><sup>sup</sup><sub>sub</sub>"},
+        {"title": "<span style=\"font-variant: small-caps;\">sc</span>"},
         {"title": "<span class=\"nocase\">sc</span>"}
       ],
       "@misc{ibscsupsub,\n\ttitle = {\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}},\n}\n@misc{sc,\n\ttitle = {\\textsc{sc}},\n}\n@misc{sc,\n\ttitle = {{sc}},\n}"

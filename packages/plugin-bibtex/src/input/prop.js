@@ -97,11 +97,11 @@ const parseBibtexNameList = function (list) {
 }
 
 const richTextMappings = {
-  textit: 'i',
-  textbf: 'b',
-  textsc: 'sc',
-  textsuperscript: 'sup',
-  textsubscript: 'sub'
+  textit: ['i'],
+  textbf: ['b'],
+  textsc: ['span', 'style="font-variant: small-caps;"'],
+  textsuperscript: ['sup'],
+  textsubscript: ['sub']
 }
 
 /**
@@ -126,12 +126,12 @@ const parseBibtexRichText = function (text) {
 
     // handle commands
     } else if (token[0] === '\\') {
-      let tag = richTextMappings[token.slice(1, -1)]
+      let [tag, attributes] = richTextMappings[token.slice(1, -1)]
 
       // handle known style tags
       if (tag) {
         closingTags.push(`</${tag}>`)
-        return `<${tag}>`
+        return !attributes ? `<${tag}>` : `<${tag} ${attributes}>`
 
       // handle other commands
       } else {

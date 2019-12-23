@@ -36,10 +36,9 @@ function escapeValue (value) {
 const richTextMappings = {
   'i': '\\textit{',
   'b': '\\textbf{',
-  'sc': '\\textsc{',
   'sup': '\\textsuperscript{',
   'sub': '\\textsubscript{',
-  'span style="font-variant:small-caps;"': '\\textsc{',
+  'span style="font-variant: small-caps;"': '\\textsc{',
   'span class="nocase"': '{'
 }
 
