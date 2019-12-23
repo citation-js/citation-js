@@ -248,16 +248,17 @@ const parseBibTeXProp = function (name, value) {
       case 'issued':
         return parseBibtexDate(value)
 
-      case 'edition':
-        // return parseOrdinal(value)
-        return value
-
       case 'issued:date-parts.0.1':
         return parseFloat(value) ? value : months.findIndex(month => month.test(value)) + 1
 
       case 'page':
         return value.replace(/[—–]/, '-')
 
+      case 'collection-title':
+      case 'container-title':
+      case 'note':
+      case 'publisher':
+      case 'publisher-place':
       case 'title':
         return parseBibtexRichText(value)
 

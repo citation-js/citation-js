@@ -83,10 +83,10 @@
       ]
     ],
     "with rich text": [
-      "@misc{ibscsupsub, title={\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}}, } @misc{sc, title={\\textsc{sc}}, } @misc{sc, title={{{sc}}}, }",
+      "@misc{ibscsupsub, title={\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}}, } @misc{sc, booktitle={\\textsc{sc}}, } @misc{sc, title={{{sc}}}, }",
       [
         {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><span style=\"font-variant: small-caps;\">sc</span><sup>sup</sup><sub>sub</sub>"},
-        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant: small-caps;\">sc</span>"},
+        {"type": "book", "id": "sc", "citation-label": "sc", "container-title": "<span style=\"font-variant: small-caps;\">sc</span>"},
         {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span class=\"nocase\">sc</span>"}
       ]
     ],
