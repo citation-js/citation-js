@@ -62,8 +62,17 @@ const parseBibtexDate = function (value) {
  * @return {Object} CSL name object
  */
 const parseBibtexName = function (name) {
+  // Braces serve as special signals
   if (/{|}/.test(name)) {
-    return { literal: name.replace(/[{}]/g, '') }
+    // Recognize a family name surrounded by braces
+    const match = /^([^{}]+)\s+{([^{}]+)}$/.exec(name);
+    if (match) {
+      return { given: match[1], family: match[2] };
+    // Treat other brace constructions as literal text
+    } else {
+      return { literal: name.replace(/{|}/g, '') }
+    }
+  // No braces, parse regular name
   } else {
     return parseName(name)
   }

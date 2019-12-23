@@ -106,6 +106,32 @@
         }
       }]
     ],
+    "with an author that has a braced family name": [
+      "@article{myarticle, author={Hermann {von Helmholtz}}}",
+      [
+        {
+          "citation-label": "myarticle",
+          "id": "myarticle",
+          "type": "article-journal",
+          "author": [
+            {"family": "von Helmholtz", "given": "Hermann"}
+          ]
+        }
+      ]
+    ],
+    "with an author in braces": [
+      "@article{myarticle, author={{Acme Inc.}}}",
+      [
+        {
+          "citation-label": "myarticle",
+          "id": "myarticle",
+          "type": "article-journal",
+          "author": [
+            {"literal": "Acme Inc."}
+          ]
+        }
+      ]
+    ],
     "with authors with non-ASCII characters": [
       "@article{myarticle, author={von Helmholtz, Hermann and von Helmhöltz, Hermänñ and von Helmh\\\"oltz, Herm\\\"an\\~n and von Helmh{\\\"o}ltz, Herm{\\\"a}n{\\~n}}}",
       [
