@@ -20,7 +20,7 @@ let bibliographyData = [
 
 let citationData = [{
   id: '1',
-  type: 'article-journal',
+  type: 'website',
   title: 'a',
   issued: { 'date-parts': [[2011]] }
 }, {
@@ -99,8 +99,8 @@ module.exports = {
     ]
   },
   citation: {
-    simple: [citationData, '(“a,” 2011; d & h, 2012)', { entry: ['1', '2'] }],
+    simple: [citationData, '(“A,” 2011; d & h, 2012)', { entry: ['1', '2'] }],
     'single entry': [citationData, '(d & h, 2012)', { entry: '2' }],
-    'no entry option': [citationData, '(“a,” 2011; d & h, 2012; f, 2013)']
+    'no entry option': [citationData, '(“A,” 2011; d & h, 2012; f, 2013)']
   }
 }
