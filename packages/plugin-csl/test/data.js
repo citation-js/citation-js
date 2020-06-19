@@ -20,7 +20,7 @@ let bibliographyData = [
 
 let citationData = [{
   id: '1',
-  type: 'website',
+  type: 'article-journal',
   title: 'a',
   issued: { 'date-parts': [[2011]] }
 }, {
