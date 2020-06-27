@@ -120,6 +120,34 @@ ER  -`
         ID: 'Q23571040'
       }],
       { format: 'object' }
+    ],
+    literal: [
+      [{
+        type: 'webpage',
+        title: 'CDLI Lexical 000002, ex. 065 artifact entry',
+        author: [
+          { literal: 'Cuneiform Digital Library Iniative (CDLI)' }
+        ],
+        issued: { 'date-parts': [[2017, 9, 4]] },
+        accessed: { 'date-parts': [[2020, 6, 27]] },
+        abstract: ' 1N01 , ... \n 1N01 , ABGAL \n 1N01 , KINGAL \n 1N01 , ... \n 1N01 , GAL~a UMUN2 \n 1N01 , GAL~a UMUN2 KU3~a \n 1N01 , DUB~a SANGA~a \n 1N01 , SUG5 SAG \n 1N01 , UB SAG \n N , ... ',
+        id: 'P000001',
+        number: 'P000001',
+        URL: 'https://cdli.ucla.edu/P000001',
+        language: 'undetermined'
+      }],
+      [{
+        AB: ' 1N01 , ... \n 1N01 , ABGAL \n 1N01 , KINGAL \n 1N01 , ... \n 1N01 , GAL~a UMUN2 \n 1N01 , GAL~a UMUN2 KU3~a \n 1N01 , DUB~a SANGA~a \n 1N01 , SUG5 SAG \n 1N01 , UB SAG \n N , ... ',
+        AU: ['Cuneiform Digital Library Iniative (CDLI)'],
+        DA: '2017/9/4/',
+        ID: 'P000001',
+        LA: 'undetermined',
+        M1: '2020/6/27/',
+        TI: 'CDLI Lexical 000002, ex. 065 artifact entry',
+        TY: 'ELEC',
+        UR: 'https://cdli.ucla.edu/P000001'
+      }],
+      { format: 'object' }
     ]
   }
 }

@@ -51,7 +51,10 @@ const CONVERTERS = {
       })
     },
     toSource (names) {
-      return names.map(({ family, given, suffix }) => [family, given, suffix].filter(Boolean).join(', '))
+      return names.map(({ family, given, suffix, literal }) => {
+          const parts = [family, given, suffix].filter(Boolean)
+          return parts.length ? parts.join(', ') : literal
+      })
     }
   },
 
