@@ -34,9 +34,9 @@
     "@citation-js/date": "^0.4.4",
     "@citation-js/name": "^0.4.2",
     "isomorphic-fetch": "^2.2.1",
-    "sync-fetch": "^0.1.0"
+    "sync-fetch": "^0.2.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5"
+    "@babel/plugin-proposal-class-properties": "^7.10.4"
   }
 }
