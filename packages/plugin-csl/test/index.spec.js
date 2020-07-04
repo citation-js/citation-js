@@ -5,7 +5,7 @@ require('../src/')
 const { plugins } = require('@citation-js/core')
 const data = require('./data')
 
-let CSL = plugins.config.get('@csl')
+const CSL = plugins.config.get('@csl')
 CSL.templates.add('custom', `<?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="minimal">
   <bibliography>
@@ -33,15 +33,15 @@ CSL.locales.add('custom', `<?xml version="1.0" encoding="utf-8"?>
 </locale>`)
 
 describe('output', function () {
-  for (let type in data) {
+  for (const type in data) {
     describe(type, function () {
       it('is registered', function () {
         assert(plugins.output.has(type))
       })
 
-      for (let name of Object.keys(data[type])) {
-        let [input, expected, ...opts] = data[type][name]
-        let actual = plugins.output.format(type, input, ...opts)
+      for (const name of Object.keys(data[type])) {
+        const [input, expected, ...opts] = data[type][name]
+        const actual = plugins.output.format(type, input, ...opts)
         it(`with ${name} works`, function () {
           assert.deepStrictEqual(
             typeof actual === 'string' ? actual.trim() : actual,

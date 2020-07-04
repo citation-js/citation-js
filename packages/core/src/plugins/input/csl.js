@@ -250,7 +250,7 @@ const parseCsl = function (data, bestGuessConversions = true) {
   return data.map(function (entry) {
     const clean = {}
 
-    for (let field in entry) {
+    for (const field in entry) {
       const correction = correctField(field, entry[field], bestGuessConversions)
       if (correction !== undefined) {
         clean[field] = correction

@@ -52,10 +52,11 @@ export function get (options = {}) {
   let formatOptions
 
   switch (newStyle) {
-    case 'bibliography':
+    case 'bibliography': {
       const { lang, append, prepend } = parsedOptions
       formatOptions = { template: styleFormat, lang, format: newType, append, prepend }
       break
+    }
 
     case 'data':
     case 'bibtex':

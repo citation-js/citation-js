@@ -77,7 +77,7 @@ async function main (options) {
 
   logger.level = options.logLevel
 
-  for (let plugin of options.plugins) {
+  for (const plugin of options.plugins) {
     try {
       require(`@citation-js/plugin-${plugin}`)
     } catch (e) {
@@ -104,14 +104,14 @@ function setConfig (newConfigs) {
     return plugins
   }, {})
 
-  for (let plugin in newConfigs) {
+  for (const plugin in newConfigs) {
     const oldConfig = plugins.config.get(plugin)
     if (oldConfig) { assignOptions(oldConfig, newConfigs[plugin]) }
   }
 }
 
 function assignOptions (object, options) {
-  for (let [path, value] of options) {
+  for (const [path, value] of options) {
     const key = path.pop()
     const assigner = path.reduce((object, key) => {
       return object[key] || (object[key] = {})
@@ -193,7 +193,7 @@ async function processInput (input, options) {
 
 function getPrefixedOptions (options, prefix) {
   const output = {}
-  for (let prop in options) {
+  for (const prop in options) {
     if (prop.slice(0, prefix.length) === prefix && prop.length !== prefix) {
       let newProp = prop.slice(prefix.length)
       newProp = newProp[0].toLowerCase() + newProp.slice(1)

@@ -56,8 +56,8 @@ const getBibTeXJSON = function (src, opts) {
     volume: 'volume'
   }
 
-  for (let prop in simple) {
-    if (src.hasOwnProperty(prop)) {
+  for (const prop in simple) {
+    if (src[prop] != null) {
       props[simple[prop]] = src[prop] + ''
     }
   }
@@ -78,7 +78,7 @@ const getBibTeXJSON = function (src, opts) {
   }
 
   if (src.issued && src.issued['date-parts']) {
-    let dateParts = src.issued['date-parts'][0]
+    const dateParts = src.issued['date-parts'][0]
 
     if (dateParts.length > 0) {
       props.date = getDate(src.issued)

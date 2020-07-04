@@ -3,11 +3,12 @@ module.exports = {
     'BMC 001': [
       {
         TY: 'JOUR',
-        AU:
-         [ 'Trentini, Filippo',
-           'Poletti, Piero',
-           'Melegaro, Alessia',
-           'Merler, Stefano' ],
+        AU: [
+          'Trentini, Filippo',
+          'Poletti, Piero',
+          'Melegaro, Alessia',
+          'Merler, Stefano'
+        ],
         PY: '2019',
         DA: '2019/05/17',
         TI:
@@ -49,11 +50,12 @@ module.exports = {
     'BMC 002': [
       {
         TY: 'JOUR',
-        AU:
-         [ 'Trentini, Filippo',
-           'Poletti, Piero',
-           'Melegaro, Alessia',
-           'Merler, Stefano' ],
+        AU: [
+          'Trentini, Filippo',
+          'Poletti, Piero',
+          'Melegaro, Alessia',
+          'Merler, Stefano'
+        ],
         PY: '2019',
         DA: '2019/05/17',
         TI:

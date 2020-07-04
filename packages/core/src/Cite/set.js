@@ -19,9 +19,11 @@ const add = function (data, options = {}, log = false) {
 
   this.data.push(...parseInput(data, options))
 
-  this.data.filter(entry => !entry.hasOwnProperty('id')).forEach(entry => {
-    entry.id = fetchId(this.getIds(), 'temp_id_')
-  })
+  this.data
+    .filter(entry => !Object.prototype.hasOwnProperty.call(entry, 'id'))
+    .forEach(entry => {
+      entry.id = fetchId(this.getIds(), 'temp_id_')
+    })
 
   return this
 }
@@ -44,9 +46,11 @@ const addAsync = async function (data, options = {}, log = false) {
 
   this.data.push(...await parseInputAsync(data, options))
 
-  this.data.filter(entry => !entry.hasOwnProperty('id')).forEach(entry => {
-    entry.id = fetchId(this.getIds(), 'temp_id_')
-  })
+  this.data
+    .filter(entry => !Object.prototype.hasOwnProperty.call(entry, 'id'))
+    .forEach(entry => {
+      entry.id = fetchId(this.getIds(), 'temp_id_')
+    })
 
   return this
 }

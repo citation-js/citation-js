@@ -28,7 +28,7 @@ export const get = (ref) => configs[ref]
  * @param {Cite.plugins~pluginRef} ref - plugin reference/name
  * @return {Boolean}
  */
-export const has = (ref) => configs.hasOwnProperty(ref)
+export const has = (ref) => Object.prototype.hasOwnProperty.call(configs, ref)
 /**
  * @access public
  * @method remove

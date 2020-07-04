@@ -12,7 +12,7 @@ const proxied = Symbol.for('proxied')
 const getWrapperProxy = function (original) {
   const proxy = function (state, entry) {
     if (state.sys.wrapBibliographyEntry) {
-      let [prefix, postfix] = state.sys.wrapBibliographyEntry(this.system_id)
+      const [prefix, postfix] = state.sys.wrapBibliographyEntry(this.system_id)
       entry = [prefix, entry, postfix].join('')
     }
     return original.call(this, state, entry)
@@ -21,8 +21,8 @@ const getWrapperProxy = function (original) {
   return proxy
 }
 
-for (let format in CSL.Output.Formats) {
-  let original = CSL.Output.Formats[format]['@bibliography/entry']
+for (const format in CSL.Output.Formats) {
+  const original = CSL.Output.Formats[format]['@bibliography/entry']
 
   if (!original || original[proxied]) { continue }
 
@@ -55,7 +55,7 @@ const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocal
   const engineHash = `${style}|${lang}`
   let engine
 
-  if (engines.hasOwnProperty(engineHash)) {
+  if (engines[engineHash] instanceof CSL.Engine) {
     engine = engines[engineHash]
     engine.sys.retrieveItem = retrieveItem
   } else {

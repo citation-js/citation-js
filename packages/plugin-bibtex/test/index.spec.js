@@ -7,13 +7,13 @@ const inputData = require('./input')
 const outputData = require('./output')
 
 describe('input', function () {
-  for (let type in inputData) {
+  for (const type in inputData) {
     describe(type, function () {
       it('is registered', function () {
         assert(plugins.input.has(type))
       })
-      for (let name of Object.keys(inputData[type])) {
-        let [input, expected] = inputData[type][name]
+      for (const name of Object.keys(inputData[type])) {
+        const [input, expected] = inputData[type][name]
         describe(name, function () {
           it('parses type', function () {
             assert.strictEqual(
@@ -36,15 +36,15 @@ describe('input', function () {
 })
 
 describe('output', function () {
-  for (let type in outputData) {
+  for (const type in outputData) {
     describe(type, function () {
       it('is registered', function () {
         assert(plugins.output.has(type))
       })
 
-      for (let name of Object.keys(outputData[type])) {
-        let [input, expected, ...opts] = outputData[type][name]
-        let actual = plugins.output.format(type, input, ...opts)
+      for (const name of Object.keys(outputData[type])) {
+        const [input, expected, ...opts] = outputData[type][name]
+        const actual = plugins.output.format(type, input, ...opts)
         it(`with ${name} works`, function () {
           assert.deepStrictEqual(
             typeof actual === 'string' ? actual.trim() : actual,

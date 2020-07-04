@@ -81,7 +81,7 @@ const delimiters = {
 
 export const bibtexGrammar = new util.Grammar({
   Main () {
-    let entries = []
+    const entries = []
 
     while (true) {
       while (this.matchToken('junk')) {
@@ -150,10 +150,10 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   EntryBody () {
-    let properties = {}
+    const properties = {}
 
     while (this.matchToken('identifier')) {
-      let [field, value] = this.consumeRule('Field')
+      const [field, value] = this.consumeRule('Field')
       properties[field] = value
 
       this.consumeRule('_')
@@ -263,7 +263,7 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   Text () {
-    let raw;
+    let raw
     if (this.matchToken('lbrace')) {
       raw = this.consumeRule('BracketText')
     } else if (this.matchToken('mathShift')) {
@@ -279,7 +279,7 @@ export const bibtexGrammar = new util.Grammar({
         ligature => constants.ligatures[ligature]
       )
     }
-    return raw.normalize();
+    return raw.normalize()
   },
 
   Command () {

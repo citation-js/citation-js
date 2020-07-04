@@ -119,12 +119,12 @@ module.exports = {
     ]
   },
   '@doi/list+text': {
-    'spaces': [
+    spaces: [
       '10.1021/ja01577a030 10.1021/ci025584y',
       ['https://doi.org/10.1021/ja01577a030', 'https://doi.org/10.1021/ci025584y'],
       { link: true }
     ],
-    'newlines': [
+    newlines: [
       '10.1021/ja01577a030\n10.1021/ci025584y',
       ['https://doi.org/10.1021/ja01577a030', 'https://doi.org/10.1021/ci025584y'],
       { link: true }

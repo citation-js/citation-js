@@ -26,9 +26,9 @@ const nativeAsyncParsers = {
  * @return {Null} if no parser available
  */
 export const data = (input, type) => {
-  if (parsers.hasOwnProperty(type)) {
+  if (typeof parsers[type] === 'function') {
     return parsers[type](input)
-  } else if (nativeParsers.hasOwnProperty(type)) {
+  } else if (typeof nativeParsers[type] === 'function') {
     return nativeParsers[type](input)
   } else {
     throw new TypeError(`No synchronous parser found for ${type}`)
@@ -46,9 +46,9 @@ export const data = (input, type) => {
  * @return {Promise<Null>} if no parser available
  */
 export const dataAsync = async (input, type) => {
-  if (asyncParsers.hasOwnProperty(type)) {
+  if (typeof asyncParsers[type] === 'function') {
     return asyncParsers[type](input)
-  } else if (nativeAsyncParsers.hasOwnProperty(type)) {
+  } else if (typeof nativeAsyncParsers[type] === 'function') {
     return nativeAsyncParsers[type](input)
   } else if (hasDataParser(type, false)) {
     return data(input, type)

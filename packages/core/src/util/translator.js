@@ -58,9 +58,9 @@ function createConverter (props, toSource) {
   props = props.map(prop => parsePropStatement(prop, toSource)).filter(Boolean)
 
   return function converter (input) {
-    let output = {}
+    const output = {}
 
-    for (let { inputProp, outputProp, convert, condition } of props) {
+    for (const { inputProp, outputProp, convert, condition } of props) {
       // Skip when no output will be assigned
       if (outputProp.length === 0) {
         continue
@@ -75,12 +75,12 @@ function createConverter (props, toSource) {
 
       let outputData = inputProp.map(prop => input[prop])
       if (convert) {
-        let converted = convert.apply(input, outputData)
+        const converted = convert.apply(input, outputData)
         outputData = outputProp.length === 1 ? [converted] : converted
       }
 
       outputProp.forEach((prop, index) => {
-        let value = outputData[index]
+        const value = outputData[index]
         if (value !== undefined) {
           output[prop] = value
         }

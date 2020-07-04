@@ -324,27 +324,33 @@ describe('plugins', function () {
             expect(predicate('a b a')).not.to.be.ok()
           })
           it('outputs properly for object with split', function () {
-            var { predicate } = new TypeParser({ tokenList: {
-              token: /^a$/,
-              split: /b/
-            } })
+            var { predicate } = new TypeParser({
+              tokenList: {
+                token: /^a$/,
+                split: /b/
+              }
+            })
             expect(predicate('ababa')).to.be.ok()
             expect(predicate('a a a')).not.to.be.ok()
             expect(predicate('abcba')).not.to.be.ok()
           })
           it('outputs properly for object without trim', function () {
-            var { predicate } = new TypeParser({ tokenList: {
-              token: /^a$/,
-              trim: false
-            } })
+            var { predicate } = new TypeParser({
+              tokenList: {
+                token: /^a$/,
+                trim: false
+              }
+            })
             expect(predicate('a a a')).to.be.ok()
             expect(predicate(' a a a ')).not.to.be.ok()
           })
           it('outputs properly for object without every', function () {
-            var { predicate } = new TypeParser({ tokenList: {
-              token: /^a$/,
-              every: false
-            } })
+            var { predicate } = new TypeParser({
+              tokenList: {
+                token: /^a$/,
+                every: false
+              }
+            })
             expect(predicate('a b a b a')).to.be.ok()
             expect(predicate('b b')).not.to.be.ok()
           })
@@ -366,29 +372,35 @@ describe('plugins', function () {
         })
         describe('propertyConstraint', function () {
           it('outputs properly for one prop', function () {
-            var { predicate } = new TypeParser({ propertyConstraint: {
-              props: 'foo'
-            } })
+            var { predicate } = new TypeParser({
+              propertyConstraint: {
+                props: 'foo'
+              }
+            })
             expect(predicate({ foo: 1, bar: 2 })).to.be.ok()
             expect(predicate({ foo: 1 })).to.be.ok()
             expect(predicate({})).not.to.be.ok()
             expect(predicate({ bar: 2 })).not.to.be.ok()
           })
           it('outputs properly for prop predicates', function () {
-            var { predicate } = new TypeParser({ propertyConstraint: {
-              props: ['foo'],
-              value: value => value === 1
-            } })
+            var { predicate } = new TypeParser({
+              propertyConstraint: {
+                props: ['foo'],
+                value: value => value === 1
+              }
+            })
             expect(predicate({ foo: 1 })).to.be.ok()
             expect(predicate({ foo: 2 })).not.to.be.ok()
             expect(predicate({})).not.to.be.ok()
             expect(predicate({ bar: 1 })).not.to.be.ok()
           })
           it('outputs properly for match=every', function () {
-            var { predicate } = new TypeParser({ propertyConstraint: {
-              props: ['foo', 'bar'],
-              match: 'every'
-            } })
+            var { predicate } = new TypeParser({
+              propertyConstraint: {
+                props: ['foo', 'bar'],
+                match: 'every'
+              }
+            })
             expect(predicate({ foo: 1, bar: 2 })).to.be.ok()
             expect(predicate({ foo: 1, bar: 2, baz: 3 })).to.be.ok()
             expect(predicate({ foo: 1 })).not.to.be.ok()
@@ -397,10 +409,12 @@ describe('plugins', function () {
             expect(predicate({ baz: 3 })).not.to.be.ok()
           })
           it('outputs properly for match=some', function () {
-            var { predicate } = new TypeParser({ propertyConstraint: {
-              props: ['foo', 'bar'],
-              match: 'some'
-            } })
+            var { predicate } = new TypeParser({
+              propertyConstraint: {
+                props: ['foo', 'bar'],
+                match: 'some'
+              }
+            })
             expect(predicate({ foo: 1, bar: 2 })).to.be.ok()
             expect(predicate({ foo: 1, bar: 2, baz: 3 })).to.be.ok()
             expect(predicate({ foo: 1 })).to.be.ok()
@@ -409,10 +423,12 @@ describe('plugins', function () {
             expect(predicate({ baz: 3 })).not.to.be.ok()
           })
           it('outputs properly for match=none', function () {
-            var { predicate } = new TypeParser({ propertyConstraint: {
-              props: ['foo', 'bar'],
-              match: 'none'
-            } })
+            var { predicate } = new TypeParser({
+              propertyConstraint: {
+                props: ['foo', 'bar'],
+                match: 'none'
+              }
+            })
             expect(predicate({})).to.be.ok()
             expect(predicate({ baz: 3 })).to.be.ok()
             expect(predicate({ foo: 1, bar: 2 })).not.to.be.ok()

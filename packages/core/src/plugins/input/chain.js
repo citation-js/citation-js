@@ -99,7 +99,7 @@ class ChainParser {
  * @return {Array<CSL>} The parsed input
  */
 export const chain = (...args) => {
-  let chain = new ChainParser(...args)
+  const chain = new ChainParser(...args)
 
   while (chain.iterate()) {
     try {
@@ -143,7 +143,7 @@ export const chainLink = (input) => {
  * @return {Promise<Array<CSL>>} The parsed input
  */
 export const chainAsync = async (...args) => {
-  let chain = new ChainParser(...args)
+  const chain = new ChainParser(...args)
 
   while (chain.iterate()) {
     chain.data = await parseDataAsync(chain.data, chain.type).catch(e => { chain.error = e })
@@ -165,7 +165,7 @@ export const chainAsync = async (...args) => {
  */
 export const chainLinkAsync = async (input) => {
   const type = parseType(input)
-  let output = type.match(/array|object/) ? deepCopy(input) : input
+  const output = type.match(/array|object/) ? deepCopy(input) : input
 
   return parseDataAsync(output, type)
 }

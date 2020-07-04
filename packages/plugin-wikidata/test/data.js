@@ -1,11 +1,11 @@
-let opts = {
+const opts = {
   callback: ([data]) => data.replace(/[&?]origin=\*/, ''),
   link: true
 }
 
 module.exports = {
   '@wikidata/id': {
-    'simple': [
+    simple: [
       'Q21972834',
       ['https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q21972834&format=json&languages=en'],
       opts
@@ -334,7 +334,7 @@ module.exports = {
         }
       ]
     ],
-    'chapter': [
+    chapter: [
       'Q7878315',
       [
         {
@@ -353,7 +353,7 @@ module.exports = {
         }
       ]
     ],
-    'review': [
+    review: [
       'Q50237325',
       [
         {
@@ -532,7 +532,7 @@ module.exports = {
           }],
           language: 'en',
           issued: { 'date-parts': [[1913]] },
-          'publisher': 'Macmillan Publishers',
+          publisher: 'Macmillan Publishers',
           'publisher-place': 'London, UK',
           'original-title': 'গীতাঞ্জলি',
           'original-author': [{
@@ -548,17 +548,17 @@ module.exports = {
     ]
   },
   '@wikidata/list+text': {
-    'spaces': [
+    spaces: [
       'Q21972834 Q27795847',
       ['Q21972834', 'Q27795847'],
       opts
     ],
-    'newlines': [
+    newlines: [
       'Q21972834\nQ27795847',
       ['Q21972834', 'Q27795847'],
       opts
     ],
-    'commas': [
+    commas: [
       'Q21972834,Q27795847',
       ['Q21972834', 'Q27795847'],
       opts

@@ -9,7 +9,7 @@ const server = http.createServer(function router (req, res) {
   const { pathname } = new URL(req.url, base)
 
   switch (pathname) {
-    case '/inspect':
+    case '/inspect': {
       res.statusCode = 200
       res.setHeader('Content-Type', 'application/json')
       let body = ''
@@ -22,6 +22,7 @@ const server = http.createServer(function router (req, res) {
         }))
       })
       break
+    }
 
     case '/error/404':
       res.statusCode = 404

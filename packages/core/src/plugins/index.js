@@ -25,20 +25,20 @@ const indices = {}
  * @param {Cite.plugins~plugins} [plugins={}]
  */
 export const add = (ref, plugins = {}) => {
-  let mainIndex = indices[ref] = {}
+  const mainIndex = indices[ref] = {}
 
-  for (let type in plugins) {
+  for (const type in plugins) {
     if (type === 'config') {
       mainIndex.config = { [ref]: plugins.config }
       registers.config.add(ref, plugins.config)
       continue
     }
 
-    let typeIndex = mainIndex[type] = {}
-    let typePlugins = plugins[type]
+    const typeIndex = mainIndex[type] = {}
+    const typePlugins = plugins[type]
 
-    for (let name in typePlugins) {
-      let typePlugin = typePlugins[name]
+    for (const name in typePlugins) {
+      const typePlugin = typePlugins[name]
 
       typeIndex[name] = true
       registers[type].add(name, typePlugin)
@@ -53,12 +53,12 @@ export const add = (ref, plugins = {}) => {
  * @param {Cite.plugins~pluginRef} ref - plugin reference/name
  */
 export const remove = (ref) => {
-  let mainIndex = indices[ref]
+  const mainIndex = indices[ref]
 
-  for (let type in mainIndex) {
-    let typeIndex = mainIndex[type]
+  for (const type in mainIndex) {
+    const typeIndex = mainIndex[type]
 
-    for (let name in typeIndex) {
+    for (const name in typeIndex) {
       registers[type].remove(name)
     }
   }

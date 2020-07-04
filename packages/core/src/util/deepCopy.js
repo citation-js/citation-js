@@ -26,7 +26,7 @@ export function deepCopy (value, seen = new Set()) {
     copy = value.map(value => deepCopy(value, seen))
   } else {
     const object = {}
-    for (let key in value) {
+    for (const key in value) {
       object[key] = deepCopy(value[key], seen)
     }
     copy = object

@@ -213,7 +213,7 @@ describe('input', function () {
         let input
         input = [{ issued: { 'date-parts': [[1, 2, 3]] } }]
         expect(util.clean(input, false)).to.eql(input)
-        input = [{ issued: { 'raw': 'foo' } }]
+        input = [{ issued: { raw: 'foo' } }]
         expect(util.clean(input, false)).to.eql(input)
       })
       it('keeps dates in legacy format', function () {
@@ -269,10 +269,10 @@ describe('input', function () {
   })
 
   describe('internal types', function () {
-    for (let type in cases) {
+    for (const type in cases) {
       describe(type, function () {
-        for (let name of Object.keys(cases[type])) {
-          let [input, expected] = cases[type][name]
+        for (const name of Object.keys(cases[type])) {
+          const [input, expected] = cases[type][name]
           describe(name, function () {
             it('parses type', function () {
               expect(plugins.input.type(input)).to.be(type)

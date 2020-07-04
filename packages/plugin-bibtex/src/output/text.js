@@ -34,11 +34,11 @@ function escapeValue (value) {
 }
 
 const richTextMappings = {
-  'i': '\\textit{',
-  'b': '\\textbf{',
-  'sc': '\\textsc{',
-  'sup': '\\textsuperscript{',
-  'sub': '\\textsubscript{',
+  i: '\\textit{',
+  b: '\\textbf{',
+  sc: '\\textsc{',
+  sup: '\\textsuperscript{',
+  sub: '\\textsubscript{',
   'span style="font-variant:small-caps;"': '\\textsc{',
   'span class="nocase"': '{'
 }
@@ -97,7 +97,7 @@ function serializeEntry (entry, dict, opts) {
  * @return {String} BibTeX string
  */
 const getBibtex = function (src, dict, opts) {
-  let entries = src.map(entry => serializeEntry(entry, dict, opts)).join('')
+  const entries = src.map(entry => serializeEntry(entry, dict, opts)).join('')
 
   return dict.bibliographyContainer.join(entries)
 }

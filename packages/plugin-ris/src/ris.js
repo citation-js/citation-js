@@ -15,7 +15,7 @@ const TRANSLATORS = new Map()
 
 function prepareTranslator (spec) {
   if (!TRANSLATORS.has(spec)) {
-    for (let mapping of spec) {
+    for (const mapping of spec) {
       if (mapping.target in DATA_TYPES) {
         mapping.convert = CONVERTERS[DATA_TYPES[mapping.target]]
       }
@@ -92,7 +92,7 @@ export function format (data, { type, format = type || 'text' } = {}) {
   return entries.map(entry => {
     const tags = []
 
-    for (let tag in entry) {
+    for (const tag in entry) {
       if (tag === 'TY') { continue }
       tags.push(...[].concat(entry[tag]).map(value => `${tag}  - ${value.toString().replace(/(.{70})/g, '$1\n')}`))
     }

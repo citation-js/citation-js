@@ -18,9 +18,9 @@ import parseBibTeXType from './type'
 const parseBibTeXJSON = function (data) {
   return [].concat(data).map(entry => {
     const newEntry = {}
-    let toMerge = []
+    const toMerge = []
 
-    for (let prop in entry.properties) {
+    for (const prop in entry.properties) {
       const oldValue = entry.properties[prop]
       const [cslField, cslValue] = parseBibTeXProp(prop, oldValue) || []
 

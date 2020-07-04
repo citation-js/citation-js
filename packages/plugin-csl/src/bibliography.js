@@ -44,11 +44,11 @@ export default function bibliography (data, options = {}) {
   const sortedIds = citeproc.updateItems(data.map(entry => entry.id), nosort)
 
   if (options.append || options.prepend) {
-    let { append, prepend } = options
-    let items = data.reduce((items, entry) => { items[entry.id] = entry; return items }, {})
+    const { append, prepend } = options
+    const items = data.reduce((items, entry) => { items[entry.id] = entry; return items }, {})
 
     citeproc.sys.wrapBibliographyEntry = function (id) {
-      let entry = items[id]
+      const entry = items[id]
       return [getAffix(entry, prepend), getAffix(entry, append)]
     }
   } else {

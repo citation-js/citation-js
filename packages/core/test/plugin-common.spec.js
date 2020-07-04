@@ -57,7 +57,7 @@ const htmlString = `<div class="csl-bib-body">[
 ]</div>`.replace(/\n */g, '')
 
 const yearSuffix = [{ id: 'a', author: [{ literal: 'foo' }], issued: { 'date-parts': [[2018]] }, 'year-suffix': 'a' }]
-const label = [{ 'id': 'b', 'citation-label': 'foo', 'type': 'book' }]
+const label = [{ id: 'b', 'citation-label': 'foo', type: 'book' }]
 
 const inputData = {
   '@else/json': {
@@ -77,14 +77,14 @@ const inputData = {
 }
 
 describe('input', function () {
-  for (let type in inputData) {
+  for (const type in inputData) {
     describe(type, function () {
       it('is registered', function () {
         assert(plugins.input.has(type))
       })
 
-      for (let name of Object.keys(inputData[type])) {
-        let [input, expected] = inputData[type][name]
+      for (const name of Object.keys(inputData[type])) {
+        const [input, expected] = inputData[type][name]
         describe(name, function () {
           it('parses type', function () {
             assert.strictEqual(plugins.input.type(input), type)
@@ -104,34 +104,34 @@ describe('input', function () {
 const outputData = {
   data: {
     'plain text': [simple, JSON.stringify(simple, null, 2)],
-    'html': [simple, htmlString, { format: 'html' }],
+    html: [simple, htmlString, { format: 'html' }],
     'weird html': [
       [{ author: [], editor: {} }],
       '<div class="csl-bib-body">[<div class="csl-entry">{<ul style="list-style-type:none"><li>"author": [],</li><li>"editor": {}</li></ul>}</div>]</div>',
       { format: 'html' }
     ],
-    'object': [simple, simple, { format: 'object' }]
+    object: [simple, simple, { format: 'object' }]
   },
   ndjson: {
-    'normal': [simple, simple.map(entry => JSON.stringify(entry)).join('\n')]
+    normal: [simple, simple.map(entry => JSON.stringify(entry)).join('\n')]
   },
   label: {
-    'normal': [simple, { [simple[0].id]: 'Hall1957Correlation' }],
+    normal: [simple, { [simple[0].id]: 'Hall1957Correlation' }],
     'with year-suffix': [yearSuffix, { [yearSuffix[0].id]: 'foo2018a' }],
     'with own label': [label, { [label[0].id]: 'foo' }]
   }
 }
 
 describe('output', function () {
-  for (let type in outputData) {
+  for (const type in outputData) {
     describe(type, function () {
       it('is registered', function () {
         assert(plugins.output.has(type))
       })
 
-      for (let name of Object.keys(outputData[type])) {
-        let [input, expected, ...opts] = outputData[type][name]
-        let actual = plugins.output.format(type, input, ...opts)
+      for (const name of Object.keys(outputData[type])) {
+        const [input, expected, ...opts] = outputData[type][name]
+        const actual = plugins.output.format(type, input, ...opts)
         it(`with ${name} works`, function () {
           assert.deepStrictEqual(
             typeof actual === 'string' ? actual.trim() : actual,

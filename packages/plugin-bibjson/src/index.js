@@ -5,7 +5,7 @@
 import * as json from './json'
 import { plugins } from '@citation-js/core'
 
-let scraperLinks = ['fulltext_html', 'fulltext_xml', 'fulltext_pdf']
+const scraperLinks = ['fulltext_html', 'fulltext_xml', 'fulltext_pdf']
 
 const ref = '@bibjson'
 const parsers = { json }

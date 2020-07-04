@@ -56,7 +56,7 @@ export function parseEntity (entity) {
 
   const unkown = new Set(Object.keys(entity.claims))
 
-  for (let prop in props) {
+  for (const prop in props) {
     const input = prepareValue(props[prop], entity, unkown)
     if (input) {
       const output = parseProp(prop, input, entity)
@@ -66,7 +66,7 @@ export function parseEntity (entity) {
     }
   }
 
-  for (let prop of unkown) {
+  for (const prop of unkown) {
     if (prop in ignoredProps) {
       continue
     }

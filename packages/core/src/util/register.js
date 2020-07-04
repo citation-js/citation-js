@@ -53,7 +53,7 @@ class Register {
    * @return {Boolean} register has key
    */
   has (key) {
-    return this.data.hasOwnProperty(key)
+    return Object.prototype.hasOwnProperty.call(this.data, key)
   }
 
   /**

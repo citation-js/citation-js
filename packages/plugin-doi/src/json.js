@@ -21,7 +21,7 @@ const parseDoiJson = function (data) {
 
   const dateFields = ['submitted', 'issued', 'event-date', 'original-date', 'container', 'accessed']
   dateFields.forEach(field => {
-    let value = data[field]
+    const value = data[field]
     if (value && value['date-parts'] && typeof value['date-parts'][0] === 'number') {
       value['date-parts'] = [value['date-parts']]
     }

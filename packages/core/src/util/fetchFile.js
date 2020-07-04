@@ -29,7 +29,7 @@ function normaliseHeaders (headers) {
   const entries = headers instanceof Headers || headers instanceof syncFetch.Headers
     ? Array.from(headers)
     : Object.entries(headers)
-  for (let [name, header] of entries) {
+  for (const [name, header] of entries) {
     result[name.toLowerCase()] = header.toString()
   }
 

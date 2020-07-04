@@ -94,10 +94,10 @@ function collectAdditionalIds (entity, needed) {
 
 function completeResponse (entities, old) {
   if (!old) {
-    let allIds = []
-    for (let id in entities) {
+    const allIds = []
+    for (const id in entities) {
       const ids = collectAdditionalIds(entities[id], FETCH_ADDITIONAL)
-      for (let id of ids) {
+      for (const id of ids) {
         if (!allIds.includes(id)) {
           allIds.push(id)
         }
@@ -117,7 +117,7 @@ function completeResponse (entities, old) {
 
     for (var prop in entity.claims) {
       if (prop in entity._needed) {
-        for (let claim of entity.claims[prop]) {
+        for (const claim of entity.claims[prop]) {
           if (claim.value && claim.value.id) { continue }
           claim.value = entities[claim.value]
           ids.push(...collectAdditionalIds(claim.value, entity._needed[prop]))

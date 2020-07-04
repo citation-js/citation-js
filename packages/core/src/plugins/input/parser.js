@@ -165,19 +165,19 @@ export class TypeParser {
       tokenList = { token: tokenList }
     }
 
-    let { token, split = /\s+/, trim = true, every = true } = tokenList
+    const { token, split = /\s+/, trim = true, every = true } = tokenList
 
-    let trimInput = (input) => trim ? input.trim() : input
-    let testTokens = every ? 'every' : 'some'
+    const trimInput = (input) => trim ? input.trim() : input
+    const testTokens = every ? 'every' : 'some'
 
-    let predicate = (input) =>
+    const predicate = (input) =>
       trimInput(input).split(split)[testTokens](part => token.test(part))
 
     return [predicate]
   }
 
   parsePropertyConstraint () {
-    let constraints = [].concat(this.data.propertyConstraint || [])
+    const constraints = [].concat(this.data.propertyConstraint || [])
 
     return constraints.map(({ props, match = 'every', value }) => {
       props = [].concat(props)
@@ -192,7 +192,7 @@ export class TypeParser {
   }
 
   parseElementConstraint () {
-    let constraint = this.data.elementConstraint
+    const constraint = this.data.elementConstraint
     return !constraint ? [] : [input => input.every(entry => type(entry) === constraint)]
   }
 
@@ -207,7 +207,7 @@ export class TypeParser {
   }
 
   getCombinedPredicate () {
-    let predicates = [
+    const predicates = [
       ...this.parsePredicate(),
       ...this.parseTokenList(),
       ...this.parsePropertyConstraint(),

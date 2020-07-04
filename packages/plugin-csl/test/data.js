@@ -1,4 +1,4 @@
-let bibliographyData = [
+const bibliographyData = [
   {
     id: 'Q23571040',
     type: 'article-journal',
@@ -18,7 +18,7 @@ let bibliographyData = [
   }
 ]
 
-let citationData = [{
+const citationData = [{
   id: '1',
   type: 'article-journal',
   title: 'a',

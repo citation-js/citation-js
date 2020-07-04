@@ -44,7 +44,7 @@ const typeMap = {
  * @return {String} CSL type
  */
 const parseBibTeXType = function (pubType) {
-  if (!typeMap.hasOwnProperty(pubType)) {
+  if (typeMap[pubType] == null) {
     logger.unmapped('[plugin-bibtex]', 'publication type', pubType)
     return 'book'
   } else if (typeMap[pubType] === false) {

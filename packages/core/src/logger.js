@@ -15,7 +15,7 @@ const logger = {
   level: 'silent'
 }
 
-for (let level of logger._levels) {
+for (const level of logger._levels) {
   logger[level] = (scope, ...msg) => logger._output(level, scope, msg)
 }
 

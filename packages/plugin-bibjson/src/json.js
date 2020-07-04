@@ -6,7 +6,7 @@ import { parse as parseDate } from '@citation-js/date'
 import { parse as parseName } from '@citation-js/name'
 
 function nameProps (person) {
-  let {
+  const {
     firstname,
     lastname,
     firstName: given = firstname,
@@ -20,7 +20,7 @@ function nameProps (person) {
   }
 }
 
-let identifiers = [
+const identifiers = [
   'PMID',
   'PMCID',
   'DOI',
@@ -29,15 +29,15 @@ let identifiers = [
   // and not of the record. Otherwise, it should be included.
 ]
 
-let journalIdentifiers = [
+const journalIdentifiers = [
   'ISSN'
 ]
 
 function idProps (input, identifiers) {
-  let output = {}
+  const output = {}
 
-  for (let prop in input) {
-    let upperCaseProp = prop.toUpperCase()
+  for (const prop in input) {
+    const upperCaseProp = prop.toUpperCase()
 
     if (identifiers.includes(upperCaseProp)) {
       output[upperCaseProp] = input[prop]
@@ -57,7 +57,7 @@ function idProps (input, identifiers) {
 }
 
 // copied from BibTeX, as BibJSON is based on BibTeX
-let typeMap = {
+const typeMap = {
   article: 'article',
   book: 'book',
   booklet: 'book',
@@ -83,7 +83,7 @@ function quickscrapeSpecificProps () {
 }
 
 function generalProps (input) {
-  let output = {
+  const output = {
     type: typeMap[input.type] || 'book'
   }
 
@@ -104,14 +104,14 @@ function generalProps (input) {
   if (input.publisher) { output.publisher = input.publisher.name || input.publisher }
 
   if (input.date && Object.keys(input.date).length > 0) {
-    let dates = input.date
+    const dates = input.date
     if (dates.submitted) { output.submitted = parseDate(dates.submitted) }
     if (dates.published) { output.issued = parseDate(dates.published) }
   } else if (input.year) {
     output.issued = { 'date-parts': [[+input.year]] }
   }
   if (input.journal) {
-    let journal = input.journal
+    const journal = input.journal
     if (journal.name) { output['container-title'] = journal.name }
     if (journal.volume) { output.volume = +journal.volume }
     if (journal.issue) { output.issue = +journal.issue }

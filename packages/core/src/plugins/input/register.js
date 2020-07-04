@@ -16,10 +16,10 @@ const formats = {}
  * @tutorial input_plugins
  */
 export const add = (format, parsers) => {
-  let formatParser = new FormatParser(format, parsers)
+  const formatParser = new FormatParser(format, parsers)
   formatParser.validate()
 
-  let index = formats[format] || (formats[format] = {})
+  const index = formats[format] || (formats[format] = {})
 
   if (formatParser.typeParser) {
     addTypeParser(format, formatParser.typeParser)
@@ -57,7 +57,7 @@ export const get = (format) => {
  * @param {Cite.plugins.input~format} format - input format name
  */
 export const remove = (format) => {
-  let index = formats[format]
+  const index = formats[format]
 
   if (!index) {
     return

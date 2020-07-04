@@ -113,7 +113,7 @@ const parseBibtexRichText = function (text) {
   // tokens at even indices are text, odd indices are markup
   let tokens = text.split(/((?:\\[a-z]+)?{|})/)
 
-  let closingTags = []
+  const closingTags = []
 
   // there could be a top-level tag if the first and last characters are brackets.
   // if it isn't, it's set to false later on
@@ -126,7 +126,7 @@ const parseBibtexRichText = function (text) {
 
     // handle commands
     } else if (token[0] === '\\') {
-      let tag = richTextMappings[token.slice(1, -1)]
+      const tag = richTextMappings[token.slice(1, -1)]
 
       // handle known style tags
       if (tag) {
@@ -231,7 +231,7 @@ const propMap = {
  * @return {Array<String>} Array with new name and value
  */
 const parseBibTeXProp = function (name, value) {
-  if (!propMap.hasOwnProperty(name)) {
+  if (propMap[name] == null) {
     logger.unmapped('[plugin-bibtex]', 'property', name)
     return undefined
   } else if (propMap[name] === false) {

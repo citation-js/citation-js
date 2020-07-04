@@ -130,7 +130,7 @@ export const addTypeParser = (format, { dataType, predicate, extends: extend }) 
  *
  * @return {Boolean} type parser is registered
  */
-export const hasTypeParser = type => types.hasOwnProperty(type)
+export const hasTypeParser = type => Object.prototype.hasOwnProperty.call(types, type)
 
 /**
  * @access public

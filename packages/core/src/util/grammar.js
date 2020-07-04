@@ -54,7 +54,7 @@ export class Grammar {
    * @throw {SyntaxError} detailed syntax error if the current token is not the expected type or if there are no tokens left
    */
   consumeToken (type, optional) {
-    let token = this.token
+    const token = this.token
 
     if (!type || (token && token.type === type)) {
       this.token = this.lexer.next()
