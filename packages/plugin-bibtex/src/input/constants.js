@@ -245,7 +245,7 @@ export const mathScripts = {
     e: '\u2091',
     o: '\u2092',
     x: '\u2093',
-    ə: '\u2094',
+    '\u0259': '\u2094', // eslint-disable-line quote-props
     h: '\u2095',
     k: '\u2096',
     l: '\u2097',
