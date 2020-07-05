@@ -174,6 +174,7 @@ describe('util', function () {
 
   describe('fetchFile', function () {
     before(function (done) {
+      this.timeout(4000)
       serverProcess = spawn(process.execPath, [path.join(__dirname, 'server.js')])
       serverProcess.stderr.on('data', chunk => console.error(chunk.toString()))
       serverProcess.stdout.on('data', function (chunk) {
