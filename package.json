@@ -11,6 +11,7 @@
     "conventional-changelog-cli": "^2.0.34",
     "expect.js": "^0.3.1",
     "isomorphic-fetch": "^2.2.1",
+    "jsdoc": "^3.6.4",
     "lerna": "^3.22.1",
     "mocha": "^7.2.0",
     "mock-require": "^3.0.3",
@@ -30,6 +31,7 @@
     "coverage:test": "npm run lerna -- NODE_ENV=coverage nyc npm test",
     "coverage:report": "npm run lerna -- nyc report --reporter=text-lcov \">\" coverage.lcov",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "docs": "jsdoc -c .jsdoc.js",
     "preversion": "npm run lint && npm test",
     "version": "npm run changelog",
     "postversion": "npm run babel && npm run babel-mjs"

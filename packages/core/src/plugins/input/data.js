@@ -1,26 +1,60 @@
 import { chain, chainAsync } from './chain'
 
+/**
+ * @access private
+ * @memberof module:@citation-js/core.plugins.input
+ *
+ * @param {Array<Array>} array
+ * @return {Array} flattened array
+ */
 const flatten = array => [].concat(...array)
 
-// Different registers to store parsers in
+/**
+ * @access private
+ * @memberof module:@citation-js/core.plugins.input
+ *
+ * @typedef {Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parse>} parsers
+ */
 const parsers = {}
+
+/**
+ * @access private
+ * @memberof module:@citation-js/core.plugins.input
+ *
+ * @typedef {Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parseAsync>} asyncParsers
+ */
 const asyncParsers = {}
+
+/**
+ * @access private
+ * @memberof module:@citation-js/core.plugins.input
+ *
+ * @typedef {Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parse>} nativeParsers
+ */
 const nativeParsers = {
   '@csl/object': input => [input],
   '@csl/list+object': input => input,
   '@else/list+object': input => flatten(input.map(chain)),
   '@invalid': () => { throw new Error('This format is not supported or recognized') }
 }
+
+/**
+ * @access private
+ * @memberof module:@citation-js/core.plugins.input
+ *
+ * @typedef {Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parseAsync>} nativeAsyncParsers
+ */
 const nativeAsyncParsers = {
   '@else/list+object': async input => flatten(await Promise.all(input.map(chainAsync)))
 }
 
 /**
  * @access public
- * @memberof Cite.plugins.input
+ * @method data
+ * @memberof module:@citation-js/core.plugins.input
  *
- * @param {InputData} input - input data
- * @param {Cite.plugins.input~format} type - input type
+ * @param {module:@citation-js/core~InputData} input - input data
+ * @param {module:@citation-js/core.plugins.input~format} type - input type
  *
  * @return {*} parsed data
  * @return {Null} if no parser available
@@ -37,10 +71,11 @@ export const data = (input, type) => {
 
 /**
  * @access public
- * @memberof Cite.plugins.input
+ * @method dataAsync
+ * @memberof module:@citation-js/core.plugins.input
  *
- * @param {InputData} input - input data
- * @param {Cite.plugins.input~format} type - input type
+ * @param {module:@citation-js/core~InputData} input - input data
+ * @param {module:@citation-js/core.plugins.input~format} type - input type
  *
  * @return {Promise} parsed data
  * @return {Promise<Null>} if no parser available
@@ -59,10 +94,11 @@ export const dataAsync = async (input, type) => {
 
 /**
  * @access protected
- * @memberof Cite.plugins.input
+ * @method addDataParser
+ * @memberof module:@citation-js/core.plugins.input
  *
- * @param {Cite.plugins.input~format} format
- * @param {Cite.plugins.input~parse|Cite.plugins.input~parseAsync} parser
+ * @param {module:@citation-js/core.plugins.input~format} format
+ * @param {module:@citation-js/core.plugins.input~parse|module:@citation-js/core.plugins.input~parseAsync} parser
  * @param {Object} [options={}]
  * @param {Boolean} [options.async=false]
  */
@@ -76,9 +112,10 @@ export const addDataParser = (format, { parser, async }) => {
 
 /**
  * @access public
- * @memberof Cite.plugins.input
+ * @method hasDataParser
+ * @memberof module:@citation-js/core.plugins.input
  *
- * @param {Cite.plugins.input~format} type
+ * @param {module:@citation-js/core.plugins.input~format} type
  * @param {Boolean} [async=false] - check only for async, or only sync
  *
  * @return {Boolean} parser exists
@@ -89,16 +126,18 @@ export const hasDataParser = (type, async) => async
 
 /**
  * @access public
- * @memberof Cite.plugins.input
+ * @method removeDataParser
+ * @memberof module:@citation-js/core.plugins.input
  *
- * @param {Cite.plugins.input~format} type
+ * @param {module:@citation-js/core.plugins.input~format} type
  * @param {Boolean} [async=false]
  */
 export const removeDataParser = (type, async) => { delete (async ? asyncParsers : parsers)[type] }
 
 /**
  * @access public
- * @memberof Cite.plugins.input
+ * @method listDataParser
+ * @memberof module:@citation-js/core.plugins.input
  *
  * @param {Boolean} [async=false]
  */

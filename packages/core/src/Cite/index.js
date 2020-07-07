@@ -6,61 +6,14 @@ import * as get from './get'
 import * as staticMethods from './static'
 
 /**
- * Citation.js input data, see {@tutorial input_formats}
- *
- * @typedef InputData
- * @tutorial input_formats
- */
-
-/**
- * Citation.js {@tutorial input_options}
- *
- * @typedef {Object} Cite~InputOptions
- * @tutorial input_options
- *
- * @property {Cite~OutputOptions} output
- * @property {Number} maxChainLength
- * @property {Boolean} generateGraph
- * @property {Boolean} strict
- * @property {Cite.parse~format} forceType
- * @property {Cite.parse~format} target
- */
-
-/**
- * Citation.js {@tutorial output_options}
- *
- * @typedef {Object} Cite~OutputOptions
- * @tutorial output_options
- *
- * @property {String} format
- * @property {String} type
- * @property {String} style
- * @property {String} lang
- * @property {String|Cite~wrapper} prepend
- * @property {String|Cite~wrapper} append
- * @property {Object} _newOptions - used internally (for the CLI), if you need this move to Cite#format() probably
- */
-
-/**
- * @callback Cite~wrapper
- * @param {CSL} data - Cite object
- * @return {String} wrapping string
- */
-
-/**
- * [CSL](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items) object
- *
- * @typedef {Object} CSL
- */
-
-/**
  * Create a `Cite` object with almost any kind of data, and manipulate it with its default methods.
  *
  * @access public
  * @constructor Cite
+ * @memberof module:@citation-js/core
  *
- * @param {Cite~InputData} data - Input data
- * @param {Cite~InputOptions} [options={}] - Input options
+ * @param {module:@citation-js/core~InputData} data - Input data
+ * @param {module:@citation-js/core~InputOptions} [options={}] - Input options
  */
 function Cite (data, options = {}) {
   // Making it Scope-Safe
@@ -72,9 +25,9 @@ function Cite (data, options = {}) {
    * The default options for the output. See [input options](../#cite.in.options)
    *
    * @access protected
-   * @memberof Cite#
+   * @memberof module:@citation-js/core.Cite#
    *
-   * @property {Cite~InputOptions} options
+   * @var {module:@citation-js/core~InputOptions} _options
    */
   this._options = options
 
@@ -82,9 +35,9 @@ function Cite (data, options = {}) {
    * The saved-images-log
    *
    * @access protected
-   * @memberof Cite#
+   * @memberof module:@citation-js/core.Cite#
    *
-   * @property {Array<Array<String>>} log
+   * @var {Array<Array<String>>} log
    */
   this.log = []
 
@@ -92,9 +45,9 @@ function Cite (data, options = {}) {
    * The parsed data
    *
    * @access protected
-   * @memberof Cite#
+   * @memberof module:@citation-js/core.Cite#
    *
-   * @property {Array<CSL>} data
+   * @var {Array<module:@citation-js/core~CSL>} data
    */
   this.data = []
 

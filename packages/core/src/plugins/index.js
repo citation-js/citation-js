@@ -1,6 +1,6 @@
 /**
  * @namespace plugins
- * @memberof Cite
+ * @memberof module:@citation-js/core
  */
 
 import * as input from './input/'
@@ -20,9 +20,9 @@ const indices = {}
 /**
  * @access public
  * @method add
- * @memberof Cite.plugins
- * @param {Cite.plugins~pluginRef} ref - plugin reference/name
- * @param {Cite.plugins~plugins} [plugins={}]
+ * @memberof module:@citation-js/core.plugins
+ * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
+ * @param {module:@citation-js/core.plugins~plugins} [plugins={}]
  */
 export const add = (ref, plugins = {}) => {
   const mainIndex = indices[ref] = {}
@@ -49,8 +49,8 @@ export const add = (ref, plugins = {}) => {
 /**
  * @access public
  * @method remove
- * @memberof Cite.plugins
- * @param {Cite.plugins~pluginRef} ref - plugin reference/name
+ * @memberof module:@citation-js/core.plugins
+ * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  */
 export const remove = (ref) => {
   const mainIndex = indices[ref]
@@ -69,8 +69,8 @@ export const remove = (ref) => {
 /**
  * @access public
  * @method has
- * @memberof Cite.plugins
- * @param {Cite.plugins~pluginRef} ref - plugin reference/name
+ * @memberof module:@citation-js/core.plugins
+ * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  * @returns {Boolean} plugin is registered
  */
 export const has = (ref) => ref in indices
@@ -78,8 +78,8 @@ export const has = (ref) => ref in indices
 /**
  * @access public
  * @method list
- * @memberof Cite.plugins
- * @returns {Array<Cite.plugins~pluginRef>} list of registered plugins
+ * @memberof module:@citation-js/core.plugins
+ * @returns {Array<module:@citation-js/core.plugins~pluginRef>} list of registered plugins
  */
 export const list = () => Object.keys(indices)
 

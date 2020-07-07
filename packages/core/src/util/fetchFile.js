@@ -11,7 +11,7 @@ const corsEnabled = typeof location !== 'undefined' && typeof document !== 'unde
 let userAgent = `Citation.js/${version} Node.js/${process.version}`
 
 /**
- * @typedef Cite.util.fetchFile~options
+ * @typedef module:@citation-js/core.util.fetchFile~options
  * @type {Object}
  * @property {Boolean} checkContentType
  * @property {Object} headers
@@ -38,7 +38,7 @@ function normaliseHeaders (headers) {
 
 /**
  * @access private
- * @param {Cite.util.fetchFile~options} [opts={}] - Request options
+ * @param {module:@citation-js/core.util.fetchFile~options} [opts={}] - Request options
  * @return {Object} new options
  */
 function parseOpts (opts = {}) {
@@ -118,10 +118,11 @@ function checkResponse (response, opts) {
  * Fetch file
  *
  * @access protected
- * @memberof Cite.util
+ * @method fetchFile
+ * @memberof module:@citation-js/core.util
  *
  * @param {String} url - The input url
- * @param {Cite.util.fetchFile~options} [opts] - Request options
+ * @param {module:@citation-js/core.util.fetchFile~options} [opts] - Request options
  *
  * @return {String} The fetched string
  */
@@ -138,10 +139,11 @@ export function fetchFile (url, opts) {
  * Fetch file (async)
  *
  * @access protected
- * @memberof Cite.util
+ * @method fetchFileAsync
+ * @memberof module:@citation-js/core.util
  *
  * @param {String} url - The input url
- * @param {Cite.util.fetchFile~options} [opts] - Request options
+ * @param {module:@citation-js/core.util.fetchFile~options} [opts] - Request options
  *
  * @return {Promise<String>} The fetched string
  */
@@ -159,10 +161,11 @@ export async function fetchFileAsync (url, opts) {
  * Fetch file (async)
  *
  * @access protected
- * @memberof Cite.util
+ * @method setUserAgent
+ * @memberof module:@citation-js/core.util
  *
  * @param {String} url - The input url
- * @param {Cite.util.fetchFile~options} [opts] - Request options
+ * @param {module:@citation-js/core.util.fetchFile~options} [opts] - Request options
  */
 export function setUserAgent (newUserAgent) {
   userAgent = newUserAgent

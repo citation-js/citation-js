@@ -2,7 +2,7 @@
  * Generate ID
  *
  * @access protected
- * @memberof Cite.util
+ * @memberof module:@citation-js/core.util
  *
  * @param {Array<String>} list - old ID list
  * @param {String} prefix - ID prefix

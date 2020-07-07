@@ -1,20 +1,20 @@
 /**
- * @typedef Cite.util.Grammar~ruleName
+ * @typedef module:@citation-js/core.util.Grammar~ruleName
  * @type {String}
  */
 
 /**
- * @callback Cite.util.Grammar~rule
- * @this Cite.util.Grammar
+ * @callback module:@citation-js/core.util.Grammar~rule
+ * @this module:@citation-js/core.util.Grammar
  */
 
 /**
- * @memberof Cite.util
+ * @memberof module:@citation-js/core.util
  *
- * @param {Object<Cite.util.Grammar~ruleName,Cite.util.Grammar~rule>} rules
+ * @param {Object<module:@citation-js/core.util.Grammar~ruleName,module:@citation-js/core.util.Grammar~rule>} rules
  * @param {Object} state
  */
-export class Grammar {
+class Grammar {
   constructor (rules, state) {
     this.rules = rules
     this.state = state
@@ -51,7 +51,7 @@ export class Grammar {
    * @param {String} [type] - a token type
    * @param {Boolean} [optional=false] - false if it should throw an error if the type does not match
    * @return {Object} token information
-   * @throw {SyntaxError} detailed syntax error if the current token is not the expected type or if there are no tokens left
+   * @throws {SyntaxError} detailed syntax error if the current token is not the expected type or if there are no tokens left
    */
   consumeToken (type, optional) {
     const token = this.token
@@ -80,3 +80,5 @@ export class Grammar {
     return result
   }
 }
+
+export { Grammar }

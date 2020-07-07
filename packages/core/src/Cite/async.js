@@ -1,19 +1,19 @@
 import Cite from './index'
 
 /**
- * @callback Cite~asyncCallback
+ * @callback module:@citation-js/core.Cite~asyncCallback
  * @param {Cite} data - Cite object
  */
 
 /**
  * @access public
- * @memberof Cite
+ * @memberof module:@citation-js/core.Cite
  *
- * @param {Cite~InputData} data - input data
- * @param {Cite~InputOptions} [options={}] - cite options
- * @param {Cite~asyncCallback} [callback] - if not given, function returns promise.
+ * @param {module:@citation-js/core~InputData} data - input data
+ * @param {module:@citation-js/core~InputOptions} [options={}] - cite options
+ * @param {module:@citation-js/core.Cite~asyncCallback} [callback] - if not given, function returns promise.
  *
- * @return {Promise<Cite>} if callback is omitted, returns a promise
+ * @return {Promise<module:@citation-js/core.Cite>} if callback is omitted, returns a promise
  */
 const async = function (data, options, callback) {
   if (typeof options === 'function' && !callback) {

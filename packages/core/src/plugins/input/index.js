@@ -1,6 +1,6 @@
 /**
  * @namespace input
- * @memberof Cite.plugins
+ * @memberof module:@citation-js/core.plugins
  */
 
 import * as dataType from './dataType'
@@ -10,7 +10,7 @@ import * as csl from './csl'
 
 /**
  * @namespace util
- * @memberof Cite.plugins.input
+ * @memberof module:@citation-js/core.plugins.input
  */
 export const util = Object.assign({}, dataType, graph, parser, csl)
 

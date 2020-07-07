@@ -1,6 +1,6 @@
 /**
  * @namespace util
- * @memberof Cite
+ * @memberof module:@citation-js/core
  */
 
 import deepCopy from './deepCopy'

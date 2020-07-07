@@ -1,19 +1,19 @@
 /**
  * TokenStack pattern
  *
- * @typedef Cite.util.TokenStack~pattern
- * @type {String|RegExp|Cite.util.TokenStack~match|Array<Cite.util.TokenStack~pattern>}
+ * @typedef module:@citation-js/core.util.TokenStack~pattern
+ * @type {String|RegExp|module:@citation-js/core.util.TokenStack~match|Array<module:@citation-js/core.util.TokenStack~pattern>}
  */
 
 /**
  * TokenStack pattern sequence
  *
- * @typedef Cite.util.TokenStack~sequence
- * @type {String|Array<Cite.util.TokenStack~pattern>}
+ * @typedef module:@citation-js/core.util.TokenStack~sequence
+ * @type {String|Array<module:@citation-js/core.util.TokenStack~pattern>}
  */
 
 /**
- * @callback Cite.util.TokenStack~match
+ * @callback module:@citation-js/core.util.TokenStack~match
  * @param {String} token - token
  * @param {Number} index - token index
  * @param {Array<String>} stack - token stack
@@ -21,13 +21,13 @@
  */
 
 /**
- * @callback Cite.util.TokenStack~tokenMap
+ * @callback module:@citation-js/core.util.TokenStack~tokenMap
  * @param {String} token - token
  * @return {String} new token
  */
 
 /**
- * @callback Cite.util.TokenStack~tokenFilter
+ * @callback module:@citation-js/core.util.TokenStack~tokenFilter
  * @param {String} token - token
  * @return {Boolean} keep or not
  */
@@ -35,8 +35,7 @@
 /**
  * Create a TokenStack for parsing strings with complex escape sequences.
  *
- * @access protected
- * @memberof Cite.util
+ * @memberof module:@citation-js/core.util
  *
  * @param {Array<String>} array - list of tokens
  */
@@ -65,9 +64,9 @@ class TokenStack {
    *
    * @access protected
    *
-   * @param {Cite.util.TokenStack~pattern} pattern - pattern
+   * @param {module:@citation-js/core.util.TokenStack~pattern} pattern - pattern
    *
-   * @return {Cite.util.TokenStack~match} Match callback
+   * @return {module:@citation-js/core.util.TokenStack~match} Match callback
    */
   static getMatchCallback (pattern) {
     if (Array.isArray(pattern)) {
@@ -98,7 +97,7 @@ class TokenStack {
    *
    * @access protected
    *
-   * @param {Cite.util.TokenStack~pattern} pattern - pattern
+   * @param {module:@citation-js/core.util.TokenStack~pattern} pattern - pattern
    *
    * @return {Boolean} match
    */
@@ -111,7 +110,7 @@ class TokenStack {
    *
    * @access protected
    *
-   * @param {Cite.util.TokenStack~sequence} pattern - pattern
+   * @param {module:@citation-js/core.util.TokenStack~sequence} pattern - pattern
    *
    * @return {Boolean} match
    */
@@ -127,7 +126,7 @@ class TokenStack {
    *
    * @access protected
    *
-   * @param {Cite.util.TokenStack~pattern} [pattern=/^[\s\S]$/] - pattern
+   * @param {module:@citation-js/core.util.TokenStack~pattern} [pattern=/^[\s\S]$/] - pattern
    * @param {Object} options
    * @param {Boolean} [options.inverse=false] - invert pattern
    * @param {Boolean} [options.spaced=true] - allow leading and trailing whitespace
@@ -160,7 +159,7 @@ class TokenStack {
    *
    * @access protected
    *
-   * @param {Cite.util.TokenStack~pattern} [pattern=/^\s$/] - whitespace pattern
+   * @param {module:@citation-js/core.util.TokenStack~pattern} [pattern=/^\s$/] - whitespace pattern
    * @param {Object} options
    * @param {Boolean} [options.optional=true] - allow having no whitespace
    *
@@ -197,7 +196,7 @@ class TokenStack {
    *
    * @access protected
    *
-   * @param {Cite.util.TokenStack~sequence} sequence - sequence
+   * @param {module:@citation-js/core.util.TokenStack~sequence} sequence - sequence
    *
    * @return {String} consumed tokens
    * @throws {SyntaxError} Expected sequence, got tokens
@@ -215,13 +214,13 @@ class TokenStack {
    *
    * @access protected
    *
-   * @param {Cite.util.TokenStack~pattern} [pattern=/^[\s\S]$/] - pattern
+   * @param {module:@citation-js/core.util.TokenStack~pattern} [pattern=/^[\s\S]$/] - pattern
    * @param {Object} options
    * @param {Boolean} [options.inverse=false] - invert pattern
    * @param {Number} [options.min=0] - mininum number of consumed tokens
    * @param {Number} [options.max=Infinity] - maximum number of matched tokens
-   * @param {Cite.util.TokenStack~tokenMap} [options.tokenMap] - map tokens before returning
-   * @param {Cite.util.TokenStack~tokenFilter} [options.tokenFilter] - filter tokens before returning
+   * @param {module:@citation-js/core.util.TokenStack~tokenMap} [options.tokenMap] - map tokens before returning
+   * @param {module:@citation-js/core.util.TokenStack~tokenFilter} [options.tokenFilter] - filter tokens before returning
    *
    * @return {String} consumed tokens
    * @throws {SyntaxError} Not enough tokens

@@ -1,5 +1,5 @@
 /**
- * @memberof Cite.util
+ * @memberof module:@citation-js/core.util
  * @param {Object} [data={}] - initial values
  */
 class Register {
@@ -18,7 +18,9 @@ class Register {
   }
 
   /**
-   * @borrows Cite.util.Register#set as Cite.util.Register#add
+   * @param {String} key
+   * @param {*} value
+   * @return {Register} this
    */
   add (...args) {
     return this.set(...args)
@@ -34,7 +36,8 @@ class Register {
   }
 
   /**
-   * @borrows Cite.util.Register#delete as Cite.util.Register#remove
+   * @param {String} key
+   * @return {Register} this
    */
   remove (...args) {
     return this.delete(...args)

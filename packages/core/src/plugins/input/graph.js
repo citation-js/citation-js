@@ -2,12 +2,13 @@
  * Apply a parse chain graph to an element
  *
  * @access protected
- * @memberof Cite.plugins.input.util
+ * @method applyGraph
+ * @memberof module:@citation-js/core.plugins.input.util
  *
- * @param {CSL} entry
+ * @param {module:@citation-js/core~CSL} entry
  * @param {Array<Object>} graph
  *
- * @return {CSL} entry
+ * @return {module:@citation-js/core~CSL} entry
  */
 export const applyGraph = (entry, graph) => {
   if (entry._graph) {
@@ -25,11 +26,12 @@ export const applyGraph = (entry, graph) => {
  * Remove the parse chain graph from an element
  *
  * @access protected
- * @memberof Cite.plugins.input.util
+ * @method removeGraph
+ * @memberof module:@citation-js/core.plugins.input.util
  *
- * @param {CSL} entry
+ * @param {module:@citation-js/core~CSL} entry
  *
- * @return {CSL} entry
+ * @return {module:@citation-js/core~CSL} entry
  */
 export const removeGraph = (entry) => {
   delete entry._graph

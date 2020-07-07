@@ -2,13 +2,14 @@
  * Duplicate objects to prevent Cite changing values outside of own scope
  *
  * @access protected
- * @memberof Cite.util
+ * @method deepCopy
+ * @memberof module:@citation-js/core.util
  *
  * @param {Object} obj - Input object
  * @param {Set} [seen]
  *
  * @return {Object} Duplicated object
- * @throw {TypeError}
+ * @throws {TypeError}
  */
 export function deepCopy (value, seen = new Set()) {
   if (typeof value !== 'object' || value === null || (value.constructor !== Object && value.constructor !== Array)) {
@@ -36,8 +37,8 @@ export function deepCopy (value, seen = new Set()) {
   return copy
 }
 
-// // Proper way to clone any object (apart from arrays perhaps).
-// // Unfortunately to costly performance-wise.
+// // Unfortunately too costly performance-wise, but the
+// // proper way to clone any object (apart from arrays perhaps):
 // const object = Object.create(Object.getPrototypeOf(value))
 // const descriptors = Object.getOwnPropertyDescriptors(value)
 // for (let key in descriptors) {

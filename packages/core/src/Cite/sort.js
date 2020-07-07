@@ -2,9 +2,9 @@ import { getLabel } from '../plugin-common/output/label'
 import { format as getName } from '@citation-js/name'
 
 /**
- * @callback Cite~sort
- * @param {CSL} a - element a
- * @param {CSL} b - element b
+ * @callback module:@citation-js/core.Cite#sort~sort
+ * @param {module:@citation-js/core~CSL} a - element a
+ * @param {module:@citation-js/core~CSL} b - element b
  * @return {Number} positive for a > b, negative for b > a, zero for a = b
  */
 
@@ -14,7 +14,7 @@ import { format as getName } from '@citation-js/name'
  * @access private
  * @method getComparisonValue
  *
- * @param {CSL} obj - obj
+ * @param {module:@citation-js/core~CSL} obj - obj
  * @param {String} prop - The prop in question
  * @param {Boolean} label - Prop is label
  *
@@ -52,8 +52,8 @@ const getComparisonValue = function (obj, prop, label = prop === 'label') {
  * @access private
  * @method compareProp
  *
- * @param {CSL} entryA
- * @param {CSL} entryB
+ * @param {module:@citation-js/core~CSL} entryA
+ * @param {module:@citation-js/core~CSL} entryB
  * @param {String} prop - The prop in question. Prepend ! to sort the other way around.
  * @param {Boolean} flip - Override flip
  *
@@ -75,7 +75,7 @@ const compareProp = function (entryA, entryB, prop, flip = /^!/.test(prop)) {
  *
  * @param {...String} props - How to sort
  *
- * @return {Cite~sort} sorting callback
+ * @return {module:@citation-js/core.Cite#sort~sort} sorting callback
  */
 const getSortCallback = function (...props) {
   return (a, b) => {
@@ -93,12 +93,12 @@ const getSortCallback = function (...props) {
 /**
  * Sort the dataset
  *
- * @memberof Cite#
+ * @memberof module:@citation-js/core.Cite#
  *
- * @param {Cite~sort|Array<String>} [method=[]] - How to sort
+ * @param {module:@citation-js/core.Cite#sort~sort|Array<String>} [method=[]] - How to sort
  * @param {Boolean} [log=false] - Show this call in the log
  *
- * @return {Cite} The updated parent object
+ * @return {module:@citation-js/core.Cite} The updated parent object
  */
 const sort = function (method = [], log) {
   if (log) {
