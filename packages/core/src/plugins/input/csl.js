@@ -15,8 +15,7 @@ const DATE = 3
  *
  * @access private
  * @constant fieldTypes
- * @memberof Cite.parse
- * @default
+ * @memberof module:@citation-js/core.plugins.input
  */
 const fieldTypes = {
   author: NAME_LIST,
@@ -106,7 +105,7 @@ const fieldTypes = {
  * Correct a name.
  *
  * @access private
- * @memberof Cite.parse
+ * @memberof module:@citation-js/core.plugins.input
  *
  * @param {*} name - name
  * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
@@ -127,7 +126,7 @@ const correctName = function (name, bestGuessConversions) {
  * Correct a name field.
  *
  * @access private
- * @memberof Cite.parse
+ * @memberof module:@citation-js/core.plugins.input
  *
  * @param {*} nameList - name list
  * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
@@ -143,10 +142,13 @@ const correctNameList = function (nameList, bestGuessConversions) {
 
 /**
  * Correct date parts
+ *
  * @access private
- * @memberof Cite.parse
+ * @memberof module:@citation-js/core.plugins.input.util
+ *
  * @param {Array} dateParts
  * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
+ *
  * @return {Array<Number>|undefined}
  */
 const correctDateParts = function (dateParts, bestGuessConversions) {
@@ -163,7 +165,7 @@ const correctDateParts = function (dateParts, bestGuessConversions) {
  * Correct a date field.
  *
  * @access private
- * @memberof Cite.parse
+ * @memberof module:@citation-js/core.plugins.input.util
  *
  * @param {*} date - date
  * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
@@ -197,7 +199,7 @@ const correctDate = function (date, bestGuessConversions) {
  * Correct a field.
  *
  * @access private
- * @memberof Cite.parse
+ * @memberof module:@citation-js/core.plugins.input.util
  *
  * @param {String} fieldName - field name
  * @param {*} value - value
@@ -239,12 +241,13 @@ const correctField = function (fieldName, value, bestGuessConversions) {
  * Make CSL JSON conform to standards so that plugins don't have to typecheck all the time.
  *
  * @access protected
- * @memberof Cite.parse
+ * @method clean
+ * @memberof module:@citation-js/core.plugins.input.util
  *
- * @param {Array<CSL>} data - Array of CSL
+ * @param {Array<module:@citation-js/core~CSL>} data - Array of CSL
  * @param {Boolean} [bestGuessConversions=true] - make some best guess conversions on type mismatch
  *
- * @return {Array<CSL>} Array of clean CSL
+ * @return {Array<module:@citation-js/core~CSL>} Array of clean CSL
  */
 const parseCsl = function (data, bestGuessConversions = true) {
   return data.map(function (entry) {

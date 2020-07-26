@@ -2,7 +2,8 @@
  * Gets the constructor name, with a special case for `null` and `undefined`
  *
  * @access public
- * @memberof Cite.plugins.input.util
+ * @method typeOf
+ * @memberof module:@citation-js/core.plugins.input.util
  *
  * @param {*} thing - input data or anything else
  *
@@ -21,11 +22,12 @@ export const typeOf = thing => {
 
 /**
  * @access public
- * @memberof Cite.plugins.input.util
+ * @method dataTypeOf
+ * @memberof module:@citation-js/core.plugins.input.util
  *
  * @param {*} thing - input data or anything else
  *
- * @return {} dataType
+ * @return {module:@citation-js/core.plugins.input~dataType} dataType
  */
 export const dataTypeOf = thing => {
   switch (typeof thing) {

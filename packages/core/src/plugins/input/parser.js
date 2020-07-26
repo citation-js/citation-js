@@ -1,95 +1,16 @@
 import { type, typeMatcher } from './type'
 
-// ============================================================================
-// Type definitions
-// ============================================================================
-
 /**
- * @typedef Cite.plugins.input~format
- * @type String
+ * @memberof module:@citation-js/core.plugins.input.util
+ * @param {module:@citation-js/core.plugins.input~typeParser} data
  */
-
-/**
- * @typedef Cite.plugins.input~parsers
- * @type Object
- *
- * @property {Cite.plugins.input~dataParser} parse
- * @property {Cite.plugins.input~asyncDataParser} parseAsync
- * @property {Cite.plugins.input~typeParser} parseType
- */
-
-/**
- * @callback Cite.plugins.input~dataParser
- * @param {InputData} input
- * @return parsed data
- */
-
-/**
- * @async
- * @callback Cite.plugins.input~asyncDataParser
- * @param {InputData} input
- * @return parsed data
- */
-
-/**
- * @typedef Cite.plugins.input~typeParser
- * @type Object
- *
- * @property {Cite.plugins.input~dataType} dataType
- * @property {Cite.plugins.input~predicate|RegExp} predicate
- * @property {Cite.plugins.input~tokenList|RegExp} tokenList
- * @property {Cite.plugins.input~propertyConstraint|Array<Cite.plugins.input~propertyConstraint>} propertyConstraint
- * @property {Cite.plugins.input~elementConstraint|Array<Cite.plugins.input~elementConstraint>} elementConstraint
- * @property {Cite.plugins.input~format} extends
- */
-
-/**
- * @typedef Cite.plugins.input~dataType
- * @type String
- */
-
-/**
- * @callback Cite.plugins.input~predicate
- * @param {InputData} input
- * @return {Boolean} pass
- */
-
-/**
- * @typedef Cite.plugins.input~tokenList
- * @type Object
- * @property {RegExp} token - token pattern
- * @property {RegExp} [split=/\s+/] - token delimiter
- * @property {Boolean} [every=true] - match every token, or only some
- * @property {Boolean} [trim=true] - trim input whitespace before testing
- */
-
-/**
- * @typedef Cite.plugins.input~propertyConstraint
- * @type Object
- * @property {String|Array<String>} [props=[]]
- * @property {String} [match='every']
- * @property {Cite.plugins.input~valuePredicate} [value]
- */
-
-/**
- * @callback Cite.plugins.input~valuePredicate
- * @param value
- * @return {Boolean} pass
- */
-
-/**
- * @typedef Cite.plugins.input~elementConstraint
- * @type Cite.plugins.input~format
- */
-
-export class TypeParser {
+class TypeParser {
+  /**
+   * @access protected
+   * @type {Array<module:@citation-js/core.plugins.input~dataType>}
+   */
   validDataTypes = ['String', 'Array', 'SimpleObject', 'ComplexObject', 'Primitive']
 
-  /**
-   * @class TypeParser
-   * @memberof Cite.plugins.input.util
-   * @param {Cite.plugins.input~typeParser}
-   */
   constructor (data) {
     this.data = data
   }
@@ -98,6 +19,10 @@ export class TypeParser {
   // Validation
   // ==========================================================================
 
+  /**
+   * @access protected
+   * @throws {RangeError} if dataType is not valid
+   */
   validateDataType () {
     const dataType = this.data.dataType
     if (dataType && !this.validDataTypes.includes(dataType)) {
@@ -105,6 +30,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access protected
+   * @throws {TypeError} if predicate is not valid
+   */
   validateParseType () {
     const predicate = this.data.predicate
     if (predicate && !(predicate instanceof RegExp || typeof predicate === 'function')) {
@@ -112,6 +41,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access protected
+   * @throws {TypeError} if predicate is not valid
+   */
   validateTokenList () {
     const tokenList = this.data.tokenList
     if (tokenList && typeof tokenList !== 'object') {
@@ -119,6 +52,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access protected
+   * @throws {TypeError} if propertyConstraint is not valid
+   */
   validatePropertyConstraint () {
     const propertyConstraint = this.data.propertyConstraint
     if (propertyConstraint && typeof propertyConstraint !== 'object') {
@@ -126,6 +63,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access protected
+   * @throws {TypeError} if elementConstraint is not valid
+   */
   validateElementConstraint () {
     const elementConstraint = this.data.elementConstraint
     if (elementConstraint && typeof elementConstraint !== 'string') {
@@ -133,6 +74,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access protected
+   * @throws {TypeError} if extends is not valid
+   */
   validateExtends () {
     const extend = this.data.extends
     if (extend && typeof extend !== 'string') {
@@ -140,6 +85,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access public
+   * @throws {TypeError|RangeError} if typeParser is not valid
+   */
   validate () {
     if (this.data === null || typeof this.data !== 'object') {
       throw new TypeError(`typeParser was ${typeof this.data}; expected object`)
@@ -156,6 +105,10 @@ export class TypeParser {
   // Simplification helpers
   // ==========================================================================
 
+  /**
+   * @access protected
+   * @return {Array<module:@citation-js/core.plugins.input~predicate>}
+   */
   parseTokenList () {
     let tokenList = this.data.tokenList
 
@@ -176,6 +129,10 @@ export class TypeParser {
     return [predicate]
   }
 
+  /**
+   * @access protected
+   * @return {Array<module:@citation-js/core.plugins.input~predicate>}
+   */
   parsePropertyConstraint () {
     const constraints = [].concat(this.data.propertyConstraint || [])
 
@@ -191,11 +148,19 @@ export class TypeParser {
     })
   }
 
+  /**
+   * @access protected
+   * @return {Array<module:@citation-js/core.plugins.input~predicate>}
+   */
   parseElementConstraint () {
     const constraint = this.data.elementConstraint
     return !constraint ? [] : [input => input.every(entry => type(entry) === constraint)]
   }
 
+  /**
+   * @access protected
+   * @return {Array<module:@citation-js/core.plugins.input~predicate>}
+   */
   parsePredicate () {
     if (this.data.predicate instanceof RegExp) {
       return [this.data.predicate.test.bind(this.data.predicate)]
@@ -206,6 +171,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access protected
+   * @return {module:@citation-js/core.plugins.input~predicate}
+   */
   getCombinedPredicate () {
     const predicates = [
       ...this.parsePredicate(),
@@ -223,6 +192,10 @@ export class TypeParser {
     }
   }
 
+  /**
+   * @access protected
+   * @return {module:@citation-js/core.plugins.input~dataType}
+   */
   getDataType () {
     if (this.data.dataType) {
       return this.data.dataType
@@ -241,27 +214,35 @@ export class TypeParser {
   // Data simplification
   // ==========================================================================
 
+  /**
+   * @type {module:@citation-js/core.plugins.input~dataType}
+   */
   get dataType () {
     return this.getDataType()
   }
 
+  /**
+   * @type {module:@citation-js/core.plugins.input~predicate}
+   */
   get predicate () {
     return this.getCombinedPredicate()
   }
 
+  /**
+   * @type {module:@citation-js/core.plugins.input~format}
+   */
   get extends () {
     return this.data.extends
   }
 }
 
-export class DataParser {
-  /**
-   * @class DataParser
-   * @memberof Cite.plugins.input.util
-   * @param {Cite.plugins.input~dataParser|Cite.plugins.input~asyncDataParser} parser
-   * @param {Object} options
-   * @param {Boolean} [options.async=false]
-   */
+/**
+ * @memberof module:@citation-js/core.plugins.input.util
+ * @param {module:@citation-js/core.plugins.input~dataParser|module:@citation-js/core.plugins.input~asyncDataParser} parser
+ * @param {Object} options
+ * @param {Boolean} [options.async=false]
+ */
+class DataParser {
   constructor (parser, { async } = {}) {
     this.parser = parser
     this.async = async
@@ -271,6 +252,9 @@ export class DataParser {
   // Validation
   // ==========================================================================
 
+  /**
+   * @throws {TypeError} if dataParser is not valid
+   */
   validate () {
     const parser = this.parser
     if (typeof parser !== 'function') {
@@ -279,13 +263,12 @@ export class DataParser {
   }
 }
 
-export class FormatParser {
-  /**
-   * @class FormatParser
-   * @memberof Cite.plugins.input.util
-   * @param {Cite.plugins.input~format} format
-   * @param {Cite.plugins.input~parsers} parsers
-   */
+/**
+ * @memberof module:@citation-js/core.plugins.input.util
+ * @param {module:@citation-js/core.plugins.input~format} format
+ * @param {module:@citation-js/core.plugins.input~parsers} parsers
+ */
+class FormatParser {
   constructor (format, parsers = {}) {
     this.format = format
 
@@ -304,6 +287,10 @@ export class FormatParser {
   // Validation
   // ==========================================================================
 
+  /**
+   * @access protected
+   * @throws {TypeError} if format is not valid
+   */
   validateFormat () {
     const format = this.format
     if (!typeMatcher.test(format)) {
@@ -311,6 +298,9 @@ export class FormatParser {
     }
   }
 
+  /**
+   * @throws {TypeError} if formatParser is not valid
+   */
   validate () {
     this.validateFormat()
     if (this.typeParser) {
@@ -324,3 +314,5 @@ export class FormatParser {
     }
   }
 }
+
+export { TypeParser, DataParser, FormatParser }

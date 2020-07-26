@@ -4,13 +4,13 @@ import fetchId from '../util/fetchId'
 /**
  * Add an object to the array of objects
  *
- * @memberof Cite#
+ * @memberof module:@citation-js/core.Cite#
  *
- * @param {Cite~InputData} data - The data to add to your object
- * @param {Object} [options={}] - [Options](../#cite.in.options)
+ * @param {module:@citation-js/core~InputData} data - The data to add to your object
+ * @param {module:@citation-js/core~InputOptions} [options] - Options
  * @param {Boolean} [log=false] - Show this call in the log
  *
- * @return {Cite} The updated parent object
+ * @return {module:@citation-js/core.Cite} The updated parent object
  */
 const add = function (data, options = {}, log = false) {
   if (options === true || log === true) {
@@ -31,13 +31,13 @@ const add = function (data, options = {}, log = false) {
 /**
  * Add an object to the array of objects
  *
- * @memberof Cite#
+ * @memberof module:@citation-js/core.Cite#
  *
- * @param {Cite~InputData} data - The data to add to your object
- * @param {Object} [options={}] - [Options](../#cite.in.options)
+ * @param {module:@citation-js/core~InputData} data - The data to add to your object
+ * @param {module:@citation-js/core~InputOptions} [options] - Options
  * @param {Boolean} [log=false] - Show this call in the log
  *
- * @return {Promise<Cite>} The updated parent object
+ * @return {Promise<module:@citation-js/core.Cite>} The updated parent object
  */
 const addAsync = async function (data, options = {}, log = false) {
   if (options === true || log === true) {
@@ -58,13 +58,13 @@ const addAsync = async function (data, options = {}, log = false) {
 /**
  * Recreate a `Cite` object with almost any kind of data, and manipulate it with its default methods.
  *
- * @memberof Cite#
+ * @memberof module:@citation-js/core.Cite#
  *
- * @param {Cite~InputData} data - Replacement data
- * @param {Object} [options={}] - [Options](../#cite.in.options)
+ * @param {module:@citation-js/core~InputData} data - Replacement data
+ * @param {module:@citation-js/core~InputOptions} [options] - Options
  * @param {Boolean} [log=false] - Show this call in the log
  *
- * @return {Cite} The updated parent object
+ * @return {module:@citation-js/core.Cite} The updated parent object
  */
 const set = function (data, options = {}, log = false) {
   if (options === true || log === true) {
@@ -78,13 +78,13 @@ const set = function (data, options = {}, log = false) {
 /**
  * Recreate a `Cite` object with almost any kind of data, and manipulate it with its default methods.
  *
- * @memberof Cite#
+ * @memberof module:@citation-js/core.Cite#
  *
- * @param {Cite~InputData} data - Replacement data
- * @param {Object} [options={}] - [Options](../#cite.in.options)
+ * @param {module:@citation-js/core~InputData} data - Replacement data
+ * @param {module:@citation-js/core~InputOptions} [options] - Options
  * @param {Boolean} [log=false] - Show this call in the log
  *
- * @return {Promise<Cite>} The updated parent object
+ * @return {Promise<module:@citation-js/core.Cite>} The updated parent object
  */
 const setAsync = async function (data, options = {}, log = false) {
   if (options === true || log === true) {
@@ -98,11 +98,11 @@ const setAsync = async function (data, options = {}, log = false) {
 /**
  * Reset a `Cite` object.
  *
- * @memberof Cite#
+ * @memberof module:@citation-js/core.Cite#
  *
  * @param {Boolean} [log=false] - Show this call in the log
  *
- * @return {Cite} The updated, empty parent object (except the log, the log lives)
+ * @return {module:@citation-js/core.Cite} The updated, empty parent object (except the log, the log lives)
  */
 const reset = function (log) {
   if (log) {

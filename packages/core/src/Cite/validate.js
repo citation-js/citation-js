@@ -5,15 +5,16 @@ const wrapperTypes = ['string', 'function']
 
 /**
  * @access public
- * @memberof Cite
+ * @method validateOutputOptions
+ * @memberof module:@citation-js/core.Cite
  *
  * @deprecated
- * @param {Cite~OutputOptions} - options
+ * @param {module:@citation-js/core~OutputOptions} - options
  *
  * @return {Boolean} true (if valid)
- * @throw {TypeError} Options not an object
- * @throw {TypeError} Invalid options
- * @throw {Error} Invalid options combination
+ * @throws {TypeError} Options not an object
+ * @throws {TypeError} Invalid options
+ * @throws {Error} Invalid options combination
  *
  * @todo check registers if styles and langs are present
  */
@@ -48,13 +49,14 @@ export function validateOutputOptions (options) {
 
 /**
  * @access public
- * @memberof Cite
+ * @method valdiateOptions
+ * @memberof module:@citation-js/core.Cite
  *
- * @param {Cite~InputOptions} - options
+ * @param {module:@citation-js/core~InputOptions} - options
  *
  * @return {Boolean} true (if valid)
- * @throw {TypeError} Options not an object
- * @throw {TypeError} Invalid options
+ * @throws {TypeError} Options not an object
+ * @throws {TypeError} Invalid options
  *
  * @todo check registers if type is present
  */

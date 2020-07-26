@@ -1,0 +1,47 @@
+/**
+ * Citation.js input data, see {@tutorial input_formats}
+ *
+ * @typedef module:@citation-js/core~InputData
+ * @tutorial input_formats
+ */
+
+/**
+ * Citation.js {@tutorial input_options}
+ *
+ * @typedef {Object} module:@citation-js/core~InputOptions
+ * @tutorial input_options
+ *
+ * @property {module:@citation-js/core~OutputOptions} output
+ * @property {Number} maxChainLength
+ * @property {Boolean} generateGraph
+ * @property {Boolean} strict
+ * @property {Cite.parse~format} forceType
+ * @property {Cite.parse~format} target
+ */
+
+/**
+ * Citation.js {@tutorial output_options}
+ *
+ * @typedef {Object} module:@citation-js/core~OutputOptions
+ * @tutorial output_options
+ *
+ * @property {String} format
+ * @property {String} type
+ * @property {String} style
+ * @property {String} lang
+ * @property {String|module:@citation-js/core~wrapper} prepend
+ * @property {String|module:@citation-js/core~wrapper} append
+ * @property {Object} _newOptions - used internally (for the CLI), if you need this move to Cite#format() probably
+ */
+
+/**
+ * @callback module:@citation-js/core~wrapper
+ * @param {module:@citation-js/core~CSL} data - Cite object
+ * @return {String} wrapping string
+ */
+
+/**
+ * [CSL](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items) object
+ *
+ * @typedef {Object} module:@citation-js/core~CSL
+ */
