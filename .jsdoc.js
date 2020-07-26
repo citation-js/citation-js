@@ -1,6 +1,9 @@
 // const fs = require('fs')
 // const path = require('path')
-//
+
+const lerna = require('./lerna.json')
+const version = lerna.version.split('.', 2).join('.')
+
 // const packageDir = path.join(__dirname, 'packages')
 // const packageSrc = fs.readdirSync(packageDir)
 //   .map(package => path.join(packageDir, package, 'src'))
@@ -25,13 +28,12 @@ module.exports = {
     encoding: 'utf8',
     readme: './README.md',
     recurse: true,
-    destination: './jsdoc/',
+    destination: './jsdoc/' + version + '/',
     tutorials: './packages/core/docs/'
   },
   templates: {
     default: {
       layoutFile: '.jsdoc.tmpl',
-      // includeDate: false
       includeDate: true
     },
     cleverLinks: false,
