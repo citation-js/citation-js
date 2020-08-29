@@ -51,4 +51,15 @@ describe('output', function () {
       }
     })
   }
+
+  it('clears the engine item cache', function () {
+      const a = plugins.output.format('bibliography', [
+          { id: '4', title: 'foo' }
+      ])
+      const b = plugins.output.format('bibliography', [
+          { id: '4', title: 'bar' }
+      ])
+
+      assert.notStrictEqual(a, b)
+  })
 })
