@@ -58,6 +58,7 @@ const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocal
   if (engines[engineHash] instanceof CSL.Engine) {
     engine = engines[engineHash]
     engine.sys.retrieveItem = retrieveItem
+    engine.registry = new CSL.Registry(engine)
   } else {
     engine = engines[engineHash] = new CSL.Engine({ retrieveLocale, retrieveItem }, template, lang, true)
   }
