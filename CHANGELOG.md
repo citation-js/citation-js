@@ -1,4 +1,15 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.5...v) (2020-07-04)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.6...v) (2020-08-29)
+
+
+### Bug Fixes
+
+* **cli:** fix check for prefixed options ([4b7fe6b](https://github.com/citation-js/citation-js/commit/4b7fe6b1f6b908b3304929b1c1f05a09d137cf34))
+* **plugin-bibtex:** avoid error on non-utf-8 webpages ([c09a9e4](https://github.com/citation-js/citation-js/commit/c09a9e467e85f6a8c52eb78c36a98734e32ee14c))
+* **plugin-csl:** remove entry caching ([efa648b](https://github.com/citation-js/citation-js/commit/efa648ba570de7dabf0651442ca8ffdf52fcd5fe))
+
+
+
+# [0.5.0-alpha.6](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.5...v0.5.0-alpha.6) (2020-07-04)
 
 
 ### Bug Fixes
