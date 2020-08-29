@@ -194,7 +194,7 @@ async function processInput (input, options) {
 function getPrefixedOptions (options, prefix) {
   const output = {}
   for (const prop in options) {
-    if (prop.slice(0, prefix.length) === prefix && prop.length !== prefix) {
+    if (prop.slice(0, prefix.length) === prefix && prop.length !== prefix.length) {
       let newProp = prop.slice(prefix.length)
       newProp = newProp[0].toLowerCase() + newProp.slice(1)
       output[newProp] = options[prop]
