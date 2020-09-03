@@ -44,16 +44,21 @@ const richTextMappings = {
 }
 
 function serializeRichTextValue (value) {
-  let tokens = value.split(/<(\/.*?|i|b|sc|sup|sub|span.*?)>/g)
+  const closingTags = []
+  let tokens = value.split(/<(\/?(?:i|b|sc|sup|sub|span)|span .*?)>/g)
 
   // split, so odd values are text and even values are rich text tokens
   tokens = tokens.map((token, index) => {
     if (index % 2 === 0) {
       return escapeValue(token)
     } else if (token in richTextMappings) {
+      closingTags.push('/' + token.split(' ')[0])
       return richTextMappings[token]
-    } else {
+    } else if (token === closingTags[closingTags.length - 1]) {
+      closingTags.pop()
       return '}'
+    } else {
+      return ''
     }
   })
 

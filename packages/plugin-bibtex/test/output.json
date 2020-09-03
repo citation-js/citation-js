@@ -34,9 +34,16 @@
       [
         {"title": "<i>i</i><b>b</b><sc>sc</sc><sup>sup</sup><sub>sub</sub>"},
         {"title": "<span style=\"font-variant:small-caps;\">sc</span>"},
-        {"title": "<span class=\"nocase\">sc</span>"}
+        {"title": "<span class=\"nocase\">sc</span>"},
+        {"title": "a<i>i</i>a"}
       ],
-      "@misc{ibscsupsub,\n\ttitle = {\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}},\n}\n@misc{sc,\n\ttitle = {\\textsc{sc}},\n}\n@misc{sc,\n\ttitle = {{sc}},\n}"
+      "@misc{ibscsupsub,\n\ttitle = {\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}},\n}\n@misc{sc,\n\ttitle = {\\textsc{sc}},\n}\n@misc{sc,\n\ttitle = {{sc}},\n}\n@misc{aia,\n\ttitle = {a\\textit{i}a},\n}"
+    ],
+    "invalid rich text title": [
+      [
+        {"title": "<span class=\"\"subscript\"\">sub</span>"}
+      ],
+      "@misc{sub,\n\ttitle = {sub},\n}"
     ],
     "editor": [
       [
