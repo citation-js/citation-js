@@ -41,8 +41,8 @@ describe('output', function () {
 
       for (const name of Object.keys(data[type])) {
         const [input, expected, ...opts] = data[type][name]
-        const actual = plugins.output.format(type, input, ...opts)
         it(`with ${name} works`, function () {
+          const actual = plugins.output.format(type, input, ...opts)
           assert.deepStrictEqual(
             typeof actual === 'string' ? actual.trim() : actual,
             expected
@@ -52,14 +52,29 @@ describe('output', function () {
     })
   }
 
-  it('clears the engine item cache', function () {
-    const a = plugins.output.format('bibliography', [
-      { id: '4', title: 'foo' }
-    ])
-    const b = plugins.output.format('bibliography', [
-      { id: '4', title: 'bar' }
-    ])
+  describe('engine caching', function () {
+      it('clears item cache', function () {
+          const a = plugins.output.format('bibliography', [
+              { id: '4', title: 'foo' }
+          ])
+          const b = plugins.output.format('bibliography', [
+              { id: '4', title: 'bar' }
+          ])
 
-    assert.notStrictEqual(a, b)
+          assert.notStrictEqual(a, b)
+      })
+
+      it('clears disambiguation cache', function () {
+          // Force new engine (sorry)
+          const template = 'apa-disambig-cache'
+          CSL.templates.add(template, CSL.templates.get('apa'))
+
+          const a = plugins.output.format('bibliography', [
+              { id: '4', title: 'foo', author: [{ family: 'a' }] }
+          ], { template })
+          const b = plugins.output.format('bibliography', [
+              { id: '5', title: 'bar', author: [{ family: 'a' }] }
+          ], { template })
+      })
   })
 })
