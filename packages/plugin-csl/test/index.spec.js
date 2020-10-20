@@ -53,28 +53,28 @@ describe('output', function () {
   }
 
   describe('engine caching', function () {
-      it('clears item cache', function () {
-          const a = plugins.output.format('bibliography', [
-              { id: '4', title: 'foo' }
-          ])
-          const b = plugins.output.format('bibliography', [
-              { id: '4', title: 'bar' }
-          ])
+    it('clears item cache', function () {
+      const a = plugins.output.format('bibliography', [
+        { id: '4', title: 'foo' }
+      ])
+      const b = plugins.output.format('bibliography', [
+        { id: '4', title: 'bar' }
+      ])
 
-          assert.notStrictEqual(a, b)
-      })
+      assert.notStrictEqual(a, b)
+    })
 
-      it('clears disambiguation cache', function () {
-          // Force new engine (sorry)
-          const template = 'apa-disambig-cache'
-          CSL.templates.add(template, CSL.templates.get('apa'))
+    it('clears disambiguation cache', function () {
+      // Force new engine (sorry)
+      const template = 'apa-disambig-cache'
+      CSL.templates.add(template, CSL.templates.get('apa'))
 
-          const a = plugins.output.format('bibliography', [
-              { id: '4', title: 'foo', author: [{ family: 'a' }] }
-          ], { template })
-          const b = plugins.output.format('bibliography', [
-              { id: '5', title: 'bar', author: [{ family: 'a' }] }
-          ], { template })
-      })
+      plugins.output.format('bibliography', [
+        { id: '4', title: 'foo', author: [{ family: 'a' }] }
+      ], { template })
+      plugins.output.format('bibliography', [
+        { id: '5', title: 'bar', author: [{ family: 'a' }] }
+      ], { template })
+    })
   })
 })
