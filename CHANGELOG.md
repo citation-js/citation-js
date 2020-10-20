@@ -1,4 +1,8 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.7...v) (2020-10-20)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.8...v) (2020-10-20)
+
+
+
+# [0.5.0-alpha.8](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.7...v0.5.0-alpha.8) (2020-10-20)
 
 
 ### Bug Fixes
