@@ -33,10 +33,10 @@
   "dependencies": {
     "@citation-js/date": "^0.4.4",
     "@citation-js/name": "^0.4.2",
-    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-fetch": "^3.0.0",
     "sync-fetch": "^0.2.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.10.4"
+    "@babel/plugin-proposal-class-properties": "^7.12.1"
   }
 }
