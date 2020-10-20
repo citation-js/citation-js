@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-bibtex",
-  "version": "0.5.0-alpha.7",
+  "version": "0.5.0-alpha.8",
   "description": "Plugin for BibTeX formats for Citation.js",
   "keywords": [
     "citation-js",

@@ -1,4 +1,14 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.6...v) (2020-08-29)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.7...v) (2020-10-20)
+
+
+### Bug Fixes
+
+* **plugin-bibtex:** fix closing tag behavior ([466d5b1](https://github.com/citation-js/citation-js/commit/466d5b1d234c8e327cfabb6528f8e72b065e2469))
+* **plugin-csl:** fix disambig error ([35ec98d](https://github.com/citation-js/citation-js/commit/35ec98de69ce8b24f45a37139a989cd6754b2200))
+
+
+
+# [0.5.0-alpha.7](https://github.com/citation-js/citation-js/compare/v0.5.0-alpha.6...v0.5.0-alpha.7) (2020-08-29)
 
 
 ### Bug Fixes
