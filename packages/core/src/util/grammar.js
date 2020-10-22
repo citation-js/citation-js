@@ -26,13 +26,14 @@ class Grammar {
 
   /**
    * @param iterator - lexer supporting formatError() and next()
+   * @param [mainRule] - defaults to the first rule
    * @return result of the main rule
    */
-  parse (iterator) {
+  parse (iterator, mainRule) {
     this.lexer = iterator
     this.token = this.lexer.next()
     this.state = deepCopy(this.defaultState)
-    return this.consumeRule(this.mainRule)
+    return this.consumeRule(mainRule || this.mainRule)
   }
 
   /**
