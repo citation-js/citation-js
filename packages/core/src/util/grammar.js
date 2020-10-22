@@ -1,3 +1,5 @@
+import { deepCopy } from './deepCopy'
+
 /**
  * @typedef module:@citation-js/core.util.Grammar~ruleName
  * @type {String}
@@ -17,7 +19,7 @@
 class Grammar {
   constructor (rules, state) {
     this.rules = rules
-    this.state = state
+    this.defaultState = state
     this.mainRule = Object.keys(rules)[0]
     this.log = []
   }
@@ -29,6 +31,7 @@ class Grammar {
   parse (iterator) {
     this.lexer = iterator
     this.token = this.lexer.next()
+    this.state = deepCopy(this.defaultState)
     return this.consumeRule(this.mainRule)
   }
 

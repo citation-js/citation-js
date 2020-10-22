@@ -308,7 +308,7 @@ export const bibtexGrammar = new util.Grammar({
     }
   }
 }, {
-  strings: Object.assign({}, constants.defaultStrings)
+  strings: constants.defaultStrings
 })
 
 export function parse (text) {
