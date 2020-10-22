@@ -17,7 +17,7 @@
           ],
           "title": "The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics.",
           "container-title": "Journal of chemical information and computer sciences",
-          "issued": {"date-parts": [["2003"]]},
+          "issued": {"date-parts": [[2003]]},
           "volume": "43",
           "issue": "2",
           "page": "493-500",
@@ -30,11 +30,10 @@
       ]
     ],
     "with whitespace and unknown fields": [
-      "@inproceedings{Ekstrand:2009:RYD,\n author = {Michael D. Ekstrand and\n John T. Riedl},\n title = {rv you're dumb: Identifying\n       Discarded Work in Wiki Article History},\n booktitle = {Proceedings of the 5th International Symposium on Wikis and Open Collaboration},\n series = {WikiSym '09},\n year = {2009},\n isbn = {978-1-60558-730-1},\n location = {Orlando, Florida},\n pages = {4:1--4:10},\n articleno = {4},\n numpages = {10},\n url = {https://dx.doi.org/10.1145/1641309.1641317},\n doi = {10.1145/1641309.1641317},\n acmid = {1641317},\n publisher = {ACM},\n address = {New York, NY, USA},\n keywords = {Wiki, Wikipedia, article history, visualization},\n}\n",
+      "@inproceedings{Ekstrand:2009:RYD,\n author = {Michael D. Ekstrand and\n John T. Riedl},\n title = {rv you're dumb: Identifying\n       Discarded Work in Wiki Article History},\n booktitle = {Proceedings of the 5th International Symposium on Wikis and Open Collaboration},\n series = {WikiSym '09},\n year = {2009},\n isbn = {978-1-60558-730-1},\n pages = {4:1--4:10},\n articleno = {4},\n numpages = {10},\n url = {https://dx.doi.org/10.1145/1641309.1641317},\n doi = {10.1145/1641309.1641317},\n acmid = {1641317},\n publisher = {ACM},\n address = {New York, NY, USA},\n keywords = {Wiki, Wikipedia, article history, visualization},\n}\n",
       [
         {
           "citation-label": "Ekstrand:2009:RYD",
-          "year-suffix": ":RYD",
           "number-of-pages": "10",
           "type": "paper-conference",
           "author": [
@@ -44,8 +43,9 @@
           "title": "rv you're dumb: Identifying Discarded Work in Wiki Article History",
           "container-title": "Proceedings of the 5th International Symposium on Wikis and Open Collaboration",
           "collection-title": "WikiSym '09",
-          "issued": {"date-parts": [["2009"]]},
+          "issued": {"date-parts": [[2009]]},
           "ISBN": "978-1-60558-730-1",
+          "keyword": "Wiki,Wikipedia,article history,visualization",
           "publisher-place": "New York, NY, USA",
           "page": "4:1-4:10",
           "URL": "https://dx.doi.org/10.1145/1641309.1641317",
@@ -63,7 +63,7 @@
         ],
         "title": "Faust. Der Tragödie Erster Teil",
         "publisher": "Reclam",
-        "issued": {"date-parts": [["1986"]]},
+        "issued": {"date-parts": [[1986]]},
         "publisher-place": "Stuttgart",
         "type": "book",
         "id": "Fau86",
@@ -73,7 +73,7 @@
     "with escaped characters": [
       "@article{escape, title={a\\&b\\%c\\$d\\#e\\_f\\textasciitilde{}\\textasciicircum{}\\textbackslash{}}}",
       [
-        {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f∼ˆ\\"}
+        {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f~^\\"}
       ]
     ],
     "with math": [
@@ -83,21 +83,20 @@
       ]
     ],
     "with rich text": [
-      "@misc{ibscsupsub, title={{\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}}}, } @misc{sc, title={{\\textsc{sc}}}, } @misc{sc, title={{{sc}}}, }",
+      "@misc{ibscsupsub, title={{\\textit{i}\\textbf{b}\\textsuperscript{sup}\\textsubscript{sub}}}, } @misc{sc, title={{\\textsc{sc}}}, }",
       [
-        {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><sc>sc</sc><sup>sup</sup><sub>sub</sub>"},
-        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<sc>sc</sc>"},
-        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span class=\"nocase\">sc</span>"}
+        {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><sup>sup</sup><sub>sub</sub>"},
+        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant: small-caps;\">sc</span>"}
       ]
     ],
     "with literals": [
-      "@a{b,author={{a and b} and c and D E},date={{13th Century}}}",
+      "@a{b,author={{a and b} and c and D E},year={{13th Century}}}",
       [{
         "citation-label": "b",
         "id": "b",
         "type": "book",
         "author": [
-          {"literal": "a and b"},
+          {"family": "a and b"},
           {"family": "c"},
           {"given": "D", "family": "E"}
         ],
@@ -129,7 +128,7 @@
         "id": "b",
         "type": "book",
         "issued": {
-          "date-parts": [["2017", "8"]]
+          "date-parts": [[2017, 8]]
         }
       }]
     ],
@@ -145,7 +144,7 @@
       }]
     ],
     "with date-range": [
-      "@a{b,date={2016--2017}}",
+      "@a{b,date={2016/2017}}",
       [{
         "citation-label": "b",
         "id": "b",
@@ -168,7 +167,7 @@
         "title": "Lorem Ipsum",
         "container-title": "The BibTeX Journal",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "volume": "5",
         "issue": "6",
@@ -192,10 +191,10 @@
         "title": "Lorem Ipsum",
         "publisher": "BibTeX Publishers",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "volume": "5",
-        "issue": "6",
+        "collection-number": "6",
         "collection-title": "Good Series",
         "publisher-place": "Goodville",
         "edition": "Second",
@@ -214,7 +213,7 @@
         ],
         "title": "Lorem Ipsum",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "publisher": "BibTeX",
         "publisher-place": "Goodville",
@@ -239,10 +238,10 @@
         "page": "200-210",
         "publisher": "BibTeX Publishers",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "volume": "5",
-        "issue": "6",
+        "collection-number": "6",
         "collection-title": "Good Series",
         "genre": "Section",
         "publisher-place": "Goodville",
@@ -264,13 +263,13 @@
         "container-title": "Dolor Sit Amet",
         "publisher": "BibTeX Publishers",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "editor": [
           { "family": "Coburn", "given": "Carol" }
         ],
         "volume": "5",
-        "issue": "6",
+        "collection-number": "6",
         "collection-title": "Good Series",
         "genre": "Section",
         "chapter-number": "3",
@@ -293,7 +292,7 @@
         "title": "Lorem Ipsum",
         "container-title": "Dolor Sit Amet",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "editor": [
           { "family": "Coburn", "given": "Carol" }
@@ -318,10 +317,11 @@
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
         ],
+        "publisher": "The Organizers",
         "publisher-place": "Goodville",
         "edition": "Second",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "note": "This is a note."
       }]
@@ -338,7 +338,7 @@
         "title": "Lorem Ipsum",
         "publisher": "The University",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "genre": "Diploma Thesis",
         "note": "This is a note."
@@ -357,7 +357,7 @@
         "title": "Lorem Ipsum",
         "publisher": "Online",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "note": "This is a note."
       }]
@@ -374,7 +374,7 @@
         "title": "Lorem Ipsum",
         "publisher": "The University",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "genre": "Doctoral Thesis",
         "publisher-place": "Goodville",
@@ -389,13 +389,13 @@
         "citation-label": "Proceedings",
         "title": "Lorem Ipsum",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "editor": [
           { "family": "Coburn", "given": "Carol" }
         ],
         "volume": "5",
-        "issue": "6",
+        "collection-number": "6",
         "collection-title": "Good Series",
         "publisher-place": "Goodville",
         "publisher": "BibTeX Publishers",
@@ -415,10 +415,10 @@
         "title": "Lorem Ipsum",
         "publisher": "The Institution",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         },
         "genre": "Recommendation",
-        "issue": "ABC-123",
+        "number": "ABC-123",
         "publisher-place": "Goodville",
         "note": "This is a note."
       }]
@@ -436,12 +436,12 @@
         "title": "Lorem Ipsum",
         "note": "This is a note.",
         "issued": {
-          "date-parts": [[ "2020", "02" ]]
+          "date-parts": [[ 2020, 2 ]]
         }
       }]
     ]
   },
-  "@bibtex/object": {
+  "@bibtex/entry+object": {
     "simple": [
       {
         "type": "article",
@@ -476,7 +476,7 @@
           ],
           "title": "The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics.",
           "container-title": "Journal of chemical information and computer sciences",
-          "issued": {"date-parts": [["2003"]]},
+          "issued": {"date-parts": [[2003]]},
           "volume": "43",
           "issue": "2",
           "page": "493-500",
@@ -498,7 +498,7 @@
         ],
         "title": "Faust. Der Tragödie Erster Teil",
         "publisher": "Reclam",
-        "issued": {"date-parts": [["1986"]]},
+        "issued": {"date-parts": [[1986]]},
         "publisher-place": "Stuttgart",
         "type": "book",
         "id": "Fau86",
@@ -514,7 +514,7 @@
           ],
           "title": "Faust. Der Tragödie Erster Teil",
           "publisher": "Reclam",
-          "issued": {"date-parts": [["1986"]]},
+          "issued": {"date-parts": [[1986]]},
           "publisher-place": "Stuttgart",
           "type": "book",
           "id": "Fau86",
@@ -534,7 +534,7 @@
           ],
           "title": "The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics.",
           "container-title": "Journal of chemical information and computer sciences",
-          "issued": {"date-parts": [["2003"]]},
+          "issued": {"date-parts": [[2003]]},
           "volume": "43",
           "issue": "2",
           "page": "493-500",
@@ -554,7 +554,7 @@
         ],
         "title": "Faust. Der Tragödie Erster Teil",
         "publisher": "Reclam",
-        "issued": {"date-parts": [["1986"]]},
+        "issued": {"date-parts": [[1986]]},
         "publisher-place": "Stuttgart",
         "type": "book",
         "id": "Fau86",
