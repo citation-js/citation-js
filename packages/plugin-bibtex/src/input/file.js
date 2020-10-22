@@ -2,26 +2,21 @@
  * @module input/bibtex
  */
 
-import { util, logger } from '@citation-js/core'
+ import { util, logger } from '@citation-js/core'
 
 import moo from 'moo'
-import * as constants from './constants'
+import { defaultStrings } from './constants'
+import { parse as parseValue } from './value'
 
-const identifier = /[a-zA-Z][a-zA-Z0-9_-]*/
+const identifier = /[a-zA-Z][a-zA-Z0-9_:-]*/
 const whitespace = {
   comment: /%.*/,
-  whitespace: { match: /\s+/, lineBreaks: true }
-}
-const text = {
-  command: /\\(?:[a-z]+|.) */,
-  lbrace: { match: '{', push: 'bracedLiteral' },
-  mathShift: { match: '$', push: 'mathLiteral' },
   whitespace: { match: /\s+/, lineBreaks: true }
 }
 
 const lexer = moo.states({
   main: {
-    junk: { match: /@[cC][oO][mM][mM][eE][nN][tT].+|[^@]+/, lineBreaks: true },
+    junk: { match: /@comment.+|[^@]+/, lineBreaks: true },
     at: { match: '@', push: 'entry' }
   },
   entry: {
@@ -33,7 +28,7 @@ const lexer = moo.states({
     dataEntryType: {
       match: identifier,
       next: 'dataEntryContents'
-    }
+    },
   },
   otherEntryContents: {
     ...whitespace,
@@ -57,20 +52,14 @@ const lexer = moo.states({
     rbrace: { match: /[})]/, pop: true }
   },
   quotedLiteral: {
-    ...text,
+    lbrace: { match: '{', push: 'bracedLiteral' },
     quote: { match: '"', pop: true },
-    text: /[^{$"\s\\]+/
+    text: { match: /(?:\\"|[^{"])+/, lineBreaks: true }
   },
   bracedLiteral: {
-    ...text,
+    lbrace: { match: '{', push: 'bracedLiteral' },
     rbrace: { match: '}', pop: true },
-    text: /[^{$}\s\\]+/
-  },
-  mathLiteral: {
-    ...text,
-    mathShift: { match: '$', pop: true },
-    script: /[\^_]/,
-    text: /[^{$}\s\\^_]+/
+    text: { match: /(?:\\}|[^{}])+/, lineBreaks: true }
   }
 })
 
@@ -81,7 +70,7 @@ const delimiters = {
 
 export const bibtexGrammar = new util.Grammar({
   Main () {
-    const entries = []
+    let entries = []
 
     while (true) {
       while (this.matchToken('junk')) {
@@ -113,8 +102,8 @@ export const bibtexGrammar = new util.Grammar({
 
     const type = (
       this.matchToken('otherEntryType')
-        ? this.consumeToken('otherEntryType')
-        : this.consumeToken('dataEntryType')
+      ? this.consumeToken('otherEntryType')
+      : this.consumeToken('dataEntryType')
     ).value.toLowerCase()
 
     this.consumeRule('_')
@@ -150,10 +139,10 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   EntryBody () {
-    const properties = {}
+    let properties = {}
 
     while (this.matchToken('identifier')) {
-      const [field, value] = this.consumeRule('Field')
+      let [field, value] = this.consumeRule('Field')
       properties[field] = value
 
       this.consumeRule('_')
@@ -168,7 +157,7 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   Field () {
-    const field = this.consumeToken('identifier')
+    const field = this.consumeToken('identifier').value.toLowerCase()
 
     this.consumeRule('_')
     this.consumeToken('equals')
@@ -195,9 +184,9 @@ export const bibtexGrammar = new util.Grammar({
 
   ExpressionPart () {
     if (this.matchToken('identifier')) {
-      return this.state.strings[this.consumeToken('identifier').value] || ''
+      return this.state.strings[this.consumeToken('identifier').value.toLowerCase()] || ''
     } else if (this.matchToken('number')) {
-      return this.consumeToken('number').value
+      return parseInt(this.consumeToken('number'))
     } else if (this.matchToken('quote')) {
       return this.consumeRule('QuoteString')
     } else if (this.matchToken('lbrace')) {
@@ -225,94 +214,17 @@ export const bibtexGrammar = new util.Grammar({
     return output
   },
 
-  BracketText () {
-    let output = ''
-    this.consumeToken('lbrace')
-
-    // Ignore braces as long as they are used for grouping commands
-    while (this.matchToken('command')) {
-      output += this.consumeRule('Command')
-    }
-
-    // If a non-command is encountered before closing, add braces to output
-    if (!this.matchToken('rbrace')) {
-      do {
-        output += this.consumeRule('Text')
-      } while (!this.matchToken('rbrace'))
-      output = `{${output}}`
-    }
-
-    this.consumeToken('rbrace')
-    return output
-  },
-
-  MathString () {
-    let output = ''
-    this.consumeToken('mathShift')
-    while (!this.matchToken('mathShift')) {
-      if (this.matchToken('script')) {
-        const script = this.consumeToken('script').value
-        const text = this.consumeRule('Text').replace(/^{|}$/g, '')
-        output += constants.mathScripts[script][text[0]] + text.slice(1)
-      } else {
-        output += this.consumeRule('Text')
-      }
-    }
-    this.consumeToken('mathShift')
-    return output
-  },
-
   Text () {
-    let raw
     if (this.matchToken('lbrace')) {
-      raw = this.consumeRule('BracketText')
-    } else if (this.matchToken('mathShift')) {
-      raw = this.consumeRule('MathString')
-    } else if (this.matchToken('whitespace')) {
-      this.consumeToken('whitespace')
-      raw = ' '
-    } else if (this.matchToken('command')) {
-      raw = this.consumeRule('Command')
+      return `{${this.consumeRule('BracketString')}}`
     } else {
-      raw = this.consumeToken('text').value.replace(
-        constants.ligaturePattern,
-        ligature => constants.ligatures[ligature]
-      )
-    }
-    return raw.normalize()
-  },
-
-  Command () {
-    const command = this.consumeToken('command').value.slice(1).trim()
-
-    // command
-    if (command in constants.commands) {
-      return constants.commands[command]
-
-    // diacritics
-    } else if (command in constants.diacritics && !this.matchEndOfFile()) {
-      if (this.matchToken('text')) {
-        const text = this.consumeToken('text').value
-        return text[0] + constants.diacritics[command] + text.slice(1)
-      } else {
-        return this.consumeRule('Text').replace(/^{|}$/g, '') + constants.diacritics[command]
-      }
-
-    // escapes
-    } else if (/^\W$/.test(command)) {
-      return command
-
-    // unknown commands
-    } else {
-      return '\\' + command
+      return this.consumeToken('text').value
     }
   }
 }, {
-  strings: constants.defaultStrings
+  strings: defaultStrings
 })
 
 export function parse (text) {
   return bibtexGrammar.parse(lexer.reset(text))
 }
-
-export default parse

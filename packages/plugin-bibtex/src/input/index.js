@@ -2,40 +2,35 @@
  * @module input/bibtex
  */
 
-import * as text from './text'
-import * as json from './json'
-import * as prop from './prop'
-import * as type from './type'
-import * as bibtxt from './bibtxt'
+import { parse as parseFile } from './file'
+import { parse as parseBibtxt } from './bibtxt'
+import { parse as parseEntries, parseEntry } from './entries'
 
 export const ref = '@bibtex'
-export const parsers = { text, json, prop, type, bibtxt }
 export const formats = {
   '@bibtex/text': {
-    parse: text.parse,
+    parse: parseFile,
     parseType: {
       dataType: 'String',
       predicate: /@\s{0,5}[A-Za-z]{1,13}\s{0,5}\{\s{0,5}[^@{}"=,\\\s]{0,100}\s{0,5},[\s\S]*\}/
     }
   },
   '@bibtxt/text': {
-    parse: bibtxt.parse,
+    parse: parseBibtxt,
     parseType: {
       dataType: 'String',
       predicate: /^\s*(\[(?!\s*[{[]).*?\]\s*(\n\s*[^[]((?!:)\S)+\s*:\s*.+?\s*)*\s*)+$/
     }
   },
-  '@bibtex/object': {
-    parse: json.parse,
+  '@bibtex/entry+object': {
+    parse: parseEntry,
     parseType: {
       dataType: 'SimpleObject',
       propertyConstraint: { props: ['type', 'label', 'properties'] }
     }
   },
-  '@bibtex/prop': {
-    parse: prop.parse
-  },
-  '@bibtex/type': {
-    parse: type.parse
+  '@bibtex/entries+list': {
+    parse: parseEntries,
+    parseType: { elementConstraint: '@bibtex/entry+object' }
   }
 }
