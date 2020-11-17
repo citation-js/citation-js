@@ -33,6 +33,7 @@ class Grammar {
     this.lexer = iterator
     this.token = this.lexer.next()
     this.state = deepCopy(this.defaultState)
+    this.log = []
     return this.consumeRule(mainRule || this.mainRule)
   }
 
