@@ -92,6 +92,7 @@ export const ligatures = {
   '~': '\u00A0'
 }
 
+/* eslint-disable quote-props */
 export const mathScriptFormatting = {
   '^': 'superscript',
   '_': 'subscript'
@@ -145,9 +146,10 @@ export const mathScripts = {
     'n': '\u2099',
     's': '\u209A',
     'p': '\u209B',
-    't': '\u209C',
+    't': '\u209C'
   }
 }
+/* eslint-enable quote-props */
 
 // Adapted from retorquere/bibtex-parser (2020-10-15)
 // https://github.com/retorquere/bibtex-parser/blob/0c8bd92/index.ts#L416-L441

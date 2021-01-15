@@ -75,7 +75,7 @@ export const MONTHS = {
   february: 2,
   march: 3,
   april: 4,
-  may: 5,
+  may: 5, /* eslint-disable-line no-dupe-keys */
   june: 6,
   july: 7,
   august: 8,
@@ -191,8 +191,8 @@ export const Converters = {
   DATE: {
     toTarget (date) {
       const parts = date
-          .split('/')
-          .map(part => part && part !== '..' ? parseDate(part) : undefined)
+        .split('/')
+        .map(part => part && part !== '..' ? parseDate(part) : undefined)
       return isNaN(parts[0][0]) ? { literal: date } : { 'date-parts': parts }
     },
     toSource (date) {
@@ -214,11 +214,11 @@ export const Converters = {
         const [year, month, day] = date['date-parts'][0]
         return [
           year.toString(),
-          month ?
-            day ?
-              `${day} ${months[month - 1]}`
-            : months[month - 1]
-          : undefined
+          month
+            ? day
+              ? `${day} ${months[month - 1]}`
+              : months[month - 1]
+            : undefined
         ]
       }
     }

@@ -1,5 +1,3 @@
-import { format as formatValue } from './value'
-
 function formatEntry ({ type, label, properties }, dict) {
   const fields = Object.entries(properties).concat([['type', type]])
     .map(([field, value]) => dict.listItem.join(`${field}: ${value}`))

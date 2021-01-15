@@ -8,7 +8,19 @@ import {
 } from './shared'
 
 export default new util.Translator([
-  ...CommonMappings,
+  {
+    source: 'note',
+    target: 'accessed',
+    when: {
+      source: false,
+      target: { note: false }
+    },
+    convert: {
+      toSource (accessed) {
+        return `[Online; accessed ${formatDate(accessed)}]`
+      }
+    }
+  },
   {
     source: 'annote',
     target: 'annote'

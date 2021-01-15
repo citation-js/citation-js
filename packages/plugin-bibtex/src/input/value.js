@@ -61,7 +61,7 @@ const lexer = moo.states({
     ...text,
     mathShift: { match: '$', pop: true },
     script: /[\^_]/,
-    text: /[^{$}\s~\\\^_]+/
+    text: /[^{$}\s~\\^_]+/
   }
 })
 
@@ -171,7 +171,7 @@ export const valueGrammar = new util.Grammar({
   },
 
   StringList () {
-    let list = []
+    const list = []
     while (!this.matchEndOfFile()) {
       let output = ''
       while (!this.matchEndOfFile() && !this.matchToken('and')) {
@@ -185,7 +185,7 @@ export const valueGrammar = new util.Grammar({
   },
 
   StringSeparated () {
-    let list = []
+    const list = []
     while (!this.matchEndOfFile()) {
       let output = ''
       while (!this.matchEndOfFile() && !this.matchToken('comma')) {
@@ -362,6 +362,7 @@ export const valueGrammar = new util.Grammar({
   },
 
   Text () {
+    /* eslint-disable padded-blocks */
     if (this.matchToken('lbrace')) {
       return this.consumeRule('BracketString')
 
@@ -386,6 +387,7 @@ export const valueGrammar = new util.Grammar({
         ligature => constants.ligatures[ligature]
       )
     }
+    /* eslint-enable padded-blocks */
   },
 
   Command () {

@@ -2,11 +2,10 @@
  * @module input/bibtex
  */
 
- import { util, logger } from '@citation-js/core'
+import { util, logger } from '@citation-js/core'
 
 import moo from 'moo'
 import { defaultStrings } from './constants'
-import { parse as parseValue } from './value'
 
 const identifier = /[a-zA-Z][a-zA-Z0-9_:-]*/
 const whitespace = {
@@ -28,7 +27,7 @@ const lexer = moo.states({
     dataEntryType: {
       match: identifier,
       next: 'dataEntryContents'
-    },
+    }
   },
   otherEntryContents: {
     ...whitespace,
@@ -70,7 +69,7 @@ const delimiters = {
 
 export const bibtexGrammar = new util.Grammar({
   Main () {
-    let entries = []
+    const entries = []
 
     while (true) {
       while (this.matchToken('junk')) {
@@ -102,8 +101,8 @@ export const bibtexGrammar = new util.Grammar({
 
     const type = (
       this.matchToken('otherEntryType')
-      ? this.consumeToken('otherEntryType')
-      : this.consumeToken('dataEntryType')
+        ? this.consumeToken('otherEntryType')
+        : this.consumeToken('dataEntryType')
     ).value.toLowerCase()
 
     this.consumeRule('_')
@@ -139,10 +138,10 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   EntryBody () {
-    let properties = {}
+    const properties = {}
 
     while (this.matchToken('identifier')) {
-      let [field, value] = this.consumeRule('Field')
+      const [field, value] = this.consumeRule('Field')
       properties[field] = value
 
       this.consumeRule('_')
