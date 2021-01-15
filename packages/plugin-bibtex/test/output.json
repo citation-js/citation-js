@@ -20,7 +20,7 @@
           "page": "5441-5444"
         }
       ],
-      "@article{Hall1957Correlation,\n\tjournal = {Journal of the American Chemical Society},\n\tdoi = {10.1021/ja01577a030},\n\tnumber = {20},\n\ttitle = {Correlation of the Base Strengths of Amines 1},\n\tvolume = {79},\n\tauthor = {Hall, H. K.},\n\tpages = {5441--5444},\n\tdate = {1957-01-01},\n\tyear = {1957},\n\tmonth = {1},\n\tday = {1},\n}"
+      "@article{Hall1957Correlation,\n\tauthor = {Hall, H. K.},\n\tjournal = {Journal of the American Chemical Society},\n\tnumber = {20},\n\tyear = {1957},\n\tmonth = {1 jan},\n\tpages = {5441--5444},\n\ttitle = {Correlation of the Base Strengths of Amines 1},\n\tvolume = {79},\n}"
     ],
     "complex title": [
       [
@@ -37,7 +37,7 @@
         {"title": "<span class=\"nocase\">sc</span>"},
         {"title": "a<i>i</i>a"}
       ],
-      "@misc{ibscsupsub,\n\ttitle = {\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}},\n}\n@misc{sc,\n\ttitle = {\\textsc{sc}},\n}\n@misc{sc,\n\ttitle = {{sc}},\n}\n@misc{aia,\n\ttitle = {a\\textit{i}a},\n}"
+      "@misc{i,\n\ttitle = {\\textit{i}\\textbf{b}\\textsc{sc}\\textsuperscript{sup}\\textsubscript{sub}},\n}\n@misc{sc,\n\ttitle = {\\textsc{sc}},\n}\n@misc{sc,\n\ttitle = {{sc}},\n}\n@misc{i,\n\ttitle = {a\\textit{i}a},\n}"
     ],
     "invalid rich text title": [
       [
@@ -81,7 +81,7 @@
           ]
         }
       ],
-      "@article{Vrandečić2013a,\n\tjournal = {IEEE Intelligent Systems},\n\tdoi = {10.1109/MIS.2013.119},\n\tnumber = {4},\n\tnumpages = {6},\n\ttitle = {The Rise of Wikidata},\n\tvolume = {28},\n\tauthor = {Vrandečić, Denny},\n\teditor = {Hendler, James and Simperl, Elena},\n\tnote = {[Online; accessed 2018-07-21]},\n\tpages = {90--95},\n\tdate = {2013-01-01},\n\tyear = {2013},\n\tmonth = {1},\n\tday = {1},\n}"
+      "@article{Vrandečić2013a,\n\tnote = {[Online; accessed 2018-07-21]},\n\tauthor = {Vrandečić, Denny},\n\tjournal = {IEEE Intelligent Systems},\n\teditor = {Hendler, James and Simperl, Elena},\n\tnumber = {4},\n\tyear = {2013},\n\tmonth = {1 jan},\n\tpages = {90--95},\n\ttitle = {The Rise of Wikidata},\n\tvolume = {28},\n}"
     ],
     "own label": [
       [{"id": "b", "citation-label": "foo", "type": "book"}],
@@ -106,7 +106,7 @@
         "author": [{"literal": "The Foundation"}],
         "type": "book"
       }],
-      "@book{Foundation2050Introduction,\n\ttitle = {An Introduction: \"Safety\"},\n\tauthor = {The Foundation},\n\tdate = {2050},\n\tyear = {2050},\n}"
+      "@book{Foundation2050Introduction,\n\tauthor = {{The Foundation}},\n\tyear = {2050},\n\ttitle = {An Introduction: \"Safety\"},\n}"
     ],
     "object": [
       [
@@ -134,15 +134,12 @@
           "type": "article",
           "properties": {
             "author": "Hall, H. K.",
-            "doi": "10.1021/ja01577a030",
             "journal": "Journal of the American Chemical Society",
             "number": "20",
             "pages": "5441--5444",
             "title": "Correlation of the Base Strengths of Amines 1",
             "volume": "79",
-            "date": "1957-01-01",
-            "day": "1",
-            "month": "1",
+            "month": "1 jan",
             "year": "1957"
           }
         }
@@ -171,7 +168,7 @@
           "page": "5441-5444"
         }
       ],
-      "[Hall1957Correlation]\n\tjournal: Journal of the American Chemical Society\n\tdoi: 10.1021/ja01577a030\n\tnumber: 20\n\ttitle: Correlation of the Base Strengths of Amines 1\n\tvolume: 79\n\tauthor: Hall, H. K.\n\tpages: 5441--5444\n\tdate: 1957-01-01\n\tyear: 1957\n\tmonth: 1\n\tday: 1\n\ttype: article"
+      "[Hall1957Correlation]\n\tauthor: Hall, H. K.\n\tjournal: Journal of the American Chemical Society\n\tnumber: 20\n\tyear: 1957\n\tmonth: 1 jan\n\tpages: 5441--5444\n\ttitle: Correlation of the Base Strengths of Amines 1\n\tvolume: 79\n\ttype: article"
     ]
   }
 }
