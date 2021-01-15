@@ -32,7 +32,7 @@ export const formats = {
     outputs: '@bibtex/entries+list'
   },
   '@bibtex/entry+object': {
-    parse (input) { return parseBibtex([input]) },
+    parse (input) { return parseBibtex([input]) }
   },
   '@bibtex/entries+list': {
     parse: parseBibtex

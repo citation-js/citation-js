@@ -1,4 +1,5 @@
 import { util } from '@citation-js/core'
+import { format as formatDate } from '@citation-js/date'
 import types from './biblatexTypes'
 import {
   TYPE,
@@ -286,7 +287,7 @@ export default new util.Translator([
       },
       toSource (type, genre) {
         const sourceType = types.target[type] || 'misc'
-        return genre in TYPE_KEYS ? [sourceType, , genre] : [sourceType, genre]
+        return genre in TYPE_KEYS ? [sourceType, undefined, genre] : [sourceType, genre]
       }
     }
   },
@@ -540,7 +541,7 @@ export default new util.Translator([
   {
     source: 'volumes',
     target: 'number-of-volumes'
-  },
+  }
   // {
   //   source: 'issuetitle',
   //   target: 'volume-title',
