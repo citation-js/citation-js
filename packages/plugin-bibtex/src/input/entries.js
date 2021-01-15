@@ -1,5 +1,4 @@
-import config from '../config'
-import { parse as mapBiblatex } from '../mapping/biblatex'
+import { parse as mapBiblatex, parseBibtex as mapBibtex } from '../mapping'
 import { parse as parseValue } from './value'
 
 function parseEntryValues (entry) {
@@ -17,10 +16,10 @@ function parseEntryValues (entry) {
   return { ...entry, properties: output }
 }
 
-export function parseEntry (entry) {
-  return mapBiblatex([parseEntryValues(entry)])
-}
-
 export function parse (entries) {
   return mapBiblatex(entries.map(parseEntryValues))
+}
+
+export function parseBibtex (entries) {
+  return mapBibtex(entries.map(parseEntryValues))
 }

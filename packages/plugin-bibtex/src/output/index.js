@@ -3,26 +3,27 @@
  */
 
 import { plugins } from '@citation-js/core'
-import json from './json'
-import { getBibtex } from './text'
-import { getBibtxt } from './bibtxt'
+import { format as mapBiblatex, formatBibtex as mapBibtex } from './entries'
+import { format } from './bibtex'
+import { format as formatBibtxt } from './bibtxt'
 
-const factory = function (formatter) {
+const factory = function (mapper, formatter) {
   return function (data, opts = {}) {
     const { type, format = type || 'text' } = opts
+    data = mapper(data)
 
     if (format === 'object') {
-      return data.map(json)
+      return data
     } else if (plugins.dict.has(format)) {
       return formatter(data, plugins.dict.get(format), opts)
     } else {
-      // throw new RangeError(`Output dictionary "${format}" not available`)
-      return ''
+      throw new RangeError(`Output dictionary "${format}" not available`)
     }
   }
 }
 
 export default {
-  bibtex: factory(getBibtex),
-  bibtxt: factory(getBibtxt)
+  bibtex: factory(mapBibtex, format),
+  biblatex: factory(mapBiblatex, format),
+  bibtxt: factory(mapBibtex, formatBibtxt)
 }
