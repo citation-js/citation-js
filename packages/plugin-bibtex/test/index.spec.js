@@ -1,5 +1,7 @@
 /* eslint-env mocha */
 
+const fs = require('fs')
+const path = require('path')
 const assert = require('assert')
 require('../src/')
 const { plugins } = require('@citation-js/core')
@@ -35,6 +37,16 @@ describe('input', function () {
   }
 })
 
+function getExpectedOutput (name, type) {
+  const ext = type === 'bibtxt' ? '.txt' : '.bib'
+  const file = path.join(__dirname, 'output', name + ext)
+  return fs.readFileSync(file, 'utf8')
+}
+
+function processOutput (output) {
+  return typeof output === 'string' ? output.trim() : output
+}
+
 describe('output', function () {
   for (const type in outputData) {
     describe(type, function () {
@@ -42,14 +54,13 @@ describe('output', function () {
         assert(plugins.output.has(type))
       })
 
-      for (const name of Object.keys(outputData[type])) {
-        const [input, expected, ...opts] = outputData[type][name]
-        const actual = plugins.output.format(type, input, ...opts)
+      for (const name in outputData[type]) {
+        let [input, expected, ...opts] = outputData[type][name]
+        if (!expected) { expected = getExpectedOutput(name, type) }
+
         it(`with ${name} works`, function () {
-          assert.deepStrictEqual(
-            typeof actual === 'string' ? actual.trim() : actual,
-            expected
-          )
+          const actual = plugins.output.format(type, input, ...opts)
+          assert.deepStrictEqual(processOutput(actual), processOutput(expected))
         })
       }
     })
