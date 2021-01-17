@@ -31,7 +31,8 @@ export function formatNameParts (parts) {
     piece += value + (hyphenated ? '-' : ' ')
   }
 
-  return piece + parts[0].value || undefined
+  const output = piece + parts[0].value
+  return output[0] && output
 }
 
 /**

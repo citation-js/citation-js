@@ -197,7 +197,12 @@ export const Converters = {
     },
     toSource (date) {
       if ('date-parts' in date) {
-        return date['date-parts'].map(part => part.join('-')).join('/')
+        return date['date-parts']
+          .map(datePart => datePart
+            .map(datePart => datePart.toString().padStart(2, '0'))
+            .join('-')
+          )
+          .join('/')
       }
     }
   },

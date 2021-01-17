@@ -114,11 +114,11 @@ function formatSingleValue (value, valueType) {
   switch (valueType) {
     case 'title':
     case 'literal':
-      return formatRichText(value)
+      return formatRichText(value.toString())
     case 'name':
       return formatName(value)
     default:
-      return escapeValue(value)
+      return escapeValue(value.toString())
   }
 }
 
@@ -132,7 +132,7 @@ function formatList (values, valueType, listType) {
 
 export function format (field, value) {
   if (!(field in fieldTypes)) {
-    return formatSingleValue(value.toString(), 'verbatim')
+    return formatSingleValue(value, 'verbatim')
   }
 
   const [listType, valueType] = fieldTypes[field]
