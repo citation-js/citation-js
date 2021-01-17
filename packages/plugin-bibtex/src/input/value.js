@@ -65,6 +65,11 @@ const lexer = moo.states({
   }
 })
 
+function flattenConsString (string) {
+  string[0]
+  return string
+}
+
 function applyFormatting (text, format) {
   if (format in constants.formatting) {
     return text && constants.formatting[format].join(text)
@@ -79,7 +84,7 @@ export const valueGrammar = new util.Grammar({
     while (!this.matchEndOfFile()) {
       output += this.consumeRule('Text')
     }
-    return output
+    return flattenConsString(output)
   },
 
   StringNames () {
@@ -177,7 +182,7 @@ export const valueGrammar = new util.Grammar({
       while (!this.matchEndOfFile() && !this.matchToken('and')) {
         output += this.consumeRule('Text')
       }
-      list.push(output)
+      list.push(flattenConsString(output))
 
       this.consumeToken('and', true)
     }
@@ -204,7 +209,7 @@ export const valueGrammar = new util.Grammar({
     while (!this.matchEndOfFile()) {
       output += this.consumeToken().text
     }
-    return output
+    return flattenConsString(output)
   },
 
   StringUri () {
@@ -236,7 +241,7 @@ export const valueGrammar = new util.Grammar({
       output += this.consumeRule('TextTitleCase')
     }
 
-    return output
+    return flattenConsString(output)
   },
 
   TextTitleCase () {

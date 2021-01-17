@@ -158,7 +158,10 @@ export default new util.Translator([
     target: 'container-title',
     when: {
       source: { maintitle: false },
-      target: { 'number-of-volumes': false }
+      target: {
+        'number-of-volumes': false,
+        type (type) { return !type.startsWith('article') }
+      }
     }
   },
   {
@@ -332,8 +335,7 @@ export default new util.Translator([
       },
       target: {
         issue (issue) {
-          return typeof issue === 'number' ||
-            (typeof issue === 'string' && issue.match(/\d+/))
+          return typeof issue === 'string' && !issue.match(/\d+/)
         },
         type: ['article', 'article-journal', 'article-newspaper', 'article-magazine']
       }
@@ -424,7 +426,7 @@ export default new util.Translator([
         return eid ? eid.replace(/^e?/i, 'e') : pages.replace(/[–—]/, '-')
       },
       toSource (page) {
-        return /^e?/i.test(page) ? [page, page] : page.replace('-', '--')
+        return /^e/i.test(page) ? [page, page] : [page.replace('-', '--')]
       }
     }
   },
