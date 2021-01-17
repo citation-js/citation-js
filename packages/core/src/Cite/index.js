@@ -53,7 +53,6 @@ function Cite (data, options = {}) {
 
   this.set(data, options)
   this.options(options)
-  this.save()
 
   return this
 }
