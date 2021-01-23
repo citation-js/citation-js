@@ -198,6 +198,16 @@ export default new util.Translator([
     }
   },
   {
+    source: 'shortjournal',
+    target: 'journalAbbreviation',
+    when: {
+      source: false,
+      target: {
+        'container-title-short': false
+      }
+    }
+  },
+  {
     source: 'number',
     target: 'collection-number',
     when: {
@@ -372,6 +382,14 @@ export default new util.Translator([
     }
   },
   {
+    source: 'location',
+    target: 'jurisdiction',
+    when: {
+      source: { type: 'patent' },
+      target: { type: 'patent' }
+    }
+  },
+  {
     source: 'keywords',
     target: 'keyword',
     convert: Converters.KEYWORDS
@@ -402,9 +420,14 @@ export default new util.Translator([
     source: 'number',
     target: 'number',
     when: {
-      source: { [TYPE]: ['patent', 'report', 'techreport'] },
-      target: { type: ['patent', 'report'] }
+      source: { [TYPE]: ['patent', 'report', 'techreport', 'legislation'] },
+      target: { type: ['patent', 'report', 'legislation'] }
     }
+  },
+  {
+    source: 'origdate',
+    target: 'original-date',
+    convert: Converters.DATE
   },
   {
     source: 'origlocation',
@@ -458,7 +481,53 @@ export default new util.Translator([
     when: {
       source: true,
       target: {
-        type (type) { return type !== 'webpage' }
+        // All except:
+        //   - institution: thesis, report
+        //   - organization: webpage
+        type: [
+          'article',
+          'article-journal',
+          'article-magazine',
+          'article-newspaper',
+          'bill',
+          'book',
+          'broadcast',
+          'chapter',
+          'classic',
+          'collection',
+          'dataset',
+          'document',
+          'entry',
+          'entry-dictionary',
+          'entry-encyclopedia',
+          'event',
+          'figure',
+          'graphic',
+          'hearing',
+          'interview',
+          'legal_case',
+          'legislation',
+          'manuscript',
+          'map',
+          'motion_picture',
+          'musical_score',
+          'pamphlet',
+          'paper-conference',
+          'patent',
+          'performance',
+          'periodical',
+          'personal_communication',
+          'post',
+          'post-weblog',
+          'regulation',
+          'review',
+          'review-book',
+          'software',
+          'song',
+          'speech',
+          'standard',
+          'treaty'
+        ]
       }
     }
   },
@@ -484,7 +553,9 @@ export default new util.Translator([
         publisher: false,
         organization: false
       },
-      target: false
+      target: {
+        type: ['report', 'thesis']
+      }
     }
   },
   {
@@ -500,6 +571,18 @@ export default new util.Translator([
       target: {
         type: 'manuscript'
       }
+    }
+  },
+  {
+    source: ['pages', 'bookpagination'],
+    target: 'section',
+    when: {
+      source: { bookpagination: 'section' },
+      target: { page: false }
+    },
+    convert: {
+      toTarget (section) { return section },
+      toSource (section) { return [section, 'section'] }
     }
   },
   {
