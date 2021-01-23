@@ -292,5 +292,14 @@ export const Converters = {
         return state
       }
     }
+  },
+  TITLE: {
+    toTarget (title, subtitle, addon) {
+      if (subtitle) { title += ': ' + subtitle }
+      return title
+    },
+    toSource (title) {
+      return [title]
+    }
   }
 }

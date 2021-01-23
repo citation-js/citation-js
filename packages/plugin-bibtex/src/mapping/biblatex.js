@@ -146,15 +146,16 @@ export default new util.Translator([
   // multi-volume book.
   //     journaltitle is only used for articles.
   {
-    source: 'maintitle',
+    source: ['maintitle', 'mainsubtitle', 'maintitleaddon'],
     target: 'container-title',
     when: {
       source: true,
       target: { 'number-of-volumes': true }
-    }
+    },
+    convert: Converters.TITLE
   },
   {
-    source: 'booktitle',
+    source: ['booktitle', 'booksubtitle', 'booktitleaddon'],
     target: 'container-title',
     when: {
       source: { maintitle: false },
@@ -162,10 +163,11 @@ export default new util.Translator([
         'number-of-volumes': false,
         type (type) { return !type.startsWith('article') }
       }
-    }
+    },
+    convert: Converters.TITLE
   },
   {
-    source: 'journaltitle',
+    source: ['journaltitle', 'journalsubtitle', 'journaltitleaddon'],
     target: 'container-title',
     when: {
       source: { [TYPE]: 'article' },
@@ -177,7 +179,8 @@ export default new util.Translator([
           'article-magazine'
         ]
       }
-    }
+    },
+    convert: Converters.TITLE
   },
   {
     source: 'shortjournal',
@@ -509,8 +512,9 @@ export default new util.Translator([
     target: 'title-short'
   },
   {
-    source: 'title',
-    target: 'title'
+    source: ['title', 'subtitle', 'titleaddon'],
+    target: 'title',
+    convert: Converters.TITLE
   },
   {
     source: 'translator',
@@ -545,8 +549,8 @@ export default new util.Translator([
     target: 'number-of-volumes'
   }
   // {
-  //   source: 'issuetitle',
+  //   source: ['issuetitle', 'issuesubtitle', 'issuetitleaddon'],
   //   target: 'volume-title',
-  //   convert: Converters.RICH_TEXT
+  //   convert: Converters.TITLE
   // }
 ])
