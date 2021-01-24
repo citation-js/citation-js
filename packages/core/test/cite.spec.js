@@ -42,7 +42,10 @@ describe('Cite instance', () => {
 
   describe('function', () => {
     let test
-    beforeEach(() => { test = new Cite(input.empty) })
+    beforeEach(function () {
+      test = new Cite(input.empty)
+      test.save()
+    })
 
     describe('add()', () => {
       it('works', () => {
