@@ -124,6 +124,7 @@
     ],
     "chapter-number": "7",
     "container-title": "Omnibus One",
+    "collection-number": "1",
     "collection-title": "Omnibus",
     "type": "book",
     "id": "francis:chapter",
@@ -159,6 +160,7 @@
       }
     ],
     "container-title": "Omnibus One",
+    "collection-number": "1",
     "collection-title": "Omnibus",
     "type": "book",
     "id": "francis:book",
