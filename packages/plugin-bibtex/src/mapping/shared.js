@@ -152,7 +152,7 @@ export function parseMonth (value) {
     return []
   }
 
-  if (parseInt(value, 10)) {
+  if (+value) {
     return [parseInt(value, 10)]
   }
 
