@@ -1,28 +1,12 @@
-import fieldTypes from '../input/fieldTypes'
+import { diacritics, commands, ligatures, fieldTypes } from '../input/constants'
 
-/**
- * Mapping of BibTeX syntax chars to BibTeX Escaped Chars.
- *
- * From [Zotero's alwaysMap object](https://github.com/zotero/translators/blob/master/BibTeX.js#L225)
- * [REPO](https://github.com/zotero/translators)
- *
- * Accesed 11/20/2016
- *
- * @access private
- * @constant syntaxTokens
- * @default
- */
-const syntaxTokens = {
-  '|': '{\\textbar}',
-  '<': '{\\textless}',
-  '>': '{\\textgreater}',
-  '~': '{\\textasciitilde}',
-  '^': '{\\textasciicircum}',
-  '\\': '{\\textbackslash}',
-  // See http://tex.stackexchange.com/questions/230750/open-brace-in-bibtex-fields/230754
-  '{': '\\{\\vphantom{\\}}',
-  '}': '\\vphantom{\\{}\\}'
-}
+const unicode = {}
+for (const command in commands) { unicode[commands[command]] = `\\${command}{}` }
+for (const diacritic in diacritics) { unicode[diacritics[diacritic]] = diacritic }
+for (const ligature in ligatures) { unicode[ligatures[ligature]] = ligature }
+
+const UNSAFE_UNICODE = /[^a-zA-Z0-9\s!"#%&'()*+,\-.\/:;=?@[\]{}\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]/g
+const DIACRITIC_PATTERN = /.[\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]+/g
 
 const listDelimiters = {
   separated: ',',
@@ -40,7 +24,15 @@ const richTextMappings = {
 }
 
 function escapeValue (value) {
-  return value.replace(/[|<>~^\\{}]/g, match => syntaxTokens[match])
+  return value
+    .normalize('NFKD')
+    .replace(UNSAFE_UNICODE, char => char in unicode
+      ? unicode[char] in ligatures ? unicode[char] : `\\${unicode[char]}{}`
+      : ''
+    )
+    .replace(DIACRITIC_PATTERN, match => Array.from(match).reduce(
+      (subject, diacritic) => `{\\${unicode[diacritic]} ${subject}}`
+    ))
 }
 
 function formatRichText (value) {
@@ -95,7 +87,8 @@ function formatName (name) {
     parts.push(name.given)
   }
 
-  return parts.join(', ').trim()
+  return escapeValue(parts.join(', ').trim())
+}
 }
 
 function formatSingleValue (value, valueType) {
