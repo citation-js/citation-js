@@ -66,3 +66,19 @@ describe('output', function () {
     })
   }
 })
+
+describe('mapping', function () {
+  describe('biblatex', function () {
+    describe('output', function () {
+      const file = fs.readFileSync(path.join(__dirname, 'mapping/biblatex-output.bib'), 'utf8')
+      const expected = plugins.input.chainLink(file)
+      const input = require('./mapping/biblatex-csl.json')
+      for (let i = 0; i < input.length; i++) {
+        it(input[i].id, function () {
+          const actual = plugins.output.format('biblatex', [input[i]], { format: 'object' })
+          assert.deepStrictEqual(actual, [expected[i]])
+        })
+      }
+    })
+  })
+})
