@@ -9,15 +9,18 @@ const stopWords = new Set([
 
 // exclude HTML tags and all punctuation
 const unsafeChars = /(?:<\/?.*?>|[\u0020-\u002F\u003A-\u0040\u005B-\u005E\u0060\u007B-\u007F])+/g
+const unicode = /[^\u0020-\u007F]+/g
 
 function firstWord (text) {
   if (!text) {
     return ''
   } else {
-    return text.split(unsafeChars).find(word =>
+    return text
+      .normalize('NFKD')
+      .replace(unicode, '')
+      .split(unsafeChars)
       // find the first non-stopword
-      word.length && !stopWords.has(word.toLowerCase())
-    )
+      .find(word => word.length && !stopWords.has(word.toLowerCase()))
   }
 }
 
