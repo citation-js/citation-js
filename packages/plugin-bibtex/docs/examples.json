@@ -1,0 +1,743 @@
+[
+  {
+    "author": [
+      {
+        "given": "J R R",
+        "family": "Tolkien"
+      }
+    ],
+    "container-author": [
+      {
+        "given": "J R R",
+        "family": "Tolkien"
+      }
+    ],
+    "container-title": "Tales from the Perilous Realm",
+    "type": "book",
+    "id": "tolkien:single",
+    "citation-label": "tolkien:single",
+    "ISBN": "9780007280599",
+    "issued": {
+      "date-parts": [
+        [
+          2008
+        ]
+      ]
+    },
+    "original-date": {
+      "date-parts": [
+        [
+          1998
+        ]
+      ]
+    },
+    "page": "1-97",
+    "number-of-pages": "97",
+    "publisher-place": "London, UK",
+    "publisher": "HarperCollinsPublishers",
+    "title": "Roverandom"
+  },
+  {
+    "author": [
+      {
+        "given": "J R R",
+        "family": "Tolkien"
+      }
+    ],
+    "type": "book",
+    "id": "tolkien:all",
+    "citation-label": "tolkien:all",
+    "ISBN": "9780007280599",
+    "issued": {
+      "date-parts": [
+        [
+          2008
+        ]
+      ]
+    },
+    "publisher-place": "London, UK",
+    "publisher": "HarperCollinsPublishers",
+    "title": "Tales from the Perilous Realm"
+  },
+  {
+    "author": [
+      {
+        "given": "Rolf Günter",
+        "family": "Renner"
+      }
+    ],
+    "collection-number": "4",
+    "collection-title": "De Volkskrant — Moderne Meesters",
+    "type": "book",
+    "id": "renner:single",
+    "citation-label": "renner:single",
+    "ISBN": "9789461060075",
+    "issued": {
+      "date-parts": [
+        [
+          2010
+        ]
+      ]
+    },
+    "language": "Dutch",
+    "number-of-pages": "96",
+    "publisher-place": "Köln, Germany",
+    "publisher": "Taschen",
+    "title-short": "Hopper",
+    "title": "Edward Hopper: Transformaties van het werkelijke"
+  },
+  {
+    "author": [
+      {
+        "given": "Rolf Günter",
+        "family": "Renner"
+      }
+    ],
+    "chapter-number": "3",
+    "container-title": "Edward Hopper: Transformaties van het werkelijke",
+    "collection-number": "4",
+    "collection-title": "De Volkskrant — Moderne Meesters",
+    "type": "chapter",
+    "id": "renner:chapter",
+    "citation-label": "renner:chapter",
+    "ISBN": "9789461060075",
+    "issued": {
+      "date-parts": [
+        [
+          2010
+        ]
+      ]
+    },
+    "language": "Dutch",
+    "page": "30-43",
+    "number-of-pages": "13",
+    "publisher-place": "Köln, Germany",
+    "publisher": "Taschen",
+    "title": "Grensgebieden van de beschaving"
+  },
+  {
+    "author": [
+      {
+        "given": "Dick",
+        "family": "Francis"
+      }
+    ],
+    "chapter-number": "7",
+    "container-title": "Omnibus One",
+    "collection-title": "Omnibus",
+    "type": "book",
+    "id": "francis:chapter",
+    "citation-label": "francis:chapter",
+    "ISBN": "9780330393683",
+    "issued": {
+      "date-parts": [
+        [
+          1999
+        ]
+      ]
+    },
+    "original-date": {
+      "date-parts": [
+        [
+          1990
+        ]
+      ]
+    },
+    "original-publisher-place": "London, UK",
+    "original-publisher": "Pan Books",
+    "page": "138-161",
+    "number-of-pages": "23",
+    "publisher-place": "London, UK",
+    "publisher": "Pan Macmillan",
+    "title": "Longshot"
+  },
+  {
+    "author": [
+      {
+        "given": "Dick",
+        "family": "Francis"
+      }
+    ],
+    "container-title": "Omnibus One",
+    "collection-title": "Omnibus",
+    "type": "book",
+    "id": "francis:book",
+    "citation-label": "francis:book",
+    "ISBN": "9780330393683",
+    "issued": {
+      "date-parts": [
+        [
+          1999
+        ]
+      ]
+    },
+    "original-date": {
+      "date-parts": [
+        [
+          1990
+        ]
+      ]
+    },
+    "original-publisher-place": "London, UK",
+    "original-publisher": "Pan Books",
+    "page": "1-425",
+    "number-of-pages": "425",
+    "publisher-place": "London, UK",
+    "publisher": "Pan Macmillan",
+    "title": "Longshot"
+  },
+  {
+    "author": [
+      {
+        "given": "Dick",
+        "family": "Francis"
+      }
+    ],
+    "collection-number": "1",
+    "collection-title": "Omnibus",
+    "type": "book",
+    "id": "francis:omnibus",
+    "citation-label": "francis:omnibus",
+    "ISBN": "9780330393683",
+    "issued": {
+      "date-parts": [
+        [
+          1999
+        ]
+      ]
+    },
+    "number-of-pages": "1152",
+    "publisher-place": "London, UK",
+    "publisher": "Pan Macmillan",
+    "title": "Omnibus One"
+  },
+  {
+    "author": [
+      {
+        "given": "Diana",
+        "family": "Gabaldon"
+      }
+    ],
+    "container-title": "The Outlander Series",
+    "collection-number": "2",
+    "collection-title": "Outlander",
+    "type": "book",
+    "id": "gabaldon:book",
+    "citation-label": "gabaldon:book",
+    "ISBN": "9780440215622",
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          3
+        ]
+      ]
+    },
+    "original-date": {
+      "date-parts": [
+        [
+          1992
+        ]
+      ]
+    },
+    "original-publisher-place": "New York City, US",
+    "original-publisher": "Delacorte Press",
+    "publisher-place": "New York City, US",
+    "publisher": "Dell",
+    "title": "Dragonfly in Amber",
+    "number-of-volumes": 4
+  },
+  {
+    "author": [
+      {
+        "given": "Diana",
+        "family": "Gabaldon"
+      }
+    ],
+    "type": "book",
+    "id": "gabaldon:set",
+    "citation-label": "gabaldon:set",
+    "ISBN": "9781101887486",
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          3
+        ]
+      ]
+    },
+    "publisher-place": "New York City, US",
+    "publisher": "Dell",
+    "title": "The Outlander Series",
+    "number-of-volumes": 4
+  },
+  {
+    "author": [
+      {
+        "given": "David",
+        "family": "Burnie"
+      }
+    ],
+    "container-title": "Encyclopedie van Planten",
+    "type": "entry",
+    "id": "winklerprins:entry",
+    "citation-label": "winklerprins:entry",
+    "ISBN": "9789027455659",
+    "issued": {
+      "date-parts": [
+        [
+          2007
+        ]
+      ]
+    },
+    "language": "Dutch",
+    "original-date": {
+      "date-parts": [
+        [
+          2006
+        ]
+      ]
+    },
+    "original-publisher": "Dorling Kindersley",
+    "page": "34-35",
+    "number-of-pages": "2",
+    "publisher": "Het Spectrum",
+    "title": "Conifeerachtige Planten",
+    "translator": [
+      {
+        "given": "Ruud",
+        "family": "Rosmalen",
+        "non-dropping-particle": "van"
+      }
+    ]
+  },
+  {
+    "author": [
+      {
+        "given": "David",
+        "family": "Burnie"
+      }
+    ],
+    "type": "book",
+    "id": "winklerprins:entire",
+    "citation-label": "winklerprins:entire",
+    "ISBN": "9789027455659",
+    "issued": {
+      "date-parts": [
+        [
+          2007
+        ]
+      ]
+    },
+    "language": "Dutch",
+    "original-date": {
+      "date-parts": [
+        [
+          2006
+        ]
+      ]
+    },
+    "original-publisher": "Dorling Kindersley",
+    "number-of-pages": "96",
+    "publisher": "Het Spectrum",
+    "title": "Encyclopedie van Planten",
+    "translator": [
+      {
+        "given": "Ruud",
+        "family": "Rosmalen",
+        "non-dropping-particle": "van"
+      }
+    ]
+  },
+  {
+    "author": [
+      {
+        "given": "Timothy",
+        "family": "Gowers"
+      }
+    ],
+    "collection-number": "14",
+    "collection-title": "Elementaire Deeltjes",
+    "type": "book",
+    "id": "gowers:book",
+    "citation-label": "gowers:book",
+    "ISBN": "9789089648136",
+    "issued": {
+      "date-parts": [
+        [
+          2014
+        ]
+      ]
+    },
+    "language": "Dutch",
+    "original-date": {
+      "date-parts": [
+        [
+          2002
+        ]
+      ]
+    },
+    "original-publisher-place": "Oxford",
+    "original-publisher": "Oxford University Press",
+    "original-title": "Mathematics: A Very Short Introduction",
+    "publisher-place": "Amsterdam",
+    "publisher": "Amsterdam University Press",
+    "title": "Wiskunde",
+    "translator": [
+      {
+        "given": "Joost",
+        "family": "Mulder"
+      }
+    ]
+  },
+  {
+    "type": "legislation",
+    "id": "sarbanes:act",
+    "citation-label": "sarbanes:act",
+    "issued": {
+      "date-parts": [
+        [
+          2002,
+          7,
+          30
+        ]
+      ]
+    },
+    "number": "107-204",
+    "title": "Sarbanes-Oxley Act",
+    "URL": "https://uslaw.link/citation/stat/116/745",
+    "volume": "116 Stat. 745"
+  },
+  {
+    "author": [
+      {
+        "given": "Lars",
+        "family": "Willighagen"
+      }
+    ],
+    "type": "webpage",
+    "id": "willighagen:blog",
+    "citation-label": "willighagen:blog",
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          8,
+          18
+        ]
+      ]
+    },
+    "title": "Citation.js",
+    "URL": "https://larsgw.blogspot.com/2016/08/citationjs.html"
+  },
+  {
+    "author": [
+      {
+        "given": "Attila L.",
+        "family": "Egyedi"
+      },
+      {
+        "given": "Martin J.",
+        "family": "O'Connor"
+      },
+      {
+        "given": "Marcos",
+        "family": "Martínez-Romero"
+      },
+      {
+        "given": "Debra",
+        "family": "Willrett"
+      },
+      {
+        "given": "Josef",
+        "family": "Hardi"
+      },
+      {
+        "given": "John",
+        "family": "Graybeal"
+      },
+      {
+        "given": "Mark A.",
+        "family": "Musen"
+      }
+    ],
+    "container-title": "Proceedings of the 11th International Conference Semantic Web Applications and Tools for Life Sciences",
+    "collection-title": "CEUR Workshop Proceedings",
+    "editor": [
+      {
+        "given": "Christopher J. O.",
+        "family": "Baker"
+      },
+      {
+        "given": "Andra",
+        "family": "Waagmeester"
+      },
+      {
+        "given": "Anrea",
+        "family": "Splendiani"
+      },
+      {
+        "given": "Oya Deniz",
+        "family": "Beyan"
+      },
+      {
+        "given": "M. Scott",
+        "family": "Marshall"
+      }
+    ],
+    "type": "paper-conference",
+    "event-date": {
+      "date-parts": [
+        [
+          2018,
+          12,
+          3
+        ],
+        [
+          2018,
+          12,
+          6
+        ]
+      ]
+    },
+    "event-place": "Antwerp, Belgium",
+    "event": "SWAT4HCLS",
+    "id": "swat4hcls:paper",
+    "citation-label": "swat4hcls:paper",
+    "issue": 2275,
+    "issued": {
+      "date-parts": [
+        [
+          2018,
+          12,
+          13
+        ]
+      ]
+    },
+    "keyword": "Metadata,Metadata Management,Ontologies",
+    "page": "1-10",
+    "number-of-pages": "10",
+    "publisher-place": "Aachen",
+    "title": "Using Semantic Technologies to Enhance Metadata Submissions to Public Repositories in Biomedicine",
+    "URL": "http://ceur-ws.org/Vol-2275/paper1.pdf"
+  },
+  {
+    "collection-number": "2275",
+    "collection-title": "CEUR Workshop Proceedings",
+    "editor": [
+      {
+        "given": "Christopher J. O.",
+        "family": "Baker"
+      },
+      {
+        "given": "Andra",
+        "family": "Waagmeester"
+      },
+      {
+        "given": "Anrea",
+        "family": "Splendiani"
+      },
+      {
+        "given": "Oya Deniz",
+        "family": "Beyan"
+      },
+      {
+        "given": "M. Scott",
+        "family": "Marshall"
+      }
+    ],
+    "type": "book",
+    "event-date": {
+      "date-parts": [
+        [
+          2018,
+          12,
+          3
+        ],
+        [
+          2018,
+          12,
+          6
+        ]
+      ]
+    },
+    "event-place": "Antwerp, Belgium",
+    "event": "SWAT4HCLS",
+    "id": "swat4hcls:proceedings",
+    "citation-label": "swat4hcls:proceedings",
+    "issued": {
+      "date-parts": [
+        [
+          2018,
+          12,
+          13
+        ]
+      ]
+    },
+    "publisher-place": "Aachen",
+    "title": "Proceedings of the 11th International Conference Semantic Web Applications and Tools for Life Sciences",
+    "URL": "http://ceur-ws.org/Vol-2275/"
+  },
+  {
+    "author": [
+      {
+        "family": "Edusupport Biosciences"
+      }
+    ],
+    "type": "book",
+    "id": "radboud:manual",
+    "citation-label": "radboud:manual",
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          9,
+          2
+        ]
+      ]
+    },
+    "publisher": "Faculty of Science, Radboud University",
+    "title": "Guidelines for written reports: Bachelor Biosciences"
+  },
+  {
+    "author": [
+      {
+        "given": "Evgeny Borisovich",
+        "family": "Yakovlev"
+      }
+    ],
+    "type": "thesis",
+    "id": "yakovlev:thesis",
+    "citation-label": "yakovlev:thesis",
+    "issued": {
+      "date-parts": [
+        [
+          1994
+        ]
+      ]
+    },
+    "language": "Russian",
+    "number-of-pages": "128",
+    "publisher-place": "Petrozavodsk, Russia",
+    "publisher": "Karelian Research Centre RAN",
+    "title": "Palaearctic Diptera associated with Fungi and Myxomycetes"
+  },
+  {
+    "author": [
+      {
+        "given": "Yusuke",
+        "family": "Terano"
+      }
+    ],
+    "type": "thesis",
+    "genre": "Student report",
+    "id": "terano:thesis",
+    "citation-label": "terano:thesis",
+    "issued": {
+      "date-parts": [
+        [
+          2010
+        ]
+      ]
+    },
+    "language": "English",
+    "number-of-pages": "58",
+    "publisher": "Wageningen University",
+    "title": "Termite abundance, taxonomic richness and soil properties in conventional and conservation tillage systems in Western Kenya",
+    "URL": "https://library.wur.nl/WebQuery/theses/1950807"
+  },
+  {
+    "author": [
+      {
+        "given": "Nikola",
+        "family": "Tesla"
+      }
+    ],
+    "type": "patent",
+    "genre": "patentus",
+    "id": "tesla:patent",
+    "citation-label": "tesla:patent",
+    "issued": {
+      "date-parts": [
+        [
+          1886,
+          1,
+          26
+        ]
+      ]
+    },
+    "number": "US334823A",
+    "title": "Commutator for dynamo-electric machines",
+    "URL": "https://patents.google.com/patent/US334823"
+  },
+  {
+    "author": [
+      {
+        "given": "Martin",
+        "family": "Doerr"
+      },
+      {
+        "given": "Achille",
+        "family": "Felicetti"
+      },
+      {
+        "given": "Sorin",
+        "family": "Hermon"
+      },
+      {
+        "given": "Gerald",
+        "family": "Hiebel"
+      },
+      {
+        "given": "Athina",
+        "family": "Kritsotaki"
+      },
+      {
+        "given": "Anja",
+        "family": "Masur"
+      },
+      {
+        "family": "May",
+        "suffix": "Keith"
+      },
+      {
+        "given": "Paola",
+        "family": "Ronzino"
+      },
+      {
+        "given": "Wolfgang",
+        "family": "Schmidle"
+      },
+      {
+        "given": "Maria",
+        "family": "Theodoridou"
+      },
+      {
+        "given": "Despoina",
+        "family": "Tsiafaki"
+      },
+      {
+        "given": "Eleni",
+        "family": "Cristaki"
+      }
+    ],
+    "type": "report",
+    "genre": "techreport",
+    "id": "doerr:report",
+    "citation-label": "doerr:report",
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          2
+        ]
+      ]
+    },
+    "number-of-pages": "59",
+    "publisher-place": "Prato, Italy",
+    "publisher": "PIN, University of Florence",
+    "title": "Definition of the CRMarchaeo: Extension of CIDOC CRM to support the archaeological excavation process",
+    "URL": "http://www.cidoc-crm.org/crmarchaeo/sites/default/files/CRMarchaeo_v1.4.8.pdf",
+    "version": "1.4.8"
+  }
+]
