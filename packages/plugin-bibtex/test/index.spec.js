@@ -69,13 +69,25 @@ describe('output', function () {
 
 describe('mapping', function () {
   describe('biblatex', function () {
+    const csl = require('./mapping/biblatex-csl.json')
+
+    describe('input', function () {
+      const file = fs.readFileSync(path.join(__dirname, 'mapping/biblatex-input.bib'), 'utf8')
+      const input = plugins.input.chainLink(file)
+      for (let i = 0; i < input.length; i++) {
+        it(input[i].label, function () {
+          const actual = plugins.input.chain(input[i], { generateGraph: false })
+          assert.deepStrictEqual(actual, [csl[i]])
+        })
+      }
+    })
+
     describe('output', function () {
       const file = fs.readFileSync(path.join(__dirname, 'mapping/biblatex-output.bib'), 'utf8')
       const expected = plugins.input.chainLink(file)
-      const input = require('./mapping/biblatex-csl.json')
-      for (let i = 0; i < input.length; i++) {
-        it(input[i].id, function () {
-          const actual = plugins.output.format('biblatex', [input[i]], { format: 'object' })
+      for (let i = 0; i < csl.length; i++) {
+        it(csl[i].id, function () {
+          const actual = plugins.output.format('biblatex', [csl[i]], { format: 'object' })
           assert.deepStrictEqual(actual, [expected[i]])
         })
       }

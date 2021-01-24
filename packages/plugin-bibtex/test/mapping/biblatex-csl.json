@@ -247,7 +247,7 @@
     "publisher-place": "New York City, US",
     "publisher": "Dell",
     "title": "Dragonfly in Amber",
-    "number-of-volumes": 4
+    "number-of-volumes": "4"
   },
   {
     "author": [
@@ -271,7 +271,7 @@
     "publisher-place": "New York City, US",
     "publisher": "Dell",
     "title": "The Outlander Series",
-    "number-of-volumes": 4
+    "number-of-volumes": "4"
   },
   {
     "author": [
@@ -332,6 +332,7 @@
       ]
     },
     "language": "Dutch",
+    "note": "The accompanying site is not online anymore.",
     "original-date": {
       "date-parts": [
         [
@@ -411,6 +412,15 @@
     "volume": "116 Stat. 745"
   },
   {
+    "accessed": {
+      "date-parts": [
+        [
+          2021,
+          1,
+          23
+        ]
+      ]
+    },
     "author": [
       {
         "given": "Lars",
@@ -506,7 +516,7 @@
     "event": "SWAT4HCLS",
     "id": "swat4hcls:paper",
     "citation-label": "swat4hcls:paper",
-    "issue": 2275,
+    "issue": "2275",
     "issued": {
       "date-parts": [
         [
@@ -738,8 +748,46 @@
     "number-of-pages": "59",
     "publisher-place": "Prato, Italy",
     "publisher": "PIN, University of Florence",
+    "status": "prepublished",
     "title": "Definition of the CRMarchaeo: Extension of CIDOC CRM to support the archaeological excavation process",
     "URL": "http://www.cidoc-crm.org/crmarchaeo/sites/default/files/CRMarchaeo_v1.4.8.pdf",
     "version": "1.4.8"
+  },
+  {
+    "author": [
+      {
+        "given": "N A",
+        "family": "Hutchinson"
+      },
+      {
+        "given": "Z J",
+        "family": "Koles"
+      },
+      {
+        "given": "R S",
+        "family": "Smith"
+      }
+    ],
+    "container-title": "Journal of Physiology",
+    "container-title-short": "J Physiol",
+    "type": "article-journal",
+    "id": "hutchinson:article",
+    "citation-label": "hutchinson:article",
+    "ISSN": "0022-3751",
+    "issue": "2",
+    "issued": {
+      "date-parts": [
+        [
+          1970,
+          6
+        ]
+      ]
+    },
+    "page": "279-289",
+    "number-of-pages": "10",
+    "PMID": "5500723",
+    "title": "Conduction velocity in myelinated nerve fibres of <i>Xenopos laevis</i>",
+    "URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1348748/",
+    "volume": "208"
   }
 ]
