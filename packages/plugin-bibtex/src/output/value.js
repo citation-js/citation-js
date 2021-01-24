@@ -102,6 +102,9 @@ function formatSingleValue (value, valueType) {
       return formatRichText(value.toString())
     case 'name':
       return formatName(value)
+    case 'verbatim':
+    case 'uri':
+      return value.toString()
     default:
       return escapeValue(value.toString())
   }
