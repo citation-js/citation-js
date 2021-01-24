@@ -89,11 +89,15 @@ function formatName (name) {
 
   return escapeValue(parts.join(', ').trim())
 }
+
+function formatTitle (title) {
+  return formatRichText(title).replace(/(?<!^|:\s*)\b[a-z]*[A-Z].*?\b/g, '{$&}')
 }
 
 function formatSingleValue (value, valueType) {
   switch (valueType) {
     case 'title':
+      return formatTitle(value)
     case 'literal':
       return formatRichText(value.toString())
     case 'name':
