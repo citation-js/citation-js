@@ -10,6 +10,8 @@ isolate-0x*
 debug.html
 lerna-debug.log
 /saveConfig.js
+/packages/*/dev.js
+/packages/*/test.js
 
 # generated content
 build/
