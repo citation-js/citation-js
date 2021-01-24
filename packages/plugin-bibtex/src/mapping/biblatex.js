@@ -216,6 +216,8 @@ export default new util.Translator([
           'book',
           'mvbook',
           'inbook',
+          'bookinbook',
+          'suppbook',
           'collection',
           'mvcollection',
           'incollection',
@@ -362,7 +364,7 @@ export default new util.Translator([
         [TYPE]: ['article', 'periodical', 'inproceedings']
       },
       target: {
-        issue (issue) { return typeof issue === 'number' || issue.match(/\d+/) },
+        issue (issue) { return issue && (typeof issue === 'number' || issue.match(/\d+/)) },
         type: ['article', 'article-journal', 'article-newspaper', 'article-magazine', 'paper-conference']
       }
     }

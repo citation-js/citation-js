@@ -85,8 +85,8 @@ export const MONTHS = {
   december: 12
 }
 
-// See section 4.9.2.13
 export const TYPE_KEYS = {
+  // See section 4.9.2.13
   bathesis: 'Bachelor\'s thesis',
   mathesis: 'Master\'s thesis',
   phdthesis: 'PhD thesis',
@@ -95,7 +95,21 @@ export const TYPE_KEYS = {
   resreport: 'research report',
   software: 'computer software',
   datacd: 'data cd',
-  audiocd: 'audio cd'
+  audiocd: 'audio cd',
+
+  // See section 4.9.2.20
+  patent: 'patent',
+  patentde: 'German patent',
+  patenteu: 'European patent',
+  patentfr: 'French patent',
+  patentuk: 'British patent',
+  patentus: 'U.S. patent',
+  patreq: 'patent request',
+  patreqde: 'German patent request',
+  patreqeu: 'European patent request',
+  patreqfr: 'French patent request',
+  patrequk: 'British patent request',
+  patrequs: 'U.S. patent request',
 }
 
 // isan: /^(?:ISAN )?(?:[0-9a-f]{4}-){4}[0-9a-z](?:-(?:[0-9a-f]{4}-){2}[0-9a-z])?$/i
@@ -282,7 +296,7 @@ export const Converters = {
     },
     toSource (number) {
       const match = number.toString().match(STANDARD_NUMBERS_PATTERN)
-      return match ? match.slice(1, 5) : undefined
+      return match ? match.slice(1, 5) : []
     }
   },
   // See section 4.9.2.11

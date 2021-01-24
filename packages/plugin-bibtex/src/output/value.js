@@ -75,19 +75,7 @@ function formatName (name) {
   const parts = ['']
 
   if (name.prefix && name.family) {
-    const prefixParts = name.prefix.split(/([ -])/)
-    if (prefixParts.length === 1) {
-      parts.push(name.prefix)
-    }
-
-    const last = prefixParts.pop()
-    if (last[0] && last[0] === last[0].toUpperCase()) {
-      prefixParts.push(`{${last}}`)
-    } else {
-      prefixParts.push(last)
-    }
-
-    parts[0] += prefixParts.join('') + ' '
+    parts[0] += name.prefix + ' '
   }
 
   if (name.family) {
