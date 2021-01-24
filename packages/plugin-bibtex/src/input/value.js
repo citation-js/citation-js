@@ -471,8 +471,8 @@ function getMainRule (fieldType, languages) {
 
   if (fieldType[1] === 'title') {
     const option = config.parse.sentenceCase
-    if (option === 'force' || (option === 'english' && isEnglIsh(languages))) {
-      return 'StringTitle'
+    if (option === 'always' || (option === 'english' && isEnglIsh(languages))) {
+      return 'StringTitleCase'
     } else {
       return 'String'
     }
