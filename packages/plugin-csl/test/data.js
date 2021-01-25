@@ -96,6 +96,16 @@ module.exports = {
       bibliographyData,
       '<div class="csl-bib-body">\n  <div data-csl-entry-id="Q23571040" class="csl-entry">aHall, H. K. (1957). Correlation of the Base Strengths of Amines 1. <i>Journal of the American Chemical Society</i>, <i>79</i>(20), 5441–5444. https://doi.org/10.1021/ja01577a030b</div>\n</div>',
       { format: 'html', template: 'apa', prepend: 'a', append: 'b' }
+    ],
+    'specific entries': [
+      citationData,
+      'a\nb',
+      { template: 'custom', entry: ['1', '2'] }
+    ],
+    'specific entry': [
+      citationData,
+      'e',
+      { template: 'custom', entry: ['3'] }
     ]
   },
   citation: {

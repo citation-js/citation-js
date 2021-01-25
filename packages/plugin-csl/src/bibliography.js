@@ -27,6 +27,7 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  * @param {String} [options.lang='en-US']
  * @param {String} [options.format='text']
  * @param {Booolean} [options.nosort=false]
+ * @param {String|Array<String>} [options.entry]
  * @param {Cite~wrapper} [options.prepend]
  * @param {Cite~wrapper} [options.append]
  *
@@ -39,9 +40,10 @@ export default function bibliography (data, options = {}) {
     format = 'text',
     nosort = false
   } = options
+  const ids = options.entry ? [].concat(options.entry) : data.map(({ id }) => id)
 
   const citeproc = prepareEngine(data, template, lang, format)
-  const sortedIds = citeproc.updateItems(data.map(entry => entry.id), nosort)
+  const sortedIds = citeproc.updateItems(ids, nosort)
 
   if (options.append || options.prepend) {
     const { append, prepend } = options

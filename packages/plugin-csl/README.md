@@ -34,6 +34,7 @@ Formats and other features added by this plugin. General output options:
     * `fr-FR`
     * `nl-NL`
   * `format`: output (markup) format. Note: this doesn't support the output format dictionaries
+  * `entry` (`String`, `Array[String]`): entry ID or list of entry IDs to identify the items to cite
 
 ### Bibliography
 
@@ -81,10 +82,6 @@ cite.format('bibliography', {
 This prepends `[$ID]: ` to each entry, where `$ID` is the ID of that entry, and appends ` [Retrieved on $DATE]`, where `$DATE` is today (constant for all entries).
 
 ### Citation
-
-This plugin adds the output format `citation`, and accepts the following specific options:
-
-  * `entry` (`String`, `Array[String]`): entry ID or list of entry IDs to identify the items to cite
 
 Here's an example for `entry`:
 
