@@ -12,6 +12,7 @@ const bibtexTypes = {
   'article-journal': 'article',
   'article-magazine': 'article',
   'article-newspaper': 'article',
+
   book: 'book',
   chapter: 'incollection',
   graphic: 'misc',
@@ -19,6 +20,7 @@ const bibtexTypes = {
   manuscript: 'unpublished',
   motion_picture: 'misc',
   'paper-conference': 'inproceedings',
+  'proceedings-article': "inproceedings",
   patent: 'patent',
   personal_communication: 'misc',
   report: 'techreport',
