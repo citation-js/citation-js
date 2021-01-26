@@ -5,7 +5,8 @@ for (const command in commands) { unicode[commands[command]] = command }
 for (const diacritic in diacritics) { unicode[diacritics[diacritic]] = diacritic }
 for (const ligature in ligatures) { unicode[ligatures[ligature]] = ligature }
 
-const UNSAFE_UNICODE = /[^a-zA-Z0-9\s!"#%&'()*+,\-.\/:;=?@[\]{}\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]/g
+// eslint-disable-next-line no-misleading-character-class
+const UNSAFE_UNICODE = /[^a-zA-Z0-9\s!"#%&'()*+,\-./:;=?@[\]{}\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]/g
 const DIACRITIC_PATTERN = /.[\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]+/g
 
 const listDelimiters = {

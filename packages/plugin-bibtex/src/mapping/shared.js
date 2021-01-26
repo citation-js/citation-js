@@ -112,7 +112,7 @@ export const TYPE_KEYS = {
   patreqeu: 'European patent request',
   patreqfr: 'French patent request',
   patrequk: 'British patent request',
-  patrequs: 'U.S. patent request',
+  patrequs: 'U.S. patent request'
 }
 
 // isan: /^(?:ISAN )?(?:[0-9a-f]{4}-){4}[0-9a-z](?:-(?:[0-9a-f]{4}-){2}[0-9a-z])?$/i
