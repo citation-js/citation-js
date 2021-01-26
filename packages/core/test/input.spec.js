@@ -196,6 +196,17 @@ describe('input', function () {
       it('keeps custom fields', function () {
         expect(util.clean([{ _foo: 1 }], false)).to.eql([{ _foo: 1 }])
       })
+      it('keeps valid types', function () {
+        let input = [{ type: 'personal_communication' }]
+        expect(util.clean(input, false)).to.eql(input)
+      })
+      it('removes invalid types', function () {
+        let input
+        input = [{ type: 'foo' }]
+        expect(util.clean(input, false)).to.eql([{}])
+        input = [{ type: 'proceedings-article' }]
+        expect(util.clean(input, false)).to.eql([{}])
+      })
       it('keeps valid names', function () {
         let input
         input = [{ author: [{ literal: 'foo' }] }]
@@ -255,6 +266,20 @@ describe('input', function () {
         it('on arrays that should be single values', function () {
           expect(util.clean([{ ISBN: ['12345667890'] }], true)).to.eql([{ ISBN: '12345667890' }])
           expect(util.clean([{ ISSN: ['1234-5678', '9101-1121'] }], true)).to.eql([{ ISSN: '1234-5678' }])
+        })
+        it('on array with types', function () {
+          expect(util.clean([{
+            type: ['article-newspaper', 'review-book']
+          }])).to.eql([{
+            type: 'article-newspaper'
+          }])
+        })
+        it('on mapped invalid types', function () {
+          expect(util.clean([{
+            type: 'proceedings-article'
+          }])).to.eql([{
+            type: 'paper-conference'
+          }])
         })
         it('on unparsed names', function () {
           expect(util.clean([{
