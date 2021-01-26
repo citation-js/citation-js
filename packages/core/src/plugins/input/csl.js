@@ -273,12 +273,17 @@ const correctDate = function (date, bestGuessConversions) {
  * @access private
  * @memberof module:@citation-js/core.plugins.input.util
  *
- * @param {String} type - type
+ * @param {String|*} type - type
  * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
  *
  * @return {String|undefined} returns the (corrected) value if possible, otherwise undefined
  */
 const correctType = function (type, bestGuessConversions) {
+  // Also anything that can be converted to a string. Taking `language` as a field
+  // with similar string constraints, as fields like `title` might take HTML into
+  // account in the future.
+  type = correctField('language', type, bestGuessConversions)
+
   if (entryTypes[type] === true) {
     return type
   } else if (bestGuessConversions && type in entryTypes) {
