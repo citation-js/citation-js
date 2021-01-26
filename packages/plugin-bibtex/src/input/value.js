@@ -66,6 +66,7 @@ const lexer = moo.states({
 })
 
 function flattenConsString (string) {
+  // eslint-disable-next-line no-unused-expressions
   string[0]
   return string
 }
