@@ -102,7 +102,7 @@ export default new util.Translator([
     target: 'container-title',
     when: {
       target: {
-        type: ['chapter']
+        type: ['chapter', 'paper-conference']
       }
     }
   },
@@ -131,14 +131,6 @@ export default new util.Translator([
     source: 'editor',
     target: 'editor',
     convert: Converters.NAMES
-  },
-  {
-    source: 'type',
-    target: 'genre',
-    when: {
-      source: { [TYPE]: 'techreport' },
-      target: { type: 'report' }
-    }
   },
   {
     source: LABEL,
@@ -301,10 +293,10 @@ export default new util.Translator([
     target: 'title'
   },
   {
-    source: TYPE,
+    source: [TYPE, 'type'],
     target: ['type', 'genre'],
     convert: {
-      toTarget (sourceType) {
+      toTarget (sourceType, subType) {
         const type = types.source[sourceType] || 'book'
 
         if (type === 'mastersthesis') {
@@ -312,18 +304,18 @@ export default new util.Translator([
         } else if (type === 'phdthesis') {
           return [type, 'PhD thesis']
         } else {
-          return [type]
+          return [type, subType]
         }
       },
       toSource (targetType, genre) {
         const type = types.target[targetType] || 'misc'
 
-        if (genre === 'Master\'s thesis') {
-          return 'mastersthesis'
-        } else if (genre === 'PhD thesis') {
-          return 'phdthesis'
+        if (/^(master'?s|diploma) thesis$/i.test(genre)) {
+          return ['mastersthesis']
+        } else if (/^(phd|doctoral) thesis$/i.test(genre)) {
+          return ['phdthesis']
         } else {
-          return type
+          return [type, genre]
         }
       }
     }

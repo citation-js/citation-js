@@ -1,0 +1,10 @@
+[Fau86]
+
+    author:    J.W. Goethe
+    title:     Faust. Der Tragödie Erster Teil
+
+
+    publisher: Reclam
+    year:      1986
+    address:   Stuttgart
+  
