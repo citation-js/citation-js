@@ -299,12 +299,14 @@ export default new util.Translator([
       toTarget (sourceType, subType) {
         const type = types.source[sourceType] || 'book'
 
-        if (type === 'mastersthesis') {
+        if (subType) {
+          return [type, subType]
+        } else if (sourceType === 'mastersthesis') {
           return [type, 'Master\'s thesis']
-        } else if (type === 'phdthesis') {
+        } else if (sourceType === 'phdthesis') {
           return [type, 'PhD thesis']
         } else {
-          return [type, subType]
+          return [type]
         }
       },
       toSource (targetType, genre) {

@@ -1,7 +1,7 @@
 import { diacritics, commands, ligatures, fieldTypes } from '../input/constants'
 
 const unicode = {}
-for (const command in commands) { unicode[commands[command]] = `\\${command}{}` }
+for (const command in commands) { unicode[commands[command]] = command }
 for (const diacritic in diacritics) { unicode[diacritics[diacritic]] = diacritic }
 for (const ligature in ligatures) { unicode[ligatures[ligature]] = ligature }
 
@@ -71,13 +71,7 @@ function formatName (name) {
   }
 
   if (name.family) {
-    parts[0] += name.family.replace(/([ -])(.)([^ -]*)/g, (_, delimiter, first, rest) => {
-      if (first === first.toLowerCase()) {
-        return delimiter + `{${first + rest}}`
-      } else {
-        return delimiter + first + rest
-      }
-    })
+    parts[0] += name.family
   }
 
   if (name.suffix) {
