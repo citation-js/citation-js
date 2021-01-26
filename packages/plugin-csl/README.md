@@ -43,16 +43,17 @@ This plugin adds the output format `bibliography`, and accepts the following spe
   * `prepend` (`String`, `Function`): prepend static or dynamic text to each entry
   * `append` (`String`, `Function`): append static or dynamic text to each entry
   * `nosort` (`Boolean`, default: `false`): do not sort according to the style-defined rules
+  * `asEntryArray` (`Boolean`, default: `false`): return an array of entries consisting of an id and the output for that individual entry
 
 Here's an example for `prepend` and `append`:
 
 ```js
-let cite = new Cite({id: 'a', title: 'Item A'})
+let cite = new Cite({ id: 'a', title: 'Item A' })
 
-cite.format('bibliography', {append: ' [foobar]'})
+cite.format('bibliography', { append: ' [foobar]' })
 // 'Item A. (n.d.). [foobar]\n'
 
-cite.format('bibliography', {prepend (entry) { return `${entry.id}: ` }})
+cite.format('bibliography', { prepend (entry) { return `${entry.id}: ` } })
 // 'a: Item A. (n.d.).\n'
 ```
 
@@ -81,24 +82,45 @@ cite.format('bibliography', {
 
 This prepends `[$ID]: ` to each entry, where `$ID` is the ID of that entry, and appends ` [Retrieved on $DATE]`, where `$DATE` is today (constant for all entries).
 
+Here's an example for `asEntryArray`:
+
+```js
+const cite = new Cite([
+  { id: 'a', title: 'Item A', issued: { literal: 2021 } },
+  { id: 'b', title: 'Item B', issued: { literal: 2021 } }
+])
+
+cite.format('bibliography', { asEntryArray: true })
+// [
+//   [
+//     "a"
+//     "Item A. (2021).\n"
+//   ],
+//   [
+//     "b"
+//     "Item B. (2021).\n"
+//   ]
+// ]
+```
+
 ### Citation
 
 Here's an example for `entry`:
 
 ```js
 let cite = new Cite([
-  {id: 'a', title: 'Item A', issued: {'date-parts': [[2016]]}},
-  {id: 'b', title: 'Item B', issued: {'date-parts': [[2017]]}},
-  {id: 'c', title: 'Item C', issued: {'date-parts': [[2018]]}}
+  { id: 'a', title: 'Item A', issued: { 'date-parts': [[2016]] } },
+  { id: 'b', title: 'Item B', issued: { 'date-parts': [[2017]] } },
+  { id: 'c', title: 'Item C', issued: { 'date-parts': [[2018]] } }
 ])
 
 cite.format('citation')
 // '(“Item A,” 2016; “Item B,” 2017; “Item C,” 2018)'
 
-cite.format('citation', {entry: ['a', 'b']})
+cite.format('citation', { entry: ['a', 'b'] })
 // '(“Item A,” 2016; “Item B,” 2017)'
 
-cite.format('citation', {entry: 'a'})
+cite.format('citation', { entry: 'a' })
 // '(“Item A,” 2016)'
 ```
 
@@ -156,7 +178,7 @@ The configuration object also exposes an internal method to prepare a Citeproc e
 let config = plugins.config.get('csl')
 
 let citeproc = plugins.engine(
-  /* data: */ [{...}],
+  /* data: */ [{ ... }],
   /* template: */ 'apa',
   /* locale: */ 'en-US',
   /* format: */ 'html'

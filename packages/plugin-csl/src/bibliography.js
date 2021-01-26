@@ -26,6 +26,7 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  * @param {String} [options.template='apa']
  * @param {String} [options.lang='en-US']
  * @param {String} [options.format='text']
+ * @param {Booolean} [options.asEntryArray=false]
  * @param {Booolean} [options.nosort=false]
  * @param {String|Array<String>} [options.entry]
  * @param {Cite~wrapper} [options.prepend]
@@ -57,6 +58,10 @@ export default function bibliography (data, options = {}) {
   const bibliography = citeproc.makeBibliography()
   const [{ bibstart, bibend }, bibBody] = bibliography
   const entries = bibBody.map((element, index) => getPrefixedEntry(element, sortedIds[index]))
+
+  if (options.asEntryArray) {
+    return entries.map((element, index) => [sortedIds[index], element])
+  }
 
   return bibstart + entries.join('') + bibend
 }
