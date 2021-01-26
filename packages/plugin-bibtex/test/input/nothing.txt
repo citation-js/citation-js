@@ -1,0 +1,4 @@
+[]
+
+[foo]
+  title: foo

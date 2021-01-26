@@ -28,6 +28,20 @@
     "invalid rich text title": [[
       {"title": "<span class=\"\"subscript\"\">sub</span>"}
     ]],
+    "unicode escapes": [[
+      {"title": "Foo —"},
+      {"title": "Bar ⸘"},
+      {"title": "Baz 🙂"}
+    ]],
+    "list with and": [[
+      {
+        "type": "book",
+        "author": [{"literal": "Organizations and Institutions"}],
+        "publisher": "Organizations and Institutions Ltd.",
+        "title": "Publication",
+        "issued": {"date-parts": [[2021]]}
+      }
+    ]],
     "editor": [[
       {
         "id": "Q37108228",

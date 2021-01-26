@@ -154,6 +154,56 @@
         }
       }]
     ],
+    "with string and preamble": [
+      null,
+      [{
+        "citation-label": "b",
+        "id": "b",
+        "type": "book",
+        "title": "Foobar"
+      }]
+    ],
+    "with crossref": [
+      null,
+      [
+        {
+          "id": "a",
+          "citation-label": "a",
+          "type": "book",
+          "title": "Foo",
+          "author": [{"given": "First", "family": "Last"}],
+          "issued": { "date-parts": [[2021]] }
+        },
+        {
+          "id": "b",
+          "citation-label": "b",
+          "type": "book",
+          "title": "Bar",
+          "author": [{"given": "First", "family": "Last"}]
+        }
+      ]
+    ],
+    "with different delimiters": [
+      null,
+      [
+        {
+          "id": "a",
+          "citation-label": "a",
+          "type": "book",
+          "title": "Title",
+          "author": [{"given": "First", "family": "Last"}],
+          "issued": { "date-parts": [[2021]] }
+        },
+        {
+          "id": "b",
+          "citation-label": "b",
+          "type": "book",
+          "title": "Title",
+          "author": [{"given": "First", "family": "Last"}],
+          "issued": { "date-parts": [[2021]] }
+        }
+      ]
+    ],
     "with a complete article": [
       null,
       [{
@@ -560,6 +610,13 @@
         "id": "Fau86",
         "citation-label": "Fau86"
       }]
+    ],
+    "with nothing": [
+      null,
+      [
+        {},
+        { "type": "book", "id": "foo", "citation-label": "foo", "title": "foo" }
+      ]
     ]
   }
 }

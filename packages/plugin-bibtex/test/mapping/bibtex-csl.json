@@ -391,5 +391,52 @@
         ]
       ]
     }
+  },
+  {
+    "type": "thesis",
+    "id": "MastersThesis2",
+    "citation-label": "MastersThesis2",
+    "author": [
+      {
+        "family": "Adams",
+        "given": "Alice"
+      }
+    ],
+    "title": "Lorem Ipsum",
+    "publisher": "The University",
+    "issued": {
+      "date-parts": [
+        [
+          2020,
+          2
+        ]
+      ]
+    },
+    "genre": "Master's thesis",
+    "note": "This is a note."
+  },
+  {
+    "type": "thesis",
+    "id": "PhdThesis2",
+    "citation-label": "PhdThesis2",
+    "author": [
+      {
+        "family": "Adams",
+        "given": "Alice"
+      }
+    ],
+    "title": "Lorem Ipsum",
+    "publisher": "The University",
+    "issued": {
+      "date-parts": [
+        [
+          2020,
+          2
+        ]
+      ]
+    },
+    "genre": "PhD thesis",
+    "publisher-place": "Goodville",
+    "note": "This is a note."
   }
 ]

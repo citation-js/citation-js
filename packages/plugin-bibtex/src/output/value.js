@@ -114,6 +114,7 @@ function formatList (values, valueType, listType) {
 }
 
 export function format (field, value) {
+  /* istanbul ignore if: not relevant in normal use */
   if (!(field in fieldTypes)) {
     return formatSingleValue(value, 'verbatim')
   }
