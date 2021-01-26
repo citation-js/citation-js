@@ -39,6 +39,7 @@ const parseBibTxtEntry = entry => {
     pairs.trim().split(bibTxtRegex.splitPairs).filter(v => v).forEach(pair => {
       let [key, value] = pair.split(bibTxtRegex.splitPair)
 
+      /* istanbul ignore else  */
       if (value) {
         key = key.trim()
         value = value.trim()

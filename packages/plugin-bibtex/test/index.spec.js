@@ -55,6 +55,16 @@ function processOutput (output) {
 }
 
 describe('output', function () {
+  it('errors for invalid format dicts', function () {
+    assert.throws(
+      () => plugins.output.format('biblatex', [], { format: 'latex' }),
+      {
+        name: 'RangeError',
+        message: 'Output dictionary "latex" not available'
+      }
+    )
+  })
+
   for (const type in outputData) {
     describe(type, function () {
       it('is registered', function () {
