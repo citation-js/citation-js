@@ -237,9 +237,7 @@ export const Converters = {
         return [
           year.toString(),
           month
-            ? day
-              ? `${day} ${months[month - 1]}`
-              : months[month - 1]
+            ? day ? `${months[month - 1]} ${day}` : month
             : undefined
         ]
       }

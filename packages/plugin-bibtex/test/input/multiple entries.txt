@@ -1,0 +1,21 @@
+[Fau86]
+    author:    J.W. Goethe
+    title:     Faust. Der Tragödie Erster Teil
+    publisher: Reclam
+    year:      1986
+    address:   Stuttgart
+
+[Steinbeck2003]
+    type: article
+    author: Christoph Steinbeck and Yongquan Han and Stefan Kuhn and Oliver Horlacher and Edgar Luttmann and Egon Willighagen
+    doi: 10.1021/ci025584y
+    isbn: 2214707786
+    pmid: 12653513
+    issn: 0095-2338
+    journal: Journal of chemical information and computer sciences
+    issue: 2
+    pages: 493-500
+    title: The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics.
+    volume: 43
+    year: 2003
+    url: http://www.ncbi.nlm.nih.gov/pubmed/12653513

@@ -3,7 +3,7 @@
 	journal: Journal of the American Chemical Society
 	number: 20
 	year: 1957
-	month: 1 jan
+	month: jan 1
 	pages: 5441--5444
 	title: Correlation of the {Base} {Strengths} of {Amines} 1
 	volume: 79

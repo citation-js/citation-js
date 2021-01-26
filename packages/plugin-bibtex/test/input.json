@@ -1,7 +1,7 @@
 {
   "@biblatex/text": {
     "with one simple entry": [
-      "@article{Steinbeck2003, author = {Steinbeck, Christoph and Han, Yongquan and Kuhn, Stefan and Horlacher, Oliver and Luttmann, Edgar and Willighagen, Egon}, year = {2003}, pmid = 12653513, title = {{The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics.}}, journal = {Journal of chemical information and computer sciences}, volume = {43}, number = {2}, pages = {493--500}, doi = {10.1021/ci025584y}, isbn = {2214707786}, issn = {0095-2338}, pmid = {12653513}, url = {http://www.ncbi.nlm.nih.gov/pubmed/12653513} }",
+      null,
       [
         {
           "citation-label": "Steinbeck2003",
@@ -30,7 +30,7 @@
       ]
     ],
     "with whitespace and unknown fields": [
-      "@inproceedings{Ekstrand:2009:RYD,\n author = {Michael D. Ekstrand and\n John T. Riedl},\n title = {rv you're dumb: Identifying\n       Discarded Work in Wiki Article History},\n booktitle = {Proceedings of the 5th International Symposium on Wikis and Open Collaboration},\n series = {WikiSym '09},\n year = {2009},\n isbn = {978-1-60558-730-1},\n pages = {4:1--4:10},\n articleno = {4},\n numpages = {10},\n url = {https://dx.doi.org/10.1145/1641309.1641317},\n doi = {10.1145/1641309.1641317},\n acmid = {1641317},\n publisher = {ACM},\n address = {New York, NY, USA},\n keywords = {Wiki, Wikipedia, article history, visualization},\n}\n",
+      null,
       [
         {
           "citation-label": "Ekstrand:2009:RYD",
@@ -56,7 +56,7 @@
       ]
     ],
     "with unicode and capitalized types": [
-      "@Book{Fau86,\n  author    = \"J.W. Goethe\",\n  title     = \"Faust. Der Trag\\\"{o}die Erster Teil\",\n  publisher = \"Reclam\",\n  year      = 1986,\n  address   = \"Stuttgart\"\n}",
+      null,
       [{
         "author": [
           {"given": "J.W.", "family": "Goethe"}
@@ -71,26 +71,26 @@
       }]
     ],
     "with escaped characters": [
-      "@article{escape, title={a\\&b\\%c\\$d\\#e\\_f\\textasciitilde{}\\textasciicircum{}\\textbackslash{}}}",
+      null,
       [
         {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f~^\\"}
       ]
     ],
     "with math": [
-      "@article{math, title={$e=mc^2$}}",
+      null,
       [
         {"type": "article-journal", "id": "math", "citation-label": "math", "title": "e=mc²"}
       ]
     ],
     "with rich text": [
-      "@misc{ibscsupsub, title={{\\textit{i}\\textbf{b}\\textsuperscript{sup}\\textsubscript{sub}}}, } @misc{sc, title={{\\textsc{sc}}}, }",
+      null,
       [
         {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><sup>sup</sup><sub>sub</sub>"},
         {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant: small-caps;\">sc</span>"}
       ]
     ],
     "with literals": [
-      "@a{b,author={{a and b} and c and D E},year={{13th Century}}}",
+      null,
       [{
         "citation-label": "b",
         "id": "b",
@@ -106,7 +106,7 @@
       }]
     ],
     "with authors with non-ASCII characters": [
-      "@article{myarticle, author={von Helmholtz, Hermann and von Helmhöltz, Hermänñ and von Helmh\\\"oltz, Herm\\\"an\\~n and von Helmh{\\\"o}ltz, Herm{\\\"a}n{\\~n}}}",
+      null,
       [
         {
           "citation-label": "myarticle",
@@ -122,7 +122,7 @@
       ]
     ],
     "with year and month without date": [
-      "@a{b,year=2017,month=8}",
+      null,
       [{
         "citation-label": "b",
         "id": "b",
@@ -133,7 +133,7 @@
       }]
     ],
     "with year and month with date": [
-      "@a{b,date={2016-12-13},year=2017,month=8}",
+      null,
       [{
         "citation-label": "b",
         "id": "b",
@@ -144,7 +144,7 @@
       }]
     ],
     "with date-range": [
-      "@a{b,date={2016/2017}}",
+      null,
       [{
         "citation-label": "b",
         "id": "b",
@@ -155,7 +155,7 @@
       }]
     ],
     "with a complete article": [
-      "@article{Article,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  journal = {The BibTeX Journal},\n  year = 2020,\n  volume = 5,\n  number = 6,\n  pages = {200--210},\n  month = feb,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "article-journal",
         "id": "Article",
@@ -176,7 +176,7 @@
       }]
     ],
     "with a complete book": [
-      "@book{Book,\n  author = {Adams, Alice and Brody, Bob},\n  editor = {Coburn, Carol},\n  title = {Lorem Ipsum},\n  publisher = {BibTeX Publishers},\n  year = 2020,\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "book",
         "id": "Book",
@@ -202,7 +202,7 @@
       }]
     ],
     "with a complete booklet": [
-      "@booklet{Booklet,\n  title = {Lorem Ipsum},\n  author = {Adams, Alice and Brody, Bob},\n  howpublished = {BibTeX},\n  address = {Goodville},\n  month = feb,\n  year = 2020,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "book",
         "id": "Booklet",
@@ -221,7 +221,7 @@
       }]
     ],
     "with a complete inbook": [
-      "@inbook{InBook,\n  author = {Adams, Alice and Brody, Bob},\n  editor = {Coburn, Carol},\n  title = {Lorem Ipsum},\n  chapter = 3,\n  pages = {200-210},\n  publisher = {BibTeX Publishers},\n  year = 2020,\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  type = {Section},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "chapter",
         "id": "InBook",
@@ -250,7 +250,7 @@
       }]
     ],
     "with a complete incollection": [
-      "@incollection{InCollection,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  booktitle = {Dolor Sit Amet},\n  publisher = {BibTeX Publishers},\n  year = 2020,\n  editor = {Coburn, Carol},\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  type = {Section},\n  chapter = 3,\n  pages = {200-210},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "chapter",
         "id": "InCollection",
@@ -280,7 +280,7 @@
       }]
     ],
     "with a complete inproceedings": [
-      "@inproceedings{InProceedings,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  booktitle = {Dolor Sit Amet},\n  year = 2020,\n  editor = {Coburn, Carol},\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  pages = {200-210},\n  address = {Goodville},\n  month = feb,\n  organization = {The Organizers},\n  publisher = {BibTeX Publishers},\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "paper-conference",
         "id": "InProceedings",
@@ -307,7 +307,7 @@
       }]
     ],
     "with a complete manual": [
-      "@manual{Manual,\n  title = {Lorem Ipsum},\n  author = {Adams, Alice and Brody, Bob},\n  organization = {The Organizers},\n  address = {Goodville},\n  edition = {Second},\n  month = feb,\n  year = 2020,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "book",
         "id": "Manual",
@@ -327,7 +327,7 @@
       }]
     ],
     "with a complete mastersthesis": [
-      "@mastersthesis{MastersThesis,\n  author = {Adams, Alice},\n  title = {Lorem Ipsum},\n  school = {The University},\n  year = 2020,\n  type = {Diploma Thesis},\n  month = feb,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "thesis",
         "id": "MastersThesis",
@@ -345,7 +345,7 @@
       }]
     ],
     "with a complete misc": [
-      "@misc{Misc,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  howpublished = {Online},\n  month = feb,\n  year = 2020,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "book",
         "id": "Misc",
@@ -363,7 +363,7 @@
       }]
     ],
     "with a complete phdthesis": [
-      "@phdthesis{PhdThesis,\n  author = {Adams, Alice},\n  title = {Lorem Ipsum},\n  school = {The University},\n  year = 2020,\n  type = {Doctoral Thesis},\n  address = {Goodville},\n  month = feb,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "thesis",
         "id": "PhdThesis",
@@ -382,7 +382,7 @@
       }]
     ],
     "with a complete proceedings": [
-      "@proceedings{Proceedings,\n  title = {Lorem Ipsum},\n  year = 2020,\n  editor = {Coburn, Carol},\n  volume = 5,\n  number = 6,\n  series = {Good Series},\n  address = {Goodville},\n  publisher = {BibTeX Publishers},\n  note = {This is a note.},\n  month = feb,\n  organization = {The Organizers},\n}",
+      null,
       [{
         "type": "book",
         "id": "Proceedings",
@@ -403,7 +403,7 @@
       }]
     ],
     "with a complete techreport": [
-      "@techreport{TechReport,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  institution = {The Institution},\n  year = 2020,\n  type = {Recommendation},\n  number = {ABC-123},\n  address = {Goodville},\n  month = feb,\n  note = {This is a note.},\n}",
+      null,
       [{
         "type": "report",
         "id": "TechReport",
@@ -424,7 +424,7 @@
       }]
     ],
     "with a complete unpublished": [
-      "@unpublished{Unpublished,\n  author = {Adams, Alice and Brody, Bob},\n  title = {Lorem Ipsum},\n  note = {This is a note.},\n  month = feb,\n  year = 2020,\n}",
+      null,
       [{
         "type": "manuscript",
         "id": "Unpublished",
@@ -491,7 +491,7 @@
   },
   "@bibtxt/text": {
     "with one simple entry": [
-      "[Fau86]\n    author:    J.W. Goethe\n    title:     Faust. Der Tragödie Erster Teil\n    publisher: Reclam\n    year:      1986\n    address:   Stuttgart",
+      null,
       [{
         "author": [
           {"given": "J.W.", "family": "Goethe"}
@@ -506,7 +506,7 @@
       }]
     ],
     "with multiple entries": [
-      "[Fau86]\n    author:    J.W. Goethe\n    title:     Faust. Der Tragödie Erster Teil\n    publisher: Reclam\n    year:      1986\n    address:   Stuttgart\n\n  [Steinbeck2003]\n    type: article\n    author: Christoph Steinbeck and Yongquan Han and Stefan Kuhn and Oliver Horlacher and Edgar Luttmann and Egon Willighagen\n    doi: 10.1021/ci025584y\n    isbn: 2214707786\n    pmid: 12653513\n    issn: 0095-2338\n    journal: Journal of chemical information and computer sciences\n    issue: 2\n    pages: 493-500\n    title: The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics.\n    volume: 43\n    year: 2003\n    url: http://www.ncbi.nlm.nih.gov/pubmed/12653513",
+      null,
       [
         {
           "author": [
@@ -547,7 +547,7 @@
       ]
     ],
     "with whitespace": [
-      "[Fau86]  \n      \n    author:    J.W. Goethe\n    title:     Faust. Der Tragödie Erster Teil\n    \n\n    publisher: Reclam\n    year:      1986  \n    address:   Stuttgart\n  ",
+      null,
       [{
         "author": [
           {"given": "J.W.", "family": "Goethe"}

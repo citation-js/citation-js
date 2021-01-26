@@ -8,6 +8,12 @@ const { plugins } = require('@citation-js/core')
 const inputData = require('./input')
 const outputData = require('./output')
 
+function getInput (name, type) {
+  const ext = type === '@bibtxt/text' ? '.txt' : '.bib'
+  const file = path.join(__dirname, 'input', name + ext)
+  return fs.readFileSync(file, 'utf8')
+}
+
 describe('input', function () {
   for (const type in inputData) {
     describe(type, function () {
@@ -15,7 +21,8 @@ describe('input', function () {
         assert(plugins.input.has(type))
       })
       for (const name of Object.keys(inputData[type])) {
-        const [input, expected] = inputData[type][name]
+        let [input, expected] = inputData[type][name]
+        if (input === null) { input = getInput(name.slice(5), type) }
         describe(name, function () {
           it('parses type', function () {
             assert.strictEqual(
@@ -68,29 +75,34 @@ describe('output', function () {
 })
 
 describe('mapping', function () {
-  describe('biblatex', function () {
-    const csl = require('./mapping/biblatex-csl.json')
+  for (const type of ['biblatex', 'bibtex']) {
+    describe(type, function () {
+      const csl = require(`./mapping/${type}-csl.json`)
 
-    describe('input', function () {
-      const file = fs.readFileSync(path.join(__dirname, 'mapping/biblatex-input.bib'), 'utf8')
-      const input = plugins.input.chainLink(file)
-      for (let i = 0; i < input.length; i++) {
-        it(input[i].label, function () {
-          const actual = plugins.input.chain(input[i], { generateGraph: false })
-          assert.deepStrictEqual(actual, [csl[i]])
-        })
-      }
-    })
+      describe('input', function () {
+        const file = fs.readFileSync(path.join(__dirname, `mapping/${type}-input.bib`), 'utf8')
+        const input = plugins.input.chainLink(file)
+        for (let i = 0; i < input.length; i++) {
+          it(input[i].label, function () {
+            const actual = plugins.input.chain(input[i], {
+              generateGraph: false,
+              forceType: `@${type}/entry+object`
+            })
+            assert.deepStrictEqual(actual, [csl[i]])
+          })
+        }
+      })
 
-    describe('output', function () {
-      const file = fs.readFileSync(path.join(__dirname, 'mapping/biblatex-output.bib'), 'utf8')
-      const expected = plugins.input.chainLink(file)
-      for (let i = 0; i < csl.length; i++) {
-        it(csl[i].id, function () {
-          const actual = plugins.output.format('biblatex', [csl[i]], { format: 'object' })
-          assert.deepStrictEqual(actual, [expected[i]])
-        })
-      }
+      describe('output', function () {
+        const file = fs.readFileSync(path.join(__dirname, `mapping/${type}-output.bib`), 'utf8')
+        const expected = plugins.input.chainLink(file)
+        for (let i = 0; i < csl.length; i++) {
+          it(csl[i].id, function () {
+            const actual = plugins.output.format(type, [csl[i]], { format: 'object' })
+            assert.deepStrictEqual(actual, [expected[i]])
+          })
+        }
+      })
     })
-  })
+  }
 })
