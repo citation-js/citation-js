@@ -3,6 +3,71 @@ import { parse as parseName } from '@citation-js/name'
 const NAME = 1
 const NAME_LIST = 2
 const DATE = 3
+const TYPE = 4
+
+/**
+ * Data from https://github.com/citation-style-language/schema/blob/master/schemas/input/csl-data.json
+ *
+ *   - true if a valid type
+ *   - string if another type should be used
+ *
+ * @access private
+ * @constant entryTypes
+ * @memberof module:@citation-js/core.plugins.input
+ */
+const entryTypes = {
+  article: true,
+  'article-journal': true,
+  'article-magazine': true,
+  'article-newspaper': true,
+  bill: true,
+  book: true,
+  broadcast: true,
+  chapter: true,
+  classic: true,
+  collection: true,
+  dataset: true,
+  document: true,
+  entry: true,
+  'entry-dictionary': true,
+  'entry-encyclopedia': true,
+  event: true,
+  figure: true,
+  graphic: true,
+  hearing: true,
+  interview: true,
+  legal_case: true,
+  legislation: true,
+  manuscript: true,
+  map: true,
+  motion_picture: true,
+  musical_score: true,
+  pamphlet: true,
+  'paper-conference': true,
+  patent: true,
+  performance: true,
+  periodical: true,
+  personal_communication: true,
+  post: true,
+  'post-weblog': true,
+  regulation: true,
+  report: true,
+  review: true,
+  'review-book': true,
+  software: true,
+  song: true,
+  speech: true,
+  standard: true,
+  thesis: true,
+  treaty: true,
+  webpage: true,
+
+  // From https://github.com/CrossRef/rest-api-doc/issues/187
+  'journal-article': 'article-journal',
+  'book-chapter': 'chapter',
+  'posted-content': 'manuscript',
+  'proceedings-article': 'paper-conference'
+}
 
 /**
  * Object containing type info on CSL-JSON fields.
@@ -39,10 +104,11 @@ const fieldTypes = {
   'original-date': DATE,
   submitted: DATE,
 
+  type: TYPE,
+
   categories: 'object', // TODO Array<String>
 
   id: ['string', 'number'],
-  type: 'string',
   language: 'string',
   journalAbbreviation: 'string',
   shortTitle: 'string',
@@ -189,9 +255,36 @@ const correctDate = function (date, bestGuessConversions) {
     const range = date.map(dateParts => correctDateParts(dateParts[dp], bestGuessConversions)).filter(Boolean)
     return range.length ? { 'date-parts': range } : undefined
 
+  // LEGACY support
+  // "{'date-parts': [2000, 1, 1]}"
+  } else if (date[dp] instanceof Array) {
+    const dateParts = correctDateParts(date[dp], bestGuessConversions)
+    return dateParts && { 'date-parts': [dateParts] }
+
   // No separate date-parts
   } else if ('literal' in date || 'raw' in date) {
     return date
+  }
+}
+
+/**
+ * Correct a type field.
+ *
+ * @access private
+ * @memberof module:@citation-js/core.plugins.input.util
+ *
+ * @param {String} type - type
+ * @param {Boolean} bestGuessConversions - make some best guess conversions on type mismatch
+ *
+ * @return {String|undefined} returns the (corrected) value if possible, otherwise undefined
+ */
+const correctType = function (type, bestGuessConversions) {
+  if (entryTypes[type] === true) {
+    return type
+  } else if (bestGuessConversions && type in entryTypes) {
+    return entryTypes[type]
+  } else {
+    return undefined
   }
 }
 
@@ -218,6 +311,8 @@ const correctField = function (fieldName, value, bestGuessConversions) {
       return correctNameList(value, bestGuessConversions)
     case DATE:
       return correctDate(value, bestGuessConversions)
+    case TYPE:
+      return correctType(value, bestGuessConversions)
   }
 
   if (/^_/.test(fieldName)) {
