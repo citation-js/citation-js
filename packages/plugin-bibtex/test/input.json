@@ -86,7 +86,9 @@
       null,
       [
         {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><sup>sup</sup><sub>sub</sub>"},
-        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant: small-caps;\">sc</span>"}
+        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant: small-caps;\">sc</span>"},
+        {"type": "book", "id": "env", "citation-label": "env", "title": "a<i>b<b>c</b></i>"},
+        {"type": "book", "id": "beginend", "citation-label": "beginend", "title": "a<i>b</i>c"}
       ]
     ],
     "with literals": [
@@ -119,6 +121,14 @@
             {"family": "Helmhöltz", "given": "Hermänñ", "non-dropping-particle": "von"}
           ]
         }
+      ]
+    ],
+    "with nameparts": [
+      null,
+      [
+        {"id": "a", "citation-label": "a", "type": "book", "author": [{"family": "B", "given": "A"}]},
+        {"id": "b", "citation-label": "b", "type": "book", "author": [{"family": "C"}]},
+        {"id": "c", "citation-label": "c", "type": "book", "author": [{"family": "B", "given": "C"}]}
       ]
     ],
     "with year and month without date": [
