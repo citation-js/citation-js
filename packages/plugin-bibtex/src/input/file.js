@@ -129,7 +129,7 @@ export const bibtexGrammar = new util.Grammar({
     }
 
     this.consumeRule('_')
-    const closeBrace = this.consumeToken('rbrace')
+    const closeBrace = this.consumeToken('rbrace').value
     if (closeBrace !== delimiters[openBrace]) {
       logger.warn('[plugin-bibtex]', `entry started with "${openBrace}", but ends with "${closeBrace}"`)
     }
@@ -188,7 +188,7 @@ export const bibtexGrammar = new util.Grammar({
       return parseInt(this.consumeToken('number'))
     } else if (this.matchToken('quote')) {
       return this.consumeRule('QuoteString')
-    } else if (this.matchToken('lbrace')) {
+    } else {
       return this.consumeRule('BracketString')
     }
   },

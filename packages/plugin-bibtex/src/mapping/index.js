@@ -9,7 +9,7 @@ function crossref (entry, registry) {
       return entry
     }
 
-    return Object.assign(crossref(parent, registry), entry)
+    return Object.assign({}, crossref(parent, registry), entry)
   }
 
   return entry
