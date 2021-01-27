@@ -11,21 +11,20 @@ import { orderNamePieces, formatNameParts, getStringCase } from './name'
 
 const text = {
   command: {
-    match: /\\(?:[a-z]+|.) */,
+    match: /\\(?:[a-zA-Z]+|.) */,
     type: moo.keywords({
       commandBegin: '\\begin',
-      commandEnd: '\\end',
-      escape: ['\\&', '\\%', '\\$', '\\#', '\\_', '\\{', '\\}']
+      commandEnd: '\\end'
     }),
     value: s => s.slice(1).trim()
   },
   lbrace: { match: '{', push: 'bracedLiteral' },
   mathShift: { match: '$', push: 'mathLiteral' },
   whitespace: {
-    match: /[\s~]+/,
+    match: /[\s]+|~/,
     lineBreaks: true,
     // \xa0 = Non-breakable space
-    value (token) { return token.includes('~') ? '\xa0' : ' ' }
+    value (token) { return token === '~' ? '\xa0' : ' ' }
   }
 }
 
@@ -223,127 +222,40 @@ export const valueGrammar = new util.Grammar({
       }
     } catch (e) {
       // malformed URI
-      return uri
+      return encodeURI(uri)
     }
   },
 
   StringTitleCase () {
-    const topLevel = this.token.offset === 0
+    this.state.sentenceCase = true
     let output = ''
 
     while (!this.matchEndOfFile()) {
-      // In non-top-level calls, return early. Returning early in top-level cases
-      // would work for valid strings but would not error for certain invalid
-      // strings.
-      if (!topLevel && (this.matchToken('commandEnd') || this.matchToken('rbrace'))) {
-        break
-      }
-
-      output += this.consumeRule('TextTitleCase')
+      output += this.consumeRule('Text')
     }
 
     return flattenConsString(output)
   },
 
-  TextTitleCase () {
-    // Top-level bracket strings should preserve case, unless the first token
-    // inside is a command. The latter part is handled in BracketStringTitleCase.
-    if (this.matchToken('lbrace')) {
-      return this.consumeRule('BracketStringTitleCase')
-
-    // If commands are *not* enclosed in brackets, any bracket arguments count
-    // as top-level bracket strings (the same with envs like \em).
-    } else if (this.matchToken('command')) {
-      return this.consumeRule('CommandTitleCase')
-
-    // ...and the same goes for \begin{}...\end{} pairs
-    } else if (this.matchToken('commandBegin')) {
-      return this.consumeRule('EnclosedEnvTitleCase')
-
-    // Other text should be lowercased to convert the title-case string to
-    // sentence-case. The first letter of the entire string should always be
-    // left as-is.
-    } else {
-      const token = this.token
-      const text = this.consumeRule('Text')
-
-      if (token.offset === 0) {
-        // Unicode-safe(?) splitting (as in, accounting for surrogate pairs)
-        const [first, ...rest] = text
-        return first + rest.join('').toLowerCase()
-      } else {
-        return text.toLowerCase()
-      }
-    }
-  },
-
-  BracketStringTitleCase () {
-    let output = ''
-
-    this.consumeToken('lbrace')
-
-    const preserveCase = !this.matchToken('command')
-    let caseToPreserve = preserveCase
-
-    while (!this.matchToken('rbrace')) {
-      const text = this.consumeRule('Text')
-      const textLowerCase = text.toLowerCase()
-
-      caseToPreserve = caseToPreserve && text === textLowerCase
-      output += preserveCase ? text : textLowerCase
-    }
-
-    this.consumeToken('rbrace')
-
-    return caseToPreserve && output ? constants.formatting.nocase.join(output) : output
-  },
-
-  EnclosedEnvTitleCase () {
-    this.consumeToken('commandBegin')
-    const beginEnv = this.consumeRule('BracketString')
-    const output = this.consumeRule('StringTitleCase')
-    const end = this.consumeToken('commandEnd')
-    const endEnv = this.consumeRule('BracketString')
-
-    if (beginEnv !== endEnv) {
-      throw new SyntaxError(this.lexer.formatError(
-        end,
-        `environment started with "${beginEnv}", ended with "${endEnv}"`)
-      )
-    }
-
-    return applyFormatting(output, constants.formattingEnvs[beginEnv])
-  },
-
-  CommandTitleCase () {
-    const command = this.token.value
-
-    // formatting commands
-    if (command in constants.formattingCommands) {
-      this.consumeToken('command')
-      const text = this.consumeRule('BracketStringTitleCase')
-      return applyFormatting(text, constants.formattingCommands[command])
-
-    // formatting envs
-    } else if (command in constants.formattingEnvs) {
-      this.consumeToken('command')
-      const text = this.consumeRule('StringTitleCase')
-      return applyFormatting(text, constants.formattingEnvs[command])
-
-    // other
-    } else {
-      return this.consumeRule('Command')
-    }
-  },
-
   BracketString () {
     let output = ''
     this.consumeToken('lbrace')
+
+    const sentenceCase = this.state.sentenceCase
+    this.state.sentenceCase = sentenceCase && this.matchToken('command')
+    this.state.partlyLowercase &&= this.state.sentenceCase
+
     while (!this.matchToken('rbrace')) {
       output += this.consumeRule('Text')
     }
+
+    const topLevel = sentenceCase && !this.state.sentenceCase
+    const protectCase = topLevel && this.state.partlyLowercase
+    this.state.sentenceCase = sentenceCase
+
     this.consumeToken('rbrace')
-    return output
+
+    return protectCase ? applyFormatting(output, 'nocase') : output
   },
 
   MathString () {
@@ -359,9 +271,21 @@ export const valueGrammar = new util.Grammar({
           const formatName = constants.mathScriptFormatting[script]
           output += constants.formatting[formatName].join(text.join(''))
         }
-      } else {
-        output += this.consumeRule('Text')
+
+        continue
       }
+
+      if (this.matchToken('command')) {
+        const command = this.token.value
+        if (command in constants.mathScriptFormatting) {
+          this.consumeToken('command')
+          const text = this.consumeRule('BracketString')
+          output += applyFormatting(text, constants.mathScriptFormatting[command])
+          continue
+        }
+      }
+
+      output += this.consumeRule('Text')
     }
     this.consumeToken('mathShift')
     return output
@@ -381,23 +305,46 @@ export const valueGrammar = new util.Grammar({
     } else if (this.matchToken('commandBegin')) {
       return this.consumeRule('EnclosedEnv')
 
-    } else if (this.matchToken('escape')) {
-      return this.consumeToken('escape').value
-
     } else if (this.matchToken('command')) {
       return this.consumeRule('Command')
-
-    } else {
-      return this.consumeToken('text').value.replace(
-        constants.ligaturePattern,
-        ligature => constants.ligatures[ligature]
-      )
     }
     /* eslint-enable padded-blocks */
+
+    const text = this.consumeToken('text').value.replace(
+      constants.ligaturePattern,
+      ligature => constants.ligatures[ligature]
+    )
+
+    const afterPunctuation = this.state.afterPunctuation
+    this.state.afterPunctuation = /[?!.:]$/.test(text)
+
+    if (!this.state.sentenceCase) {
+      this.state.partlyLowercase ||= text === text.toLowerCase() && text !== text.toUpperCase()
+      return text
+    }
+
+    // Unicode-safe splitting (as in, accounting for surrogate pairs)
+    const [first, ...otherCharacters] = text
+    const rest = otherCharacters.join('')
+    const restLowerCase = rest.toLowerCase()
+
+    // Word case should be preserved for proper nouns (e.g. those with capital
+    // letters in other places than the first letter).
+    if (rest !== restLowerCase) {
+      return text
+    }
+
+    if (!afterPunctuation) {
+      return text.toLowerCase()
+    }
+
+    return first + restLowerCase
+    // return first.toUpperCase() + restLowerCase
   },
 
   Command () {
-    const command = this.consumeToken('command').value
+    const commandToken = this.consumeToken('command')
+    const command = commandToken.value
 
     // formatting envs
     if (command in constants.formattingEnvs) {
@@ -421,9 +368,26 @@ export const valueGrammar = new util.Grammar({
       const diacritic = text[0] + constants.diacritics[command]
       return diacritic.normalize('NFC') + text.slice(1)
 
+    // argument commands
+    } else if (command in constants.argumentCommands) {
+      const func = constants.argumentCommands[command]
+      const args = []
+      let arity = func.length
+
+      while (arity-- > 0) {
+       this.consumeToken('whitespace', true)
+       args.push(this.consumeRule('BracketString'))
+      }
+
+      return func(...args)
+
+    // escapes
+    } else if (/^[&%$#_{}]$/.test(command)) {
+      return commandToken.text.slice(1)
+
     // unknown commands
     } else {
-      return '\\' + command
+      return commandToken.text
     }
   },
 
@@ -457,22 +421,32 @@ export const valueGrammar = new util.Grammar({
 
     return applyFormatting(output, constants.formattingEnvs[beginEnv])
   }
+}, {
+  sentenceCase: false,
+  partlyLowercase: false,
+  afterPunctuation: true
 })
 
-function isEnglIsh (languages) {
-  return languages.every(
-    language => constants.sentenceCaseLanguages.includes(language)
-  )
+function singleLanguageIsEnglish (language) {
+  return constants.sentenceCaseLanguages.includes(language.toLowerCase())
+}
+
+function isEnglish (languages) {
+  if (Array.isArray(languages)) {
+    return languages.every(singleLanguageIsEnglish)
+  }
+  return singleLanguageIsEnglish(languages)
 }
 
 function getMainRule (fieldType, languages) {
   if (fieldType[1] === 'name') {
+    /* istanbul ignore next: does not exist */
     return fieldType[0] === 'list' ? 'StringNames' : 'Name'
   }
 
   if (fieldType[1] === 'title') {
     const option = config.parse.sentenceCase
-    if (option === 'always' || (option === 'english' && isEnglIsh(languages))) {
+    if (option === 'always' || (option === 'english' && isEnglish(languages))) {
       return 'StringTitleCase'
     } else {
       return 'String'
@@ -511,7 +485,7 @@ function getLexerState (fieldType) {
   }
 }
 
-export function parse (text, field, languages) {
+export function parse (text, field, languages = []) {
   const fieldType = constants.fieldTypes[field] || []
   return valueGrammar.parse(lexer.reset(text, {
     state: getLexerState(fieldType),

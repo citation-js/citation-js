@@ -73,7 +73,26 @@
     "with escaped characters": [
       null,
       [
-        {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f~^\\"}
+        {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f~^\\"},
+        {"type": "article-journal", "id": "ligature", "citation-label": "ligature", "title": "\u2014\u00A0"}
+      ]
+    ],
+    "with commands": [
+      null,
+      [
+        {"type": "book", "id": "a", "citation-label": "a", "title": "url: https://example.org"},
+        {"type": "book", "id": "b", "citation-label": "b", "title": "href: https://example.org"},
+        {"type": "book", "id": "c", "citation-label": "c", "title": "ElsevierGlyph: \u2014"},
+        {"type": "book", "id": "d", "citation-label": "d", "title": "unknown: \\unknown"},
+        {"type": "book", "id": "e", "citation-label": "e", "title": "Phi: Φ"}
+      ]
+    ],
+    "with uri": [
+      null,
+      [
+        {"type": "book", "id": "a", "citation-label": "a", "URL": "https://example.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"},
+        {"type": "book", "id": "b", "citation-label": "b", "URL": "https://example.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"},
+        {"type": "book", "id": "c", "citation-label": "c", "URL": "%25E0%25A4%25A"}
       ]
     ],
     "with math": [
@@ -86,9 +105,12 @@
       null,
       [
         {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><sup>sup</sup><sub>sub</sub>"},
-        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant: small-caps;\">sc</span>"},
+        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant:small-caps;\">sc</span>"},
         {"type": "book", "id": "env", "citation-label": "env", "title": "a<i>b<b>c</b></i>"},
-        {"type": "book", "id": "beginend", "citation-label": "beginend", "title": "a<i>b</i>c"}
+        {"type": "book", "id": "beginend", "citation-label": "beginend", "title": "a<i>b</i>c"},
+        {"type": "book", "id": "none", "citation-label": "none", "title": "test"},
+        {"type": "book", "id": "math", "citation-label": "math", "title": "<sup>sup</sup><sub>sub</sub>"},
+        {"type": "book", "id": "mathcommand", "citation-label": "mathcommand", "title": "<sup>sup</sup><sub>sub</sub>"}
       ]
     ],
     "with literals": [
@@ -128,7 +150,16 @@
       [
         {"id": "a", "citation-label": "a", "type": "book", "author": [{"family": "B", "given": "A"}]},
         {"id": "b", "citation-label": "b", "type": "book", "author": [{"family": "C"}]},
-        {"id": "c", "citation-label": "c", "type": "book", "author": [{"family": "B", "given": "C"}]}
+        {"id": "c", "citation-label": "c", "type": "book", "author": [{"family": "B", "given": "C"}]},
+        {"id": "d", "citation-label": "d", "type": "book", "author": [{"family": "C", "given": "A-B"}]},
+        {"id": "e", "citation-label": "e", "type": "book", "author": [{
+          "family": "C",
+          "given": "D",
+          "non-dropping-particle": "A-b"
+        }]},
+        {"id": "f", "citation-label": "f", "type": "book", "author": [{"family": "B-C", "given": "A"}]},
+        {"id": "g", "citation-label": "g", "type": "book", "author": [{"family": "A"}, {}]},
+        {"id": "h", "citation-label": "h", "type": "book", "author": [{"family": "B", "given": "A-12"}]}
       ]
     ],
     "with year and month without date": [

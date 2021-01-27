@@ -53,7 +53,12 @@ export const formattingEnvs = {
   bfseries: 'bold',
 
   sc: 'smallcaps',
-  scshape: 'smallcaps'
+  scshape: 'smallcaps',
+
+  // Font selection
+  rm: undefined,
+  sf: undefined,
+  tt: undefined
 }
 
 export const formattingCommands = {
@@ -70,7 +75,17 @@ export const formattingCommands = {
   textsc: 'smallcaps',
 
   textsuperscript: 'superscript',
-  textsubscript: 'subscript'
+  textsubscript: 'subscript',
+
+  enquote: 'quotes',
+  mkbibquote: 'quotes',
+
+  // Font selection
+  textmd: undefined,
+  textrm: undefined,
+  textsf: undefined,
+  texttt: undefined,
+  textup: undefined
 }
 
 export const formatting = {
@@ -78,8 +93,17 @@ export const formatting = {
   bold: ['<b>', '</b>'],
   superscript: ['<sup>', '</sup>'],
   subscript: ['<sub>', '</sub>'],
-  smallcaps: ['<span style="font-variant: small-caps;">', '</span>'],
-  nocase: ['<span class="nocase">', '</span>']
+  smallcaps: ['<span style="font-variant:small-caps;">', '</span>'],
+  nocase: ['<span class="nocase">', '</span>'],
+  quotes: ['\u201C', '\u201D']
+}
+
+// Partly adapted from retorquere/bibtex-parser (2020-11-16)
+// https://github.com/retorquere/bibtex-parser/blob/7ad73df/index.ts
+export const argumentCommands = {
+  ElsevierGlyph (glyph) { return String.fromCharCode(parseInt(glyph, 16)) },
+  href (url, text) { return url },
+  url (url) { return url }
 }
 
 export const ligaturePattern = /---?|''|``|~/g
@@ -92,12 +116,17 @@ export const ligatures = {
   '~': '\u00A0'
 }
 
-/* eslint-disable quote-props */
 export const mathScriptFormatting = {
   '^': 'superscript',
-  '_': 'subscript'
+  sp: 'superscript',
+
+  _: 'subscript',
+  sb: 'subscript',
+
+  mathrm: undefined
 }
 
+/* eslint-disable quote-props */
 export const mathScripts = {
   '^': {
     '0': '\u2070',

@@ -5,6 +5,8 @@ const path = require('path')
 const assert = require('assert')
 require('../src/')
 const { plugins } = require('@citation-js/core')
+const config = plugins.config.get('@bibtex')
+
 const inputData = require('./input')
 const outputData = require('./output')
 
@@ -42,6 +44,76 @@ describe('input', function () {
       }
     })
   }
+
+  describe('sentenceCase', function () {
+    afterEach(function () { config.parse.sentenceCase = 'never' })
+    it('is applied correctly', function () {
+      config.parse.sentenceCase = 'always'
+      assert.deepStrictEqual(
+        plugins.input.chain(`@book{a,
+          title = "lowercase Lowercase: lowercase {Uppercase} UpperCASE UPPERCASE",
+          language = "French"
+        }`, {
+          generateGraph: false
+        }),
+        [{
+          type: 'book',
+          id: 'a',
+          'citation-label': 'a',
+          title: 'lowercase lowercase: lowercase Uppercase UpperCASE UPPERCASE',
+          language: 'French'
+        }]
+      )
+    })
+    it('can check for English language', function () {
+      config.parse.sentenceCase = 'english'
+      assert.deepStrictEqual(
+        plugins.input.chain(`@string{title = "Lowercase Lowercase"}
+        @book{a, title = title, language = "English and en-US" }
+        @book{b, title = title, language = "English and French" }
+        @book{c, title = title, language = "French" }`, {
+          generateGraph: false
+        }),
+        [
+          {
+            type: 'book',
+            id: 'a',
+            'citation-label': 'a',
+            title: 'Lowercase lowercase',
+            language: ['English', 'en-US']
+          },
+          {
+            type: 'book',
+            id: 'b',
+            'citation-label': 'b',
+            title: 'Lowercase Lowercase',
+            language: ['English', 'French']
+          },
+          {
+            type: 'book',
+            id: 'c',
+            'citation-label': 'c',
+            title: 'Lowercase Lowercase',
+            language: 'French'
+          }
+        ]
+      )
+    })
+  })
+
+  describe('errors', function () {
+    it('mismatched begin/end', function () {
+      assert.throws(
+        () => plugins.input.chain(`@book{a,
+          title = "\\begin{bf}bold\\begin{it}both\\end{bf}italic\\end{it}"
+        }`),
+        {
+          name: 'SyntaxError',
+          message: /environment started with "it", ended with "bf"/
+        }
+      )
+    })
+  })
 })
 
 function getExpectedOutput (name, type) {
