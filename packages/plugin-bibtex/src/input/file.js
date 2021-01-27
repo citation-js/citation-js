@@ -7,7 +7,7 @@ import { util, logger } from '@citation-js/core'
 import moo from 'moo'
 import { defaultStrings } from './constants'
 
-const identifier = /[a-zA-Z][a-zA-Z0-9_:-]*/
+const identifier = /[a-zA-Z_][a-zA-Z0-9_:-]*/
 const whitespace = {
   comment: /%.*/,
   whitespace: { match: /\s+/, lineBreaks: true }
@@ -15,7 +15,7 @@ const whitespace = {
 
 const lexer = moo.states({
   main: {
-    junk: { match: /@comment.+|[^@]+/, lineBreaks: true },
+    junk: { match: /@[cC][oO][mM][mM][eE][nN][tT].+|[^@]+/, lineBreaks: true },
     at: { match: '@', push: 'entry' }
   },
   entry: {
@@ -53,12 +53,12 @@ const lexer = moo.states({
   quotedLiteral: {
     lbrace: { match: '{', push: 'bracedLiteral' },
     quote: { match: '"', pop: true },
-    text: { match: /(?:\\"|[^{"])+/, lineBreaks: true }
+    text: { match: /(?:\\[\\{]|[^{"])+/, lineBreaks: true }
   },
   bracedLiteral: {
     lbrace: { match: '{', push: 'bracedLiteral' },
     rbrace: { match: '}', pop: true },
-    text: { match: /(?:\\}|[^{}])+/, lineBreaks: true }
+    text: { match: /(?:\\[\\{}]|[^{}])+/, lineBreaks: true }
   }
 })
 

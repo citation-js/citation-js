@@ -94,10 +94,6 @@ export function orderNameParts (parts, orderGiven = true) {
  * @return {Object}
  */
 export function orderNamePieces (pieces) {
-  if (pieces.length === 0 || pieces[0].length === 0) {
-    return { family: '' }
-  }
-
   if (pieces[0][0].label) {
     const name = {}
     for (const [{ value, label }] of pieces) {
