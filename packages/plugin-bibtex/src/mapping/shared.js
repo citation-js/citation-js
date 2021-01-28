@@ -258,8 +258,8 @@ export const Converters = {
   //     howpublished = {\url{https://example.org/some/page}}
   HOW_PUBLISHED: {
     toTarget (howPublished) {
-      if (howPublished.startsWith('url')) {
-        return howPublished.slice(3)
+      if (howPublished.startsWith('http')) {
+        return howPublished
       }
     }
   },
