@@ -105,7 +105,7 @@
       null,
       [
         {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><sup>sup</sup><sub>sub</sub>"},
-        {"type": "book", "id": "sc", "citation-label": "sc", "title": "<span style=\"font-variant:small-caps;\">sc</span>"},
+        {"type": "book", "id": "sc", "citation-label": "sc", "container-title": "<span style=\"font-variant:small-caps;\">sc</span>"},
         {"type": "book", "id": "env", "citation-label": "env", "title": "a<i>b<b>c</b></i>"},
         {"type": "book", "id": "beginend", "citation-label": "beginend", "title": "a<i>b</i>c"},
         {"type": "book", "id": "none", "citation-label": "none", "title": "test"},
@@ -141,6 +141,32 @@
             {"family": "Helmhöltz", "given": "Hermänñ", "non-dropping-particle": "von"},
             {"family": "Helmhöltz", "given": "Hermänñ", "non-dropping-particle": "von"},
             {"family": "Helmhöltz", "given": "Hermänñ", "non-dropping-particle": "von"}
+          ]
+        }
+      ]
+    ],
+    "with an author that has a braced family name": [
+      "@article{myarticle, author={Hermann {von Helmholtz}}}",
+      [
+        {
+          "citation-label": "myarticle",
+          "id": "myarticle",
+          "type": "article-journal",
+          "author": [
+            {"family": "von Helmholtz", "given": "Hermann"}
+          ]
+        }
+      ]
+    ],
+    "with an author in braces": [
+      "@article{myarticle, author={{Acme Inc.}}}",
+      [
+        {
+          "citation-label": "myarticle",
+          "id": "myarticle",
+          "type": "article-journal",
+          "author": [
+            {"family": "Acme Inc."}
           ]
         }
       ]
