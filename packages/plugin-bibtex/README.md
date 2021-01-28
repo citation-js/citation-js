@@ -132,6 +132,23 @@ config.constants.formatting = {
 }
 ```
 
+### Other commands
+
+The object `config.constants.argumentCommands` maps command names to functions
+handling them. This does not include commands used above. Braced arguments are
+parsed automatically based on how many arguments the function takes. It does not
+support optional arguments (i.e. those in square braces) yet.
+
+```js
+config.constants.argumentCommands.href = function (url, displayText) {
+  // Note: <a> tags are not supported by CSL so watch out if you use this
+  return `<a href="${url}">${displayText}</a>`
+}
+
+// You can also use it to replace commands that produce text
+config.constants.argumentCommands.LaTeX = () => 'LaTeX'
+```
+
 ### English languages
 
 The array `config.constants.sentenceCaseLanguages` affects which languages are
