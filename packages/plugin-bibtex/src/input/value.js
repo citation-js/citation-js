@@ -375,8 +375,8 @@ export const valueGrammar = new util.Grammar({
       let arity = func.length
 
       while (arity-- > 0) {
-       this.consumeToken('whitespace', true)
-       args.push(this.consumeRule('BracketString'))
+        this.consumeToken('whitespace', true)
+        args.push(this.consumeRule('BracketString'))
       }
 
       return func(...args)
