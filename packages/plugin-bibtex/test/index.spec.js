@@ -102,7 +102,7 @@ describe('input', function () {
   })
 
   describe('errors', function () {
-    it('mismatched begin/end', function () {
+    it('for mismatched begin/end', function () {
       assert.throws(
         () => plugins.input.chain(`@book{a,
           title = "\\begin{bf}bold\\begin{it}both\\end{bf}italic\\end{it}"
@@ -114,6 +114,54 @@ describe('input', function () {
           // message: /environment started with "it", ended with "bf"/
         }
       )
+    })
+    describe('in strict mode', function () {
+      before(function () { config.parse.strict = true })
+      after(function () { config.parse.strict = false })
+      it('for invalid entries', function () {
+        assert.throws(
+          () => plugins.input.chain(`@book{a,
+            title = "foo",
+            author = "foo",
+            publisher = "foo",
+            year = 2020
+          }
+          @foo{b, }
+          @book{c, }`),
+          {
+            name: 'RangeError',
+            message: `Invalid entries:
+  - b has invalid type: "foo"
+  - c has missing fields: author, title, year/date`
+          }
+        )
+      })
+      it('for invalid bibtex entries', function () {
+        assert.throws(
+          () => plugins.input.chain(`@book{a,
+            title = "foo",
+            author = "foo",
+            publisher = "foo",
+            year = 2020
+          }
+          @foo{b, }
+          @book{c, }`, { forceType: '@bibtex/text' }),
+          {
+            name: 'RangeError',
+            message: `Invalid entries:
+  - b has invalid type: "foo"
+  - c has missing fields: author/editor, title, publisher, year`
+          }
+        )
+      })
+      it('not for valid entries', function () {
+        assert.doesNotThrow(() => plugins.input.chain(`@book{a,
+          title = "foo",
+          author = "foo",
+          publisher = "foo",
+          year = 2020
+        }`, { forceType: '@bibtex/text' }))
+      })
     })
   })
 })

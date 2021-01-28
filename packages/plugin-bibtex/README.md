@@ -55,6 +55,7 @@ const config = plugins.config.get('@bibtex')
 
 | Property | Values [default] | Description |
 |----------|------------------|-------------|
+| `config.parse.strict` | `true`, [`false`] | When true, entries are checked for required fields. |
 | `config.parse.sentenceCase` | `'always'`, `'english'`, [`'never'`] | Convert titles to sentence case when parsing. |
 | `config.format.useIdAsLabel` | `true`, [`false`] | Use the entry ID as the label instead of generating one. |
 
@@ -67,6 +68,23 @@ mappings are in the `source` field and the reverse mappings in the `target` fiel
 ```js
 config.types.biblatex.source.inproceedings = 'paper-conference'
 config.types.biblatex.source['paper-conference'] = 'inproceedings'
+```
+
+### Required types
+
+The list of required fields for each type for BibLaTeX and BibTeX is available
+under `config.required.biblatex` and `config.required.bibtex` respectively. In
+both cases, the list consists of strings for required fields and arrays for sets
+of fields where at least one should be present (year OR date for BibLaTeX for
+example).
+
+```js
+config.required.biblatex.book = [
+  'title',
+  ['author', 'editor'],
+  'publisher',
+  ['year', 'date']
+]
 ```
 
 ### Field types

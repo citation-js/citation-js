@@ -1,5 +1,35 @@
+import config from '../config'
 import { parse as mapBiblatex, parseBibtex as mapBibtex } from '../mapping'
 import { parse as parseValue } from './value'
+import { required } from './constants'
+
+function validate (entries, requirements) {
+  const problems = []
+
+  for (const { type, label, properties } of entries) {
+    if (type in requirements) {
+      const missing = []
+      for (const field of requirements[type]) {
+        if (Array.isArray(field) && !field.some(field => field in properties)) {
+          missing.push(field.join('/'))
+        } else if (typeof field === 'string' && !(field in properties)) {
+          missing.push(field)
+        }
+      }
+      if (missing.length) {
+        problems.push([label, `missing fields: ${missing.join(', ')}`])
+      }
+    } else {
+      problems.push([label, `invalid type: "${type}"`])
+    }
+  }
+
+  if (problems.length) {
+    throw new RangeError(['Invalid entries:']
+      .concat(problems.map(([label, problem]) => `  - ${label} has ${problem}`))
+      .join('\n'))
+  }
+}
 
 function parseEntryValues (entry) {
   const output = {}
@@ -17,9 +47,17 @@ function parseEntryValues (entry) {
 }
 
 export function parse (entries) {
+  if (config.parse.strict) {
+    validate(entries, required.biblatex)
+  }
+
   return mapBiblatex(entries.map(parseEntryValues))
 }
 
 export function parseBibtex (entries) {
+  if (config.parse.strict) {
+    validate(entries, required.bibtex)
+  }
+
   return mapBibtex(entries.map(parseEntryValues))
 }

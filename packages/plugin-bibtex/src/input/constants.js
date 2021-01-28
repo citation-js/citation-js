@@ -1,3 +1,7 @@
+// Adapted from plk/biblatex and BibTeXing[1] (accessed 2019-09-15)
+// [1] http://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf
+export { default as required } from './required.json'
+
 // Adapted from plk/biblatex (accessed 2019-09-15)
 export { default as fieldTypes } from './fieldTypes.json'
 

@@ -7,6 +7,7 @@ export default {
   types: { biblatex, bibtex },
   parse: {
     biblatex: true,
+    strict: false,
     sentenceCase: 'never'
   },
   format: {
