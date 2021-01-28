@@ -197,7 +197,7 @@ describe('input', function () {
         expect(util.clean([{ _foo: 1 }], false)).to.eql([{ _foo: 1 }])
       })
       it('keeps valid types', function () {
-        let input = [{ type: 'personal_communication' }]
+        const input = [{ type: 'personal_communication' }]
         expect(util.clean(input, false)).to.eql(input)
       })
       it('removes invalid types', function () {
