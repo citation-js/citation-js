@@ -335,7 +335,11 @@ export default new util.Translator([
     source: 'howpublished',
     target: 'URL',
     convert: Converters.HOW_PUBLISHED,
-    when: { target: false }
+    when: {
+      target: {
+        publisher: false
+      }
+    }
   },
   {
     source: 'volume',
