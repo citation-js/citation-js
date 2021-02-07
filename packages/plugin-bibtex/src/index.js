@@ -1,3 +1,7 @@
+/**
+ * @module module:@citation-js/plugin-bibtex
+ */
+
 import { plugins } from '@citation-js/core'
 
 import { ref, formats as input } from './input/'

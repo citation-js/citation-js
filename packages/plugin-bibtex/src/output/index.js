@@ -1,7 +1,3 @@
-/**
- * @module output/bibtex
- */
-
 import { plugins } from '@citation-js/core'
 import { format as mapBiblatex, formatBibtex as mapBibtex } from './entries'
 import { format } from './bibtex'
@@ -22,8 +18,42 @@ const factory = function (mapper, formatter) {
   }
 }
 
+/**
+ * @namespace output
+ * @type Object<module:@citation-js/core.plugins.output~formatterName,module:@citation-js/core.plugins.output~formatter>
+ * @memberof module:@citation-js/plugin-bibtex
+ */
 export default {
+  /**
+   * @function
+   * @implements module:@citation-js/core.plugins.output~formatter
+   * @memberof module:@citation-js/plugin-bibtex.output
+   * @param {Array<CSL>} data
+   * @param {Object} [opts]
+   * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
+   * @return {String|Object}
+   */
   bibtex: factory(mapBibtex, format),
+
+  /**
+   * @function
+   * @implements module:@citation-js/core.plugins.output~formatter
+   * @memberof module:@citation-js/plugin-bibtex.output
+   * @param {Array<CSL>} data
+   * @param {Object} [opts]
+   * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
+   * @return {String|Object}
+   */
   biblatex: factory(mapBiblatex, format),
+
+  /**
+   * @function
+   * @implements module:@citation-js/core.plugins.output~formatter
+   * @memberof module:@citation-js/plugin-bibtex.output
+   * @param {Array<CSL>} data
+   * @param {Object} [opts]
+   * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
+   * @return {String|Object}
+   */
   bibtxt: factory(mapBibtex, formatBibtxt)
 }
