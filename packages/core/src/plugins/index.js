@@ -84,13 +84,11 @@ export const has = (ref) => ref in indices
 export const list = () => Object.keys(indices)
 
 /**
- * @typedef {String} pluginRef
- * @memberof module:@citation-js/core.plugins
+ * @typedef {String} module:@citation-js/core.plugins~pluginRef
  */
 
 /**
- * @typedef {Object} plugins
- * @memberof module:@citation-js/core.plugins
+ * @typedef {Object} module:@citation-js/core.plugins~plugins
  * @property {Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parsers>} input
  * @property {Object<module:@citation-js/core.plugins.output~formatterName,module:@citation-js/core.plugins.output~formatter>} output
  * @property {Object<module:@citation-js/core.plugins.dict~dictName,module:@citation-js/core.plugins.dict~dict>} dict
