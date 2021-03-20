@@ -86,7 +86,12 @@ function formatName (name) {
 }
 
 function formatTitle (title) {
-  return formatRichText(title).replace(/(?<!^|:\s*)\b[a-z]*[A-Z].*?\b/g, '{$&}')
+  // Use this again when Safari supports lookbehinds
+  // return formatRichText(title).replace(/(?<!^|:\s*)\b[a-z]*[A-Z].*?\b/g, '{$&}')
+  return formatRichText(title)
+    .split(/(:\s*)/)
+    .map((part, i) => i % 2 ? part : part.replace(/(?!^)\b[a-z]*[A-Z].*?\b/g, '{$&}'))
+    .join('')
 }
 
 function formatSingleValue (value, valueType) {
