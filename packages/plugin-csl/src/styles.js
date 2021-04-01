@@ -1,7 +1,3 @@
-/**
- * @module output/csl
- */
-
 import { util } from '@citation-js/core'
 
 /**
@@ -18,7 +14,8 @@ import { util } from '@citation-js/core'
 import defaultTemplates from './styles.json'
 
 /**
- * @type Cite.util.Register
+ * @access private
+ * @type module:@citation-js/core.util.Register
  * @member
  */
 const templates = new util.Register(defaultTemplates)
@@ -27,7 +24,7 @@ const templates = new util.Register(defaultTemplates)
 /**
  * Retrieve CSL style
  *
- * @access protected
+ * @access private
  * @deprecated
  * @param {String} [style="apa"] - style name
  * @return {String} CSL style

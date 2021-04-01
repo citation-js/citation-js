@@ -1,19 +1,16 @@
-/**
- * @module input/wikidata
- */
-
 import { logger } from '@citation-js/core'
 import * as response from './response'
 import { parseProp, getLabel } from './prop'
-
-/**
- * CSL mappings for Wikidata fields.
- * @constant propMap
- * @property {Object} props
- * @property {Object} ignoredProps - known common props without CSL mapping
- */
 import { props, ignoredProps } from './props'
 
+/**
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.entity
+ * @param {String} prop_ - Chain of nested Wikidata properties
+ * @param {Object} entity
+ * @param {Set} unknown
+ * @return {Object} statement
+ */
 function resolveProp (prop_, entity, unkown) {
   function resolve ([prop, ...parts], { claims }) {
     if (!parts.length) {
@@ -29,6 +26,14 @@ function resolveProp (prop_, entity, unkown) {
   return resolve(parts, entity)
 }
 
+/**
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.entity
+ * @param {Object|String} statement
+ * @param {Object} entity
+ * @param {Set} unknown
+ * @return {module:@citation-js/core~CSL}
+ */
 function prepareValue (statement, entity, unkown) {
   if (typeof statement !== 'object') {
     const value = resolveProp(statement, entity, unkown)
@@ -47,6 +52,12 @@ function prepareValue (statement, entity, unkown) {
   }
 }
 
+/**
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.entity
+ * @param {Object} entity - The input data
+ * @return {module:@citation-js/core~CSL} The formatted input data
+ */
 export function parseEntity (entity) {
   const data = {
     id: entity.id,
@@ -104,24 +115,26 @@ export function parseEntity (entity) {
 }
 
 /**
- * Format Wikidata data (async)
+ * Asynchronously parse entities from an API response.
  *
  * @access protected
+ * @method parseAsync
+ * @memberof module:@citation-js/plugin-wikidata.parsers.entity
  * @param {Object} data - The input data
- *
- * @return {Promise<Array<CSL>>} The formatted input data
+ * @return {Promise<Array<module:@citation-js/core~CSL>>} The formatted input data
  */
 export async function parseEntitiesAsync ({ entities }) {
   return (await response.parseAsync(entities)).map(parseEntity)
 }
 
 /**
- * Format Wikidata data
+ * Parse entities from an API response.
  *
  * @access protected
+ * @method parse
+ * @memberof module:@citation-js/plugin-wikidata.parsers.entity
  * @param {Object} data - The input data
- *
- * @return {Array<CSL>} The formatted input data
+ * @return {Array<module:@citation-js/core~CSL>} The formatted input data
  */
 export function parseEntities ({ entities }) {
   return response.parse(entities).map(parseEntity)

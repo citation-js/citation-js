@@ -1,7 +1,3 @@
-/**
- * @module output/ris
- */
-
 import { util } from '@citation-js/core'
 import config from './config'
 
@@ -43,6 +39,14 @@ function prepareTranslator (spec) {
   return TRANSLATORS.get(spec)
 }
 
+/**
+ * @access private
+ * @method parse
+ * @memberof module:@citation-js/plugin-ris.formats
+ *
+ * @param {String} text - RIS file
+ * @return {Array<module:@citation-js/core~CSL>}
+ */
 export function parse (text) {
   const entries = []
   let lastEntry
@@ -78,10 +82,48 @@ export function parse (text) {
   return entries
 }
 
+/**
+ * @access private
+ * @method parseOld
+ * @memberof module:@citation-js/plugin-ris.formats
+ *
+ * @param {Object} data - RIS record
+ * @return {module:@citation-js/core~CSL}
+ */
 export function parseOld (data) { return prepareTranslator(SPECS.old).convertToTarget(data) }
+
+/**
+ * @access private
+ * @method parseNew
+ * @memberof module:@citation-js/plugin-ris.formats
+ *
+ * @param {Object} data - RIS record
+ * @return {module:@citation-js/core~CSL}
+ */
 export function parseNew (data) { return prepareTranslator(SPECS.new).convertToTarget(data) }
+
+/**
+ * @access private
+ * @method parseMixed
+ * @memberof module:@citation-js/plugin-ris.formats
+ *
+ * @param {Object} data - RIS record
+ * @return {module:@citation-js/core~CSL}
+ */
 export function parseMixed (data) { return prepareTranslator(SPECS.mixed).convertToTarget(data) }
 
+/**
+ * @access private
+ * @method format
+ * @memberof module:@citation-js/plugin-ris.output
+ * @implements module:@citation-js/core.plugins.output~formatter
+ *
+ * @param {Array<module:@citation-js/core~CSL>} data
+ * @param {Object} [opts]
+ * @param {String} [opts.spec='mixed'] - RIS specification (`mixed`, `new` or `old`)
+ * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
+ * @return {String|Array<Object>}
+ */
 export function format (data, { type, format = type || 'text', spec } = {}) {
   const outputSpec = spec || config.outputSpec
   const entries = data.map(prepareTranslator(SPECS[outputSpec]).convertToSource)

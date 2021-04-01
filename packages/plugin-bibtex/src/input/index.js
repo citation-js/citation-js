@@ -10,14 +10,16 @@ import { parse as parseEntries, parseBibtex } from './entries'
 export const ref = '@bibtex'
 
 /**
- * @namespace input
+ * @namespace formats
  * @type Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parsers>
  * @memberof module:@citation-js/plugin-bibtex
  */
 export const formats = {
   /**
+   * BibLaTeX file.
+   *
    * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-bibtex.input
+   * @memberof module:@citation-js/plugin-bibtex.formats
    * @property {module:@citation-js/core.plugins.input~dataParser} parse
    * @property {module:@citation-js/core.plugins.input~typeParser} parseType
    */
@@ -30,8 +32,18 @@ export const formats = {
   },
 
   /**
+   * BibLaTeX object.
+   *
+   * ```js
+   * {
+   *   type: '...',
+   *   label: '...',
+   *   properties: {...}
+   * }
+   * ```
+   *
    * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-bibtex.input
+   * @memberof module:@citation-js/plugin-bibtex.formats
    * @property {module:@citation-js/core.plugins.input~dataParser} parse
    * @property {module:@citation-js/core.plugins.input~typeParser} parseType
    */
@@ -44,8 +56,10 @@ export const formats = {
   },
 
   /**
+   * Array of {@link module:@citation-js/plugin-bibtex.formats."@biblatex/entries+list"|BibLaTeX objects}.
+   *
    * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-bibtex.input
+   * @memberof module:@citation-js/plugin-bibtex.formats
    * @property {module:@citation-js/core.plugins.input~dataParser} parse
    * @property {module:@citation-js/core.plugins.input~typeParser} parseType
    */
@@ -55,10 +69,12 @@ export const formats = {
   },
 
   /**
+   * BibTeX file.
+   *
    * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-bibtex.input
+   * @memberof module:@citation-js/plugin-bibtex.formats
    * @property {module:@citation-js/core.plugins.input~dataParser} parse
-   * @property {module:@citation-js/core.plugins.input~typeParser} parseType
+   * @property {module:@citation-js/core.plugins.input~format} outputs
    */
   '@bibtex/text': {
     parse: parseFile,
@@ -66,28 +82,40 @@ export const formats = {
   },
 
   /**
+   * BibTeX object.
+   *
+   * ```js
+   * {
+   *   type: '...',
+   *   label: '...',
+   *   properties: {...}
+   * }
+   * ```
+   *
    * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-bibtex.input
+   * @memberof module:@citation-js/plugin-bibtex.formats
    * @property {module:@citation-js/core.plugins.input~dataParser} parse
-   * @property {module:@citation-js/core.plugins.input~typeParser} parseType
    */
   '@bibtex/entry+object': {
     parse (input) { return parseBibtex([input]) }
   },
 
   /**
+   * Array of {@link module:@citation-js/plugin-bibtex.formats."@bibtex/entries+list"|BibTeX objects}.
+   *
    * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-bibtex.input
+   * @memberof module:@citation-js/plugin-bibtex.formats
    * @property {module:@citation-js/core.plugins.input~dataParser} parse
-   * @property {module:@citation-js/core.plugins.input~typeParser} parseType
    */
   '@bibtex/entries+list': {
     parse: parseBibtex
   },
 
   /**
+   * Bib.TXT file.
+   *
    * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-bibtex.input
+   * @memberof module:@citation-js/plugin-bibtex.formats
    * @property {module:@citation-js/core.plugins.input~dataParser} parse
    * @property {module:@citation-js/core.plugins.input~typeParser} parseType
    */

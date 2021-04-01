@@ -10,11 +10,11 @@ function formatEntry ({ type, label, properties }, dict) {
 /**
  * Get a BibTeX string from CSL
  *
- * @access protected
+ * @access private
  * @method format
  *
- * @param {Array<CSL>} src - Input CSL
- * @param {Cite.get.dict~dict} dict - Dictionary
+ * @param {Array<module:@citation-js/core~CSL>} src - Input CSL
+ * @param {module:@citation-js/core.plugins.dict~dict} dict - Dictionary
  *
  * @return {String} BibTeX string
  */

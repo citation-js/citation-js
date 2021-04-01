@@ -1,7 +1,3 @@
-/**
- * @module input/doi
- */
-
 import parseDoiJson from './json'
 import { util } from '@citation-js/core'
 
@@ -9,6 +5,7 @@ import { util } from '@citation-js/core'
  * DOI API options
  *
  * @access private
+ * @memberof module:@citation-js/plugin-doi.parsers.api
  */
 const apiOptions = {
   checkContentType: true,
@@ -22,10 +19,11 @@ const apiOptions = {
  *
  * @access private
  * @method fetchDoiApiAsync
+ * @memberof module:@citation-js/plugin-doi.parsers.api
  *
  * @param {String} url - The input url
  *
- * @return {Promise<CSL>} The fetched JSON
+ * @return {Promise<module:@citation-js/core~CSL>} The fetched JSON
  */
 const fetchDoiApiAsync = async function (url) {
   const result = await util.fetchFileAsync(url, apiOptions)
@@ -36,11 +34,12 @@ const fetchDoiApiAsync = async function (url) {
  * Get CSL JSON from DOI API URLs.
  *
  * @access protected
- * @method parseDoiApiAsync
+ * @method parseAsync
+ * @memberof module:@citation-js/plugin-doi.parsers.api
  *
  * @param {String|Array<String>} data - DOIs
  *
- * @return {Promise<Array<CSL>>} Array of CSL
+ * @return {Promise<Array<module:@citation-js/core~CSL>>} Array of CSL
  */
 const parseDoiApiAsync = async function (data) {
   const doiJsonList = await Promise.all([].concat(data).map(fetchDoiApiAsync))
@@ -52,10 +51,11 @@ const parseDoiApiAsync = async function (data) {
  *
  * @access private
  * @method fetchDoiApi
+ * @memberof module:@citation-js/plugin-doi.parsers.api
  *
  * @param {String} url - The input url
  *
- * @return {CSL} The fetched JSON
+ * @return {module:@citation-js/core~CSL} The fetched JSON
  */
 const fetchDoiApi = function (url) {
   const result = util.fetchFile(url, apiOptions)
@@ -66,11 +66,12 @@ const fetchDoiApi = function (url) {
  * Get CSL JSON from DOI API URLs.
  *
  * @access protected
- * @method parseDoiApi
+ * @method parse
+ * @memberof module:@citation-js/plugin-doi.parsers.api
  *
  * @param {String|Array<String>} data - DOIs
  *
- * @return {Array<CSL>} Array of CSL
+ * @return {Array<module:@citation-js/core~CSL>} Array of CSL
  */
 const parseDoiApi = data => [].concat(data).map(fetchDoiApi).map(parseDoiJson)
 

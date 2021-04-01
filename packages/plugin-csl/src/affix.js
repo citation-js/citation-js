@@ -1,8 +1,4 @@
 /**
- * @module output/csl
- */
-
-/**
  * Get a rendered affix
  *
  * @access private
@@ -21,7 +17,7 @@ const htmlRegex = /^([^>]+>)([\s\S]+)(<[^<]+)$/i
 /**
  * Pre/append things to entry
  *
- * @access protected
+ * @access private
  *
  * @param {String} value - HTML string
  * @param {CSL} source - source element

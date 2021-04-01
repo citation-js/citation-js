@@ -1,7 +1,3 @@
-/**
- * @module input/wikidata
- */
-
 import wdk from 'wikidata-sdk'
 import config from './config'
 
@@ -9,7 +5,8 @@ import config from './config'
  * Get Wikidata JSON from Wikidata IDs
  *
  * @access protected
- * @method parseWikidata
+ * @method parse
+ * @memberof module:@citation-js/plugin-wikidata.parsers.id
  *
  * @param {String|Array<String>} data - Wikidata IDs
  * @param {Array<String>} [langs]

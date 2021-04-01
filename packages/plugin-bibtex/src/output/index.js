@@ -28,10 +28,10 @@ export default {
    * @function
    * @implements module:@citation-js/core.plugins.output~formatter
    * @memberof module:@citation-js/plugin-bibtex.output
-   * @param {Array<CSL>} data
+   * @param {Array<module:@citation-js/core~CSL>} data
    * @param {Object} [opts]
    * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
-   * @return {String|Object}
+   * @return {String|Array<Object>}
    */
   bibtex: factory(mapBibtex, format),
 
@@ -39,10 +39,10 @@ export default {
    * @function
    * @implements module:@citation-js/core.plugins.output~formatter
    * @memberof module:@citation-js/plugin-bibtex.output
-   * @param {Array<CSL>} data
+   * @param {Array<module:@citation-js/core~CSL>} data
    * @param {Object} [opts]
    * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
-   * @return {String|Object}
+   * @return {String|Array<Object>}
    */
   biblatex: factory(mapBiblatex, format),
 
@@ -50,10 +50,10 @@ export default {
    * @function
    * @implements module:@citation-js/core.plugins.output~formatter
    * @memberof module:@citation-js/plugin-bibtex.output
-   * @param {Array<CSL>} data
+   * @param {Array<module:@citation-js/core~CSL>} data
    * @param {Object} [opts]
    * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
-   * @return {String|Object}
+   * @return {String|Array<Object>}
    */
   bibtxt: factory(mapBibtex, formatBibtxt)
 }

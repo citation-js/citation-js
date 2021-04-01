@@ -1,7 +1,3 @@
-/**
- * @module input/bibtex
- */
-
 import { util, logger } from '@citation-js/core'
 
 import moo from 'moo'

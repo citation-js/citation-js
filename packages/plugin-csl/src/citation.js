@@ -1,11 +1,27 @@
-/**
- * @module output/csl
- */
-
 import prepareEngine from './engines'
 
 /**
- * @access protected
+ * Here's an example for `entry`:
+ *
+ * ```js
+ * let cite = new Cite([
+ *   { id: 'a', title: 'Item A', issued: { 'date-parts': [[2016]] } },
+ *   { id: 'b', title: 'Item B', issued: { 'date-parts': [[2017]] } },
+ *   { id: 'c', title: 'Item C', issued: { 'date-parts': [[2018]] } }
+ * ])
+ *
+ * cite.format('citation')
+ * // '(“Item A,” 2016; “Item B,” 2017; “Item C,” 2018)'
+ *
+ * cite.format('citation', { entry: ['a', 'b'] })
+ * // '(“Item A,” 2016; “Item B,” 2017)'
+ *
+ * cite.format('citation', { entry: 'a' })
+ * // '(“Item A,” 2016)'
+ * ```
+ *
+ * @memberof module:@citation-js/plugin-csl.output
+ * @implements module:@citation-js/core.plugins.output~formatter
  * @method citation
  *
  * @param {Array<CSL>} data

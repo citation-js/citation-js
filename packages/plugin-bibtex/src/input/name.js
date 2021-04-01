@@ -1,4 +1,5 @@
 /**
+ * @access private
  * @param {String}
  * @returns {Boolean|null} true if uppercase, false if lowercase, null if neither
  */
@@ -16,6 +17,7 @@ export function getStringCase (string) {
 }
 
 /**
+ * @access private
  * @param {Array<Object>} parts
  * @return {String|undefined}
  */
@@ -36,6 +38,7 @@ export function formatNameParts (parts) {
 }
 
 /**
+ * @access private
  * @param {Array<Object>} parts
  * @param {Boolean} [orderGiven=true] - also consider the given name
  * @return {Array<String>}
@@ -90,6 +93,7 @@ export function orderNameParts (parts, orderGiven = true) {
 }
 
 /**
+ * @access private
  * @param {Array<Array<Object>>} pieces
  * @return {Object}
  */

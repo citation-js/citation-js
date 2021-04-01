@@ -1,7 +1,3 @@
-/**
- * @module output/csl
- */
-
 import CSL from 'citeproc'
 
 import { templates } from './styles'
@@ -41,7 +37,7 @@ const engines = {}
 /**
  * Retrieve CSL parsing engine
  *
- * @access protected
+ * @access private
  *
  * @param {String} style - CSL style id
  * @param {String} lang - Language code
@@ -69,7 +65,7 @@ const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocal
 /**
  * Prepare CSL parsing engine
  *
- * @access protected
+ * @access private
  *
  * @param {Array<CSL>} data
  * @param {String} templateName

@@ -1,7 +1,3 @@
-/**
- * @module input/wikidata
- */
-
 import { logger } from '@citation-js/core'
 import { parse as parseNameString } from '@citation-js/name'
 import { parse as parseDate } from '@citation-js/date'
@@ -10,7 +6,9 @@ import config from './config'
 
 /**
  * CSL mappings for Wikidata instances.
+ * @access private
  * @constant types
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  */
 import types from './types'
 
@@ -18,7 +16,8 @@ import types from './types'
  * Get series ordinal from qualifiers object
  *
  * @access private
- * @param {Object} qualifiers - qualifiers
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
+ * @param {Object} qualifiers
  * @return {Number} series ordinal or -1
  */
 const getSeriesOrdinal = ({ P1545 }) => P1545 ? parseInt(P1545[0]) : -1
@@ -28,6 +27,7 @@ const getSeriesOrdinal = ({ P1545 }) => P1545 ? parseInt(P1545[0]) : -1
  * how the name is actually represented. That's what we want to cite.
  *
  * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  * @param {Object} qualifiers
  * @return {Array<String>} names
  */
@@ -40,6 +40,7 @@ const getStatedAs = qualifiers => [].concat(...[
  * Get a single name
  *
  * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  * @param {Object} claim - name claim
  * @return {Object} Name object
  */
@@ -57,8 +58,8 @@ const parseName = ({ value, qualifiers }) => {
  * Get names
  *
  * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  * @param {Array<Object>} values
- *
  * @return {Array<Object>} Array with name objects
  */
 const parseNames = (values) => {
@@ -67,6 +68,14 @@ const parseNames = (values) => {
     .sort((a, b) => a._ordinal - b._ordinal)
 }
 
+/**
+ * Get place name from (publisher) entity.
+ *
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
+ * @param {Object} value
+ * @return {String} Place name + country
+ */
 const getPlace = value => {
   const country = value.claims.P17[0].value
   // only short names that are not an instance of (P31) emoji flag seqs. (Q28840786)
@@ -74,18 +83,42 @@ const getPlace = value => {
   return getLabel(value) + ', ' + (shortNames[0] || country.claims.P1448[0]).value
 }
 
+/**
+ * Get title either from explicit statement or from label.
+ *
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
+ * @param {Object} value
+ * @return {String} Title
+ */
 const getTitle = value => {
   return value.claims.P1476
     ? value.claims.P1476[0].value
     : getLabel(value)
 }
 
+/**
+ * Turn array of entities into comma-separated list of labels.
+ *
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
+ * @param {Array<Object>} values
+ * @return {String} Labels
+ */
 const parseKeywords = values => {
   return values
     .map(({ value }) => getLabel(value))
     .join(',')
 }
 
+/**
+ * Get date parts from multiple statements.
+ *
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
+ * @param {Array<Object>} values
+ * @return {Array<Array<Number>>} Array of date-parts
+ */
 const parseDateRange = dates => ({
   'date-parts': dates
     .map(date => parseDate(date.value))
@@ -99,6 +132,8 @@ const parseDateRange = dates => ({
  * Returns additional _ordinal property on authors.
  *
  * @access protected
+ * @method parse
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  *
  * @param {String} prop
  * @param {Array|String} values
@@ -160,6 +195,7 @@ export function parseProp (prop, value, entity) {
 
 /**
  * @access protected
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  * @param {String} type - P31 Wikidata ID value
  * @return {String} CSL type
  */
@@ -175,8 +211,9 @@ export function parseType (type) {
 /**
  * Get the labels of objects
  *
+ * @access protected
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  * @param {Object} entity - Wikidata API response
- *
  * @return {String} label
  */
 export function getLabel (entity) {

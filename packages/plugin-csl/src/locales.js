@@ -1,7 +1,3 @@
-/**
- * @module output/csl
- */
-
 import { util } from '@citation-js/core'
 
 /**
@@ -18,7 +14,8 @@ import { util } from '@citation-js/core'
 import defaultLocales from './locales.json'
 
 /**
- * @type Cite.util.Register
+ * @access private
+ * @type module:@citation-js/core.util.Register
  * @member
  */
 const locales = new util.Register(defaultLocales)
@@ -27,7 +24,7 @@ const locales = new util.Register(defaultLocales)
 /**
  * Retrieve CSL locale
  *
- * @access protected
+ * @access private
  * @deprecated
  * @param {String} [lang="en-US"] - lang code
  * @return {String} CSL locale

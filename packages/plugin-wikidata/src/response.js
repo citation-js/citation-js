@@ -1,10 +1,12 @@
-/**
- * @module input/wikidata
- */
-
 import { simplify } from 'wikidata-sdk'
 import { parse as fetch, parseAsync as fetchAsync } from './api'
 import { parse as getUrls } from './id'
+
+/**
+ * @access private
+ * @namespace response
+ * @memberof module:@citation-js/plugin-wikidata.parsers
+ */
 
 const SIMPLIFY_OPTS = {
   keepQualifiers: true,
@@ -80,6 +82,12 @@ function flat (array, part) {
   return array
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entity
+ * @param {Object} needed
+ * @return {Array<String>}
+ */
 function collectAdditionalIds (entity, needed) {
   if (!needed) {
     return []
@@ -92,6 +100,12 @@ function collectAdditionalIds (entity, needed) {
     .reduce(flat, [])
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entities
+ * @param {Array<String>} old
+ * @return {Array<String>} needed
+ */
 function completeResponse (entities, old) {
   if (!old) {
     const allIds = []
@@ -135,6 +149,19 @@ function simplifyEntities (entities) {
   return simplify.entities(entities, SIMPLIFY_OPTS)
 }
 
+/**
+ * @typedef {Object} loopState
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @property {Array<String>} needed
+ * @property {Array<String>} incomplete
+ */
+
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entities
+ * @param {Object<String,module:@citation-js/core~CSL>} cache
+ * @return {module:@citation-js/plugin-wikidata.parsers.response~loopState}
+ */
 function initLoopState (entities, cache) {
   return {
     needed: completeResponse(cache),
@@ -142,16 +169,33 @@ function initLoopState (entities, cache) {
   }
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Array<String>} needed
+ * @param {Object<String,module:@citation-js/core~CSL>} cache
+ * @return {Array<String>} API URLs
+ */
 function filterIdsAndGetUrls (needed, cache) {
   const shouldFetch = needed.filter((id, i) => !(id in cache) && needed.indexOf(id) === i)
   return getUrls(shouldFetch)
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} response
+ * @param {Object<String,module:@citation-js/core~CSL>} cache
+ */
 function addItemsToCache (response, cache) {
   const { entities } = JSON.parse(response)
   Object.assign(cache, simplifyEntities(entities))
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {module:@citation-js/plugin-wikidata.parsers.response~loopState} state
+ * @param {Object<String,module:@citation-js/core~CSL>} cache
+ * @return {module:@citation-js/plugin-wikidata.parsers.response~loopState}
+ */
 function updateLoopState (state, cache) {
   return {
     needed: completeResponse(cache, state.incomplete),
@@ -159,10 +203,21 @@ function updateLoopState (state, cache) {
   }
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entities
+ * @param {Object<String,module:@citation-js/core~CSL>} cache
+ * @return {Array<module:@citation-js/core~CSL>}
+ */
 function finalizeItems (entities, cache) {
   return Object.keys(entities).map(id => cache[id])
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entities
+ * @return {Object<String,module:@citation-js/core~CSL>}
+ */
 export function fillCache (entities) {
   const cache = simplifyEntities(entities)
   let state = initLoopState(entities, cache)
@@ -177,12 +232,22 @@ export function fillCache (entities) {
   return cache
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entities
+ * @return {Array<module:@citation-js/core~CSL>}
+ */
 export function parse (entities) {
   const cache = fillCache(entities)
 
   return finalizeItems(entities, cache)
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entities
+ * @return {Promise<Object<String,module:@citation-js/core~CSL>>}
+ */
 export async function fillCacheAsync (entities) {
   const cache = simplifyEntities(entities)
   let state = initLoopState(entities, cache)
@@ -199,6 +264,11 @@ export async function fillCacheAsync (entities) {
   return cache
 }
 
+/**
+ * @memberof module:@citation-js/plugin-wikidata.parsers.response
+ * @param {Object} entities
+ * @return {Promise<Array<module:@citation-js/core~CSL>>}
+ */
 export async function parseAsync (entities) {
   const cache = await fillCacheAsync(entities)
 

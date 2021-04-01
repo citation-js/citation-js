@@ -1,8 +1,4 @@
 /**
- * @module input/bibtex
- */
-
-/**
  * @access private
  * @constant bibTxtRegex
  * @default
@@ -17,7 +13,7 @@ const bibTxtRegex = {
 /**
  * Parse single Bib.TXT entry
  *
- * @access protected
+ * @access private
  * @method parseBibTxtEntry
  *
  * @param {String} entry - The input data
@@ -59,7 +55,7 @@ const parseBibTxtEntry = entry => {
 /**
  * Parse Bib.TXT data
  *
- * @access protected
+ * @access private
  * @method parseBibTxt
  *
  * @param {String} src - The input data

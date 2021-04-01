@@ -1,12 +1,9 @@
 /**
- * @module input/doi
- */
-
-/**
  * Get DOI API URLs from DOI ID.
  *
  * @access protected
- * @method parseDoi
+ * @method parse
+ * @memberof module:@citation-js/plugin-doi.parsers.id
  *
  * @param {String} data - DOIs
  *

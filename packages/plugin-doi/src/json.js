@@ -1,18 +1,15 @@
-/**
- * @module input/doi
- */
-
 import fetchDoiType from './type'
 
 /**
  * Format CrossRef JSON
  *
  * @access protected
- * @method parseDoiJson
+ * @method parse
+ * @memberof module:@citation-js/plugin-doi.parsers.json
  *
  * @param {Object} data - The input data
  *
- * @return {CSL} The formatted input data
+ * @return {module:@citation-js/core~CSL} The formatted input data
  */
 const parseDoiJson = function (data) {
   const res = {

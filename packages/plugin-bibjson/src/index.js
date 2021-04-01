@@ -1,5 +1,15 @@
 /**
- * @module input/bibjson
+ * ## Formats
+ *
+ * ### BibJSON
+ *
+ * This plugin adds input support for the [BibJSON format](http://okfnlabs.org/bibjson/), with three variants:
+ *
+ *   * collections, where the records are extracted and parsed
+ *   * records, which are parsed
+ *   * records of the [quickscrape](https://github.com/ContentMine/quickscrape) variant, which are parsed
+ *
+ * @module module:@citation-js/plugin-bibjson
  */
 
 import * as json from './json'
@@ -7,9 +17,41 @@ import { plugins } from '@citation-js/core'
 
 const scraperLinks = ['fulltext_html', 'fulltext_xml', 'fulltext_pdf']
 
+/**
+ * @constant {module:@citation-js/core.plugins~pluginRef} ref
+ * @memberof module:@citation-js/plugin-bibjson
+ * @default '@bibjson'
+ */
 const ref = '@bibjson'
-const parsers = { json }
+
+/**
+ * @access protected
+ * @namespace parsers
+ * @memberof module:@citation-js/plugin-bibjson
+ */
+const parsers = {
+  /**
+   * @access protected
+   * @namespace json
+   * @memberof module:@citation-js/plugin-bibjson.parsers
+   */
+  json
+}
+
+/**
+ * @namespace formats
+ * @type Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parsers>
+ * @memberof module:@citation-js/plugin-bibjson
+ */
 const formats = {
+  /**
+   * Object with quickscrape-style BibJSON.
+   *
+   * @type module:@citation-js/core.plugins.input~parsers
+   * @memberof module:@citation-js/plugin-bibjson.formats
+   * @property {module:@citation-js/core.plugins.input~dataParser} parse
+   * @property {module:@citation-js/core.plugins.input~typeParser} parseType
+   */
   '@bibjson/quickscrape+record+object': {
     parse: json.quickscrapeRecord,
     parseType: {
@@ -22,6 +64,14 @@ const formats = {
       extends: '@bibjson/record+object'
     }
   },
+  /**
+   * Object with BibJSON.
+   *
+   * @type module:@citation-js/core.plugins.input~parsers
+   * @memberof module:@citation-js/plugin-bibjson.formats
+   * @property {module:@citation-js/core.plugins.input~dataParser} parse
+   * @property {module:@citation-js/core.plugins.input~typeParser} parseType
+   */
   '@bibjson/record+object': {
     parse: json.record,
     parseType: {
@@ -37,6 +87,14 @@ const formats = {
       }]
     }
   },
+  /**
+   * Array of {@link module:@citation-js/plugin-bibjson.formats."@bibjson/record+object"|BibJSON objects}.
+   *
+   * @type module:@citation-js/core.plugins.input~parsers
+   * @memberof module:@citation-js/plugin-bibjson.formats
+   * @property {module:@citation-js/core.plugins.input~dataParser} parse
+   * @property {module:@citation-js/core.plugins.input~typeParser} parseType
+   */
   '@bibjson/collection+object': {
     parse (collection) {
       return collection.records

@@ -67,7 +67,7 @@ mappings are in the `source` field and the reverse mappings in the `target` fiel
 
 ```js
 config.types.biblatex.source.inproceedings = 'paper-conference'
-config.types.biblatex.source['paper-conference'] = 'inproceedings'
+config.types.biblatex.target['paper-conference'] = 'inproceedings'
 ```
 
 ### Required types
@@ -176,8 +176,8 @@ All entries should be lowercase.
 ```js
 config.constants.sentenceCaseLanguages = [
   'english',
-  'en-US',
-  'en-GB'
+  'en-us',
+  'en-gb'
 ]
 ```
 
@@ -187,5 +187,5 @@ The object `config.constants.defaultStrings` determines which strings are define
 by default.
 
 ```js
-config.constants.sentenceCaseLanguages.larsgw = "Willighagen, Lars G"
+config.constants.defaultStrings.larsgw = "Willighagen, Lars G"
 ```

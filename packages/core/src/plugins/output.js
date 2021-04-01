@@ -7,7 +7,7 @@ import Register from '../util/register'
 
 /**
  * @callback module:@citation-js/core.plugins.output~formatter
- * @param {Array<module:@citation-js/core~InputData>}
+ * @param {Array<module:@citation-js/core~InputData>} data
  * @return {String} output
  */
 
