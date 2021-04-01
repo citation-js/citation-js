@@ -82,8 +82,9 @@ export function parseOld (data) { return prepareTranslator(SPECS.old).convertToT
 export function parseNew (data) { return prepareTranslator(SPECS.new).convertToTarget(data) }
 export function parseMixed (data) { return prepareTranslator(SPECS.mixed).convertToTarget(data) }
 
-export function format (data, { type, format = type || 'text' } = {}) {
-  const entries = data.map(prepareTranslator(SPECS[config.outputSpec]).convertToSource)
+export function format (data, { type, format = type || 'text', spec } = {}) {
+  const outputSpec = spec || config.outputSpec
+  const entries = data.map(prepareTranslator(SPECS[outputSpec]).convertToSource)
 
   if (format === 'object') {
     return entries
