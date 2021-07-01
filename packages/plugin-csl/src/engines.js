@@ -27,6 +27,20 @@ for (const format in CSL.Output.Formats) {
 // END
 
 /**
+ * @access private
+ * @param {String} lang - language code
+ * @return {String} locale XML
+ */
+function retrieveLocale (lang) {
+  const unnormalised = lang.replace('-', '_')
+  if (locales.has(lang)) {
+    return locales.get(lang)
+  } else if (locales.has(unnormalised)) {
+    return locales.get(unnormalised)
+  }
+}
+
+/**
  * Object containing CSL Engines
  *
  * @access private
@@ -79,7 +93,7 @@ const prepareEngine = function (data, templateName, language, format) {
   const template = templates.get(templates.has(templateName) ? templateName : 'apa')
   language = locales.has(language) ? language : 'en-US'
 
-  const engine = fetchEngine(templateName, language, template, key => items[key], locales.get.bind(locales))
+  const engine = fetchEngine(templateName, language, template, key => items[key], retrieveLocale)
   engine.setOutputFormat(format)
 
   return engine
