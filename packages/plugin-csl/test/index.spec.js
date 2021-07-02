@@ -31,6 +31,24 @@ CSL.locales.add('custom', `<?xml version="1.0" encoding="utf-8"?>
     <term name="no date" form="short">custom</term>
   </terms>
 </locale>`)
+CSL.locales.add('zh_CN', `<?xml version="1.0" encoding="utf-8"?>
+<locale xmlns="http://purl.org/net/xbiblio/csl" version="1.0" xml:lang="zh-CN">
+  <style-options punctuation-in-quote="true"/>
+  <date form="text">
+    <date-part name="month" suffix=" "/>
+    <date-part name="day" suffix=", "/>
+    <date-part name="year"/>
+  </date>
+  <date form="numeric">
+    <date-part name="month" form="numeric-leading-zeros" suffix="/"/>
+    <date-part name="day" form="numeric-leading-zeros" suffix="/"/>
+    <date-part name="year"/>
+  </date>
+  <terms>
+    <term name="no date" form="short">custom</term>
+    <term name="et-al" form="short">custom</term>
+  </terms>
+</locale>`)
 
 describe('output', function () {
   for (const type in data) {
