@@ -1,68 +1,66 @@
-cff-version: 1.1.0
-message: Please cite the following works when using this software.
+cff-version: "1.1.0"
+message: "Please cite the following works when using this software."
 authors:
-  - family-names: Willighagen
-    given-names: Lars
-    website: https://github.com/larsgw
-  - family-names: Verborgh
-    given-names: Ruben
-    website: https://github.com/RubenVerborgh
-  - family-names: Willighagen
-    given-names: Egon
-    website: https://github.com/egonw
-  - family-names: Voß
-    given-names: Jakob
-    website: https://github.com/nichtich
-  - family-names: Shaw
-    given-names: Alex
-    website: https://github.com/Symbitic
-  - family-names: Wiernik
-    given-names: Brenton M.
-    website: https://github.com/bwiernik
-  - family-names: Stein
-    given-names: Gabriel
-    website: https://github.com/gabestein
-  - family-names: Riquelme
-    given-names: Juan
-    website: https://github.com/soulchainer
-  - name: anadrome
-    website: https://github.com/anadrome
-  - family-names: Čermák
-    given-names: Petr
-    website: https://github.com/me2d09
+  - family-names: "Willighagen"
+    given-names: "Lars"
+    website: "https://github.com/larsgw"
+  - family-names: "Verborgh"
+    given-names: "Ruben"
+    website: "https://github.com/RubenVerborgh"
+  - family-names: "Willighagen"
+    given-names: "Egon"
+    website: "https://github.com/egonw"
+  - family-names: "Voß"
+    given-names: "Jakob"
+    website: "https://github.com/nichtich"
+  - family-names: "Shaw"
+    given-names: "Alex"
+    website: "https://github.com/Symbitic"
+  - family-names: "Wiernik"
+    given-names: "Brenton M."
+    website: "https://github.com/bwiernik"
+  - family-names: "Stein"
+    given-names: "Gabriel"
+    website: "https://github.com/gabestein"
+  - family-names: "Riquelme"
+    given-names: "Juan"
+    website: "https://github.com/soulchainer"
+  - name: "anadrome"
+    website: "https://github.com/anadrome"
+  - family-names: "Čermák"
+    given-names: "Petr"
+    website: "https://github.com/me2d09"
 date-released: 2021-05-11T00:00:00.000Z
 identifiers:
-  - type: url
-    value: https://github.com/citation-js/citation-js
-title: citation-js/citation-js
-url: https://github.com/citation-js/citation-js
-version: v0.5.1
+  - type: "url"
+    value: "https://github.com/citation-js/citation-js"
+title: "citation-js/citation-js"
+url: "https://github.com/citation-js/citation-js"
+version: "v0.5.1"
 references:
   - authors:
-      - family-names: Willighagen
-        given-names: Lars G.
-    doi: 10.7717/peerj-cs.214
+      - family-names: "Willighagen"
+        given-names: "Lars G."
+    doi: "10.7717/peerj-cs.214"
     identifiers:
-      - type: doi
-        value: 10.7717/peerj-cs.214
-      - type: url
-        value: http://dx.doi.org/10.7717/peerj-cs.214
-      - type: other
-        value: urn:issn:2376-5992
-    title: >-
-      Citation.js: a format-independent, modular bibliography tool for the
-      browser and command line
-    url: http://dx.doi.org/10.7717/peerj-cs.214
-    database: Crossref
+      - type: "doi"
+        value: "10.7717/peerj-cs.214"
+      - type: "url"
+        value: "http://dx.doi.org/10.7717/peerj-cs.214"
+      - type: "other"
+        value: "urn:issn:2376-5992"
+    title: "Citation.js: a format-independent, modular bibliography tool for the browser and command line"
+    url: "http://dx.doi.org/10.7717/peerj-cs.214"
+    database: "Crossref"
     date-published: 2019-08-12T00:00:00.000Z
-    year: 2019
-    month: 8
-    issn: 2376-5992
-    journal: PeerJ Computer Science
+    year: "2019"
+    month: "8"
+    issn: "2376-5992"
+    journal: "PeerJ Computer Science"
     languages:
-      - en
+      - "en"
     publisher:
-      name: PeerJ
-    start: e214
-    type: article
-    volume: 5
+      name: "PeerJ"
+    start: "e214"
+    type: "article"
+    volume: "5"
