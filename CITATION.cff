@@ -38,7 +38,8 @@ title: "citation-js/citation-js"
 url: "https://github.com/citation-js/citation-js"
 version: "v0.5.1"
 references:
-  - authors:
+  - type: "article"
+    authors:
       - family-names: "Willighagen"
         given-names: "Lars G."
     doi: "10.7717/peerj-cs.214"
