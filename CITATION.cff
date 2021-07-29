@@ -30,7 +30,7 @@ authors:
   - family-names: Čermák
     given-names: Petr
     website: https://github.com/me2d09
-date-released: 2021-05-11T00:00:00.000Z
+date-released: 2021-05-11
 identifiers:
   - type: url
     value: https://github.com/citation-js/citation-js
@@ -67,7 +67,7 @@ references:
       browser and command line
     url: http://dx.doi.org/10.7717/peerj-cs.214
     database: Crossref
-    date-published: 2019-08-12T00:00:00.000Z
+    date-published: 2019-08-12
     year: 2019
     month: 8
     issn: 2376-5992
