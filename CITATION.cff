@@ -1,48 +1,81 @@
 cff-version: 1.1.0
-message: "If you use CFF in your research, please cite it using these metadata."
-abstract: CITATION.cff files are plain text files with human- and machine-readable citation information for software. Code developers can include them in their repositories to let others know how to correctly cite their software. This is the specification for the Citation File Format.
+message: Please cite the following works when using this software.
 authors:
-  - family-names: Druskat
-    given-names: Stephan
-    orcid: https://orcid.org/0000-0003-4925-7248
-  - family-names: Spaaks
-    given-names: Jurriaan H.
-    orcid: https://orcid.org/0000-0002-7064-4069
-  - family-names: Chue Hong
-    given-names: Neil
-    orcid: https://orcid.org/0000-0002-8876-7606
-  - family-names: Haines
-    given-names: Robert
-    orcid: https://orcid.org/0000-0002-9538-7919
-  - family-names: Baker
-    given-names: James
-    orcid: https://orcid.org/0000-0002-2682-6922
-  - family-names: Bliven
-    given-names: Spencer
-    orcid: https://orcid.org/0000-0002-1200-1698
-    email: spencer.bliven@gmail.com
+  - family-names: Willighagen
+    given-names: Lars
+    website: https://github.com/larsgw
+  - family-names: Verborgh
+    given-names: Ruben
+    website: https://github.com/RubenVerborgh
   - family-names: Willighagen
     given-names: Egon
-    orcid: https://orcid.org/0000-0001-7542-0286
-  - family-names: Pérez-Suárez
-    given-names: David
-    orcid: https://orcid.org/0000-0003-0784-6909
-    website: https://dpshelio.github.io
-  - family-names: Konovalov
-    given-names: Alexander
-    orcid: https://orcid.org/0000-0001-5299-3292
-title: Citation File Format
-version: 1.1.0
-doi: 10.5281/zenodo.4751536
-date-released: 2021-05-12
-keywords:
-  - citation file format
-  - CFF
-  - citation files
-  - software citation
-  - file format
-  - YAML
-  - software sustainability
-  - research software
-  - credit
-license: "CC-BY-4.0"
+    website: https://github.com/egonw
+  - family-names: Voß
+    given-names: Jakob
+    website: https://github.com/nichtich
+  - family-names: Shaw
+    given-names: Alex
+    website: https://github.com/Symbitic
+  - family-names: Wiernik
+    given-names: Brenton M.
+    website: https://github.com/bwiernik
+  - family-names: Stein
+    given-names: Gabriel
+    website: https://github.com/gabestein
+  - family-names: Riquelme
+    given-names: Juan
+    website: https://github.com/soulchainer
+  - name: anadrome
+    website: https://github.com/anadrome
+  - family-names: Čermák
+    given-names: Petr
+    website: https://github.com/me2d09
+date-released: 2021-05-11
+identifiers:
+  - type: url
+    value: https://github.com/citation-js/citation-js
+title: citation-js/citation-js
+url: https://github.com/citation-js/citation-js
+version: v0.5.1
+references:
+  - abstract: |-
+      <jats:sec>
+         <jats:title>Background</jats:title>
+         <jats:p>Given the vast number of standards and formats for bibliographical data, any program working with bibliographies and citations has to be able to interpret such data. This paper describes the development of Citation.js (<jats:ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://citation.js.org/">https://citation.js.org/</jats:ext-link>), a tool to parse and format according to those standards. The program follows modern guidelines for software in general and JavaScript in specific, such as version control, source code analysis, integration testing and semantic versioning.</jats:p>
+      </jats:sec>
+      <jats:sec>
+         <jats:title>Results</jats:title>
+         <jats:p>The result is an extensible tool that has already seen adaption in a variety of sources and use cases: as part of a server-side page generator of a publishing platform, as part of a local extensible document generator, and as part of an in-browser converter of extracted references. Use cases range from transforming a list of DOIs or Wikidata identifiers into a BibTeX file on the command line, to displaying RIS references on a webpage with added Altmetric badges to generating ”How to cite this” sections on a blog. The accuracy of conversions is currently 27% for properties and 60% for types on average and a typical initialization takes 120 ms in browsers and 1 s with Node.js on the command line.</jats:p>
+      </jats:sec>
+      <jats:sec>
+         <jats:title>Conclusions</jats:title>
+         <jats:p>Citation.js is a library supporting various formats of bibliographic information in a broad selection of use cases and environments. Given the support for plugins, more formats can be added with relative ease.</jats:p>
+      </jats:sec>
+    authors:
+      - family-names: Willighagen
+        given-names: Lars G.
+    doi: 10.7717/peerj-cs.214
+    identifiers:
+      - type: doi
+        value: 10.7717/peerj-cs.214
+      - type: url
+        value: http://dx.doi.org/10.7717/peerj-cs.214
+      - type: other
+        value: urn:issn:2376-5992
+    title: >-
+      Citation.js: a format-independent, modular bibliography tool for the
+      browser and command line
+    url: http://dx.doi.org/10.7717/peerj-cs.214
+    database: Crossref
+    date-published: 2019-08-12
+    year: 2019
+    month: 8
+    issn: 2376-5992
+    journal: PeerJ Computer Science
+    languages:
+      - en
+    publisher:
+      name: PeerJ
+    start: e214
+    type: article
+    volume: 5
