@@ -789,5 +789,37 @@
     "title": "Conduction velocity in myelinated nerve fibres of <i>Xenopos laevis</i>",
     "URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1348748/",
     "volume": "208"
+  },
+  {
+    "author": [
+      {
+        "given": "Petr",
+        "family": "Bogusch"
+      },
+      {
+        "given": "Jakub",
+        "family": "Straka"
+      }
+    ],
+    "container-title": "Zootaxa",
+    "DOI": "10.11646/ZOOTAXA.3311.1.1",
+    "type": "article-journal",
+    "id": "loir:B6",
+    "citation-label": "loir:B6",
+    "ISSN": "1175-5334",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          5,
+          14
+        ]
+      ]
+    },
+    "page": "1-41",
+    "title": "Review and identification of the cuckoo bees of central Europe (Hymenoptera: Halictidae: Sphecodes)",
+    "URL": "https://doi.org/10.11646/ZOOTAXA.3311.1.1",
+    "volume": "3311"
   }
 ]

@@ -224,10 +224,12 @@ export const Converters = {
     }
   },
   YEAR_MONTH: {
-    toTarget (year, month) {
+    toTarget (year, month, day) {
       if (isNaN(+year)) {
         return { literal: year }
-      } else {
+    } else if (!isNaN(+day) && !isNaN(+month)) {
+        return { 'date-parts': [[+year, +month, +day]] }
+    } else {
         return { 'date-parts': [[+year, ...parseMonth(month)]] }
       }
     },

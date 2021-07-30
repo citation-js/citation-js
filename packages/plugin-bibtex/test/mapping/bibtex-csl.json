@@ -438,5 +438,34 @@
     "genre": "PhD thesis",
     "publisher-place": "Goodville",
     "note": "This is a note."
+  },
+  {
+    "author": [
+      {
+        "given": "Petr",
+        "family": "Bogusch"
+      },
+      {
+        "given": "Jakub",
+        "family": "Straka"
+      }
+    ],
+    "container-title": "Zootaxa",
+    "type": "article-journal",
+    "id": "loir:B6",
+    "citation-label": "loir:B6",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          5,
+          14
+        ]
+      ]
+    },
+    "page": "1-41",
+    "title": "Review and identification of the cuckoo bees of central Europe (Hymenoptera: Halictidae: Sphecodes)",
+    "volume": "3311"
   }
 ]

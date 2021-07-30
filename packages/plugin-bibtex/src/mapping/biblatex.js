@@ -375,7 +375,7 @@ export default new util.Translator([
     convert: Converters.DATE
   },
   {
-    source: ['year', 'month'],
+    source: ['year', 'month', 'day'],
     target: 'issued',
     convert: Converters.YEAR_MONTH,
     when: {
