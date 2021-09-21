@@ -116,7 +116,7 @@ module.exports = {
       citationData,
       [
         ['1', '  <div data-csl-entry-id="1" class="csl-entry"><i>a</i>. (2011).</div>\n'],
-        ['2', '  <div data-csl-entry-id="2" class="csl-entry">d,  c, &#38; h. (2012). <i>b</i>.</div>\n'],
+        ['2', '  <div data-csl-entry-id="2" class="csl-entry">d,  c &#38; h. (2012). <i>b</i>.</div>\n'],
         ['3', '  <div data-csl-entry-id="3" class="csl-entry">f,  g. (2013). <i>e</i>.</div>\n']
       ],
       { format: 'html', template: 'apa', asEntryArray: true }
