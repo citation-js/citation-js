@@ -1,4 +1,18 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.0...v) (2021-05-11)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.1...v) (2021-09-21)
+
+
+### Bug Fixes
+
+* **plugin-csl:** check for non-normalised language codes ([3928f70](https://github.com/citation-js/citation-js/commit/3928f70065f3a802270182d1f0251deb317d4416))
+
+
+### Features
+
+* **plugin-bibtex:** allow non-standard day field ([96f8d43](https://github.com/citation-js/citation-js/commit/96f8d43a261efb1ceeffe0f4d8e346e958d867f7)), closes [#134](https://github.com/citation-js/citation-js/issues/134)
+
+
+
+## [0.5.1](https://github.com/citation-js/citation-js/compare/v0.5.0...v0.5.1) (2021-05-11)
 
 
 
