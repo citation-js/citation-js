@@ -227,9 +227,9 @@ export const Converters = {
     toTarget (year, month, day) {
       if (isNaN(+year)) {
         return { literal: year }
-    } else if (!isNaN(+day) && !isNaN(+month)) {
+      } else if (!isNaN(+day) && !isNaN(+month)) {
         return { 'date-parts': [[+year, +month, +day]] }
-    } else {
+      } else {
         return { 'date-parts': [[+year, ...parseMonth(month)]] }
       }
     },

@@ -1,11 +1,11 @@
 /* global fetch */
 require('isomorphic-fetch')
 
-var fs = require('fs')
-var wdk = require('wikidata-sdk')
-var response = require('../packages/plugin-wikidata/lib/response.js')
+const fs = require('fs')
+const wdk = require('wikidata-sdk')
+const response = require('../packages/plugin-wikidata/lib/response.js')
 
-var items = [
+const items = [
   'Q21972834',
   'Q27795847',
   'Q1',

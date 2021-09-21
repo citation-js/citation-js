@@ -122,14 +122,14 @@ function completeResponse (entities, old) {
 
   const ids = []
 
-  for (var id of old) {
-    var entity = entities[id]
+  for (const id of old) {
+    const entity = entities[id]
 
     if (!entity._needed) {
       continue
     }
 
-    for (var prop in entity.claims) {
+    for (const prop in entity.claims) {
       if (prop in entity._needed) {
         for (const claim of entity.claims[prop]) {
           if (claim.value && claim.value.id) { continue }
