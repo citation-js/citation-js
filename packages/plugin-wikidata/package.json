@@ -21,7 +21,7 @@
     "url": "https://github.com/citation-js/citation-js/issues"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "files": [
     "lib",
@@ -31,7 +31,7 @@
     "test": "mocha -c -R dot test/*.spec.js"
   },
   "dependencies": {
-    "@citation-js/date": "^0.4.4",
+    "@citation-js/date": "^0.5.0",
     "@citation-js/name": "^0.4.2",
     "wikidata-sdk": "7"
   },

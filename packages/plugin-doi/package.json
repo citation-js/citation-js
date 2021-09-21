@@ -22,7 +22,7 @@
     "url": "https://github.com/citation-js/citation-js/issues"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "files": [
     "lib",
@@ -36,5 +36,8 @@
   },
   "peerDependencies": {
     "@citation-js/core": "^0.5.0-alpha.0"
+  },
+  "dependencies": {
+    "@citation-js/date": "^0.5.0"
   }
 }
