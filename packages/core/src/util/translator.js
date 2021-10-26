@@ -167,8 +167,12 @@ function createConverter (props, toSource) {
 
       let outputData = inputProp.map(prop => input[prop])
       if (convert) {
-        const converted = convert.apply(input, outputData)
-        outputData = outputProp.length === 1 ? [converted] : converted
+        try {
+          const converted = convert.apply(input, outputData)
+          outputData = outputProp.length === 1 ? [converted] : converted
+        } catch (cause) {
+          throw new Error(`Failed to convert ${inputProp} to ${outputProp}`, { cause })
+        }
       }
 
       outputProp.forEach((prop, index) => {
