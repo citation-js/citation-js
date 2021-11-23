@@ -60,7 +60,7 @@ If you want to run single test cases, run
 
     npm test -- --scope '@citation-js/plugin-...' -- --grep 'pattern'
 
-`@citation-js/cli` depends on all the plugins, and the plugins all depend on `@citation-js/core`. To test changes in `@citation-js` dependencies on different packages, run
+`@citation-js/cli` depends on all the plugins, and the plugins all depend on `@citation-js/core`. To test changes in `@citation-js` dependencies on different packages, first run
 
     npm run babel
 
