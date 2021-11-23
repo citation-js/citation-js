@@ -3,12 +3,12 @@ import syncFetch from 'sync-fetch'
 import 'isomorphic-fetch'
 
 import logger from '../logger'
-import { version } from '../../package.json'
+import pkg from '../../package.json'
 
 // Browser environments have CORS enabled
 const corsEnabled = typeof location !== 'undefined' && typeof document !== 'undefined'
 
-let userAgent = `Citation.js/${version} Node.js/${process.version}`
+let userAgent = `Citation.js/${pkg.version} Node.js/${process.version}`
 
 /**
  * @typedef module:@citation-js/core.util.fetchFile~options

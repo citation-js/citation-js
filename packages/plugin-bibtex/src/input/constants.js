@@ -1,13 +1,18 @@
 // Adapted from plk/biblatex and BibTeXing[1] (accessed 2019-09-15)
 // [1] http://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf
-export { default as required } from './required.json'
+import _required from './required.json'
 
 // Adapted from plk/biblatex (accessed 2019-09-15)
-export { default as fieldTypes } from './fieldTypes.json'
+import _fieldTypes from './fieldTypes.json'
 
 // Adapted from latex3/latex3 (accessed 2020-05-05)
 // https://github.com/latex3/latex3/blob/master/texmf/tex/latex/base/tuenc.def
-export { diacritics, commands } from './unicode.json'
+import unicode from './unicode.json'
+
+export const required = _required
+export const fieldTypes = _fieldTypes
+export const diacritics = unicode.diacritics
+export const commands = unicode.commands
 
 // Adapted from astrocite-bibtex (accessed 2018-02-22)
 // https://github.com/dsifford/astrocite/blob/668a9e4/packages/astrocite-bibtex/src/constants.ts#L112-L148

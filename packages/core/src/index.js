@@ -11,14 +11,14 @@ import logger from './logger'
  * @memberof module:@citation-js/core
  * @var {String} version - version number
  */
-import { version } from '../package.json'
+import pkg from '../package.json'
 
 import './plugin-common'
 
+export const version = pkg.version
 export {
   Cite,
   plugins,
   util,
-  logger,
-  version
+  logger
 }

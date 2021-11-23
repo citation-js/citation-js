@@ -1,124 +1,116 @@
 {
-  "props": {
-    "author": {
-      "values": "all",
-      "props": ["P50", "P2093"]
-    },
-    "composer": {
-      "values": "all",
-      "props": ["P86"]
-    },
-
-    "collection-editor": {
-      "values": "all",
-      "props": ["P179.P98"]
-    },
-    "collection-number": {
-      "values": "all",
-      "props": ["P179"]
-    },
-    "collection-title": "P179",
-
-    "container-author": {
-      "values": "all",
-      "props": ["P1433.P50", "P1433.P2093", "P361.P50", "P361.P2093"]
-    },
-    "container-title": { "values": "any", "props": ["P1433", "P361"] },
-    "container-title-short": { "values": "any", "props": ["P1433.P1813", "P1433.P1160"] },
-
-    "director": {
-      "values": "all",
-      "props": ["P57"]
-    },
-    "DOI": "P356",
-    "edition": "P393",
-    "editor": {
-      "values": "all",
-      "props": ["P98"]
-    },
-
-    "event": "P1433.P4745",
-    "event-date": {
-      "values": "all",
-      "props": ["P1433.P4745.P580", "P1433.P4745.P582"]
-    },
-    "event-place": "P1433.P4745.P276",
-
-    "illustrator": {
-      "values": "all",
-      "props": ["P110"]
-    },
-    "ISBN": {
-      "values": "any",
-      "props": ["P212", "P957"]
-    },
-    "ISSN": "P1433.P236",
-    "issue": "P433",
-    "issued": "P577",
-    "journalAbbreviation": { "values": "any", "props": ["P1433.P1813", "P1433.P1160"] },
-    "keyword": {
-      "values": "all",
-      "props": ["P921"]
-    },
-    "language": {
-      "values": "any",
-      "props": ["P407.P218", "P364.P218"]
-    },
-    "medium": { "values": "any", "props": ["P437", "P186"] },
-    "number-of-pages": "P1104",
-    "number-of-volumes": {
-      "values": "all",
-      "props": ["P179.P527"]
-    },
-
-    "original-author": {
-      "values": "all",
-      "props": ["P629.P50", "P629.P2093"]
-    },
-    "original-date": "P629.P577",
-    "original-publisher": "P629.P123",
-    "original-publisher-place": {
-      "values": "any",
-      "props": ["P629.P123.P740", "P629.P123.P159"]
-    },
-    "original-title": "P629.P1476",
-
-    "page": "P304",
-    "PMID": "P698",
-    "PMCID": "P932",
-
-    "publisher": "P123",
-    "publisher-place": { "values": "any", "props": ["P123.P740", "P123.P159"]},
-
-    "recipient": {
-      "values": "all",
-      "props": ["P1817"]
-    },
-
-    "reviewed-title": "P921.P1476",
-    "reviewed-author": {
-      "values": "all",
-      "props": ["P921.P50", "P921.P2093"]
-    },
-
-    "scale": "P1752",
-    "title": "P1476",
-    "translator": {
-      "values": "all",
-      "props": ["P655"]
-    },
-    "type": "P31",
-    "version": "P348",
-    "volume": "P478",
-    "URL": {
-      "values": "any",
-      "props": ["P856", "P953", "P973", "P2699"]
-    }
+  "author": {
+    "values": "all",
+    "props": ["P50", "P2093"]
   },
-  "ignoredProps": {
-    "P2860": "Cites",
-    "P921": "Main subject",
-    "P3181": "OpenCitations bibliographic resource ID",
-    "P364": "Original language of work"
+  "composer": {
+    "values": "all",
+    "props": ["P86"]
+  },
+
+  "collection-editor": {
+    "values": "all",
+    "props": ["P179.P98"]
+  },
+  "collection-number": {
+    "values": "all",
+    "props": ["P179"]
+  },
+  "collection-title": "P179",
+
+  "container-author": {
+    "values": "all",
+    "props": ["P1433.P50", "P1433.P2093", "P361.P50", "P361.P2093"]
+  },
+  "container-title": { "values": "any", "props": ["P1433", "P361"] },
+  "container-title-short": { "values": "any", "props": ["P1433.P1813", "P1433.P1160"] },
+
+  "director": {
+    "values": "all",
+    "props": ["P57"]
+  },
+  "DOI": "P356",
+  "edition": "P393",
+  "editor": {
+    "values": "all",
+    "props": ["P98"]
+  },
+
+  "event": "P1433.P4745",
+  "event-date": {
+    "values": "all",
+    "props": ["P1433.P4745.P580", "P1433.P4745.P582"]
+  },
+  "event-place": "P1433.P4745.P276",
+
+  "illustrator": {
+    "values": "all",
+    "props": ["P110"]
+  },
+  "ISBN": {
+    "values": "any",
+    "props": ["P212", "P957"]
+  },
+  "ISSN": "P1433.P236",
+  "issue": "P433",
+  "issued": "P577",
+  "journalAbbreviation": { "values": "any", "props": ["P1433.P1813", "P1433.P1160"] },
+  "keyword": {
+    "values": "all",
+    "props": ["P921"]
+  },
+  "language": {
+    "values": "any",
+    "props": ["P407.P218", "P364.P218"]
+  },
+  "medium": { "values": "any", "props": ["P437", "P186"] },
+  "number-of-pages": "P1104",
+  "number-of-volumes": {
+    "values": "all",
+    "props": ["P179.P527"]
+  },
+
+  "original-author": {
+    "values": "all",
+    "props": ["P629.P50", "P629.P2093"]
+  },
+  "original-date": "P629.P577",
+  "original-publisher": "P629.P123",
+  "original-publisher-place": {
+    "values": "any",
+    "props": ["P629.P123.P740", "P629.P123.P159"]
+  },
+  "original-title": "P629.P1476",
+
+  "page": "P304",
+  "PMID": "P698",
+  "PMCID": "P932",
+
+  "publisher": "P123",
+  "publisher-place": { "values": "any", "props": ["P123.P740", "P123.P159"]},
+
+  "recipient": {
+    "values": "all",
+    "props": ["P1817"]
+  },
+
+  "reviewed-title": "P921.P1476",
+  "reviewed-author": {
+    "values": "all",
+    "props": ["P921.P50", "P921.P2093"]
+  },
+
+  "scale": "P1752",
+  "title": "P1476",
+  "translator": {
+    "values": "all",
+    "props": ["P655"]
+  },
+  "type": "P31",
+  "version": "P348",
+  "volume": "P478",
+  "URL": {
+    "values": "any",
+    "props": ["P856", "P953", "P973", "P2699"]
   }
 }
