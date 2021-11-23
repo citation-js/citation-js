@@ -1,6 +1,6 @@
-import { FormatParser } from './parser'
-import { addTypeParser, removeTypeParser } from './type'
-import { addDataParser, removeDataParser } from './data'
+import { FormatParser } from './parser.js'
+import { addTypeParser, removeTypeParser } from './type.js'
+import { addDataParser, removeDataParser } from './data.js'
 
 /**
  * @access private

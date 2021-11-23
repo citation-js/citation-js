@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-require('../src/')
+require('../src/index.js')
 const { plugins } = require('@citation-js/core')
-const inputData = require('./input')
-const outputData = require('./data')
+const inputData = require('./input.js')
+const outputData = require('./data.js')
 
 describe('input', function () {
   for (const type in inputData) {

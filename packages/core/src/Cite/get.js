@@ -1,6 +1,6 @@
-import { validateOutputOptions as validate } from './static'
-import { format as formatData } from '../plugins/output'
-import { clean as parseCsl } from '../plugins/input/csl'
+import { validateOutputOptions as validate } from './static.js'
+import { format as formatData } from '../plugins/output.js'
+import { clean as parseCsl } from '../plugins/input/csl.js'
 
 /**
  * Get a list of the data entry IDs, in the order of that list

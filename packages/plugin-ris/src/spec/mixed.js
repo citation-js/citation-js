@@ -1,4 +1,4 @@
-import NEW from './new'
-import ADDITIONS from './additions'
+import NEW from './new.json'
+import ADDITIONS from './additions.json'
 
 export default NEW.concat(ADDITIONS)

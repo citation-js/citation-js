@@ -1,4 +1,4 @@
-import prepareEngine from './engines'
+import prepareEngine from './engines.js'
 import { getPrefixedEntry } from './attr.js'
 
 /**

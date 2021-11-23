@@ -1,5 +1,5 @@
 import { util } from '@citation-js/core'
-import config from '../config'
+import config from '../config.js'
 
 const stopWords = new Set([
   'the',

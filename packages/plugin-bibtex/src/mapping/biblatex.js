@@ -1,12 +1,12 @@
 import { util } from '@citation-js/core'
 import { format as formatDate } from '@citation-js/date'
-import types from './biblatexTypes'
+import types from './biblatexTypes.json'
 import {
   TYPE,
   LABEL,
   TYPE_KEYS,
   Converters
-} from './shared'
+} from './shared.js'
 
 const nonSpec = [
   {

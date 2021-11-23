@@ -1,4 +1,4 @@
-import Cite from './index'
+import Cite from './index.js'
 
 /**
  * @callback module:@citation-js/core.Cite~asyncCallback

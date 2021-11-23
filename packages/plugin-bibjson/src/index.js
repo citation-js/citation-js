@@ -12,7 +12,7 @@
  * @module module:@citation-js/plugin-bibjson
  */
 
-import * as json from './json'
+import * as json from './json.js'
 import { plugins } from '@citation-js/core'
 
 const scraperLinks = ['fulltext_html', 'fulltext_xml', 'fulltext_pdf']

@@ -1,4 +1,4 @@
-import { diacritics, commands, ligatures, fieldTypes } from '../input/constants'
+import { diacritics, commands, ligatures, fieldTypes } from '../input/constants.js'
 
 const unicode = {}
 for (const command in commands) { unicode[commands[command]] = command }

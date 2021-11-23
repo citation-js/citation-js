@@ -1,5 +1,5 @@
-import { chain as parseInput, chainAsync as parseInputAsync } from '../plugins/input/'
-import fetchId from '../util/fetchId'
+import { chain as parseInput, chainAsync as parseInputAsync } from '../plugins/input/index.js'
+import fetchId from '../util/fetchId.js'
 
 /**
  * Add an object to the array of objects

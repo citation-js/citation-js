@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-require('../src/')
+require('../src/index.js')
 const { plugins } = require('@citation-js/core')
-const data = require('./data')
+const data = require('./data.js')
 
 const CSL = plugins.config.get('@csl')
 CSL.templates.add('custom', `<?xml version="1.0" encoding="utf-8"?>

@@ -1,4 +1,4 @@
-import Cite from './index'
+import Cite from './index.js'
 
 /**
  * @memberof module:@citation-js/core.Cite#

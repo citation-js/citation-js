@@ -3,10 +3,10 @@
  * @memberof module:@citation-js/core
  */
 
-import * as input from './input/'
-import * as output from './output'
-import * as dict from './dict'
-import * as config from './config'
+import * as input from './input/index.js'
+import * as output from './output.js'
+import * as dict from './dict.js'
+import * as config from './config.js'
 
 const registers = {
   input,

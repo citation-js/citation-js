@@ -1,9 +1,9 @@
 import { util } from '@citation-js/core'
 
 import moo from 'moo'
-import config from '../config'
-import * as constants from './constants'
-import { orderNamePieces, formatNameParts, getStringCase } from './name'
+import config from '../config.js'
+import * as constants from './constants.js'
+import { orderNamePieces, formatNameParts, getStringCase } from './name.js'
 
 const text = {
   command: {

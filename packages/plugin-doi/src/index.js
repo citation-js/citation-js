@@ -8,10 +8,10 @@
 
 import { plugins } from '@citation-js/core'
 
-import * as id from './id'
-import * as api from './api'
-import * as json from './json'
-import * as type from './type'
+import * as id from './id.js'
+import * as api from './api.js'
+import * as json from './json.js'
+import * as type from './type.js'
 
 /**
  * @constant {module:@citation-js/core.plugins~pluginRef} ref

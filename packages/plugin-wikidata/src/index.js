@@ -12,12 +12,12 @@
 
 import { plugins } from '@citation-js/core'
 
-import * as id from './id'
-import * as entity from './entity'
-import * as prop from './prop'
-import * as url from './url'
-import * as api from './api'
-import config from './config'
+import * as id from './id.js'
+import * as entity from './entity.js'
+import * as prop from './prop.js'
+import * as url from './url.js'
+import * as api from './api.js'
+import config from './config.json'
 
 /**
  * @constant {module:@citation-js/core.plugins~pluginRef} ref

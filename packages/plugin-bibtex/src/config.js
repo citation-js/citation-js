@@ -1,6 +1,6 @@
-import * as biblatex from './mapping/biblatexTypes'
-import * as bibtex from './mapping/bibtexTypes'
-import * as constants from './input/constants'
+import biblatex from './mapping/biblatexTypes.json'
+import bibtex from './mapping/bibtexTypes.json'
+import * as constants from './input/constants.js'
 
 /**
  * @memberof module:@citation-js/plugin-bibtex

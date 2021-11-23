@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const { plugins } = require('../../../test/api')(require('@citation-js/core'))
-require('../src/')
+const { plugins } = require('../../../test/api.js')(require('@citation-js/core'))
+require('../src/index.js')
 
-const data = require('./data')
+const data = require('./data.js')
 
 describe('input', function () {
   for (const type in data) {

@@ -1,7 +1,7 @@
 import CSL from 'citeproc'
 
-import { templates } from './styles'
-import { locales } from './locales'
+import { templates } from './styles.js'
+import { locales } from './locales.js'
 
 // BEGIN add sys function
 const proxied = Symbol.for('proxied')

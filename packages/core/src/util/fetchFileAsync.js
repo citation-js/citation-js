@@ -1,3 +1,3 @@
-import { fetchFileAsync } from './fetchFile'
+import { fetchFileAsync } from './fetchFile.js'
 
 export default fetchFileAsync

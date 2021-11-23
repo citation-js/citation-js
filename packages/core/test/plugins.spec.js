@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 
-const { plugins } = require('../src/')
+const { plugins } = require('../src/index.js')
 const expect = require('expect.js')
 
 const ref = '@test'

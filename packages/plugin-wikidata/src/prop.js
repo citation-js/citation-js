@@ -2,7 +2,7 @@ import { logger } from '@citation-js/core'
 import { parse as parseNameString } from '@citation-js/name'
 import { parse as parseDate } from '@citation-js/date'
 
-import config from './config'
+import config from './config.json'
 
 /**
  * CSL mappings for Wikidata instances.
@@ -10,7 +10,7 @@ import config from './config'
  * @constant types
  * @memberof module:@citation-js/plugin-wikidata.parsers.prop
  */
-import types from './types'
+import types from './types.json'
 
 /**
  * Get series ordinal from qualifiers object

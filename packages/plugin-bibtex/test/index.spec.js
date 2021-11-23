@@ -3,12 +3,12 @@
 const fs = require('fs')
 const path = require('path')
 const assert = require('assert')
-require('../src/')
+require('../src/index.js')
 const { plugins } = require('@citation-js/core')
 const config = plugins.config.get('@bibtex')
 
-const inputData = require('./input')
-const outputData = require('./output')
+const inputData = require('./input.json')
+const outputData = require('./output.json')
 
 function getInput (name, type) {
   const ext = type === '@bibtxt/text' ? '.txt' : '.bib'

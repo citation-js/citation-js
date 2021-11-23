@@ -35,12 +35,12 @@
 
 import { plugins } from '@citation-js/core'
 
-import { locales } from './locales'
-import { templates } from './styles'
-import engine from './engines'
+import { locales } from './locales.js'
+import { templates } from './styles.js'
+import engine from './engines.js'
 
-import bibliography from './bibliography'
-import citation from './citation'
+import bibliography from './bibliography.js'
+import citation from './citation.js'
 
 plugins.add('@csl', {
   /**

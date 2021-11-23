@@ -1,9 +1,9 @@
 import { util } from '@citation-js/core'
-import config from './config'
+import config from './config.json'
 
-import { SPECS } from './spec'
-import CONVERTERS from './converters'
-import DATA_TYPES from './dataTypes'
+import { SPECS } from './spec/index.js'
+import CONVERTERS from './converters.js'
+import DATA_TYPES from './dataTypes.json'
 
 const LINE_MATCH = /^[A-Z][A-Z0-9] {2}-( |$)/
 const LINE_SPLIT = / {2}-(?: |$)/

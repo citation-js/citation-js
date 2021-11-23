@@ -1,6 +1,6 @@
-import { TYPE, LABEL } from './shared'
-import biblatex from './biblatex'
-import bibtex from './bibtex'
+import { TYPE, LABEL } from './shared.js'
+import biblatex from './biblatex.js'
+import bibtex from './bibtex.js'
 
 function crossref (entry, registry) {
   if (entry.crossref in registry) {

@@ -1,6 +1,6 @@
-import { parse as parseFile } from './file'
-import { parse as parseBibtxt } from './bibtxt'
-import { parse as parseEntries, parseBibtex } from './entries'
+import { parse as parseFile } from './file.js'
+import { parse as parseBibtxt } from './bibtxt.js'
+import { parse as parseEntries, parseBibtex } from './entries.js'
 
 /**
  * @constant {module:@citation-js/core.plugins~pluginRef} ref

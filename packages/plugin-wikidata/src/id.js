@@ -1,5 +1,5 @@
 import wdk from 'wikidata-sdk'
-import config from './config'
+import config from './config.json'
 
 /**
  * Get Wikidata JSON from Wikidata IDs

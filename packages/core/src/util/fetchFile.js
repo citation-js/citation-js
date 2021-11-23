@@ -2,7 +2,7 @@ import syncFetch from 'sync-fetch'
 /* global fetch, Headers */
 import 'isomorphic-fetch'
 
-import logger from '../logger'
+import logger from '../logger.js'
 import pkg from '../../package.json'
 
 // Browser environments have CORS enabled

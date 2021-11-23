@@ -1,6 +1,6 @@
 import { logger } from '@citation-js/core'
-import * as response from './response'
-import { parseProp, getLabel } from './prop'
+import * as response from './response.js'
+import { parseProp, getLabel } from './prop.js'
 import props from './props.json'
 import ignoredProps from './ignoredProps.json'
 

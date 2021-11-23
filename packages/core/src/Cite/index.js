@@ -1,9 +1,9 @@
-import * as log from './log'
-import * as options from './options'
-import * as set from './set'
-import * as sort from './sort'
-import * as get from './get'
-import * as staticMethods from './static'
+import * as log from './log.js'
+import * as options from './options.js'
+import * as set from './set.js'
+import * as sort from './sort.js'
+import * as get from './get.js'
+import * as staticMethods from './static.js'
 
 /**
  * Create a `Cite` object with almost any kind of data, and manipulate it with its default methods.

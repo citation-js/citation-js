@@ -1,4 +1,4 @@
-import { deepCopy } from './deepCopy'
+import { deepCopy } from './deepCopy.js'
 
 /**
  * @typedef module:@citation-js/core.util.Grammar~ruleName

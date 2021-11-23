@@ -4,9 +4,10 @@ const { spawn } = require('child_process')
 const path = require('path')
 const assert = require('assert')
 
-const { util } = require('../src/')
+const { util } = require('../src/index.js')
+const pkg = require('../package')
 
-const userAgent = `Citation.js/${require('../package').version} Node.js/${process.version}`
+const userAgent = `Citation.js/${pkg.version} Node.js/${process.version}`
 
 function deepNotEqual (a, b) {
   if (a == null && b == null) {

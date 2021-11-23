@@ -2,9 +2,9 @@
  * @module output/json
  */
 
-import * as plugins from '../../plugins/'
-import * as util from '../../util/'
-import logger from '../../logger'
+import * as plugins from '../../plugins/index.js'
+import * as util from '../../util/index.js'
+import logger from '../../logger.js'
 
 /**
  * Append commas to every item but the last. Should unfortunately, probably be a utility.

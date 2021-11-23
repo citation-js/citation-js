@@ -1,4 +1,4 @@
-import prepareEngine from './engines'
+import prepareEngine from './engines.js'
 
 /**
  * Here's an example for `entry`:

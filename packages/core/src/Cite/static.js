@@ -1,2 +1,2 @@
-export { default as async } from './async'
-export * from './validate'
+export { default as async } from './async.js'
+export * from './validate.js'

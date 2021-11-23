@@ -2,7 +2,7 @@
  * @module input/other
  */
 
-import logger from '../../logger'
+import logger from '../../logger.js'
 
 /**
  *

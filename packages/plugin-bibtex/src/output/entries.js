@@ -1,5 +1,5 @@
-import { format as mapBiblatex, formatBibtex as mapBibtex } from '../mapping'
-import { format as formatValue } from './value'
+import { format as mapBiblatex, formatBibtex as mapBibtex } from '../mapping/index.js'
+import { format as formatValue } from './value.js'
 
 function formatEntryValues ({ type, label, properties }) {
   const output = {}

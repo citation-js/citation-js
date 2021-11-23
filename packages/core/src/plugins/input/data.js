@@ -1,4 +1,4 @@
-import { chain, chainAsync } from './chain'
+import { chain, chainAsync } from './chain.js'
 
 /**
  * @access private

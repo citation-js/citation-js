@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 
-const { Cite } = require('../src/')
+const { Cite } = require('../src/index.js')
 const input = require('./data.json')
 const expect = require('expect.js')
 

@@ -1,6 +1,6 @@
 import { simplify } from 'wikidata-sdk'
-import { parse as fetch, parseAsync as fetchAsync } from './api'
-import { parse as getUrls } from './id'
+import { parse as fetch, parseAsync as fetchAsync } from './api.js'
+import { parse as getUrls } from './id.js'
 
 /**
  * @access private

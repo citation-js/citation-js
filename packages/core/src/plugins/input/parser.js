@@ -1,4 +1,4 @@
-import { type, typeMatcher } from './type'
+import { type, typeMatcher } from './type.js'
 
 /**
  * @memberof module:@citation-js/core.plugins.input.util

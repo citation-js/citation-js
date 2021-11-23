@@ -1,7 +1,7 @@
 import { plugins } from '@citation-js/core'
-import { format as mapBiblatex, formatBibtex as mapBibtex } from './entries'
-import { format } from './bibtex'
-import { format as formatBibtxt } from './bibtxt'
+import { format as mapBiblatex, formatBibtex as mapBibtex } from './entries.js'
+import { format } from './bibtex.js'
+import { format as formatBibtxt } from './bibtxt.js'
 
 const factory = function (mapper, formatter) {
   return function (data, opts = {}) {

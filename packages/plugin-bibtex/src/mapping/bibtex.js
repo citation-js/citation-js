@@ -1,11 +1,11 @@
 import { util } from '@citation-js/core'
 import { format as formatDate } from '@citation-js/date'
-import types from './bibtexTypes'
+import types from './bibtexTypes.json'
 import {
   TYPE,
   LABEL,
   Converters
-} from './shared'
+} from './shared.js'
 
 export default new util.Translator([
   {

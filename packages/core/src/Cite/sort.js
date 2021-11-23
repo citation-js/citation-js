@@ -1,4 +1,4 @@
-import { getLabel } from '../plugin-common/output/label'
+import { getLabel } from '../plugin-common/output/label.js'
 import { format as getName } from '@citation-js/name'
 
 /**

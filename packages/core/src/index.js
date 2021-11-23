@@ -2,10 +2,10 @@
  * @module module:@citation-js/core
  */
 
-import Cite from './Cite/'
-import * as plugins from './plugins/'
-import * as util from './util/'
-import logger from './logger'
+import Cite from './Cite/index.js'
+import * as plugins from './plugins/index.js'
+import * as util from './util/index.js'
+import logger from './logger.js'
 
 /**
  * @memberof module:@citation-js/core
@@ -13,7 +13,7 @@ import logger from './logger'
  */
 import pkg from '../package.json'
 
-import './plugin-common'
+import './plugin-common/index.js'
 
 export const version = pkg.version
 export {

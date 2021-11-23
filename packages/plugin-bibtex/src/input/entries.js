@@ -1,7 +1,7 @@
-import config from '../config'
-import { parse as mapBiblatex, parseBibtex as mapBibtex } from '../mapping'
-import { parse as parseValue } from './value'
-import { required } from './constants'
+import config from '../config.js'
+import { parse as mapBiblatex, parseBibtex as mapBibtex } from '../mapping/index.js'
+import { parse as parseValue } from './value.js'
+import { required } from './constants.js'
 
 function validate (entries, requirements) {
   const problems = []

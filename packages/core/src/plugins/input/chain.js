@@ -1,10 +1,10 @@
-import deepCopy from '../../util/deepCopy'
-import logger from '../../logger'
+import deepCopy from '../../util/deepCopy.js'
+import logger from '../../logger.js'
 
-import { get as getTypeInfo } from './register'
-import { type as parseType } from './type'
-import { data as parseData, dataAsync as parseDataAsync } from './data'
-import { applyGraph, removeGraph } from './graph'
+import { get as getTypeInfo } from './register.js'
+import { type as parseType } from './type.js'
+import { data as parseData, dataAsync as parseDataAsync } from './data.js'
+import { applyGraph, removeGraph } from './graph.js'
 
 /**
  * @access private

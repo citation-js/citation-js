@@ -1,4 +1,4 @@
-import fetchDoiType from './type'
+import fetchDoiType from './type.js'
 
 /**
  * Format CrossRef JSON

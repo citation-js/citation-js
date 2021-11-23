@@ -1,5 +1,5 @@
-import parseDoiJson from './json'
 import { util } from '@citation-js/core'
+import parseDoiJson from './json.js'
 
 /**
  * DOI API options

@@ -1,7 +1,7 @@
 import { util, logger } from '@citation-js/core'
 
 import moo from 'moo'
-import { defaultStrings } from './constants'
+import { defaultStrings } from './constants.js'
 
 const identifier = /[a-zA-Z_][a-zA-Z0-9_:-]*/
 const whitespace = {

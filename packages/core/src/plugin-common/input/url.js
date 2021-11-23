@@ -1,4 +1,4 @@
 export {
   fetchFile as parse,
   fetchFileAsync as parseAsync
-} from '../../util/'
+} from '../../util/index.js'

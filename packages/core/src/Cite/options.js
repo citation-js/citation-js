@@ -1,4 +1,4 @@
-import { validateOutputOptions as validate } from './validate'
+import { validateOutputOptions as validate } from './validate.js'
 
 /**
  * @memberof module:@citation-js/core.Cite#

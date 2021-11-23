@@ -3,7 +3,7 @@
  * @memberof module:@citation-js/core.plugins
  */
 
-import Register from '../util/register'
+import Register from '../util/register.js'
 
 /**
  * @callback module:@citation-js/core.plugins.output~formatter

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-require('../src/')
+require('../src/index.js')
 const { plugins } = require('@citation-js/core')
-const data = require('./data')
+const data = require('./data.json')
 
 function padStart (str, len, chr) {
   str += ''

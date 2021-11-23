@@ -1,5 +1,5 @@
-import logger from '../../logger'
-import { dataTypeOf } from './dataType'
+import logger from '../../logger.js'
+import { dataTypeOf } from './dataType.js'
 
 // register
 const types = {}
