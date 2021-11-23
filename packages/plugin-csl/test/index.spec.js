@@ -95,4 +95,17 @@ describe('output', function () {
       ], { template })
     })
   })
+
+  describe('errors', function () {
+    it('for non-existing entry ids', function () {
+      assert.throws(
+        () => plugins.output.format(
+          'citation',
+          [{ id: 'notthis', title: 'foo' }],
+          { entry: 'this' }
+        ),
+        { message: 'Cannot find entry with id \'this\'' }
+      )
+    })
+  })
 })

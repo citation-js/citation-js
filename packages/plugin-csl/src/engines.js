@@ -93,7 +93,15 @@ const prepareEngine = function (data, templateName, language, format) {
   const template = templates.get(templates.has(templateName) ? templateName : 'apa')
   language = locales.has(language) ? language : 'en-US'
 
-  const engine = fetchEngine(templateName, language, template, key => items[key], retrieveLocale)
+  const callback = function (key) {
+    if (Object.prototype.hasOwnProperty.call(items, key)) {
+      return items[key]
+    } else {
+      throw new Error(`Cannot find entry with id '${key}'`)
+    }
+  }
+
+  const engine = fetchEngine(templateName, language, template, callback, retrieveLocale)
   engine.setOutputFormat(format)
 
   return engine
