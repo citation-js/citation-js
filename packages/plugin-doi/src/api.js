@@ -25,7 +25,7 @@ const apiOptions = {
  *
  * @return {Promise<module:@citation-js/core~CSL>} The fetched JSON
  */
-const fetchDoiApiAsync = async function (url) {
+async function fetchDoiApiAsync (url) {
   const result = await util.fetchFileAsync(url, apiOptions)
   return result === '[]' ? {} : JSON.parse(result)
 }
@@ -41,7 +41,7 @@ const fetchDoiApiAsync = async function (url) {
  *
  * @return {Promise<Array<module:@citation-js/core~CSL>>} Array of CSL
  */
-const parseDoiApiAsync = async function (data) {
+async function parseDoiApiAsync (data) {
   const doiJsonList = await Promise.all([].concat(data).map(fetchDoiApiAsync))
   return doiJsonList.map(parseDoiJson)
 }
@@ -57,7 +57,7 @@ const parseDoiApiAsync = async function (data) {
  *
  * @return {module:@citation-js/core~CSL} The fetched JSON
  */
-const fetchDoiApi = function (url) {
+function fetchDoiApi (url) {
   const result = util.fetchFile(url, apiOptions)
   return result === '[]' ? {} : JSON.parse(result)
 }
@@ -73,7 +73,9 @@ const fetchDoiApi = function (url) {
  *
  * @return {Array<module:@citation-js/core~CSL>} Array of CSL
  */
-const parseDoiApi = data => [].concat(data).map(fetchDoiApi).map(parseDoiJson)
+function parseDoiApi (data) {
+  return [].concat(data).map(fetchDoiApi).map(parseDoiJson)
+}
 
 export {
   parseDoiApi as parse,

@@ -11,7 +11,7 @@ import fetchDoiType from './type'
  *
  * @return {module:@citation-js/core~CSL} The formatted input data
  */
-const parseDoiJson = function (data) {
+function parseDoiJson (data) {
   const res = {
     type: fetchDoiType(data.type)
   }

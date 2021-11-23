@@ -8,7 +8,7 @@
  * @constant varDoiTypes
  * @default
  */
-const varDoiTypes = {
+const doiTypes = {
   'journal-article': 'article-journal',
   'book-chapter': 'chapter',
   'posted-content': 'manuscript',
@@ -26,7 +26,9 @@ const varDoiTypes = {
  *
  * @return {String} Output CSL type
  */
-const fetchDoiType = value => varDoiTypes[value] || value
+function fetchDoiType (value) {
+  return doiTypes[value] || value
+}
 
 export {
   fetchDoiType as parse,
