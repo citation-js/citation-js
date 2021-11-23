@@ -162,7 +162,7 @@ const preprint = {
   title: 'Significant reduction in humoral immunity among healthcare workers and nursing home residents 6 months after COVID-19 BNT162b2 mRNA vaccination',
   prefix: '10.1101',
   author: [
-      {
+    {
       ORCID: 'http://orcid.org/0000-0001-5503-7888',
       'authenticated-orcid': false,
       given: 'David H.',
@@ -263,7 +263,7 @@ module.exports = {
       ['https://doi.org/10.1021/ja01577a030'],
       { link: true }
     ],
-    'preprint': [
+    preprint: [
       '10.1101/2021.08.15.21262067',
       [preprint]
     ]
