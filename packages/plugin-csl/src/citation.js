@@ -18,6 +18,9 @@ import prepareEngine from './engines.js'
  *
  * cite.format('citation', { entry: 'a' })
  * // '(“Item A,” 2016)'
+ *
+ * cite.format('citation', { entry: [{ id: 'a', label: 'page', locator: 123 }] })
+ * // '(“Item A,” 2016, p. 123)'
  * ```
  *
  * @memberof module:@citation-js/plugin-csl.output
@@ -29,7 +32,7 @@ import prepareEngine from './engines.js'
  * @param {String} [options.template='apa']
  * @param {String} [options.lang='en-US']
  * @param {String} [options.format='text']
- * @param {String|Array<String>} [options.entry] - list of ids of entries to include in the citation. defaults to all entries
+ * @param {module:@citation-js/plugin-csl.output~Entries} [options.entry] - list of ids or cite-items of entries to include in the citation (defaults to all)
  *
  * @return {String} output
  */
@@ -42,7 +45,7 @@ export default function citation (data, options = {}) {
   citeproc.updateItems(ids)
 
   const citation = citeproc.previewCitationCluster({
-    citationItems: entries.map(id => ({ id })),
+    citationItems: entries.map(id => typeof id === 'object' ? id : { id }),
     properties: { noteIndex: 0 }
   }, [], [], format)
 

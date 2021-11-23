@@ -125,6 +125,8 @@ module.exports = {
   citation: {
     simple: [citationData, '(A, 2011; d & h, 2012)', { entry: ['1', '2'] }],
     'single entry': [citationData, '(d & h, 2012)', { entry: '2' }],
-    'no entry option': [citationData, '(A, 2011; d & h, 2012; f, 2013)']
+    'no entry option': [citationData, '(A, 2011; d & h, 2012; f, 2013)'],
+    'with locator': [citationData, '(A, 2011, p. 123)', { entry: { id: '1', locator: 123, label: 'page' } }],
+    'with suffix': [citationData, '(A, 2011 [!])', { entry: { id: '1', suffix: '[!]' } }]
   }
 }

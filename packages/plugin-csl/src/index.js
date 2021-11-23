@@ -33,6 +33,26 @@
  * @return {String} CSL Locale
  */
 
+/**
+ * @typedef {module:@citation-js/plugin-csl.output~Entry|Array<module:@citation-js/plugin-csl.output~Entry>} module:@citation-js/plugin-csl.output~Entries
+ */
+
+/**
+ * @typedef {String|module:@citation-js/plugin-csl.output~DetailedEntry} module:@citation-js/plugin-csl.output~Entry
+ */
+
+/**
+ * Corresponds directly to the {@link https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#cite-items|cite-items of citeproc-js}.
+ *
+ * @typedef {Object} module:@citation-js/plugin-csl.output~DetailedEntry
+ * @property {Number|String} [locator] - page, figure, section etc. number of the citation
+ * @property {String} [label='page'] - type of locator to accompany the locator number
+ * @property {Boolean} [suppress-author=false]
+ * @property {Boolean} [author-only=false]
+ * @property {String} [prefix]
+ * @property {String} [suffix]
+ */
+
 import { plugins } from '@citation-js/core'
 
 import { locales } from './locales.js'
