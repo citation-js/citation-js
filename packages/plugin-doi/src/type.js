@@ -5,7 +5,7 @@
  *   Licensed CC BY 4.0 + CC0 1.0
  *
  * @access private
- * @constant varDoiTypes
+ * @constant doiTypes
  * @default
  */
 const doiTypes = {
@@ -23,10 +23,16 @@ const doiTypes = {
  * @memberof module:@citation-js/plugin-doi.parsers.type
  *
  * @param {String} value - Input CrossRef type
+ * @param {Object} data - Full CrossRef record
  *
  * @return {String} Output CSL type
  */
-function fetchDoiType (value) {
+function fetchDoiType (value, data) {
+  // https://github.com/citation-js/citation-js/issues/136
+  if (value === 'posted-content' && data.subtype === 'preprint') {
+    return 'article'
+  }
+
   return doiTypes[value] || value
 }
 

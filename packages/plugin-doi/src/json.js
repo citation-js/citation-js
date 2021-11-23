@@ -13,7 +13,7 @@ import fetchDoiType from './type'
  */
 function parseDoiJson (data) {
   const res = {
-    type: fetchDoiType(data.type)
+    type: fetchDoiType(data.type, data)
   }
 
   const dateFields = ['submitted', 'issued', 'event-date', 'original-date', 'container', 'accessed']
