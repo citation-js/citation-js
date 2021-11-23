@@ -33,6 +33,8 @@ import prepareEngine from './engines.js'
  * @param {String} [options.lang='en-US']
  * @param {String} [options.format='text']
  * @param {module:@citation-js/plugin-csl.output~Entries} [options.entry] - list of ids or cite-items of entries to include in the citation (defaults to all)
+ * @param {Array<String>} [options.citationsPre=[]]
+ * @param {Array<String>} [options.citationsPost=[]]
  *
  * @return {String} output
  */
@@ -44,10 +46,11 @@ export default function citation (data, options = {}) {
   const citeproc = prepareEngine(data, template, lang, format)
   citeproc.updateItems(ids)
 
+  const { citationsPre = [], citationsPost = [] } = options
   const citation = citeproc.previewCitationCluster({
     citationItems: entries.map(id => typeof id === 'object' ? id : { id }),
     properties: { noteIndex: 0 }
-  }, [], [], format)
+  }, citationsPre, citationsPost, format)
 
   return citation
 }
