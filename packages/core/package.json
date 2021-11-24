@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/core",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Convert different bibliographic metadata sources",
   "keywords": [
     "citation-js",
