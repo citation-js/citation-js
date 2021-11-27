@@ -276,7 +276,14 @@ export const Converters = {
       return [label, label]
     },
     toSource (id, label, author, issued, suffix, title) {
-      const safeId = (id && id.replace(unsafeChars, '')) || 'undefined'
+      let safeId
+      if (id === null) {
+        safeId = 'null'
+      } else if (id === undefined) {
+        safeId = 'undefined'
+      } else {
+        safeId = id.toString().replace(unsafeChars, '')
+      }
       if (config.format.useIdAsLabel) {
         return safeId
       }
