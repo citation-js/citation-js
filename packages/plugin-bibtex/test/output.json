@@ -68,7 +68,11 @@
     "label": [[
       {"id": "b", "citation-label": "foo", "type": "book"},
       {"id": "b", "author": [{"given": "foo"}], "type": "book"},
-      {"id": "b", "type": "book"}
+      {"id": "b", "type": "book"},
+      {"id": 123, "type": "book"},
+      {"id": 0, "type": "book"},
+      {"type": "book"},
+      {"id": null, "type": "book"}
     ]],
     "safe labels": [[
       {
