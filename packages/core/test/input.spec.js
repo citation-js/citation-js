@@ -259,6 +259,10 @@ describe('input', function () {
           expect(util.clean([{ issued: { 'date-parts': [[{}, '08', '30']] } }], true)).to.eql([{}])
           expect(util.clean([{ issued: [{ 'date-parts': [{}, '08', '30'] }] }], true)).to.eql([{}])
         })
+        it('but it does not convert ids from strings to numbers or reverse', function () {
+          expect(util.clean([{ id: '123' }], true)[0].id).to.be.a('string')
+          expect(util.clean([{ id: 123 }], true)[0].id).to.be.a('number')
+        })
         it('on number values that should (only) be strings', function () {
           expect(util.clean([{ scale: 1e6 }], true)).to.eql([{ scale: '1000000' }])
           expect(util.clean([{ number: 40 }], true)).to.eql([{ number: 40 }])
