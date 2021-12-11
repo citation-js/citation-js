@@ -1,11 +1,25 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.2...v) (2021-11-24)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.3...v) (2021-12-11)
+
+
+### Bug Fixes
+
+* **core:** do not convert string id to numbers ([6490200](https://github.com/citation-js/citation-js/commit/6490200d256c047cabbfaff899c158ad5a017427))
+* **plugin-bibtex:** fix numeric id in bibtex label ([6291843](https://github.com/citation-js/citation-js/commit/62918432f1ad9cf9a0f7a1a243689506c3511e4b))
+* **plugin-bibtex:** replace use of moo.keywords ([efb9586](https://github.com/citation-js/citation-js/commit/efb958674bba4f39abc848053b88e1c7d16ce1ac))
+
+
+
+## [0.5.3](https://github.com/citation-js/citation-js/compare/v0.5.2...v0.5.3) (2021-11-24)
 
 
 ### Bug Fixes
 
 * **plugin-csl:** handle missing entries ([93400d6](https://github.com/citation-js/citation-js/commit/93400d62d6fa38ce1f6a18f1728b07091f5643d1))
-* remove named imports of JSON files ([9b8315b](https://github.com/citation-js/citation-js/commit/9b8315bd8352dc9a4bf1866ac71bb65a9df994d0))
 * **plugin-doi:** handle crossref preprints ([0927f43](https://github.com/citation-js/citation-js/commit/0927f43deb07e512d828e5415a7d649d2d9b966a))
+* remove named imports of JSON files ([9b8315b](https://github.com/citation-js/citation-js/commit/9b8315bd8352dc9a4bf1866ac71bb65a9df994d0))
+
+
+* chore!: drop Node 8, add Node 14 ([a5ceb07](https://github.com/citation-js/citation-js/commit/a5ceb07496900e66de30e405523ec315cfbc0a89))
 
 
 ### Features
@@ -13,9 +27,6 @@
 * **core:** throw more descriptive errors in Translator ([c35b40f](https://github.com/citation-js/citation-js/commit/c35b40f3badf81ed9b475979673be284b1407ab4))
 * **plugin-csl:** allow citation context options ([c5c3e8c](https://github.com/citation-js/citation-js/commit/c5c3e8c6de1a562ec7128e74cc6560d7c5ed2347))
 * **plugin-csl:** allow cite-items ([48fb79c](https://github.com/citation-js/citation-js/commit/48fb79c9b81e93ec6e44186e064eaca0fac57f1c))
-
-
-* chore!: drop Node 8, add Node 14 ([a5ceb07](https://github.com/citation-js/citation-js/commit/a5ceb07496900e66de30e405523ec315cfbc0a89))
 
 
 ### BREAKING CHANGES
@@ -229,9 +240,6 @@ https://github.com/citation-js/citation-js/issues
 # [0.5.0-alpha.0](https://github.com/citation-js/citation-js/compare/v0.4.10...v0.5.0-alpha.0) (2019-09-07)
 
 
-* chore!: drop Node 6 support ([f27d812](https://github.com/citation-js/citation-js/commit/f27d812726650c1dc9c14378d9ddd3b7420ce80d)), closes [#55](https://github.com/citation-js/citation-js/issues/55)
-
-
 ### Bug Fixes
 
 * **core:** do not return empty name lists when cleaning ([d31ca8a](https://github.com/citation-js/citation-js/commit/d31ca8aa75a1be4fbd1fb51dd9facedc06b06c0d))
@@ -244,6 +252,9 @@ https://github.com/citation-js/citation-js/issues
 * **core:** pass checkContentType in fetchFile ([e415f76](https://github.com/citation-js/citation-js/commit/e415f7606cd74137e88fa940f636846170e9f9c1))
 * **core:** set userAgent properly in fetchFile ([a91fd7b](https://github.com/citation-js/citation-js/commit/a91fd7bc20891ede9f7decf4dcf9d8e2463af55b))
 * **plugin-bibtex:** fix label for incomplete author ([352ca4f](https://github.com/citation-js/citation-js/commit/352ca4f0d6453d9aca0ca03f2b5826abbe068551)), closes [#56](https://github.com/citation-js/citation-js/issues/56)
+
+
+* chore!: drop Node 6 support ([f27d812](https://github.com/citation-js/citation-js/commit/f27d812726650c1dc9c14378d9ddd3b7420ce80d)), closes [#55](https://github.com/citation-js/citation-js/issues/55)
 
 
 ### Features
