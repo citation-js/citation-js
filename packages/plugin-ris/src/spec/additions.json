@@ -602,5 +602,16 @@
       },
       "target": false
     }
+  },
+  {
+    "source": "IS",
+    "target": "issue",
+    "when": {
+      "source": {
+        "TY": "MGZN",
+        "M1": false
+      },
+      "target": false
+    }
   }
 ]

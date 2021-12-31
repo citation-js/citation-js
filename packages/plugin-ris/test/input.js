@@ -124,6 +124,34 @@ ER  -
           accessed: { 'date-parts': [[2019, 9, 18]] }
         }
       ]
+    ],
+    'https://github.com/larsgw/citation.js/issues/215': [
+      `TY  - MGZN
+TI  - New Health Center Targets County's Uninsured Patients
+AU  - Brubaker, Bill
+T2  - Washington Post
+DA  - 2019/03//
+PY  - 2019
+VL  - 5
+IS  - 2
+SP  - 10
+EP  - 12
+UR  - washingtonpost.com`,
+      [
+        {
+          author: [
+            { family: 'Brubaker', given: 'Bill' }
+          ],
+          issued: { 'date-parts': [[2019, 3]] },
+          page: '10-12',
+          'container-title': 'Washington Post',
+          title: "New Health Center Targets County's Uninsured Patients",
+          type: 'article-magazine',
+          URL: 'washingtonpost.com',
+          volume: '5',
+          issue: '2'
+        }
+      ]
     ]
   }
 }
