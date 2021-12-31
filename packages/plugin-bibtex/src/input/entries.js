@@ -40,6 +40,7 @@ function parseEntryValues (entry) {
 
   for (const property in entry.properties) {
     const value = entry.properties[property]
+    if (value === '') { continue }
     output[property] = parseValue(value + '', property, output.language)
   }
 

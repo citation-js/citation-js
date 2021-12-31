@@ -821,5 +821,22 @@
     "title": "Review and identification of the cuckoo bees of central Europe (Hymenoptera: Halictidae: Sphecodes)",
     "URL": "https://doi.org/10.11646/ZOOTAXA.3311.1.1",
     "volume": "3311"
+  },
+  {
+    "URL": "https://www.aclweb.org/anthology/W19-2516.pdf",
+    "author": [
+      {
+        "family": "Born",
+        "given": "L. et al."
+      }
+    ],
+    "citation-label": "cdli:Born2019",
+    "container-title": "Proceedings of the 3<sup>rd</sup> Joint SIGHUM Workshop on Computational Linguistics for Cultural Heritage, Social Sciences, Humanities and Literature",
+    "id": "cdli:Born2019",
+    "issued": {
+      "date-parts": [[2019]]
+    },
+    "title": "Sign Clustering and Topic Extraction in Proto-Elamite",
+    "type": "chapter"
   }
 ]
