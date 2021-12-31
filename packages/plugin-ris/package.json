@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-ris",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Plugin for RIS formats for Citation.js",
   "keywords": [
     "citation-js",
