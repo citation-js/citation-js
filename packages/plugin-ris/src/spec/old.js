@@ -93,7 +93,8 @@ export default [
     convert: CONVERTERS.PAGE,
     when: { source: { SP: true, EP: true } }
   },
-  // CY - publication place (not publisher-place)
+  // Technically place of publication, not location of publisher
+  { source: 'CY', target: 'publisher-place' },
   { source: 'PB', target: 'publisher' },
   { source: 'SN', target: ['ISSN', 'ISBN'] },
 

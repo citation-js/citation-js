@@ -152,6 +152,36 @@ UR  - washingtonpost.com`,
           issue: '2'
         }
       ]
+    ],
+    'https://github.com/larsgw/citation.js/issues/214': [
+      `TY  - BOOK
+TI  - The boy, the mole, the fox and the horse
+AU  - Mackesy, Charlie
+CN  - PN6737.M35 B69 2019
+CY  - New York, NY
+DA  - 2019
+PY  - 2019
+DP  - Library of Congress ISBN
+ET  - First HarperOne hardcover
+PB  - HarperOne
+SN  - 978-0-06-297658-1
+N1  - <p>"First published in 2019 by Ebury."</p>
+KW  - Animals `,
+      [
+        {
+          author: [{ family: 'Mackesy', given: 'Charlie' }],
+          'call-number': 'PN6737.M35 B69 2019',
+          issued: { 'date-parts': [[2019]] },
+          edition: 'First HarperOne hardcover',
+          keyword: 'Animals',
+          note: '<p>"First published in 2019 by Ebury."</p>',
+          publisher: 'HarperOne',
+          'publisher-place': 'New York, NY',
+          ISBN: '978-0-06-297658-1',
+          title: 'The boy, the mole, the fox and the horse',
+          type: 'book'
+        }
+      ]
     ]
   }
 }

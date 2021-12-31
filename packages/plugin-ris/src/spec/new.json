@@ -479,6 +479,23 @@
   },
   {
     "source": "C1",
+    "target": "publisher-place",
+    "when": {
+      "source": {
+        "TY": [
+          "CONF",
+          "CPAPER"
+        ]
+      },
+      "target": {
+        "type": [
+          "paper-conference"
+        ]
+      }
+    }
+  },
+  {
+    "source": "C1",
     "target": "scale",
     "when": {
       "source": {
@@ -917,6 +934,88 @@
           "post-weblog",
           "report",
           "review",
+          "review-book",
+          "song",
+          "speech",
+          "thesis",
+          "treaty",
+          "webpage"
+        ]
+      }
+    }
+  },
+  {
+    "source": "CY",
+    "target": "publisher-place",
+    "when": {
+      "source": {
+        "TY": [
+          "ADVS",
+          "AGGR",
+          "ANCIENT",
+          "ART",
+          "BLOG",
+          "BOOK",
+          "CHAP",
+          "CHART",
+          "CLSWK",
+          "COMP",
+          "CTLG",
+          "DATA",
+          "DBASE",
+          "DICT",
+          "EBOOK",
+          "ECHAP",
+          "EDBOOK",
+          "EJOUR",
+          "ELEC",
+          "ENCYC",
+          "EQUA",
+          "FIGURE",
+          "GEN",
+          "GOVDOC",
+          "HEAR",
+          "ICOMM",
+          "LEGAL",
+          "MANSCPT",
+          "MAP",
+          "MGZN",
+          "MUSIC",
+          "NEWS",
+          "PAMP",
+          "PCOMM",
+          "RPRT",
+          "SER",
+          "SLIDE",
+          "SOUND",
+          "STAND",
+          "THES",
+          "UNPB",
+          "VIDEO"
+        ]
+      },
+      "target": {
+        "type": [
+          "article-magazine",
+          "article-newspaper",
+          "book",
+          "chapter",
+          "dataset",
+          "entry",
+          "entry-dictionary",
+          "entry-encyclopedia",
+          "figure",
+          "graphic",
+          "interview",
+          "legislation",
+          "manuscript",
+          "map",
+          "musical_score",
+          "pamphlet",
+          "personal_communication",
+          "post",
+          "post-weblog",
+          "report",
           "review-book",
           "song",
           "speech",
