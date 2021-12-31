@@ -107,5 +107,15 @@ describe('output', function () {
         { message: 'Cannot find entry with id \'this\'' }
       )
     })
+    it('for non-existing formats', function () {
+      assert.throws(
+        () => plugins.output.format(
+          'bibliography',
+          [{ id: 'foo' }],
+          { format: 'foo' }
+        ),
+        { message: 'Cannot find format \'foo\'' }
+      )
+    })
   })
 })

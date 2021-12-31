@@ -89,6 +89,10 @@ const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocal
  * @return {Object} CSL Engine
  */
 const prepareEngine = function (data, templateName, language, format) {
+  if (!CSL.Output.Formats[format] || !CSL.Output.Formats[format]['@bibliography/entry']) {
+    throw new TypeError(`Cannot find format '${format}'`)
+  }
+
   const items = data.reduce((store, entry) => { store[entry.id] = entry; return store }, {})
   const template = templates.get(templates.has(templateName) ? templateName : 'apa')
   language = locales.has(language) ? language : 'en-US'
