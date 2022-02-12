@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.4...v) (2021-12-31)
+# [](https://github.com/citation-js/citation-js/compare/v0.5.5...v) (2022-02-12)
+
+
+### Bug Fixes
+
+* **plugin-bibtex:** fix handling of literal dates ([701526d](https://github.com/citation-js/citation-js/commit/701526d6c46a5c5dc9783a686ac04c09d9448b8b))
+
+
+
+## [0.5.5](https://github.com/citation-js/citation-js/compare/v0.5.4...v0.5.5) (2021-12-31)
 
 
 ### Bug Fixes
