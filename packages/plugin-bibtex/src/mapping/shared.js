@@ -242,6 +242,8 @@ export const Converters = {
             ? day ? `${months[month - 1]} ${day}` : month
             : undefined
         ]
+      } else {
+        return []
       }
     }
   },
