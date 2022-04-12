@@ -8,7 +8,8 @@ import pkg from '../../package.json'
 // Browser environments have CORS enabled
 const corsEnabled = typeof location !== 'undefined' && typeof document !== 'undefined'
 
-let userAgent = `Citation.js/${pkg.version} Node.js/${process.version}`
+// Do not try to set the user agent in browsers
+let userAgent = corsEnabled ? '' : `Citation.js/${pkg.version} Node.js/${process.version}`
 
 /**
  * @typedef module:@citation-js/core.util.fetchFile~options
