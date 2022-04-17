@@ -79,3 +79,30 @@ If you need new Wikidata or DOI data in the cache, check out the scripts in `scr
 Additionally, coverage can be checked with
 
     npm run coverage
+
+### Release
+
+#### `citation-js/citation-js`
+
+```sh
+lerna version
+lerna publish from-packages
+```
+
+#### `larsgw/citation.js`
+
+```sh
+./tools/update-components.sh
+git commit -am "[package] Update deps"
+npm version
+npm publish
+git push
+```
+
+#### `citation-js/bundle-tool`
+
+```sh
+./update-components.sh
+git commit -am "..."
+git push
+```
