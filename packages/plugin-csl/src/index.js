@@ -82,7 +82,7 @@ plugins.add('@csl', {
      * The configuration object also exposes an internal method to prepare a Citeproc engine with given data and configuration:
      *
      * ```js
-     * let config = plugins.config.get('csl')
+     * let config = plugins.config.get('@csl')
      *
      * let citeproc = plugins.engine(
      *   [{ ... }], // data
@@ -113,7 +113,7 @@ plugins.add('@csl', {
      * let language = 'en-GB'
      * let locale = '<?xml version="1.0" encoding="utf-8"?><locale ...>...</locale>' // The actual XML file
      *
-     * let config = plugins.config.get('csl')
+     * let config = plugins.config.get('@csl')
      * config.locales.add(language, locale)
      *
      * let example = new Cite(...)
@@ -136,7 +136,7 @@ plugins.add('@csl', {
      * let templateName = 'custom'
      * let template = '<?xml version="1.0" encoding="utf-8"?><style ...>...</style>' // The actual XML file
      *
-     * let config = plugins.config.get('csl')
+     * let config = plugins.config.get('@csl')
      * config.templates.add(templateName, template)
      *
      * let example = new Cite(...)
