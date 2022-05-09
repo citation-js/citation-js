@@ -47,6 +47,13 @@ const nonSpec = [
     when: {
       target: false
     }
+  },
+  {
+    source: 's2id',
+    target: 'S2ID',
+    when: {
+      target: false
+    }
   }
 ]
 
