@@ -50,7 +50,7 @@ const nonSpec = [
   },
   {
     source: 's2id',
-    target: 'S2ID',
+    target: '_S2ID',
     when: {
       target: false
     }
