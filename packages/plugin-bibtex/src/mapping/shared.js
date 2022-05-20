@@ -258,6 +258,15 @@ export const Converters = {
       return [id, 'pubmed']
     }
   },
+  EVENT_TITLE: {
+    toTarget (title, addon) {
+      if (addon) { title += ' (' + subtitle + ')' }
+      return title
+    },
+    toSource (title) {
+      return title.match(/^(.+)(?: \((.+)\))?$/).slice(1, 3)
+    }
+  },
   // (Unconvential) convention of setting
   //     howpublished = {\url{https://example.org/some/page}}
   HOW_PUBLISHED: {

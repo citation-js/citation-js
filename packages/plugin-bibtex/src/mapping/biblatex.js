@@ -331,12 +331,19 @@ export default new util.Translator([
     target: 'event-place'
   },
   {
-    source: 'eventtitle',
-    target: 'event'
+    source: ['eventtitle', 'eventtitleaddon'],
+    target: 'event-title',
+    convert: Converters.EVENT_TITLE
+  },
+  {
+    source: ['eventtitle', 'eventtitleaddon'],
+    target: 'event',
+    convert: Converters.EVENT_TITLE,
+    when: { source: false, target: { 'event-title': false } }
   },
   {
     source: LABEL,
-    target: ['id', 'citation-label', 'author', 'issued', 'year-suffix', 'title'],
+    target: ['id', 'citation-key', 'author', 'issued', 'year-suffix', 'title'],
     convert: Converters.LABEL
   },
   {
@@ -359,7 +366,13 @@ export default new util.Translator([
         issue (issue) {
           return typeof issue === 'string' && !issue.match(/\d+/)
         },
-        type: ['article', 'article-journal', 'article-newspaper', 'article-magazine']
+        type: [
+          'article',
+          'article-journal',
+          'article-newspaper',
+          'article-magazine',
+          'periodical'
+        ]
       }
     }
   },
@@ -372,7 +385,14 @@ export default new util.Translator([
       },
       target: {
         issue (issue) { return issue && (typeof issue === 'number' || issue.match(/\d+/)) },
-        type: ['article', 'article-journal', 'article-newspaper', 'article-magazine', 'paper-conference']
+        type: [
+          'article',
+          'article-journal',
+          'article-newspaper',
+          'article-magazine',
+          'paper-conference',
+          'periodical'
+        ]
       }
     }
   },
@@ -469,10 +489,10 @@ export default new util.Translator([
     source: 'pagetotal',
     target: 'number-of-pages'
   },
-  // {
-  //   source: 'part',
-  //   target: 'part-number'
-  // },
+  {
+    source: 'part',
+    target: 'part-number'
+  },
   {
     source: ['eprint', 'eprinttype'],
     target: 'PMID',
@@ -491,8 +511,8 @@ export default new util.Translator([
       source: true,
       target: {
         // All except:
-        //   - institution: thesis, report
-        //   - organization: webpage
+        //   - thesis, report: institution
+        //   - webpage: organization
         type: [
           'article',
           'article-journal',
@@ -502,12 +522,17 @@ export default new util.Translator([
           'book',
           'broadcast',
           'chapter',
+          'classic',
+          'collection',
           'dataset',
+          'document',
           'entry',
           'entry-dictionary',
           'entry-encyclopedia',
+          'event',
           'figure',
           'graphic',
+          'hearing',
           'interview',
           'legal_case',
           'legislation',
@@ -518,14 +543,18 @@ export default new util.Translator([
           'pamphlet',
           'paper-conference',
           'patent',
+          'performance',
+          'periodical',
           'personal_communication',
           'post',
           'post-weblog',
           'regulation',
           'review',
           'review-book',
+          'software',
           'song',
           'speech',
+          'standard',
           'treaty'
         ]
       }
@@ -595,6 +624,11 @@ export default new util.Translator([
     target: 'title-short'
   },
   {
+    source: 'shorttitle',
+    target: 'shortTitle',
+    when: { source: false, target: { 'title-short': false } }
+  },
+  {
     source: ['title', 'subtitle', 'titleaddon'],
     target: 'title',
     convert: Converters.TITLE
@@ -630,10 +664,10 @@ export default new util.Translator([
   {
     source: 'volumes',
     target: 'number-of-volumes'
+  },
+  {
+    source: ['issuetitle', 'issuesubtitle', 'issuetitleaddon'],
+    target: 'volume-title',
+    convert: Converters.TITLE
   }
-  // {
-  //   source: ['issuetitle', 'issuesubtitle', 'issuetitleaddon'],
-  //   target: 'volume-title',
-  //   convert: Converters.TITLE
-  // }
 ])

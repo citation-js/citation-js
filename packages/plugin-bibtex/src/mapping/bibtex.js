@@ -134,7 +134,7 @@ export default new util.Translator([
   },
   {
     source: LABEL,
-    target: ['id', 'citation-label', 'author', 'issued', 'year-suffix', 'title'],
+    target: ['id', 'citation-key', 'author', 'issued', 'year-suffix', 'title'],
     convert: Converters.LABEL
   },
   {
@@ -154,7 +154,8 @@ export default new util.Translator([
           'article-journal',
           'article-newspaper',
           'article-magazine',
-          'paper-conference'
+          'paper-conference',
+          'periodical'
         ]
       }
     }
@@ -201,12 +202,17 @@ export default new util.Translator([
           'book',
           'broadcast',
           'chapter',
+          'classic',
+          'collection',
           'dataset',
+          'document',
           'entry',
           'entry-dictionary',
           'entry-encyclopedia',
+          'event',
           'figure',
           'graphic',
+          'hearing',
           'interview',
           'legal_case',
           'legislation',
@@ -215,13 +221,18 @@ export default new util.Translator([
           'musical_score',
           'pamphlet',
           'patent',
+          'performance',
+          'periodical',
           'personal_communication',
           'post',
           'post-weblog',
+          'regulation',
           'review',
           'review-book',
+          'software',
           'song',
           'speech',
+          'standard',
           'treaty',
           'webpage'
         ]
