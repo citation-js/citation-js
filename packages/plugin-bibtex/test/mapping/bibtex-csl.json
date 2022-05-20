@@ -2,7 +2,7 @@
   {
     "type": "article-journal",
     "id": "Article",
-    "citation-label": "Article",
+    "citation-key": "Article",
     "author": [
       {
         "family": "Adams",
@@ -31,7 +31,7 @@
   {
     "type": "book",
     "id": "Book",
-    "citation-label": "Book",
+    "citation-key": "Book",
     "author": [
       {
         "family": "Adams",
@@ -68,7 +68,7 @@
   {
     "type": "book",
     "id": "Booklet",
-    "citation-label": "Booklet",
+    "citation-key": "Booklet",
     "author": [
       {
         "family": "Adams",
@@ -95,7 +95,7 @@
   {
     "type": "chapter",
     "id": "InBook",
-    "citation-label": "InBook",
+    "citation-key": "InBook",
     "author": [
       {
         "family": "Adams",
@@ -135,7 +135,7 @@
   {
     "type": "chapter",
     "id": "InCollection",
-    "citation-label": "InCollection",
+    "citation-key": "InCollection",
     "author": [
       {
         "family": "Adams",
@@ -176,7 +176,7 @@
   {
     "type": "paper-conference",
     "id": "InProceedings",
-    "citation-label": "InProceedings",
+    "citation-key": "InProceedings",
     "author": [
       {
         "family": "Adams",
@@ -212,9 +212,9 @@
     "note": "This is a note."
   },
   {
-    "type": "book",
+    "type": "report",
     "id": "Manual",
-    "citation-label": "Manual",
+    "citation-key": "Manual",
     "title": "Lorem Ipsum",
     "author": [
       {
@@ -242,7 +242,7 @@
   {
     "type": "thesis",
     "id": "MastersThesis",
-    "citation-label": "MastersThesis",
+    "citation-key": "MastersThesis",
     "author": [
       {
         "family": "Adams",
@@ -263,9 +263,9 @@
     "note": "This is a note."
   },
   {
-    "type": "book",
+    "type": "document",
     "id": "Misc",
-    "citation-label": "Misc",
+    "citation-key": "Misc",
     "author": [
       {
         "family": "Adams",
@@ -291,7 +291,7 @@
   {
     "type": "thesis",
     "id": "PhdThesis",
-    "citation-label": "PhdThesis",
+    "citation-key": "PhdThesis",
     "author": [
       {
         "family": "Adams",
@@ -315,7 +315,7 @@
   {
     "type": "book",
     "id": "Proceedings",
-    "citation-label": "Proceedings",
+    "citation-key": "Proceedings",
     "title": "Lorem Ipsum",
     "issued": {
       "date-parts": [
@@ -341,7 +341,7 @@
   {
     "type": "report",
     "id": "TechReport",
-    "citation-label": "TechReport",
+    "citation-key": "TechReport",
     "author": [
       {
         "family": "Adams",
@@ -370,7 +370,7 @@
   {
     "type": "manuscript",
     "id": "Unpublished",
-    "citation-label": "Unpublished",
+    "citation-key": "Unpublished",
     "author": [
       {
         "family": "Adams",
@@ -395,7 +395,7 @@
   {
     "type": "thesis",
     "id": "MastersThesis2",
-    "citation-label": "MastersThesis2",
+    "citation-key": "MastersThesis2",
     "author": [
       {
         "family": "Adams",
@@ -418,7 +418,7 @@
   {
     "type": "thesis",
     "id": "PhdThesis2",
-    "citation-label": "PhdThesis2",
+    "citation-key": "PhdThesis2",
     "author": [
       {
         "family": "Adams",
@@ -453,7 +453,7 @@
     "container-title": "Zootaxa",
     "type": "article-journal",
     "id": "loir:B6",
-    "citation-label": "loir:B6",
+    "citation-key": "loir:B6",
     "issue": "1",
     "issued": {
       "date-parts": [

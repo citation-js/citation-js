@@ -59,7 +59,7 @@ describe('input', function () {
         [{
           type: 'book',
           id: 'a',
-          'citation-label': 'a',
+          'citation-key': 'a',
           title: 'lowercase lowercase: lowercase Uppercase UpperCASE UPPERCASE',
           language: 'French'
         }]
@@ -78,21 +78,21 @@ describe('input', function () {
           {
             type: 'book',
             id: 'a',
-            'citation-label': 'a',
+            'citation-key': 'a',
             title: 'Lowercase lowercase',
             language: ['English', 'en-US']
           },
           {
             type: 'book',
             id: 'b',
-            'citation-label': 'b',
+            'citation-key': 'b',
             title: 'Lowercase Lowercase',
             language: ['English', 'French']
           },
           {
             type: 'book',
             id: 'c',
-            'citation-label': 'c',
+            'citation-key': 'c',
             title: 'Lowercase Lowercase',
             language: 'French'
           }

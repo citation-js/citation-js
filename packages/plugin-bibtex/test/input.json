@@ -4,7 +4,7 @@
       null,
       [
         {
-          "citation-label": "Steinbeck2003",
+          "citation-key": "Steinbeck2003",
           "PMID": "12653513",
           "type": "article-journal",
           "author": [
@@ -33,7 +33,7 @@
       null,
       [
         {
-          "citation-label": "Ekstrand:2009:RYD",
+          "citation-key": "Ekstrand:2009:RYD",
           "number-of-pages": "10",
           "type": "paper-conference",
           "author": [
@@ -67,56 +67,56 @@
         "publisher-place": "Stuttgart",
         "type": "book",
         "id": "Fau86",
-        "citation-label": "Fau86"
+        "citation-key": "Fau86"
       }]
     ],
     "with escaped characters": [
       null,
       [
-        {"type": "article-journal", "id": "escape", "citation-label": "escape", "title": "a&b%c$d#e_f~^\\"},
-        {"type": "article-journal", "id": "ligature", "citation-label": "ligature", "title": "\u2014\u00A0"}
+        {"type": "article-journal", "id": "escape", "citation-key": "escape", "title": "a&b%c$d#e_f~^\\"},
+        {"type": "article-journal", "id": "ligature", "citation-key": "ligature", "title": "\u2014\u00A0"}
       ]
     ],
     "with commands": [
       null,
       [
-        {"type": "book", "id": "a", "citation-label": "a", "title": "url: https://example.org"},
-        {"type": "book", "id": "b", "citation-label": "b", "title": "href: https://example.org"},
-        {"type": "book", "id": "c", "citation-label": "c", "title": "ElsevierGlyph: \u2014"},
-        {"type": "book", "id": "d", "citation-label": "d", "title": "unknown: \\unknown"},
-        {"type": "book", "id": "e", "citation-label": "e", "title": "Phi: Φ"}
+        {"type": "document", "id": "a", "citation-key": "a", "title": "url: https://example.org"},
+        {"type": "document", "id": "b", "citation-key": "b", "title": "href: https://example.org"},
+        {"type": "document", "id": "c", "citation-key": "c", "title": "ElsevierGlyph: \u2014"},
+        {"type": "document", "id": "d", "citation-key": "d", "title": "unknown: \\unknown"},
+        {"type": "document", "id": "e", "citation-key": "e", "title": "Phi: Φ"}
       ]
     ],
     "with uri": [
       null,
       [
-        {"type": "book", "id": "a", "citation-label": "a", "URL": "https://example.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"},
-        {"type": "book", "id": "b", "citation-label": "b", "URL": "https://example.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"},
-        {"type": "book", "id": "c", "citation-label": "c", "URL": "%25E0%25A4%25A"}
+        {"type": "book", "id": "a", "citation-key": "a", "URL": "https://example.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"},
+        {"type": "book", "id": "b", "citation-key": "b", "URL": "https://example.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"},
+        {"type": "book", "id": "c", "citation-key": "c", "URL": "%25E0%25A4%25A"}
       ]
     ],
     "with math": [
       null,
       [
-        {"type": "article-journal", "id": "math", "citation-label": "math", "title": "e=mc²"}
+        {"type": "article-journal", "id": "math", "citation-key": "math", "title": "e=mc²"}
       ]
     ],
     "with rich text": [
       null,
       [
-        {"type": "book", "id": "ibscsupsub", "citation-label": "ibscsupsub", "title": "<i>i</i><b>b</b><sup>sup</sup><sub>sub</sub>"},
-        {"type": "book", "id": "sc", "citation-label": "sc", "container-title": "<span style=\"font-variant:small-caps;\">sc</span>"},
-        {"type": "book", "id": "env", "citation-label": "env", "title": "a<i>b<b>c</b></i>"},
-        {"type": "book", "id": "beginend", "citation-label": "beginend", "title": "a<i>b</i>c"},
-        {"type": "book", "id": "none", "citation-label": "none", "title": "test"},
-        {"type": "book", "id": "math", "citation-label": "math", "title": "<sup>sup</sup><sub>sub</sub>"},
-        {"type": "book", "id": "mathcommand", "citation-label": "mathcommand", "title": "<sup>sup</sup><sub>sub</sub>"}
+        {"type": "document", "id": "ibscsupsub", "citation-key": "ibscsupsub", "title": "<i>i</i><b>b</b><sup>sup</sup><sub>sub</sub>"},
+        {"type": "document", "id": "sc", "citation-key": "sc", "container-title": "<span style=\"font-variant:small-caps;\">sc</span>"},
+        {"type": "document", "id": "env", "citation-key": "env", "title": "a<i>b<b>c</b></i>"},
+        {"type": "document", "id": "beginend", "citation-key": "beginend", "title": "a<i>b</i>c"},
+        {"type": "document", "id": "none", "citation-key": "none", "title": "test"},
+        {"type": "document", "id": "math", "citation-key": "math", "title": "<sup>sup</sup><sub>sub</sub>"},
+        {"type": "document", "id": "mathcommand", "citation-key": "mathcommand", "title": "<sup>sup</sup><sub>sub</sub>"}
       ]
     ],
     "with literals": [
       null,
       [{
-        "citation-label": "b",
+        "citation-key": "b",
         "id": "b",
         "type": "book",
         "author": [
@@ -133,7 +133,7 @@
       null,
       [
         {
-          "citation-label": "myarticle",
+          "citation-key": "myarticle",
           "id": "myarticle",
           "type": "article-journal",
           "author": [
@@ -149,7 +149,7 @@
       "@article{myarticle, author={Hermann {von Helmholtz}}}",
       [
         {
-          "citation-label": "myarticle",
+          "citation-key": "myarticle",
           "id": "myarticle",
           "type": "article-journal",
           "author": [
@@ -162,7 +162,7 @@
       "@article{myarticle, author={{Acme Inc.}}}",
       [
         {
-          "citation-label": "myarticle",
+          "citation-key": "myarticle",
           "id": "myarticle",
           "type": "article-journal",
           "author": [
@@ -174,24 +174,24 @@
     "with nameparts": [
       null,
       [
-        {"id": "a", "citation-label": "a", "type": "book", "author": [{"family": "B", "given": "A"}]},
-        {"id": "b", "citation-label": "b", "type": "book", "author": [{"family": "C"}]},
-        {"id": "c", "citation-label": "c", "type": "book", "author": [{"family": "B", "given": "C"}]},
-        {"id": "d", "citation-label": "d", "type": "book", "author": [{"family": "C", "given": "A-B"}]},
-        {"id": "e", "citation-label": "e", "type": "book", "author": [{
+        {"id": "a", "citation-key": "a", "type": "document", "author": [{"family": "B", "given": "A"}]},
+        {"id": "b", "citation-key": "b", "type": "document", "author": [{"family": "C"}]},
+        {"id": "c", "citation-key": "c", "type": "document", "author": [{"family": "B", "given": "C"}]},
+        {"id": "d", "citation-key": "d", "type": "document", "author": [{"family": "C", "given": "A-B"}]},
+        {"id": "e", "citation-key": "e", "type": "document", "author": [{
           "family": "C",
           "given": "D",
           "non-dropping-particle": "A-b"
         }]},
-        {"id": "f", "citation-label": "f", "type": "book", "author": [{"family": "B-C", "given": "A"}]},
-        {"id": "g", "citation-label": "g", "type": "book", "author": [{"family": "A"}, {}]},
-        {"id": "h", "citation-label": "h", "type": "book", "author": [{"family": "B", "given": "A-12"}]}
+        {"id": "f", "citation-key": "f", "type": "document", "author": [{"family": "B-C", "given": "A"}]},
+        {"id": "g", "citation-key": "g", "type": "document", "author": [{"family": "A"}, {}]},
+        {"id": "h", "citation-key": "h", "type": "document", "author": [{"family": "B", "given": "A-12"}]}
       ]
     ],
     "with year and month without date": [
       null,
       [{
-        "citation-label": "b",
+        "citation-key": "b",
         "id": "b",
         "type": "book",
         "issued": {
@@ -202,7 +202,7 @@
     "with year and month with date": [
       null,
       [{
-        "citation-label": "b",
+        "citation-key": "b",
         "id": "b",
         "type": "book",
         "issued": {
@@ -213,7 +213,7 @@
     "with date-range": [
       null,
       [{
-        "citation-label": "b",
+        "citation-key": "b",
         "id": "b",
         "type": "book",
         "issued": {
@@ -224,7 +224,7 @@
     "with string and preamble": [
       null,
       [{
-        "citation-label": "b",
+        "citation-key": "b",
         "id": "b",
         "type": "book",
         "title": "Foobar"
@@ -235,7 +235,7 @@
       [
         {
           "id": "a",
-          "citation-label": "a",
+          "citation-key": "a",
           "type": "book",
           "title": "Foo",
           "author": [{"given": "First", "family": "Last"}],
@@ -243,7 +243,7 @@
         },
         {
           "id": "b",
-          "citation-label": "b",
+          "citation-key": "b",
           "type": "book",
           "title": "Bar",
           "author": [{"given": "First", "family": "Last"}]
@@ -255,7 +255,7 @@
       [
         {
           "id": "a",
-          "citation-label": "a",
+          "citation-key": "a",
           "type": "book",
           "title": "Title",
           "author": [{"given": "First", "family": "Last"}],
@@ -263,7 +263,7 @@
         },
         {
           "id": "b",
-          "citation-label": "b",
+          "citation-key": "b",
           "type": "book",
           "title": "Title",
           "author": [{"given": "First", "family": "Last"}],
@@ -276,7 +276,7 @@
       [{
         "type": "article-journal",
         "id": "Article",
-        "citation-label": "Article",
+        "citation-key": "Article",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -297,7 +297,7 @@
       [{
         "type": "book",
         "id": "Book",
-        "citation-label": "Book",
+        "citation-key": "Book",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -323,7 +323,7 @@
       [{
         "type": "book",
         "id": "Booklet",
-        "citation-label": "Booklet",
+        "citation-key": "Booklet",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -342,7 +342,7 @@
       [{
         "type": "chapter",
         "id": "InBook",
-        "citation-label": "InBook",
+        "citation-key": "InBook",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -371,7 +371,7 @@
       [{
         "type": "chapter",
         "id": "InCollection",
-        "citation-label": "InCollection",
+        "citation-key": "InCollection",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -401,7 +401,7 @@
       [{
         "type": "paper-conference",
         "id": "InProceedings",
-        "citation-label": "InProceedings",
+        "citation-key": "InProceedings",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -426,9 +426,9 @@
     "with a complete manual": [
       null,
       [{
-        "type": "book",
+        "type": "report",
         "id": "Manual",
-        "citation-label": "Manual",
+        "citation-key": "Manual",
         "title": "Lorem Ipsum",
         "author": [
           { "family": "Adams", "given": "Alice" },
@@ -448,7 +448,7 @@
       [{
         "type": "thesis",
         "id": "MastersThesis",
-        "citation-label": "MastersThesis",
+        "citation-key": "MastersThesis",
         "author": [
           { "family": "Adams", "given": "Alice" }
         ],
@@ -464,9 +464,9 @@
     "with a complete misc": [
       null,
       [{
-        "type": "book",
+        "type": "document",
         "id": "Misc",
-        "citation-label": "Misc",
+        "citation-key": "Misc",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -484,7 +484,7 @@
       [{
         "type": "thesis",
         "id": "PhdThesis",
-        "citation-label": "PhdThesis",
+        "citation-key": "PhdThesis",
         "author": [
           { "family": "Adams", "given": "Alice" }
         ],
@@ -503,7 +503,7 @@
       [{
         "type": "book",
         "id": "Proceedings",
-        "citation-label": "Proceedings",
+        "citation-key": "Proceedings",
         "title": "Lorem Ipsum",
         "issued": {
           "date-parts": [[ 2020, 2 ]]
@@ -524,7 +524,7 @@
       [{
         "type": "report",
         "id": "TechReport",
-        "citation-label": "TechReport",
+        "citation-key": "TechReport",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -545,7 +545,7 @@
       [{
         "type": "manuscript",
         "id": "Unpublished",
-        "citation-label": "Unpublished",
+        "citation-key": "Unpublished",
         "author": [
           { "family": "Adams", "given": "Alice" },
           { "family": "Brody", "given": "Bob" }
@@ -580,7 +580,7 @@
       }],
       [
         {
-          "citation-label": "Steinbeck2003",
+          "citation-key": "Steinbeck2003",
           "PMID": "12653513",
           "type": "article-journal",
           "author": [
@@ -619,7 +619,7 @@
         "publisher-place": "Stuttgart",
         "type": "book",
         "id": "Fau86",
-        "citation-label": "Fau86"
+        "citation-key": "Fau86"
       }]
     ],
     "with multiple entries": [
@@ -635,10 +635,10 @@
           "publisher-place": "Stuttgart",
           "type": "book",
           "id": "Fau86",
-          "citation-label": "Fau86"
+          "citation-key": "Fau86"
         },
         {
-          "citation-label": "Steinbeck2003",
+          "citation-key": "Steinbeck2003",
           "PMID": "12653513",
           "type": "article-journal",
           "author": [
@@ -675,14 +675,14 @@
         "publisher-place": "Stuttgart",
         "type": "book",
         "id": "Fau86",
-        "citation-label": "Fau86"
+        "citation-key": "Fau86"
       }]
     ],
     "with nothing": [
       null,
       [
         {},
-        { "type": "book", "id": "foo", "citation-label": "foo", "title": "foo" }
+        { "type": "book", "id": "foo", "citation-key": "foo", "title": "foo" }
       ]
     ]
   }

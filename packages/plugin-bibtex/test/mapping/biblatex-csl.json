@@ -15,7 +15,7 @@
     "container-title": "Tales from the Perilous Realm",
     "type": "book",
     "id": "tolkien:single",
-    "citation-label": "tolkien:single",
+    "citation-key": "tolkien:single",
     "ISBN": "9780007280599",
     "issued": {
       "date-parts": [
@@ -46,7 +46,7 @@
     ],
     "type": "book",
     "id": "tolkien:all",
-    "citation-label": "tolkien:all",
+    "citation-key": "tolkien:all",
     "ISBN": "9780007280599",
     "issued": {
       "date-parts": [
@@ -70,7 +70,7 @@
     "collection-title": "De Volkskrant — Moderne Meesters",
     "type": "book",
     "id": "renner:single",
-    "citation-label": "renner:single",
+    "citation-key": "renner:single",
     "ISBN": "9789461060075",
     "issued": {
       "date-parts": [
@@ -99,7 +99,7 @@
     "collection-title": "De Volkskrant — Moderne Meesters",
     "type": "chapter",
     "id": "renner:chapter",
-    "citation-label": "renner:chapter",
+    "citation-key": "renner:chapter",
     "ISBN": "9789461060075",
     "issued": {
       "date-parts": [
@@ -128,7 +128,7 @@
     "collection-title": "Omnibus",
     "type": "book",
     "id": "francis:chapter",
-    "citation-label": "francis:chapter",
+    "citation-key": "francis:chapter",
     "ISBN": "9780330393683",
     "issued": {
       "date-parts": [
@@ -164,7 +164,7 @@
     "collection-title": "Omnibus",
     "type": "book",
     "id": "francis:book",
-    "citation-label": "francis:book",
+    "citation-key": "francis:book",
     "ISBN": "9780330393683",
     "issued": {
       "date-parts": [
@@ -199,7 +199,7 @@
     "collection-title": "Omnibus",
     "type": "book",
     "id": "francis:omnibus",
-    "citation-label": "francis:omnibus",
+    "citation-key": "francis:omnibus",
     "ISBN": "9780330393683",
     "issued": {
       "date-parts": [
@@ -225,7 +225,7 @@
     "collection-title": "Outlander",
     "type": "book",
     "id": "gabaldon:book",
-    "citation-label": "gabaldon:book",
+    "citation-key": "gabaldon:book",
     "ISBN": "9780440215622",
     "issued": {
       "date-parts": [
@@ -258,7 +258,7 @@
     ],
     "type": "book",
     "id": "gabaldon:set",
-    "citation-label": "gabaldon:set",
+    "citation-key": "gabaldon:set",
     "ISBN": "9781101887486",
     "issued": {
       "date-parts": [
@@ -283,7 +283,7 @@
     "container-title": "Encyclopedie van Planten",
     "type": "entry",
     "id": "winklerprins:entry",
-    "citation-label": "winklerprins:entry",
+    "citation-key": "winklerprins:entry",
     "ISBN": "9789027455659",
     "issued": {
       "date-parts": [
@@ -322,7 +322,7 @@
     ],
     "type": "book",
     "id": "winklerprins:entire",
-    "citation-label": "winklerprins:entire",
+    "citation-key": "winklerprins:entire",
     "ISBN": "9789027455659",
     "issued": {
       "date-parts": [
@@ -363,7 +363,7 @@
     "collection-title": "Elementaire Deeltjes",
     "type": "book",
     "id": "gowers:book",
-    "citation-label": "gowers:book",
+    "citation-key": "gowers:book",
     "ISBN": "9789089648136",
     "issued": {
       "date-parts": [
@@ -396,7 +396,7 @@
   {
     "type": "legislation",
     "id": "sarbanes:act",
-    "citation-label": "sarbanes:act",
+    "citation-key": "sarbanes:act",
     "issued": {
       "date-parts": [
         [
@@ -429,7 +429,7 @@
     ],
     "type": "webpage",
     "id": "willighagen:blog",
-    "citation-label": "willighagen:blog",
+    "citation-key": "willighagen:blog",
     "issued": {
       "date-parts": [
         [
@@ -513,9 +513,9 @@
       ]
     },
     "event-place": "Antwerp, Belgium",
-    "event": "SWAT4HCLS",
+    "event-title": "SWAT4HCLS",
     "id": "swat4hcls:paper",
-    "citation-label": "swat4hcls:paper",
+    "citation-key": "swat4hcls:paper",
     "issue": "2275",
     "issued": {
       "date-parts": [
@@ -574,9 +574,9 @@
       ]
     },
     "event-place": "Antwerp, Belgium",
-    "event": "SWAT4HCLS",
+    "event-title": "SWAT4HCLS",
     "id": "swat4hcls:proceedings",
-    "citation-label": "swat4hcls:proceedings",
+    "citation-key": "swat4hcls:proceedings",
     "issued": {
       "date-parts": [
         [
@@ -596,9 +596,9 @@
         "family": "Edusupport Biosciences"
       }
     ],
-    "type": "book",
+    "type": "report",
     "id": "radboud:manual",
-    "citation-label": "radboud:manual",
+    "citation-key": "radboud:manual",
     "issued": {
       "date-parts": [
         [
@@ -620,7 +620,7 @@
     ],
     "type": "thesis",
     "id": "yakovlev:thesis",
-    "citation-label": "yakovlev:thesis",
+    "citation-key": "yakovlev:thesis",
     "issued": {
       "date-parts": [
         [
@@ -644,7 +644,7 @@
     "type": "thesis",
     "genre": "Student report",
     "id": "terano:thesis",
-    "citation-label": "terano:thesis",
+    "citation-key": "terano:thesis",
     "issued": {
       "date-parts": [
         [
@@ -668,7 +668,7 @@
     "type": "patent",
     "genre": "patentus",
     "id": "tesla:patent",
-    "citation-label": "tesla:patent",
+    "citation-key": "tesla:patent",
     "issued": {
       "date-parts": [
         [
@@ -736,7 +736,7 @@
     "type": "report",
     "genre": "techreport",
     "id": "doerr:report",
-    "citation-label": "doerr:report",
+    "citation-key": "doerr:report",
     "issued": {
       "date-parts": [
         [
@@ -772,7 +772,7 @@
     "container-title-short": "J Physiol",
     "type": "article-journal",
     "id": "hutchinson:article",
-    "citation-label": "hutchinson:article",
+    "citation-key": "hutchinson:article",
     "ISSN": "0022-3751",
     "issue": "2",
     "issued": {
@@ -805,7 +805,7 @@
     "DOI": "10.11646/ZOOTAXA.3311.1.1",
     "type": "article-journal",
     "id": "loir:B6",
-    "citation-label": "loir:B6",
+    "citation-key": "loir:B6",
     "ISSN": "1175-5334",
     "issue": "1",
     "issued": {
@@ -830,7 +830,7 @@
         "given": "L. et al."
       }
     ],
-    "citation-label": "cdli:Born2019",
+    "citation-key": "cdli:Born2019",
     "container-title": "Proceedings of the 3<sup>rd</sup> Joint SIGHUM Workshop on Computational Linguistics for Cultural Heritage, Social Sciences, Humanities and Literature",
     "id": "cdli:Born2019",
     "issued": {
