@@ -63,15 +63,13 @@ const typeMap = {
   incollection: 'chapter',
   conference: 'paper-conference',
   inproceedings: 'paper-conference',
+  manual: 'report',
+  misc: 'document',
   online: 'website',
   patent: 'patent',
   phdthesis: 'thesis',
   techreport: 'report',
-  unpublished: 'manuscript',
-
-  // no mapping, fallback
-  manual: undefined,
-  misc: undefined
+  unpublished: 'manuscript'
 }
 
 function quickscrapeSpecificProps () {
