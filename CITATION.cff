@@ -1,4 +1,4 @@
-cff-version: 1.1.0
+cff-version: 1.2.0
 message: Please cite the following works when using this software.
 authors:
   - family-names: Willighagen
@@ -37,45 +37,32 @@ identifiers:
 title: citation-js/citation-js
 url: https://github.com/citation-js/citation-js
 version: v0.5.1
-references:
-  - abstract: |-
-      <jats:sec>
-         <jats:title>Background</jats:title>
-         <jats:p>Given the vast number of standards and formats for bibliographical data, any program working with bibliographies and citations has to be able to interpret such data. This paper describes the development of Citation.js (<jats:ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://citation.js.org/">https://citation.js.org/</jats:ext-link>), a tool to parse and format according to those standards. The program follows modern guidelines for software in general and JavaScript in specific, such as version control, source code analysis, integration testing and semantic versioning.</jats:p>
-      </jats:sec>
-      <jats:sec>
-         <jats:title>Results</jats:title>
-         <jats:p>The result is an extensible tool that has already seen adaption in a variety of sources and use cases: as part of a server-side page generator of a publishing platform, as part of a local extensible document generator, and as part of an in-browser converter of extracted references. Use cases range from transforming a list of DOIs or Wikidata identifiers into a BibTeX file on the command line, to displaying RIS references on a webpage with added Altmetric badges to generating ”How to cite this” sections on a blog. The accuracy of conversions is currently 27% for properties and 60% for types on average and a typical initialization takes 120 ms in browsers and 1 s with Node.js on the command line.</jats:p>
-      </jats:sec>
-      <jats:sec>
-         <jats:title>Conclusions</jats:title>
-         <jats:p>Citation.js is a library supporting various formats of bibliographic information in a broad selection of use cases and environments. Given the support for plugins, more formats can be added with relative ease.</jats:p>
-      </jats:sec>
-    authors:
-      - family-names: Willighagen
-        given-names: Lars G.
-    doi: 10.7717/peerj-cs.214
-    identifiers:
-      - type: doi
-        value: 10.7717/peerj-cs.214
-      - type: url
-        value: http://dx.doi.org/10.7717/peerj-cs.214
-      - type: other
-        value: urn:issn:2376-5992
-    title: >-
-      Citation.js: a format-independent, modular bibliography tool for the
-      browser and command line
-    url: http://dx.doi.org/10.7717/peerj-cs.214
-    database: Crossref
-    date-published: 2019-08-12
-    year: 2019
-    month: 8
-    issn: 2376-5992
-    journal: PeerJ Computer Science
-    languages:
-      - en
-    publisher:
-      name: PeerJ
-    start: e214
-    type: article
-    volume: 5
+preferred-citation:
+  authors:
+    - family-names: Willighagen
+      given-names: Lars G.
+  doi: 10.7717/peerj-cs.214
+  identifiers:
+    - type: doi
+      value: 10.7717/peerj-cs.214
+    - type: url
+      value: http://dx.doi.org/10.7717/peerj-cs.214
+    - type: other
+      value: urn:issn:2376-5992
+  title: >-
+    Citation.js: a format-independent, modular bibliography tool for the
+    browser and command line
+  url: http://dx.doi.org/10.7717/peerj-cs.214
+  database: Crossref
+  date-published: 2019-08-12
+  year: 2019
+  month: 8
+  issn: 2376-5992
+  journal: PeerJ Computer Science
+  languages:
+    - en
+  publisher:
+    name: PeerJ
+  start: e214
+  type: article
+  volume: 5
