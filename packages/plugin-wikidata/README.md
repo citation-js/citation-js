@@ -4,7 +4,7 @@ Plugin for Wikidata for Citation.js.
 [![NPM version](https://img.shields.io/npm/v/@citation-js/plugin-wikidata.svg)](https://npmjs.org/package/@citation-js/plugin-wikidata)
 [![NPM total downloads](https://img.shields.io/npm/dt/@citation-js/plugin-wikidata.svg)](https://npmcharts.com/compare/@citation-js%2Fplugin-wikidata?minimal=true)
 ![License](https://img.shields.io/npm/l/@citation-js/plugin-wikidata.svg)
-![Dependency status](https://david-dm.org/citation-js/citation-js/status.svg?path=packages%2Fplugin-wikidata)
+![Dependency status](https://img.shields.io/librariesio/release/npm/@citation-js/plugin-wikidata)
 ---
 
 ## Install

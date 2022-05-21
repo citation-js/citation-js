@@ -4,7 +4,7 @@ Convert different bibliographic metadata sources.
 [![NPM version](https://img.shields.io/npm/v/@citation-js/core.svg)](https://npmjs.org/package/@citation-js/core)
 [![NPM total downloads](https://img.shields.io/npm/dt/@citation-js/core.svg)](https://npmcharts.com/compare/@citation-js%2Fcore?minimal=true)
 ![License](https://img.shields.io/npm/l/@citation-js/core.svg)
-![Dependency status](https://david-dm.org/citation-js/citation-js/status.svg?path=packages%2Fcore)
+![Dependency status](https://img.shields.io/librariesio/release/npm/@citation-js/core)
 ---
 
 ## Install

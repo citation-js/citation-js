@@ -4,7 +4,7 @@ CLI for Citation.js.
 [![NPM version](https://img.shields.io/npm/v/@citation-js/cli.svg)](https://npmjs.org/package/@citation-js/cli)
 [![NPM total downloads](https://img.shields.io/npm/dt/@citation-js/cli.svg)](https://npmcharts.com/compare/@citation-js%2Fcli?minimal=true)
 ![License](https://img.shields.io/npm/l/@citation-js/cli.svg)
-![Dependency status](https://david-dm.org/citation-js/citation-js/status.svg?path=packages%2Fcli)
+![Dependency status](https://img.shields.io/librariesio/release/npm/@citation-js/cli)
 ---
 
 ## Install

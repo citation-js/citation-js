@@ -4,7 +4,7 @@ Plugin for CSL output for Citation.js. Output generation is done with [`citeproc
 [![NPM version](https://img.shields.io/npm/v/@citation-js/plugin-csl.svg)](https://npmjs.org/package/@citation-js/plugin-csl)
 [![NPM total downloads](https://img.shields.io/npm/dt/@citation-js/plugin-csl.svg)](https://npmcharts.com/compare/@citation-js%2Fplugin-csl?minimal=true)
 ![License](https://img.shields.io/npm/l/@citation-js/plugin-csl.svg)
-![Dependency status](https://david-dm.org/citation-js/citation-js/status.svg?path=packages%2Fplugin-csl)
+![Dependency status](https://img.shields.io/librariesio/release/npm/@citation-js/plugin-csl)
 ---
 
 ## Install

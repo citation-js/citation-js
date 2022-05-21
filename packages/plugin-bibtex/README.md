@@ -4,7 +4,7 @@ Plugin for BibTeX formats for Citation.js.
 [![NPM version](https://img.shields.io/npm/v/@citation-js/plugin-bibtex.svg)](https://npmjs.org/package/@citation-js/plugin-bibtex)
 [![NPM total downloads](https://img.shields.io/npm/dt/@citation-js/plugin-bibtex.svg)](https://npmcharts.com/compare/@citation-js%2Fplugin-bibtex?minimal=true)
 ![License](https://img.shields.io/npm/l/@citation-js/plugin-bibtex.svg)
-![Dependency status](https://david-dm.org/citation-js/citation-js/status.svg?path=packages%2Fplugin-bibtex)
+![Dependency status](https://img.shields.io/librariesio/release/npm/@citation-js/plugin-bibtex)
 ---
 
 ## Install
