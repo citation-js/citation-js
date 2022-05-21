@@ -208,7 +208,7 @@ describe('input', function () {
         expect(util.clean([{ foo: 1 }], false)).to.eql([{}])
       })
       it('keeps custom fields', function () {
-        expect(util.clean([{ _foo: 1 }], false)).to.eql([{ _foo: 1 }])
+        expect(util.clean([{ custom: { foo: 1 } }], false)).to.eql([{ custom: { foo: 1 } }])
       })
       it('keeps valid types', function () {
         const input = [{ type: 'personal_communication' }]
