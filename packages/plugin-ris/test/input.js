@@ -125,6 +125,82 @@ ER  -
         }
       ]
     ],
+    '3+ values': [
+      `TY  - JOUR
+AU  - Doe, John
+AU  - Doe, Jane
+AU  - Doe, Robin
+ER  -
+`,
+      [{
+        type: 'article-journal',
+        author: [
+          { family: 'Doe', given: 'John' },
+          { family: 'Doe', given: 'Jane' },
+          { family: 'Doe', given: 'Robin' }
+        ]
+      }]
+    ],
+    'old spec': [
+      `TY  - JOUR
+A1  - Doe, John
+ER  -
+`,
+      [{
+        type: 'article-journal',
+        author: [{ family: 'Doe', given: 'John' }]
+      }]
+    ],
+    'ISSN/ISBN: ISSN': [
+      `TY  - AGGR
+SN  - 1234-567X
+ER  -
+`,
+      [{
+        type: 'dataset',
+        ISSN: '1234-567X'
+      }]
+    ],
+    'ISSN/ISBN: ISBN': [
+      `TY  - AGGR
+SN  - 978-1234567890
+ER  -
+`,
+      [{
+        type: 'dataset',
+        ISBN: '978-1234567890'
+      }]
+    ],
+    'name with suffix': [
+      `TY  - JOUR
+AU  - Doe, John, Jr.
+ER  -
+`,
+      [{
+        type: 'article-journal',
+        author: [{ family: 'Doe', given: 'John', suffix: 'Jr.' }]
+      }]
+    ],
+    'only family name': [
+      `TY  - JOUR
+AU  - Homerus
+ER  -
+`,
+      [{
+        type: 'article-journal',
+        author: [{ family: 'Homerus' }]
+      }]
+    ],
+    'literal name': [
+      `TY  - JOUR
+AU  - De Vlinderstichting
+ER  -
+`,
+      [{
+        type: 'article-journal',
+        author: [{ literal: 'De Vlinderstichting' }]
+      }]
+    ],
     'https://github.com/larsgw/citation.js/issues/215': [
       `TY  - MGZN
 TI  - New Health Center Targets County's Uninsured Patients

@@ -174,6 +174,39 @@ ER  -`
         Y1: '2017/9/4/'
       }],
       { format: 'object', spec: 'old' }
+    ],
+    'ISSN/ISBN': [
+      [{
+        type: 'treaty',
+        ISBN: '978-1234567890'
+      }],
+      [{
+        TY: 'GEN',
+        SN: '978-1234567890'
+      }],
+      { format: 'object' }
+    ],
+    'keywords': [
+      [{
+        type: 'article-journal',
+        keyword: 'red,blue'
+      }],
+      [{
+        TY: 'JOUR',
+        KW: ['red', 'blue']
+      }],
+      { format: 'object' }
+    ],
+    'date with season': [
+      [{
+        type: 'article-journal',
+        issued: { 'date-parts': [[2022]], season: 'Summer' }
+      }],
+      [{
+        TY: 'JOUR',
+        DA: '2022///Summer'
+      }],
+      { format: 'object' }
     ]
   }
 }
