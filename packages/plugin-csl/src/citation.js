@@ -1,3 +1,4 @@
+import { util } from '@citation-js/core'
 import prepareEngine from './engines.js'
 
 /**
@@ -42,6 +43,7 @@ export default function citation (data, options = {}) {
   const { template = 'apa', lang = 'en-US', format = 'text' } = options
   const ids = data.map(({ id }) => id)
   const entries = options.entry ? [].concat(options.entry) : ids
+  data = util.downgradeCsl(data)
 
   const citeproc = prepareEngine(data, template, lang, format)
   citeproc.updateItems(ids)

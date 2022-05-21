@@ -1,3 +1,4 @@
+import { util } from '@citation-js/core'
 import prepareEngine from './engines.js'
 import { getPrefixedEntry } from './attr.js'
 
@@ -99,6 +100,7 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
 export default function bibliography (data, options = {}) {
   const { template = 'apa', lang = 'en-US', format = 'text', nosort = false } = options
   const ids = options.entry ? [].concat(options.entry) : data.map(({ id }) => id)
+  data = util.downgradeCsl(data)
 
   const citeproc = prepareEngine(data, template, lang, format)
   const sortedIds = citeproc.updateItems(ids, nosort)
