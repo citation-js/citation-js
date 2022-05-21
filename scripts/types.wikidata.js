@@ -3,71 +3,79 @@
 const wdk = require('wikidata-sdk')
 require('isomorphic-fetch')
 
-const ROOT = 'Q386724' // work
-const PREFIX = 'https://citationstyles.org/ontology/type/'
+const TYPES = {
+  'review-book': 10,
+  'review': 9,
+  'entry-dictionary': 5,
+  'entry-encyclopedia': 5,
+  'map': 5,
+  'dataset': 4,
+  'legislation': 1,
 
-const SOURCE_QUERY = `SELECT DISTINCT ?item ?type WHERE  {
-  ?item wdt:P279+ wd:${ROOT} .
-  ?item wdt:P2888|wdt:P1709 ?type .
-  FILTER (STRSTARTS(STR(?type), "${PREFIX}"))
-}`
-const TREE_QUERY = `SELECT DISTINCT ?item ?parent WHERE {
-  ?item wdt:P279+ wd:${ROOT} .
-  ?item wdt:P279 ?parent .
-}`
+  'article-magazine': 0,
+  'bill': 0,
+  'chapter': 0,
+  'classic': 0,
+  'collection': 0,
+  'entry': 0,
+  'figure': 0,
+  'graphic': 0,
+  'hearing': 0,
+  'interview': 0,
+  'legal_case': 0,
+  'manuscript': 0,
+  'motion_picture': 0,
+  'musical_score': 0,
+  'pamphlet': 0,
+  'paper-conference': 0,
+  'patent': 0,
+  'personal_communication': 0,
+  'post-weblog': 0,
+  'report': 0,
+  'song': 0,
+  'speech': 0,
+  'standard': 0,
+  'thesis': 0,
+  'treaty': 0,
 
-function getWikidataMapping () {
-  return fetch(wdk.sparqlQuery(SOURCE_QUERY))
-    .then(results => results.json())
-    .then(wdk.simplify.sparqlResults)
-    .then(results => results.reduce((obj, { item, type }) => {
-      obj[item] = type.substring(PREFIX.length)
-      return obj
-    }, {}))
+  'broadcast': -1,
+  'article-newspaper': -1,
+  'article-journal': -1,
+  'periodical': -2,
+  'regulation': -2,
+  'post': -5,
+  'webpage': -6,
+  'software': -7,
+  'article': -9,
+  'book': -10,
+  'performance': -11,
+  'event': -12,
+  'document': -100
 }
 
-function getWikidataGraph () {
-  return fetch(wdk.sparqlQuery(TREE_QUERY))
-    .then(results => results.json())
-    .then(wdk.simplify.sparqlResults)
-    .then(results => results.reduce((obj, { item, parent }) => {
-      if (obj[item]) {
-        obj[item].push(parent)
-      } else {
-        obj[item] = [parent]
-      }
-      return obj
-    }, {}))
-}
+const SOURCE_QUERY = `PREFIX csl: <https://citationstyles.org/ontology/type/>
+SELECT DISTINCT ?item ?type WHERE {
+  {
+    VALUES (?uri ?type) { ${Object.keys(TYPES).map(type => `(csl:${type} "${type}")`).join(' ')} }
+    ?root wdt:P2888|wdt:P1709 ?uri .
+  } UNION {
+    VALUES ?root { wd:Q3331189 wd:Q7725634 }
+    BIND("book" as ?type)
+  }
+  ?item wdt:P279* ?root .
+}`
 
-Promise.all([
-  getWikidataMapping(),
-  getWikidataGraph()
-])
-  .then(([sourceMapping, graph]) => {
-    const mapping = {}
-
-    function add (item) {
-      if (item in sourceMapping) {
-        mapping[item] = sourceMapping[item]
-        return mapping[item]
-      } else if (item in mapping) {
-        return mapping[item]
-      } else if (item in graph) {
-        const parents = []
-          .concat(...graph[item].map(add))
-          .filter((v, i, a) => v && a.indexOf(v) === i)
-        mapping[item] = parents[0]
-        return mapping[item]
-      } else {
-        // root
-        return undefined
-      }
+fetch(wdk.sparqlQuery(SOURCE_QUERY))
+  .then(results => results.json())
+  .then(wdk.simplify.sparqlResults)
+  .then(results => results.reduce((obj, { item, type }) => {
+    if (!obj[item] || TYPES[type] > TYPES[obj[item]]) {
+      obj[item] = type
+    } else if (obj[item] && TYPES[type] === TYPES[obj[item]]) {
+      console.error(item, obj[item], type)
     }
 
-    Object.keys(graph).forEach(add)
-
-    return mapping
-  })
+    return obj
+  }, {}))
   .then(mapping => console.log(JSON.stringify(mapping)))
   .catch((err) => { throw err })

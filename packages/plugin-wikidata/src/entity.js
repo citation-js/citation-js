@@ -62,7 +62,7 @@ function prepareValue (statement, entity, unkown) {
 export function parseEntity (entity) {
   const data = {
     id: entity.id,
-    _wikiId: entity.id,
+    custom: { QID: entity.id },
     source: 'Wikidata'
   }
 
@@ -106,8 +106,18 @@ export function parseEntity (entity) {
     data.type = 'personal_communication'
   }
 
-  if (data.event) {
+  if (data['event-title']) {
     data.type = 'paper-conference'
+  }
+
+  if (typeof data['part-number'] === 'number') {
+    delete data['part-title']
+  } else if (typeof data['part-title'] === 'string') {
+    delete data['part-number']
+  }
+
+  if (data.type !== 'chapter' && data['chapter-number']) {
+    delete data['chapter-number']
   }
 
   // END

@@ -20,7 +20,7 @@ import types from './types.json'
  * @param {Object} qualifiers
  * @return {Number} series ordinal or -1
  */
-const getSeriesOrdinal = ({ P1545 }) => P1545 ? parseInt(P1545[0]) : -1
+const getSeriesOrdinal = ({ P1545 }) => P1545 ? parseInt(P1545[0]) : null
 
 /**
  * Some name fields have, in addition to a Wikidata ID, a qualifier stating
@@ -50,7 +50,10 @@ const parseName = ({ value, qualifiers }) => {
     name = typeof value === 'string' ? value : getLabel(value)
   }
   name = name ? parseNameString(name) : { literal: name }
-  name._ordinal = getSeriesOrdinal(qualifiers)
+  const ordinal = getSeriesOrdinal(qualifiers)
+  if (ordinal !== null) {
+    name._ordinal = ordinal
+  }
   return name
 }
 
@@ -147,15 +150,25 @@ export function parseProp (prop, value, entity) {
       return parseType(value)
 
     case 'author':
-    case 'director':
+    case 'chair':
+    case 'curator':
     case 'container-author':
     case 'collection-editor':
     case 'composer':
+    case 'director':
     case 'editor':
+    case 'executive-producer':
+    case 'guest':
+    case 'host':
     case 'illustrator':
+    case 'narrator':
+    case 'organizer':
     case 'original-author':
+    case 'performer':
+    case 'producer':
     case 'recipient':
     case 'reviewed-author':
+    case 'script-writer':
     case 'translator':
       return parseNames(value)
 
@@ -171,17 +184,19 @@ export function parseProp (prop, value, entity) {
 
     case 'container-title':
     case 'collection-title':
-    case 'event':
+    case 'event-title':
     case 'medium':
     case 'publisher':
     case 'original-publisher':
       return getTitle(value)
 
     case 'event-place':
+    case 'jurisdiction':
     case 'original-publisher-place':
     case 'publisher-place':
       return getPlace(value)
 
+    case 'chapter-number':
     case 'collection-number':
       return getSeriesOrdinal(value[0].qualifiers)
 
@@ -202,7 +217,7 @@ export function parseProp (prop, value, entity) {
 export function parseType (type) {
   if (!types[type]) {
     logger.unmapped('[plugin-wikidata]', 'publication type', type)
-    return 'book'
+    return 'document'
   }
 
   return types[type]

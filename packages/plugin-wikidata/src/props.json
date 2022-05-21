@@ -7,6 +7,55 @@
     "values": "all",
     "props": ["P86"]
   },
+  "chair": {
+    "values": "all",
+    "props": ["P488"]
+  },
+  "curator": {
+    "values": "all",
+    "props": ["P1640"]
+  },
+  "executive-producer": {
+    "values": "all",
+    "props": ["P1431"]
+  },
+  "guest": {
+    "values": "all",
+    "props": ["P5030"]
+  },
+  "host": {
+    "values": "all",
+    "props": ["P371"]
+  },
+  "host": {
+    "values": "all",
+    "props": ["P371"]
+  },
+  "narrator": {
+    "values": "all",
+    "props": ["P2438"]
+  },
+  "organizer": {
+    "values": "all",
+    "props": ["P664"]
+  },
+  "performer": {
+    "values": "all",
+    "props": ["P175"]
+  },
+  "producer": {
+    "values": "all",
+    "props": ["P162"]
+  },
+  "script-writer": {
+    "values": "all",
+    "props": ["P58"]
+  },
+
+  "chapter-number": {
+    "values": "all",
+    "props": ["P1433", "P361"]
+  },
 
   "collection-editor": {
     "values": "all",
@@ -36,7 +85,7 @@
     "props": ["P98"]
   },
 
-  "event": "P1433.P4745",
+  "event-title": "P1433.P4745",
   "event-date": {
     "values": "all",
     "props": ["P1433.P4745.P580", "P1433.P4745.P582"]
@@ -55,6 +104,7 @@
   "issue": "P433",
   "issued": "P577",
   "journalAbbreviation": { "values": "any", "props": ["P1433.P1813", "P1433.P1160"] },
+  "jurisdiction": "P1001",
   "keyword": {
     "values": "all",
     "props": ["P921"]
@@ -83,6 +133,8 @@
   "original-title": "P629.P1476",
 
   "page": "P304",
+  "part-number": "P792",
+  "part-title": "P792",
   "PMID": "P698",
   "PMCID": "P932",
 
@@ -101,7 +153,9 @@
   },
 
   "scale": "P1752",
+  "shortTitle": "P1813",
   "title": "P1476",
+  "title-short": "P1813",
   "translator": {
     "values": "all",
     "props": ["P655"]
