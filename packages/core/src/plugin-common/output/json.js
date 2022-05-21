@@ -107,7 +107,11 @@ export /* istanbul ignore next: deprecated */ function getJsonWrapper (src) {
 }
 
 export default {
-  data (data, { type, format = type || 'text' } = {}) {
+  data (data, { type, format = type || 'text', version = '1.0.1' } = {}) {
+    if (version < '1.0.2') {
+      data = util.downgradeCsl(data)
+    }
+
     if (format === 'object') {
       return util.deepCopy(data)
     } else if (format === 'text') {
@@ -117,7 +121,11 @@ export default {
       return getJson(data, plugins.dict.get(format))
     }
   },
-  ndjson (data) {
+  ndjson (data, { version = '1.0.1' } = {}) {
+    if (version < '1.0.2') {
+      data = util.downgradeCsl(data)
+    }
+
     return data.map(entry => JSON.stringify(entry)).join('\n')
   }
 }

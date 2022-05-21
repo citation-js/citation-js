@@ -1,4 +1,4 @@
-import deepCopy from '../../util/deepCopy.js'
+import { deepCopy, upgradeCsl } from '../../util/index.js'
 import logger from '../../logger.js'
 
 import { get as getTypeInfo } from './register.js'
@@ -100,7 +100,7 @@ class ChainParser {
         return []
       }
     } else if (this.options.target === '@csl/list+object') {
-      return this.data.map(this.options.generateGraph
+      return upgradeCsl(this.data).map(this.options.generateGraph
         ? entry => applyGraph(entry, this.graph)
         : removeGraph
       )
