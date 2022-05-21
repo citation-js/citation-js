@@ -7,7 +7,21 @@ const cases = {
   '@csl/object': {
     'with no properties': [{}, [{}]],
     'with nonsense properties': [{ a: 1 }, [{ a: 1 }]],
-    'with proper properties': [{ title: 'test' }, [{ title: 'test' }]]
+    'with proper properties': [{ title: 'test' }, [{ title: 'test' }]],
+    'with old CSL': [
+      {
+        type: 'book',
+        version: '1.0.2',
+        title: 'Citation Style Language',
+        event: 'RFC'
+      },
+      [{
+        type: 'software',
+        version: '1.0.2',
+        title: 'Citation Style Language',
+        'event-title': 'RFC'
+      }]
+    ]
   },
   '@csl/list+object': {
     'without elements': [[], [], { link: true }],

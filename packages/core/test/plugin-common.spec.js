@@ -110,10 +110,49 @@ const outputData = {
       '<div class="csl-bib-body">[<div class="csl-entry">{<ul style="list-style-type:none"><li>"author": [],</li><li>"editor": {}</li></ul>}</div>]</div>',
       { format: 'html' }
     ],
-    object: [simple, simple, { format: 'object' }]
+    object: [simple, simple, { format: 'object' }],
+    'downgrade csl': [
+      {
+        type: 'software',
+        version: '1.0.2',
+        title: 'Citation Style Language',
+        'event-title': 'RFC'
+      },
+      {
+        type: 'book',
+        version: '1.0.2',
+        title: 'Citation Style Language',
+        event: 'RFC'
+      },
+      { format: 'object' }
+    ],
+    'upgraded csl': [
+      {
+        type: 'software',
+        version: '1.0.2',
+        title: 'Citation Style Language',
+        'event-title': 'RFC'
+      },
+      {
+        type: 'software',
+        version: '1.0.2',
+        title: 'Citation Style Language',
+        'event-title': 'RFC'
+      },
+      { format: 'object', version: '1.0.2' }
+    ]
   },
   ndjson: {
-    normal: [simple, simple.map(entry => JSON.stringify(entry)).join('\n')]
+    normal: [simple, simple.map(entry => JSON.stringify(entry)).join('\n')],
+    'downgrade csl': [
+      [{ type: 'software', version: '1.0.2', title: 'Citation Style Language', 'event-title': 'RFC' }],
+      JSON.stringify({ type: 'book', version: '1.0.2', title: 'Citation Style Language', event: 'RFC' })
+    ],
+    'upgraded csl': [
+      [{ type: 'software', version: '1.0.2', title: 'Citation Style Language', 'event-title': 'RFC' }],
+      JSON.stringify({ type: 'software', version: '1.0.2', title: 'Citation Style Language', 'event-title': 'RFC' }),
+      { version: '1.0.2' }
+    ]
   },
   label: {
     normal: [simple, { [simple[0].id]: 'Hall1957Correlation' }],
@@ -131,8 +170,8 @@ describe('output', function () {
 
       for (const name of Object.keys(outputData[type])) {
         const [input, expected, ...opts] = outputData[type][name]
-        const actual = plugins.output.format(type, input, ...opts)
         it(`with ${name} works`, function () {
+          const actual = plugins.output.format(type, input, ...opts)
           assert.deepStrictEqual(
             typeof actual === 'string' ? actual.trim() : actual,
             expected
