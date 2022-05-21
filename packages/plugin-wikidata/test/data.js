@@ -14,7 +14,7 @@ module.exports = {
       'Q21972834',
       [
         {
-          _wikiId: 'Q21972834',
+          custom: { QID: 'Q21972834' },
           id: 'Q21972834',
           source: 'Wikidata',
           type: 'article-journal',
@@ -163,7 +163,7 @@ module.exports = {
       'Q27795847',
       [
         {
-          _wikiId: 'Q27795847',
+          custom: { QID: 'Q27795847' },
           id: 'Q27795847',
           source: 'Wikidata',
           type: 'article-journal',
@@ -296,11 +296,11 @@ module.exports = {
       'Q1',
       [
         {
-          _wikiId: 'Q1',
+          custom: { QID: 'Q1' },
           id: 'Q1',
           source: 'Wikidata',
           title: 'Universe',
-          type: 'book'
+          type: 'document'
         }
       ]
     ],
@@ -308,7 +308,7 @@ module.exports = {
       'Q23571040',
       [
         {
-          _wikiId: 'Q23571040',
+          custom: { QID: 'Q23571040' },
           id: 'Q23571040',
           source: 'Wikidata',
           title: 'Correlation of the Base Strengths of Amines 1',
@@ -338,7 +338,7 @@ module.exports = {
       'Q7878315',
       [
         {
-          _wikiId: 'Q7878315',
+          custom: { QID: 'Q7878315' },
           id: 'Q7878315',
           source: 'Wikidata',
           type: 'chapter',
@@ -346,7 +346,6 @@ module.exports = {
           language: 'ja',
           'container-title': '源氏物語',
           'container-author': [{
-            _ordinal: -1,
             given: 'Murasaki',
             family: 'Shikibu'
           }]
@@ -357,14 +356,13 @@ module.exports = {
       'Q50237325',
       [
         {
-          _wikiId: 'Q50237325',
+          custom: { QID: 'Q50237325' },
           id: 'Q50237325',
           type: 'review',
           source: 'Wikidata',
           title: 'Deadly medicines and organised crime: How big pharma has corrupted healthcare.',
           'reviewed-title': 'Deadly Medicines and Organised Crime',
           'reviewed-author': [{
-            _ordinal: -1,
             given: 'Peter C.',
             family: 'Gøtzsche'
           }],
@@ -393,13 +391,12 @@ module.exports = {
       'Q43361',
       [
         {
-          _wikiId: 'Q43361',
+          custom: { QID: 'Q43361' },
           id: 'Q43361',
           type: 'book',
           source: 'Wikidata',
           title: 'Harry Potter and the Philosopher\'s Stone',
           author: [{
-            _ordinal: -1,
             given: 'J. K.',
             family: 'Rowling'
           }],
@@ -420,7 +417,7 @@ module.exports = {
       'Q63862629',
       [
         {
-          _wikiId: 'Q63862629',
+          custom: { QID: 'Q63862629' },
           id: 'Q63862629',
           type: 'paper-conference',
           source: 'Wikidata',
@@ -451,7 +448,7 @@ module.exports = {
           'container-title': 'Proceedings of the 2019 World Wide Web Conference on World Wide Web',
           'container-title-short': 'WWW 2019',
           journalAbbreviation: 'WWW 2019',
-          event: 'The Web Conference 2019',
+          'event-title': 'The Web Conference 2019',
           'event-date': {
             'date-parts': [
               [2019, 5, 13],
@@ -466,18 +463,16 @@ module.exports = {
       'Q7017193',
       [
         {
-          _wikiId: 'Q7017193',
+          custom: { QID: 'Q7017193' },
           id: 'Q7017193',
           type: 'personal_communication',
           source: 'Wikidata',
           title: 'Newburgh letter',
           author: [{
-            _ordinal: -1,
             given: 'Lewis',
             family: 'Nicola'
           }],
           recipient: [{
-            _ordinal: -1,
             given: 'George',
             family: 'Washington'
           }]
@@ -488,17 +483,15 @@ module.exports = {
       'Q61642258',
       [
         {
-          _wikiId: 'Q61642258',
+          custom: { QID: 'Q61642258' },
           id: 'Q61642258',
           type: 'map',
           source: 'Wikidata',
           title: 'The Pattern of World Agriculture',
           author: [{
-            _ordinal: -1,
             given: 'Erwin',
             family: 'Raisz'
           }, {
-            _ordinal: -1,
             given: 'Derwent',
             family: 'Whittlesey'
           }],
@@ -515,18 +508,16 @@ module.exports = {
       'Q51615345',
       [
         {
-          _wikiId: 'Q51615345',
+          custom: { QID: 'Q51615345' },
           id: 'Q51615345',
           type: 'book',
           source: 'Wikidata',
           title: 'Gitanjali',
           author: [{
-            _ordinal: -1,
             given: 'Rabindranath',
             family: 'Tagore'
           }],
           translator: [{
-            _ordinal: -1,
             given: 'Rabindranath',
             family: 'Tagore'
           }],
@@ -536,7 +527,6 @@ module.exports = {
           'publisher-place': 'London, UK',
           'original-title': 'গীতাঞ্জলি',
           'original-author': [{
-            _ordinal: -1,
             given: 'Rabindranath',
             family: 'Tagore'
           }],
