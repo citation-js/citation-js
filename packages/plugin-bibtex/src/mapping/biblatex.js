@@ -50,9 +50,14 @@ const nonSpec = [
   },
   {
     source: 's2id',
-    target: '_S2ID',
-    when: {
-      target: false
+    target: 'custom',
+    convert: {
+      toTarget (S2ID) {
+        return { S2ID }
+      },
+      toSource ({ S2ID }) {
+        return [S2ID]
+      }
     }
   }
 ]
