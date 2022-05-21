@@ -43,7 +43,7 @@ const CONVERTERS = {
           case 2:
             return { family, given }
           case 1:
-            if (family.indexOf(' ') > -1) { return { family } }
+            if (family.indexOf(' ') === -1) { return { family } }
             // fall through
           default:
             return { literal: name }
