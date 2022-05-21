@@ -1,7 +1,7 @@
 import { parse as parseDate } from '@citation-js/date'
 import TYPES from './spec/types.json'
 
-const ISSN_REGEX = /^\d{4}-\d{4}$/
+const ISSN_REGEX = /^\d{4}-\d{3}[0-9Xx]$/
 const DOI_REGEX = /10(?:\.[0-9]{4,})?\/[^\s]*[^\s.,]/
 const CONVERTERS = {
   ANY: {
