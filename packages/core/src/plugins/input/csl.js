@@ -346,9 +346,7 @@ const correctField = function (fieldName, value, bestGuessConversions) {
       return correctType(value, bestGuessConversions)
   }
 
-  if (/^_/.test(fieldName)) {
-    return value
-  } else if (bestGuessConversions) {
+  if (bestGuessConversions) {
     if (typeof value === 'string' && fieldType.includes('number') && !fieldType.includes('string') && !isNaN(+value)) {
       return parseFloat(value)
     } else if (typeof value === 'number' && fieldType.includes('string') && !fieldType.includes('number')) {
