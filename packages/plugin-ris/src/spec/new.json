@@ -32,6 +32,26 @@
   },
   {
     "source": "A2",
+    "target": "performer",
+    "when": {
+      "source": {
+        "TY": [
+          "ADVS",
+          "SLIDE",
+          "SOUND",
+          "VIDEO"
+        ]
+      },
+      "target": {
+        "type": [
+          "song",
+          "speech"
+        ]
+      }
+    }
+  },
+  {
+    "source": "A2",
     "target": "collection-editor",
     "when": {
       "source": {
@@ -70,6 +90,22 @@
       "target": {
         "type": [
           "legal_case"
+        ]
+      }
+    }
+  },
+  {
+    "source": "A2",
+    "target": "producer",
+    "when": {
+      "source": {
+        "TY": [
+          "DATA"
+        ]
+      },
+      "target": {
+        "type": [
+          "dataset"
         ]
       }
     }
@@ -154,6 +190,23 @@
     }
   },
   {
+    "source": "A3",
+    "target": "producer",
+    "when": {
+      "source": {
+        "TY": [
+          "MPCT"
+        ]
+      },
+      "target": {
+        "type": [
+          "broadcast",
+          "motion_picture"
+        ]
+      }
+    }
+  },
+  {
     "source": [
       "A3",
       "PB"
@@ -199,6 +252,39 @@
           "entry-encyclopedia",
           "pamphlet",
           "review-book"
+        ]
+      }
+    }
+  },
+  {
+    "source": "A4",
+    "target": "performer",
+    "when": {
+      "source": {
+        "TY": [
+          "MPCT"
+        ]
+      },
+      "target": {
+        "type": [
+          "broadcast",
+          "motion_picture"
+        ]
+      }
+    }
+  },
+  {
+    "source": "A4",
+    "target": "producer",
+    "when": {
+      "source": {
+        "TY": [
+          "MUSIC"
+        ]
+      },
+      "target": {
+        "type": [
+          "musical_score"
         ]
       }
     }
@@ -681,6 +767,18 @@
           "graphic"
         ]
       }
+    }
+  },
+  {
+    "source": "C5",
+    "target": "volume-title",
+    "when": {
+      "source": {
+        "TY": [
+          "EJOUR"
+        ]
+      },
+      "target": false
     }
   },
   {
@@ -1472,6 +1570,27 @@
         "type": [
           "dataset",
           "figure"
+        ]
+      }
+    }
+  },
+  {
+    "source": "ET",
+    "target": "available-date",
+    "when": {
+      "source": {
+        "TY": [
+          "ABST",
+          "INPR",
+          "JFULL",
+          "JOUR"
+        ]
+      },
+      "target": {
+        "type": [
+          "article",
+          "article-journal",
+          "review"
         ]
       }
     }
@@ -2983,8 +3102,8 @@
   {
     "source": "SN",
     "target": [
-      "ISBN",
-      "ISSN"
+      "ISSN",
+      "ISBN"
     ],
     "when": {
       "source": {
