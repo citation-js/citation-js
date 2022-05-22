@@ -21,6 +21,29 @@ function deepNotEqual (a, b) {
   }
 }
 
+const nodeVersion = parseInt(process.version.split('.')[0])
+function getHeaders (headers) {
+  if (nodeVersion >= 18) {
+    return {
+      accept: '*/*',
+      'accept-encoding': 'gzip, deflate',
+      'accept-language': '*',
+      connection: 'keep-alive',
+      host: 'localhost:30200',
+      'sec-fetch-mode': 'cors',
+      ...headers
+    }
+  } else {
+    return {
+      accept: '*/*',
+      'accept-encoding': 'gzip,deflate',
+      connection: 'close',
+      host: 'localhost:30200',
+      ...headers
+    }
+  }
+}
+
 let serverProcess
 let serverName
 const requests = {
@@ -28,13 +51,7 @@ const requests = {
     ['/inspect'],
     {
       method: 'GET',
-      headers: {
-        accept: '*/*',
-        connection: 'close',
-        host: 'localhost:30200',
-        'accept-encoding': 'gzip,deflate',
-        'user-agent': userAgent
-      },
+      headers: getHeaders({ 'user-agent': userAgent }),
       body: ''
     }
   ],
@@ -47,15 +64,11 @@ const requests = {
     ],
     {
       method: 'POST',
-      headers: {
-        accept: '*/*',
-        connection: 'close',
-        host: 'localhost:30200',
-        'accept-encoding': 'gzip,deflate',
+      headers: getHeaders({
         'user-agent': userAgent,
         'content-length': '2',
         'content-type': 'application/json'
-      },
+      }),
       body: '{}'
     }
   ],
@@ -68,15 +81,11 @@ const requests = {
     ],
     {
       method: 'POST',
-      headers: {
-        accept: '*/*',
-        connection: 'close',
-        host: 'localhost:30200',
-        'accept-encoding': 'gzip,deflate',
+      headers: getHeaders({
         'user-agent': userAgent,
         'content-length': '3',
         'content-type': 'text/plain'
-      },
+      }),
       body: 'foo'
     }
   ],
@@ -132,13 +141,7 @@ const requests = {
     ],
     {
       method: 'GET',
-      headers: {
-        accept: '*/*',
-        connection: 'close',
-        host: 'localhost:30200',
-        'accept-encoding': 'gzip,deflate',
-        'user-agent': 'foo'
-      },
+      headers: getHeaders({ 'user-agent': 'foo' }),
       body: ''
     }
   ]
