@@ -107,7 +107,7 @@ export /* istanbul ignore next: deprecated */ function getJsonWrapper (src) {
 }
 
 export default {
-  data (data, { type, format = type || 'text', version = '1.0.1' } = {}) {
+  data (data, { type, format = type || 'text', version = '1.0.2' } = {}) {
     if (version < '1.0.2') {
       data = util.downgradeCsl(data)
     }
@@ -121,7 +121,7 @@ export default {
       return getJson(data, plugins.dict.get(format))
     }
   },
-  ndjson (data, { version = '1.0.1' } = {}) {
+  ndjson (data, { version = '1.0.2' } = {}) {
     if (version < '1.0.2') {
       data = util.downgradeCsl(data)
     }
