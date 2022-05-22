@@ -20,7 +20,7 @@ const formats = {}
  *
  * @tutorial input_plugins
  */
-export const add = (format, parsers) => {
+export function add (format, parsers) {
   const formatParser = new FormatParser(format, parsers)
   formatParser.validate()
 
@@ -52,7 +52,7 @@ export const add = (format, parsers) => {
  * @param {module:@citation-js/core.plugins.input~format} format - input format name
  * @returns {Object} index
  */
-export const get = (format) => {
+export function get (format) {
   return formats[format]
 }
 
@@ -63,7 +63,7 @@ export const get = (format) => {
  *
  * @param {module:@citation-js/core.plugins.input~format} format - input format name
  */
-export const remove = (format) => {
+export function remove (format) {
   const index = formats[format]
 
   if (!index) {
@@ -90,7 +90,9 @@ export const remove = (format) => {
  * @param {module:@citation-js/core.plugins.input~format} format - input format name
  * @returns {Boolean} input format is registered
  */
-export const has = (format) => format in formats
+export function has (format) {
+  return format in formats
+}
 
 /**
  * @access public
@@ -98,4 +100,6 @@ export const has = (format) => format in formats
  * @memberof module:@citation-js/core.plugins.input
  * @returns {Array<module:@citation-js/core.plugins.input~format>} input format is registered
  */
-export const list = () => Object.keys(formats)
+export function list () {
+  return Object.keys(formats)
+}

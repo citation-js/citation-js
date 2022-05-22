@@ -12,7 +12,7 @@ import fetchId from '../util/fetchId.js'
  *
  * @return {module:@citation-js/core.Cite} The updated parent object
  */
-const add = function (data, options = {}, log = false) {
+function add (data, options = {}, log = false) {
   if (options === true || log === true) {
     this.save()
   }
@@ -39,7 +39,7 @@ const add = function (data, options = {}, log = false) {
  *
  * @return {Promise<module:@citation-js/core.Cite>} The updated parent object
  */
-const addAsync = async function (data, options = {}, log = false) {
+async function addAsync (data, options = {}, log = false) {
   if (options === true || log === true) {
     this.save()
   }
@@ -66,7 +66,7 @@ const addAsync = async function (data, options = {}, log = false) {
  *
  * @return {module:@citation-js/core.Cite} The updated parent object
  */
-const set = function (data, options = {}, log = false) {
+function set (data, options = {}, log = false) {
   if (options === true || log === true) {
     this.save()
   }
@@ -86,7 +86,7 @@ const set = function (data, options = {}, log = false) {
  *
  * @return {Promise<module:@citation-js/core.Cite>} The updated parent object
  */
-const setAsync = async function (data, options = {}, log = false) {
+async function setAsync (data, options = {}, log = false) {
   if (options === true || log === true) {
     this.save()
   }
@@ -104,7 +104,7 @@ const setAsync = async function (data, options = {}, log = false) {
  *
  * @return {module:@citation-js/core.Cite} The updated, empty parent object (except the log, the log lives)
  */
-const reset = function (log) {
+function reset (log) {
   if (log) {
     this.save()
   }

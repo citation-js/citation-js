@@ -9,7 +9,7 @@
  *
  * @return {String} type
  */
-export const typeOf = thing => {
+export function typeOf (thing) {
   switch (thing) {
     case undefined:
       return 'Undefined'
@@ -29,7 +29,7 @@ export const typeOf = thing => {
  *
  * @return {module:@citation-js/core.plugins.input~dataType} dataType
  */
-export const dataTypeOf = thing => {
+export function dataTypeOf (thing) {
   switch (typeof thing) {
     case 'string':
       return 'String'

@@ -5,7 +5,7 @@ import Cite from './index.js'
  *
  * @return {Number} The latest version of the object
  */
-const currentVersion = function () {
+function currentVersion () {
   return this.log.length
 }
 
@@ -18,7 +18,7 @@ const currentVersion = function () {
  *
  * @return {module:@citation-js/core.Cite} The version of the object with the version number passed. `undefined` if an illegal number is passed.
  */
-const retrieveVersion = function (versnum = 1) {
+function retrieveVersion (versnum = 1) {
   if (versnum <= 0 || versnum > this.currentVersion()) {
     return null
   } else {
@@ -38,7 +38,7 @@ const retrieveVersion = function (versnum = 1) {
  *
  * @return {module:@citation-js/core.Cite} The second to last version of the object. `undefined` if used on first version.
  */
-const undo = function (number = 1) {
+function undo (number = 1) {
   return this.retrieveVersion(this.currentVersion() - number)
 }
 
@@ -49,7 +49,7 @@ const undo = function (number = 1) {
  *
  * @return {module:@citation-js/core.Cite} The last version of the object. `undefined` if used on first version.
  */
-const retrieveLastVersion = function () {
+function retrieveLastVersion () {
   return this.retrieveVersion(this.currentVersion())
 }
 
@@ -60,7 +60,7 @@ const retrieveLastVersion = function () {
  *
  * @return {module:@citation-js/core.Cite} The current version of the object.
  */
-const save = function () {
+function save () {
   this.log.push([JSON.stringify(this.data), JSON.stringify(this._options)])
 
   return this

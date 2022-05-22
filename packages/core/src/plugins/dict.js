@@ -36,7 +36,7 @@ import Register from '../util/register.js'
  * @throws {TypeError} Invalid output format name
  * @throws {TypeError} Invalid formatter
  */
-const validate = (name, dict) => {
+function validate (name, dict) {
   if (typeof name !== 'string') {
     throw new TypeError(`Invalid dict name, expected string, got ${typeof name}`)
   } else if (typeof dict !== 'object') {
@@ -86,7 +86,7 @@ export const register = new Register({
  * @param {module:@citation-js/core.plugins.dict~dict} dict - dictionary data
  * @throws {TypeError} argument validation error
  */
-export const add = (name, dict) => {
+export function add (name, dict) {
   validate(name, dict)
   register.set(name, dict)
 }
@@ -100,7 +100,7 @@ export const add = (name, dict) => {
  *
  * @param {module:@citation-js/core.plugins.dict~dictName} name - output format name
  */
-export const remove = (name) => {
+export function remove (name) {
   register.remove(name)
 }
 
@@ -114,7 +114,7 @@ export const remove = (name) => {
  * @param {module:@citation-js/core.plugins.dict~dictName} name - output format name
  * @return {Boolean} register has plugin
  */
-export const has = (name) => {
+export function has (name) {
   return register.has(name)
 }
 
@@ -127,7 +127,7 @@ export const has = (name) => {
  *
  * @return {Array<String>} list of plugins
  */
-export const list = () => {
+export function list () {
   return register.list()
 }
 
@@ -141,7 +141,7 @@ export const list = () => {
  * @param {module:@citation-js/core.plugins.dict~dictName} name - output format name
  * @return {module:@citation-js/core.plugins.dict~dict} dictionary data
  */
-export const get = (name) => {
+export function get (name) {
   if (!register.has(name)) {
     throw new Error(`Dict "${name}" unavailable`)
   }

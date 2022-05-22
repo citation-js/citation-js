@@ -24,7 +24,7 @@ const indices = {}
  * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  * @param {module:@citation-js/core.plugins~plugins} [plugins={}]
  */
-export const add = (ref, plugins = {}) => {
+export function add (ref, plugins = {}) {
   const mainIndex = indices[ref] = {}
 
   for (const type in plugins) {
@@ -52,7 +52,7 @@ export const add = (ref, plugins = {}) => {
  * @memberof module:@citation-js/core.plugins
  * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  */
-export const remove = (ref) => {
+export function remove (ref) {
   const mainIndex = indices[ref]
 
   for (const type in mainIndex) {
@@ -73,7 +73,9 @@ export const remove = (ref) => {
  * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  * @returns {Boolean} plugin is registered
  */
-export const has = (ref) => ref in indices
+export function has (ref) {
+  return ref in indices
+}
 
 /**
  * @access public
@@ -81,7 +83,9 @@ export const has = (ref) => ref in indices
  * @memberof module:@citation-js/core.plugins
  * @returns {Array<module:@citation-js/core.plugins~pluginRef>} list of registered plugins
  */
-export const list = () => Object.keys(indices)
+export function list () {
+  return Object.keys(indices)
+}
 
 /**
  * @typedef {String} module:@citation-js/core.plugins~pluginRef

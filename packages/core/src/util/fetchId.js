@@ -9,7 +9,7 @@
  *
  * @return {String} CSL ID
  */
-const fetchId = function (list, prefix) {
+function fetchId (list, prefix) {
   let id
 
   while (id === undefined || list.includes(id)) {

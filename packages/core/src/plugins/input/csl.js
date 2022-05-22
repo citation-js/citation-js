@@ -204,7 +204,7 @@ const fieldTypes = {
  *
  * @return {Object} returns the (corrected) value if possible, otherwise undefined
  */
-const correctName = function (name, bestGuessConversions) {
+function correctName (name, bestGuessConversions) {
   if (typeof name === 'object' && name !== null && (name.literal || (name.given || name.family))) {
     return name
   } else if (!bestGuessConversions) {
@@ -225,7 +225,7 @@ const correctName = function (name, bestGuessConversions) {
  *
  * @return {Array<Object>|undefined} returns the (corrected) value if possible, otherwise undefined
  */
-const correctNameList = function (nameList, bestGuessConversions) {
+function correctNameList (nameList, bestGuessConversions) {
   if (nameList instanceof Array) {
     const names = nameList.map(name => correctName(name, bestGuessConversions)).filter(Boolean)
     return names.length ? names : undefined
@@ -243,7 +243,7 @@ const correctNameList = function (nameList, bestGuessConversions) {
  *
  * @return {Array<Number>|undefined}
  */
-const correctDateParts = function (dateParts, bestGuessConversions) {
+function correctDateParts (dateParts, bestGuessConversions) {
   if (dateParts.every(part => typeof part === 'number')) {
     return dateParts
   } else if (!bestGuessConversions || dateParts.some(part => isNaN(parseInt(part)))) {
@@ -264,7 +264,7 @@ const correctDateParts = function (dateParts, bestGuessConversions) {
  *
  * @return {Array<Object>|undefined} returns the (corrected) value if possible, otherwise undefined
  */
-const correctDate = function (date, bestGuessConversions) {
+function correctDate (date, bestGuessConversions) {
   const dp = 'date-parts'
 
   if (typeof date !== 'object' || date === null) {
@@ -304,7 +304,7 @@ const correctDate = function (date, bestGuessConversions) {
  *
  * @return {String|undefined} returns the (corrected) value if possible, otherwise undefined
  */
-const correctType = function (type, bestGuessConversions) {
+function correctType (type, bestGuessConversions) {
   // Also anything that can be converted to a string. Taking `language` as a field
   // with similar string constraints, as fields like `title` might take HTML into
   // account in the future.
@@ -331,7 +331,7 @@ const correctType = function (type, bestGuessConversions) {
  *
  * @return {*|undefined} returns the (corrected) value if possible, otherwise undefined
  */
-const correctField = function (fieldName, value, bestGuessConversions) {
+function correctField (fieldName, value, bestGuessConversions) {
   const fieldType = [].concat(fieldTypes[fieldName])
 
   switch (fieldTypes[fieldName]) {
@@ -373,7 +373,7 @@ const correctField = function (fieldName, value, bestGuessConversions) {
  *
  * @return {Array<module:@citation-js/core~CSL>} Array of clean CSL
  */
-const parseCsl = function (data, bestGuessConversions = true) {
+function parseCsl (data, bestGuessConversions = true) {
   return data.map(function (entry) {
     const clean = {}
 

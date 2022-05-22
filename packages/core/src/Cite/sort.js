@@ -20,7 +20,7 @@ import { format as getName } from '@citation-js/name'
  *
  * @return {String|Number} something to compare
  */
-const getComparisonValue = function (obj, prop, label = prop === 'label') {
+function getComparisonValue (obj, prop, label = prop === 'label') {
   let value = label ? getLabel(obj) : obj[prop]
 
   switch (prop) {
@@ -59,7 +59,7 @@ const getComparisonValue = function (obj, prop, label = prop === 'label') {
  *
  * @return {Number} positive for a > b, negative for b > a, zero for a = b (flips if prop has !)
  */
-const compareProp = function (entryA, entryB, prop, flip = /^!/.test(prop)) {
+function compareProp (entryA, entryB, prop, flip = /^!/.test(prop)) {
   prop = prop.replace(/^!/, '')
   const a = getComparisonValue(entryA, prop)
   const b = getComparisonValue(entryB, prop)
@@ -77,7 +77,7 @@ const compareProp = function (entryA, entryB, prop, flip = /^!/.test(prop)) {
  *
  * @return {module:@citation-js/core.Cite#sort~sort} sorting callback
  */
-const getSortCallback = function (...props) {
+function getSortCallback (...props) {
   return (a, b) => {
     const keys = props.slice()
     let output = 0
@@ -100,7 +100,7 @@ const getSortCallback = function (...props) {
  *
  * @return {module:@citation-js/core.Cite} The updated parent object
  */
-const sort = function (method = [], log) {
+function sort (method = [], log) {
   if (log) {
     this.save()
   }

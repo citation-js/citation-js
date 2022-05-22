@@ -15,7 +15,7 @@ import Cite from './index.js'
  *
  * @return {Promise<module:@citation-js/core.Cite>} if callback is omitted, returns a promise
  */
-const async = function (data, options, callback) {
+function async (data, options, callback) {
   if (typeof options === 'function' && !callback) {
     callback = options
     options = undefined

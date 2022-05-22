@@ -17,7 +17,7 @@ const defaultOptions = { format: 'real', type: 'json', style: 'csl', lang: 'en-U
  *
  * @return {module:@citation-js/core.Cite} The updated parent object
  */
-const options = function (options, log) {
+function options (options, log) {
   validate(options)
 
   if (log) {

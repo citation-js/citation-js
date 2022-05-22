@@ -4,15 +4,6 @@ import { chain, chainAsync } from './chain.js'
  * @access private
  * @memberof module:@citation-js/core.plugins.input
  *
- * @param {Array<Array>} array
- * @return {Array} flattened array
- */
-const flatten = array => [].concat(...array)
-
-/**
- * @access private
- * @memberof module:@citation-js/core.plugins.input
- *
  * @typedef {Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parse>} parsers
  */
 const parsers = {}
@@ -34,7 +25,7 @@ const asyncParsers = {}
 const nativeParsers = {
   '@csl/object': input => [input],
   '@csl/list+object': input => input,
-  '@else/list+object': input => flatten(input.map(chain)),
+  '@else/list+object': input => input.flatMap(chain),
   '@invalid': () => { throw new Error('This format is not supported or recognized') }
 }
 
@@ -45,7 +36,7 @@ const nativeParsers = {
  * @typedef {Object<module:@citation-js/core.plugins.input~format,module:@citation-js/core.plugins.input~parseAsync>} nativeAsyncParsers
  */
 const nativeAsyncParsers = {
-  '@else/list+object': async input => flatten(await Promise.all(input.map(chainAsync)))
+  '@else/list+object': async input => (await Promise.all(input.map(chainAsync))).flat()
 }
 
 /**
@@ -59,7 +50,7 @@ const nativeAsyncParsers = {
  * @return {*} parsed data
  * @return {Null} if no parser available
  */
-export const data = (input, type) => {
+export function data (input, type) {
   if (typeof parsers[type] === 'function') {
     return parsers[type](input)
   } else if (typeof nativeParsers[type] === 'function') {
@@ -80,7 +71,7 @@ export const data = (input, type) => {
  * @return {Promise} parsed data
  * @return {Promise<Null>} if no parser available
  */
-export const dataAsync = async (input, type) => {
+export async function dataAsync (input, type) {
   if (typeof asyncParsers[type] === 'function') {
     return asyncParsers[type](input)
   } else if (typeof nativeAsyncParsers[type] === 'function') {
@@ -102,7 +93,7 @@ export const dataAsync = async (input, type) => {
  * @param {Object} [options={}]
  * @param {Boolean} [options.async=false]
  */
-export const addDataParser = (format, { parser, async }) => {
+export function addDataParser (format, { parser, async }) {
   if (async) {
     asyncParsers[format] = parser
   } else {
@@ -120,9 +111,11 @@ export const addDataParser = (format, { parser, async }) => {
  *
  * @return {Boolean} parser exists
  */
-export const hasDataParser = (type, async) => async
-  ? asyncParsers[type] || nativeAsyncParsers[type]
-  : parsers[type] || nativeParsers[type]
+export function hasDataParser (type, async) {
+  return async
+    ? asyncParsers[type] || nativeAsyncParsers[type]
+    : parsers[type] || nativeParsers[type]
+}
 
 /**
  * @access public
@@ -132,7 +125,9 @@ export const hasDataParser = (type, async) => async
  * @param {module:@citation-js/core.plugins.input~format} type
  * @param {Boolean} [async=false]
  */
-export const removeDataParser = (type, async) => { delete (async ? asyncParsers : parsers)[type] }
+export function removeDataParser (type, async) {
+  delete (async ? asyncParsers : parsers)[type]
+}
 
 /**
  * @access public
@@ -141,4 +136,6 @@ export const removeDataParser = (type, async) => { delete (async ? asyncParsers 
  *
  * @param {Boolean} [async=false]
  */
-export const listDataParser = (async) => Object.keys(async ? asyncParsers : parsers)
+export function listDataParser (async) {
+  return Object.keys(async ? asyncParsers : parsers)
+}

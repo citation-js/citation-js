@@ -10,7 +10,7 @@
  *
  * @return {module:@citation-js/core~CSL} entry
  */
-export const applyGraph = (entry, graph) => {
+export function applyGraph (entry, graph) {
   if (entry._graph) {
     const index = graph.findIndex(({ type }) => type === '@else/list+object')
     if (index !== -1) {
@@ -33,7 +33,7 @@ export const applyGraph = (entry, graph) => {
  *
  * @return {module:@citation-js/core~CSL} entry
  */
-export const removeGraph = (entry) => {
+export function removeGraph (entry) {
   delete entry._graph
   return entry
 }

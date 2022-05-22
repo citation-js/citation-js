@@ -13,7 +13,7 @@
  *
  * @return {String} The label
  */
-const getLabel = (entry) => {
+function getLabel (entry) {
   if ('citation-label' in entry) {
     return entry['citation-label']
   }

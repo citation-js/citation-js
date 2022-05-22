@@ -12,7 +12,9 @@ const configs = {}
  * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  * @param {Object} config
  */
-export const add = (ref, config) => { configs[ref] = config }
+export function add (ref, config) {
+  configs[ref] = config
+}
 
 /**
  * @access public
@@ -21,7 +23,9 @@ export const add = (ref, config) => { configs[ref] = config }
  * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  * @return {Object} config
  */
-export const get = (ref) => configs[ref]
+export function get (ref) {
+  return configs[ref]
+}
 
 /**
  * @access public
@@ -30,7 +34,9 @@ export const get = (ref) => configs[ref]
  * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  * @return {Boolean}
  */
-export const has = (ref) => Object.prototype.hasOwnProperty.call(configs, ref)
+export function has (ref) {
+  return Object.prototype.hasOwnProperty.call(configs, ref)
+}
 
 /**
  * @access public
@@ -38,7 +44,9 @@ export const has = (ref) => Object.prototype.hasOwnProperty.call(configs, ref)
  * @memberof module:@citation-js/core.plugins.config
  * @param {module:@citation-js/core.plugins~pluginRef} ref - plugin reference/name
  */
-export const remove = (ref) => { delete configs[ref] }
+export function remove (ref) {
+  delete configs[ref]
+}
 
 /**
  * @access public
@@ -46,4 +54,6 @@ export const remove = (ref) => { delete configs[ref] }
  * @memberof module:@citation-js/core.plugins.config
  * @return {Array<module:@citation-js/core.plugins~pluginRef>} list of available plugin configs
  */
-export const list = () => Object.keys(configs)
+export function list () {
+  return Object.keys(configs)
+}

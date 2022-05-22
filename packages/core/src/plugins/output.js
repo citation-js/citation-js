@@ -27,7 +27,7 @@ import Register from '../util/register.js'
  * @throws {TypeError} Invalid output format name
  * @throws {TypeError} Invalid formatter
  */
-const validate = (name, formatter) => {
+function validate (name, formatter) {
   if (typeof name !== 'string') {
     throw new TypeError(`Invalid output format name, expected string, got ${typeof name}`)
   } else if (typeof formatter !== 'function') {
@@ -55,7 +55,7 @@ export const register = new Register()
  * @param {module:@citation-js/core.plugins.output~formatter} formatter - outputting function
  * @throws {TypeError} validation errors
  */
-export const add = (name, formatter) => {
+export function add (name, formatter) {
   validate(name, formatter)
 
   register.set(name, formatter)
@@ -70,7 +70,7 @@ export const add = (name, formatter) => {
  *
  * @param {module:@citation-js/core.plugins.output~formatterName} name - output format name
  */
-export const remove = (name) => {
+export function remove (name) {
   register.remove(name)
 }
 
@@ -84,7 +84,7 @@ export const remove = (name) => {
  * @param {module:@citation-js/core.plugins.output~formatterName} name - output format name
  * @return {Boolean} register has plugin
  */
-export const has = (name) => {
+export function has (name) {
   return register.has(name)
 }
 
@@ -97,7 +97,7 @@ export const has = (name) => {
  *
  * @return {Array<String>} list of plugins
  */
-export const list = () => {
+export function list () {
   return register.list()
 }
 
@@ -112,7 +112,7 @@ export const list = () => {
  * @param {Array<module:@citation-js/core~CSL>} data - all entries
  * @param {...*} options - output options
  */
-export const format = (name, data, ...options) => {
+export function format (name, data, ...options) {
   if (!register.has(name)) {
     throw new Error(`Output format "${name}" unavailable`)
   }
