@@ -1,5 +1,4 @@
-/* global fetch */
-require('isomorphic-fetch')
+const fetch = require('node-fetch')
 
 const LOCALES = ['en-US', 'nl-NL', 'fr-FR', 'de-DE', 'es-ES']
 

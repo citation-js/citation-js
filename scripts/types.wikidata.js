@@ -1,7 +1,5 @@
-/* global fetch */
-
 const wdk = require('wikidata-sdk')
-require('isomorphic-fetch')
+const fetch = require('node-fetch')
 
 const TYPES = {
   'review-book': 10,

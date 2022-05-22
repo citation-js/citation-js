@@ -1,9 +1,10 @@
 import syncFetch from 'sync-fetch'
-/* global fetch, Headers */
-import 'isomorphic-fetch'
+import fetchPolyfill from 'fetch-ponyfill'
 
 import logger from '../logger.js'
 import pkg from '../../package.json'
+
+const { fetch, Headers } = fetchPolyfill()
 
 // Browser environments have CORS enabled
 const corsEnabled = typeof location !== 'undefined' && typeof document !== 'undefined'

@@ -33,7 +33,7 @@
   "dependencies": {
     "@citation-js/date": "^0.5.0",
     "@citation-js/name": "^0.4.2",
-    "isomorphic-fetch": "^3.0.0",
+    "fetch-ponyfill": "^7.1.0",
     "sync-fetch": "^0.3.0"
   },
   "devDependencies": {
