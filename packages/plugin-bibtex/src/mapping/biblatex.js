@@ -438,6 +438,11 @@ export default new util.Translator([
     target: 'note'
   },
   {
+    source: 'eid',
+    target: 'number',
+    when: { target: { type: ['article-journal'] } }
+  },
+  {
     source: ['isan', 'ismn', 'isrn', 'iswc'],
     target: 'number',
     convert: Converters.STANDARD_NUMBERS,
@@ -478,16 +483,12 @@ export default new util.Translator([
     target: 'original-title'
   },
   {
-    source: ['pages', 'eid'],
+    source: 'pages',
     target: 'page',
     // TODO multiple page ranges
     convert: {
-      toTarget (pages, eid) {
-        return eid ? eid.replace(/^e?/i, 'e') : pages.replace(/[–—]/, '-')
-      },
-      toSource (page) {
-        return /^e/i.test(page) ? [page, page] : [page.replace('-', '--')]
-      }
+      toTarget (pages) { return pages.replace(/[–—]/, '-') },
+      toSource (pages) { return pages.replace('-', '--') }
     }
   },
   {
