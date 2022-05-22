@@ -15,7 +15,7 @@ const TITLE_MAP = {
   collection: ['book', COLLECTION_PART],
   reference: ['book', COLLECTION_PART],
   proceedings: ['book', PROCEEDINGS_PART],
-  periodical: ['journal', PERIODICAL_PART],
+  periodical: ['journal', PERIODICAL_PART]
 }
 
 export function crossref (target, entry, registry) {

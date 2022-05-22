@@ -260,7 +260,7 @@ export const Converters = {
   },
   EVENT_TITLE: {
     toTarget (title, addon) {
-      if (addon) { title += ' (' + subtitle + ')' }
+      if (addon) { title += ' (' + addon + ')' }
       return title
     },
     toSource (title) {

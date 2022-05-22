@@ -128,10 +128,10 @@ function parseKeywords (values) {
  */
 function parseDateRange (dates) {
   return {
-  'date-parts': dates
-    .map(date => parseDate(date.value))
-    .filter(date => date && date['date-parts'])
-    .map(date => date['date-parts'][0])
+    'date-parts': dates
+      .map(date => parseDate(date.value))
+      .filter(date => date && date['date-parts'])
+      .map(date => date['date-parts'][0])
   }
 }
 

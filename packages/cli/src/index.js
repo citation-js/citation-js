@@ -131,9 +131,9 @@ function parseValue (value) {
     return {
       false: false,
       true: true,
-      undefined: undefined,
+      undefined: undefined, // eslint-disable-line object-shorthand
       null: null,
-      NaN: NaN
+      NaN: NaN // eslint-disable-line object-shorthand
     }[value] || value
   }
 }

@@ -186,7 +186,7 @@ ER  -`
       }],
       { format: 'object' }
     ],
-    'keywords': [
+    keywords: [
       [{
         type: 'article-journal',
         keyword: 'red,blue'
