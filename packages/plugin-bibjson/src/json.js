@@ -78,7 +78,7 @@ function quickscrapeSpecificProps () {
 
 function generalProps (input) {
   const output = {
-    type: typeMap[input.type] || 'book'
+    type: typeMap[input.type] || 'document'
   }
 
   if (input.title) { output.title = input.title }
