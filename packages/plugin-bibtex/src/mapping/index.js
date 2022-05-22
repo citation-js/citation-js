@@ -1,19 +1,7 @@
 import { TYPE, LABEL } from './shared.js'
 import biblatex from './biblatex.js'
 import bibtex from './bibtex.js'
-
-function crossref (entry, registry) {
-  if (entry.crossref in registry) {
-    const parent = registry[entry.crossref].properties
-    if (parent === entry) {
-      return entry
-    }
-
-    return Object.assign({}, crossref(parent, registry), entry)
-  }
-
-  return entry
-}
+import { crossref } from './crossref.js'
 
 function _parse (input, spec) {
   const registry = {}
@@ -25,7 +13,7 @@ function _parse (input, spec) {
   return input.map(({ type, label, properties }) => spec.convertToTarget({
     [TYPE]: type,
     [LABEL]: label,
-    ...crossref(properties, registry)
+    ...crossref(type, properties, registry)
   }))
 }
 
