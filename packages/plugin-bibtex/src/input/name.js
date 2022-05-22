@@ -43,7 +43,7 @@ export function formatNameParts (parts) {
  * @param {Boolean} [orderGiven=true] - also consider the given name
  * @return {Array<String>}
  */
-export function orderNameParts (parts, orderGiven = true) {
+export function orderNameParts (parts, /* istanbul ignore next */ orderGiven = true) {
   const given = []
   const undecided = []
 

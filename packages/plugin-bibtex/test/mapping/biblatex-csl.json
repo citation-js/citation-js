@@ -838,5 +838,90 @@
     },
     "title": "Sign Clustering and Topic Extraction in Proto-Elamite",
     "type": "chapter"
+  },
+  {
+    "type": "article-journal",
+    "author": [
+      {
+        "family": "Willighagen",
+        "given": "Lars G."
+      }
+    ],
+    "citation-key": "Willighagen2019CitationjsAF",
+    "container-title": "PeerJ Computer Science",
+    "id": "Willighagen2019CitationjsAF",
+    "issued": {
+      "date-parts": [[2019]]
+    },
+    "title": "Citation.js: a format-independent, modular bibliography tool for the browser and command line",
+    "volume": "5",
+    "custom": {
+      "S2ID": "202004462"
+    }
+  },
+  {
+    "type": "thesis",
+    "author": [
+      {
+        "family": "Spruijt",
+        "given": "Ivanka"
+      }
+    ],
+    "citation-key": "spruijt_characterizing_2022",
+    "genre": "mathesis",
+    "id": "spruijt_characterizing_2022",
+    "issued": {
+      "date-parts": [[2022, 1, 20]]
+    },
+    "number-of-pages": "35",
+    "publisher": "Radboud University",
+    "publisher-place": "Nijmegen, NL",
+    "title": "Characterizing wild bee communities on flower dikes. Evaluating potential determinants of community structure and ecology",
+    "title-short": "Characterizing wild bee communities on flower dikes"
+  },
+  {
+    "type": "thesis",
+    "author": [
+      {
+        "family": "Willighagen",
+        "given": "E.L."
+      }
+    ],
+    "citation-key": "willighagen2008",
+    "genre": "phdthesis",
+    "id": "willighagen2008",
+    "issued": {
+      "date-parts": [[2008, 4, 2]]
+    },
+    "publisher": "Radboud University",
+    "publisher-place": "Nijmegen, NL",
+    "title": "Representation of Molecules and Molecular Systems in Data Analysis and Modeling"
+  },
+  {
+    "type": "article-journal",
+    "author": [
+      { "family": "Bátori", "given": "Zoltán" },
+      { "family": "Kiss", "given": "Péter J." },
+      { "family": "Tölgyesi", "given": "Csaba" },
+      { "family": "Deák", "given": "Balázs" },
+      { "family": "Valkó", "given": "Orsolya" },
+      { "family": "Török", "given": "Péter" },
+      { "family": "Erdős", "given": "László" },
+      { "family": "Tóthmérész", "given": "Béla" },
+      { "family": "Kelemen", "given": "András" }
+    ],
+    "citation-key": "batori_river_2020",
+    "container-title": "River Research and Applications",
+    "DOI": "10.1002/rra.3643",
+    "id": "batori_river_2020",
+    "issue": "7",
+    "issued": {
+      "date-parts": [[2020]]
+    },
+    "ISSN": "1535-1467",
+    "section": "2",
+    "title": "River embankments mitigate the loss of grassland biodiversity in agricultural landscapes",
+    "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/rra.3643",
+    "volume": "36"
   }
 ]

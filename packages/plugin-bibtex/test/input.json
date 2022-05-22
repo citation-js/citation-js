@@ -247,6 +247,34 @@
           "type": "book",
           "title": "Bar",
           "author": [{"given": "First", "family": "Last"}]
+        },
+        {
+          "id": "c",
+          "citation-key": "c",
+          "type": "chapter",
+          "title": "Baz",
+          "container-title": "Bar",
+          "author": [{"given": "Given", "family": "Family"}],
+          "container-author": [{"given": "First", "family": "Last"}]
+        },
+        {
+          "id": "d",
+          "citation-key": "d",
+          "type": "article-journal",
+          "title": "Bar",
+          "author": [{"given": "First", "family": "Last"}]
+        },
+        {
+          "id": "e",
+          "citation-key": "e",
+          "type": "periodical",
+          "title": "Foo"
+        },
+        {
+          "id": "f",
+          "citation-key": "f",
+          "type": "article-journal",
+          "container-title": "Foo"
         }
       ]
     ],

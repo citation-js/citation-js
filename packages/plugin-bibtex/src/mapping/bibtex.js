@@ -294,6 +294,7 @@ export default new util.Translator([
     target: ['type', 'genre'],
     convert: {
       toTarget (sourceType, subType) {
+        /* istanbul ignore next */
         const type = types.source[sourceType] || 'document'
 
         if (subType) {

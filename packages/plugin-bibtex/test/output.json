@@ -119,6 +119,16 @@
       {"format": "object"}
     ]
   },
+  "biblatex": {
+    "no type": [
+      [{
+        "id": "Q23571040",
+        "title": "Correlation of the Base Strengths of Amines 1",
+        "author": [{"given": "H. K.", "family": "Hall"}],
+        "issued": {"date-parts": [[1957, 1, 1]]}
+      }]
+    ]
+  },
   "bibtxt": {
     "simple": [[
       {

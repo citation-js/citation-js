@@ -65,6 +65,24 @@ describe('input', function () {
         }]
       )
     })
+    it('protects case', function () {
+      config.parse.sentenceCase = 'always'
+      assert.deepStrictEqual(
+        plugins.input.chain(`@book{a,
+          title = "{lowercase}",
+          language = "French"
+        }`, {
+          generateGraph: false
+        }),
+        [{
+          type: 'book',
+          id: 'a',
+          'citation-key': 'a',
+          title: '<span class="nocase">lowercase</span>',
+          language: 'French'
+        }]
+      )
+    })
     it('can check for English language', function () {
       config.parse.sentenceCase = 'english'
       assert.deepStrictEqual(

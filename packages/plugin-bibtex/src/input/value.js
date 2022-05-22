@@ -240,6 +240,8 @@ export const valueGrammar = new util.Grammar({
     this.consumeToken('lbrace')
 
     const sentenceCase = this.state.sentenceCase
+    // If the bracket string starts with a command the sentence case behavior
+    // is maintained within the brackets.
     this.state.sentenceCase = sentenceCase && this.matchToken('command')
     this.state.partlyLowercase &&= this.state.sentenceCase
 
@@ -247,8 +249,13 @@ export const valueGrammar = new util.Grammar({
       output += this.consumeRule('Text')
     }
 
+    // topLevel meaning that the bracket string is not top level but a direct
+    // child of the top level value.
     const topLevel = sentenceCase && !this.state.sentenceCase
+    // Protect the case of the bracket string if it is a direct child of the top
+    // level, and the string is partly lowercase.
     const protectCase = topLevel && this.state.partlyLowercase
+    // Restore the sentence case of the outside of the brackets.
     this.state.sentenceCase = sentenceCase
 
     this.consumeToken('rbrace')
@@ -316,6 +323,7 @@ export const valueGrammar = new util.Grammar({
     const afterPunctuation = this.state.afterPunctuation
     this.state.afterPunctuation = /[?!.:]$/.test(text)
 
+    // If the text fragment is not topLevel and has a case, check whether lowercase
     if (!this.state.sentenceCase) {
       this.state.partlyLowercase ||= text === text.toLowerCase() && text !== text.toUpperCase()
       return text
