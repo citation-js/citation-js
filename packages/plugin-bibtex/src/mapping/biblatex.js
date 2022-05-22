@@ -302,7 +302,7 @@ export default new util.Translator([
     convert: {
       toTarget (type, subtype, typeKey) {
         if (!typeKey) {
-          if (type === 'masterthesis') {
+          if (type === 'mastersthesis') {
             typeKey = 'mathesis'
           }
           if (type === 'phdthesis') {
