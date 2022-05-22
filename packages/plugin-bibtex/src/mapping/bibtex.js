@@ -180,11 +180,7 @@ export default new util.Translator([
   {
     source: 'pages',
     target: 'page',
-    convert: {
-      // TODO: multiple ranges
-      toTarget (text) { return text.replace(/[–—]/, '-') },
-      toSource (text) { return text.replace('-', '--') }
-    }
+    convert: Converters.PAGES
   },
   {
     source: 'publisher',

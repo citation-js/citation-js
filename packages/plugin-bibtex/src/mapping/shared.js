@@ -311,6 +311,11 @@ export const Converters = {
     toTarget (list) { return list.map(name.convertToTarget) },
     toSource (list) { return list.map(name.convertToSource) }
   },
+  // TODO multiple page ranges
+  PAGES: {
+    toTarget (pages) { return pages.replace(/[–—]/, '-') },
+    toSource (pages) { return pages.replace('-', '--') }
+  },
   STANDARD_NUMBERS: {
     toTarget (...args) {
       return args.find(Boolean)

@@ -485,11 +485,8 @@ export default new util.Translator([
   {
     source: 'pages',
     target: 'page',
-    // TODO multiple page ranges
-    convert: {
-      toTarget (pages) { return pages.replace(/[–—]/, '-') },
-      toSource (pages) { return pages.replace('-', '--') }
-    }
+    when: { source: { bookpagination: [undefined, 'page'] } },
+    convert: Converters.PAGES
   },
   {
     source: 'pagetotal',
