@@ -173,7 +173,7 @@ export default new util.Translator([
       source: { maintitle: false },
       target: {
         'number-of-volumes': false,
-        type (type) { return !type.startsWith('article') }
+        type (type) { return !type || !type.startsWith('article') }
       }
     },
     convert: Converters.TITLE
