@@ -294,7 +294,7 @@ export default new util.Translator([
     target: ['type', 'genre'],
     convert: {
       toTarget (sourceType, subType) {
-        const type = types.source[sourceType] || 'book'
+        const type = types.source[sourceType] || 'document'
 
         if (subType) {
           return [type, subType]
