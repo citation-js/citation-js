@@ -44,7 +44,7 @@ export function crossref (target, entry, registry) {
     delete data.shortandintro
     delete data.sortkey
 
-    if ((parent.type === 'mvbook' || target === 'book') && BOOK_PART.has(target)) {
+    if ((parent.type === 'mvbook' || parent.type === 'book') && BOOK_PART.has(target)) {
       data.bookauthor = data.author
     }
 
