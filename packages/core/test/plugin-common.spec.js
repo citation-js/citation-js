@@ -124,7 +124,7 @@ const outputData = {
         title: 'Citation Style Language',
         event: 'RFC'
       },
-      { format: 'object' }
+      { format: 'object', version: '1.0.1' }
     ],
     'upgraded csl': [
       {
@@ -139,19 +139,19 @@ const outputData = {
         title: 'Citation Style Language',
         'event-title': 'RFC'
       },
-      { format: 'object', version: '1.0.2' }
+      { format: 'object' }
     ]
   },
   ndjson: {
     normal: [simple, simple.map(entry => JSON.stringify(entry)).join('\n')],
     'downgrade csl': [
       [{ type: 'software', version: '1.0.2', title: 'Citation Style Language', 'event-title': 'RFC' }],
-      JSON.stringify({ type: 'book', version: '1.0.2', title: 'Citation Style Language', event: 'RFC' })
+      JSON.stringify({ type: 'book', version: '1.0.2', title: 'Citation Style Language', event: 'RFC' }),
+      { version: '1.0.1' }
     ],
     'upgraded csl': [
       [{ type: 'software', version: '1.0.2', title: 'Citation Style Language', 'event-title': 'RFC' }],
-      JSON.stringify({ type: 'software', version: '1.0.2', title: 'Citation Style Language', 'event-title': 'RFC' }),
-      { version: '1.0.2' }
+      JSON.stringify({ type: 'software', version: '1.0.2', title: 'Citation Style Language', 'event-title': 'RFC' })
     ]
   },
   label: {
