@@ -20,7 +20,9 @@ import types from './types.json'
  * @param {Object} qualifiers
  * @return {Number} series ordinal or -1
  */
-const getSeriesOrdinal = ({ P1545 }) => P1545 ? parseInt(P1545[0]) : null
+function getSeriesOrdinal ({ P1545 }) {
+  return P1545 ? parseInt(P1545[0]) : null
+}
 
 /**
  * Some name fields have, in addition to a Wikidata ID, a qualifier stating
@@ -31,10 +33,12 @@ const getSeriesOrdinal = ({ P1545 }) => P1545 ? parseInt(P1545[0]) : null
  * @param {Object} qualifiers
  * @return {Array<String>} names
  */
-const getStatedAs = qualifiers => [].concat(...[
-  qualifiers.P1932,
-  qualifiers.P1810
-].filter(Boolean))
+function getStatedAs (qualifiers) {
+  return [].concat(...[
+    qualifiers.P1932,
+    qualifiers.P1810
+  ].filter(Boolean))
+}
 
 /**
  * Get a single name
@@ -44,7 +48,7 @@ const getStatedAs = qualifiers => [].concat(...[
  * @param {Object} claim - name claim
  * @return {Object} Name object
  */
-const parseName = ({ value, qualifiers }) => {
+function parseName ({ value, qualifiers }) {
   let [name] = getStatedAs(qualifiers)
   if (!name) {
     name = typeof value === 'string' ? value : getLabel(value)
@@ -65,7 +69,7 @@ const parseName = ({ value, qualifiers }) => {
  * @param {Array<Object>} values
  * @return {Array<Object>} Array with name objects
  */
-const parseNames = (values) => {
+function parseNames (values) {
   return values
     .map(parseName)
     .sort((a, b) => a._ordinal - b._ordinal)
@@ -79,7 +83,7 @@ const parseNames = (values) => {
  * @param {Object} value
  * @return {String} Place name + country
  */
-const getPlace = value => {
+function getPlace (value) {
   const country = value.claims.P17[0].value
   // only short names that are not an instance of (P31) emoji flag seqs. (Q28840786)
   const shortNames = country.claims.P1813.filter(({ qualifiers: { P31 } }) => !P31 || P31[0] !== 'Q28840786')
@@ -94,7 +98,7 @@ const getPlace = value => {
  * @param {Object} value
  * @return {String} Title
  */
-const getTitle = value => {
+function getTitle (value) {
   return value.claims.P1476
     ? value.claims.P1476[0].value
     : getLabel(value)
@@ -108,7 +112,7 @@ const getTitle = value => {
  * @param {Array<Object>} values
  * @return {String} Labels
  */
-const parseKeywords = values => {
+function parseKeywords (values) {
   return values
     .map(({ value }) => getLabel(value))
     .join(',')
@@ -122,12 +126,14 @@ const parseKeywords = values => {
  * @param {Array<Object>} values
  * @return {Array<Array<Number>>} Array of date-parts
  */
-const parseDateRange = dates => ({
+function parseDateRange (dates) {
+  return {
   'date-parts': dates
     .map(date => parseDate(date.value))
     .filter(date => date && date['date-parts'])
     .map(date => date['date-parts'][0])
-})
+  }
+}
 
 /**
  * Transform property and value from Wikidata format to CSL.

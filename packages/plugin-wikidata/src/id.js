@@ -13,7 +13,7 @@ import config from './config.json'
  *
  * @return {Object} Wikidata JSON
  */
-const parseWikidata = function (data, langs) {
+function parseWikidata (data, langs) {
   const list = [].concat(data)
   return [].concat(wdk.getManyEntities(list, langs || config.langs))
 }

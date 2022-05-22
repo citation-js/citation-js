@@ -6,4 +6,6 @@
  * @param {String} input - Wikidata URL
  * @return {String} Wikidata ID
  */
-export const parse = input => input.match(/\/(Q\d+)(?:[#?/]|\s*$)/)[1]
+export function parse (input) {
+  return input.match(/\/(Q\d+)(?:[#?/]|\s*$)/)[1]
+}
