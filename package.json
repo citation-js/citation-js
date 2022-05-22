@@ -4,9 +4,9 @@
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
+    "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
-    "babel-eslint": "^10.1.0",
     "babel-plugin-istanbul": "^6.0.0",
     "conventional-changelog-cli": "^2.1.0",
     "expect.js": "^0.3.1",
@@ -37,6 +37,6 @@
     "postversion": "npm run babel && npm run babel-mjs"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "@babel/eslint-parser"
   }
 }
