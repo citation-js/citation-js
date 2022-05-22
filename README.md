@@ -16,6 +16,7 @@ Read the paper "Citation.js: a format-independent, modular bibliography tool for
 ![License](https://img.shields.io/npm/l/@citation-js/core.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Join the chat at https://gitter.im/citation-js/Lobby](https://badges.gitter.im/citation-js/Lobby.svg)](https://gitter.im/citation-js/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.1005176.svg)](https://doi.org/10.5281/zenodo.1005176)
 
 # Packages
 
@@ -73,3 +74,13 @@ Read the paper "Citation.js: a format-independent, modular bibliography tool for
       -s, --output-style <option>     Output scheme. A combination of --output-format json and --output-style citation-* is considered invalid. Options: csl (Citation Style Lanugage JSON), bibtex, citation-* (where * is any formatting style) (default: "csl")
       -l, --output-language <option>  Output language. [RFC 5646](https://tools.ietf.org/html/rfc5646) codes (default: "en-US")
       -h, --help                      output usage information
+
+# Acknowledgements
+
+[![JS.ORG](https://logo.js.org/dark_tiny.png)](https://js.org)
+
+* Thanks to the JS.ORG [DNS service](https://dns.js.org) for the site url!
+
+[<img width="250" alt="BrowserStack" src="https://citation.js.org/static/img/browserstack-logo-600x315.png" />](https://browserstack.com)
+
+* Thanks to [BrowserStack](https://browserstack.com) for the free Open Source plan, allowing me to automate testing browser support, and avoid issues like [this one](https://github.com/larsgw/citation.js/issues/87)!
