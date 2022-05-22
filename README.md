@@ -28,6 +28,30 @@ Read the paper "Citation.js: a format-independent, modular bibliography tool for
   * `util`: several utility functions and classes
   * `version`
 
+## Plugins
+
+| Plugin | Description |
+|---|---|
+| [`plugin-bibjson`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-bibjson) | Plugin for BibJSON formats for Citation.js |
+| [`plugin-bibtex`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-bibtex) | Plugin for BibTeX formats for Citation.js |
+| [`plugin-csl`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-csl) | Plugin for CSL output for Citation.js |
+| [`plugin-doi`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-doi) | Plugin for DOI input for Citation.js |
+| [`plugin-ris`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-ris) | Plugin for RIS formats for Citation.js |
+| [`plugin-wikidata`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-wikidata) | Plugin for Wikidata for Citation.js |
+
+### Plugins in other repositories
+
+| Plugin | Description |
+|---|---|
+| [`plugin-software-formats`](https://github.com/citation-js/plugin-software-formats) | Plugin for CFF, Zenodo JSON, input from GitHub and npm URLs |
+| [`plugin-isbn`](https://github.com/citation-js/plugin-isbn) | Plugin for ISBNs (from Google Books, OpenLibrary) |
+| [`plugin-orcid`](https://github.com/citation-js/plugin-orcid) | Plugin for ORCID profiles (metadata from DOIs and ISBNs) |
+| [`plugin-pubmed`](https://github.com/citation-js/plugin-pubmed) | Plugin for PubMed and PubMed Central identifiers |
+| [`plugin-quickstatements`](https://github.com/citation-js/plugin-quickstatements) | Plugin for output to Wikidata QuickStatements |
+| [`plugin-zotero-translation-server`](https://github.com/citation-js/plugin-zotero-translation-server) | Plugin for Zotero JSON and interfacing with a Zotero translation server |
+| [`plugin-refer`](https://github.com/citation-js/plugin-refer) | Plugin for the refer file format |
+| [`plugin-refworks`](https://github.com/citation-js/plugin-refworks) | Plugin for the RefWorks tagged format |
+
 ## CLI
 
 [CLI](https://github.com/citation-js/citation-js/tree/master/packages/cli):
@@ -45,14 +69,3 @@ Read the paper "Citation.js: a format-independent, modular bibliography tool for
       -s, --output-style <option>     Output scheme. A combination of --output-format json and --output-style citation-* is considered invalid. Options: csl (Citation Style Lanugage JSON), bibtex, citation-* (where * is any formatting style) (default: "csl")
       -l, --output-language <option>  Output language. [RFC 5646](https://tools.ietf.org/html/rfc5646) codes (default: "en-US")
       -h, --help                      output usage information
-
-## Plugins
-
-| Plugin | Description |
-|---|---|
-| [`plugin-bibjson`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-bibjson) | Plugin for BibJSON formats for Citation.js |
-| [`plugin-bibtex`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-bibtex) | Plugin for BibTeX formats for Citation.js |
-| [`plugin-csl`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-csl) | Plugin for CSL output for Citation.js |
-| [`plugin-doi`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-doi) | Plugin for DOI input for Citation.js |
-| [`plugin-ris`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-ris) | Plugin for RIS formats for Citation.js |
-| [`plugin-wikidata`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-wikidata) | Plugin for Wikidata for Citation.js |
