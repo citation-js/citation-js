@@ -19,6 +19,10 @@ Read the paper "Citation.js: a format-independent, modular bibliography tool for
 
 # Packages
 
+| [citation-js/citation-js](https://github.com/citation-js/citation-js) | replaces | [larsgw/citation.js](https://github.com/larsgw/citation.js) |
+|---|---|---|
+| This repository contains the npm package `@citation-js/core` and several other components. || This repository contains the npm package `citation-js` that wraps the aforementioned components for backwards compatibility. |
+
 ## Core
 
 [Core functionality](https://github.com/citation-js/citation-js/tree/master/packages/core):
