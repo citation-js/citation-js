@@ -313,7 +313,7 @@ export default new util.Translator([
           }
         }
 
-        return [types.source[type] || 'book', typeKey || subtype]
+        return [types.source[type] || 'document', typeKey || subtype]
       },
       toSource (type, genre) {
         const sourceType = types.target[type] || 'misc'

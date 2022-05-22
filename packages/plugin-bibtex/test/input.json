@@ -118,7 +118,7 @@
       [{
         "citation-key": "b",
         "id": "b",
-        "type": "book",
+        "type": "document",
         "author": [
           {"family": "a and b"},
           {"family": "c"},
@@ -193,7 +193,7 @@
       [{
         "citation-key": "b",
         "id": "b",
-        "type": "book",
+        "type": "document",
         "issued": {
           "date-parts": [[2017, 8]]
         }
@@ -204,7 +204,7 @@
       [{
         "citation-key": "b",
         "id": "b",
-        "type": "book",
+        "type": "document",
         "issued": {
           "date-parts": [[2016, 12, 13]]
         }
@@ -215,7 +215,7 @@
       [{
         "citation-key": "b",
         "id": "b",
-        "type": "book",
+        "type": "document",
         "issued": {
           "date-parts": [[2016], [2017]]
         }
@@ -226,7 +226,7 @@
       [{
         "citation-key": "b",
         "id": "b",
-        "type": "book",
+        "type": "document",
         "title": "Foobar"
       }]
     ],
