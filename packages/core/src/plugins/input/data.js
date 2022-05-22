@@ -25,7 +25,7 @@ const asyncParsers = {}
 const nativeParsers = {
   '@csl/object': input => [input],
   '@csl/list+object': input => input,
-  '@else/list+object': input => input.flatMap(chain),
+  '@else/list+object': input => input.map(chain).flat(),
   '@invalid': () => { throw new Error('This format is not supported or recognized') }
 }
 
