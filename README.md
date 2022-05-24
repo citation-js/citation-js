@@ -13,7 +13,7 @@ Read the paper [*Citation.js: a format-independent, modular bibliography tool fo
 
 [![NPM version](https://img.shields.io/npm/v/@citation-js/core.svg)](https://npmjs.org/package/@citation-js/core)
 [![NPM total downloads](https://img.shields.io/npm/dt/@citation-js/core.svg)](https://npmcharts.com/compare/@citation-js%2Fcore?minimal=true)
-[![Build Status](https://github.com/citation-js/citation-js/workflows/build/badge.svg)](https://github.com/citation-js/citation-js/actions?query=workflow%3Abuild)
+[![Build Status](https://img.shields.io/github/workflow/status/citation-js/citation-js/build)](https://github.com/citation-js/citation-js/actions?query=workflow%3Abuild)
 ![License](https://img.shields.io/npm/l/@citation-js/core.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Join the chat at https://gitter.im/citation-js/Lobby](https://badges.gitter.im/citation-js/Lobby.svg)](https://gitter.im/citation-js/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
