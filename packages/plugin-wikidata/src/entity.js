@@ -12,7 +12,7 @@ import ignoredProps from './ignoredProps.json'
  * @param {Set} unknown
  * @return {Object} statement
  */
-function resolveProp (prop_, entity, unkown) {
+function resolveProp (prop_, entity, unknown) {
   function resolve ([prop, ...parts], { claims }) {
     if (!parts.length) {
       return claims[prop]
@@ -22,7 +22,7 @@ function resolveProp (prop_, entity, unkown) {
   }
 
   const parts = prop_.split('.')
-  unkown.delete(parts[0])
+  unknown.delete(parts[0])
 
   return resolve(parts, entity)
 }
@@ -35,14 +35,14 @@ function resolveProp (prop_, entity, unkown) {
  * @param {Set} unknown
  * @return {module:@citation-js/core~CSL}
  */
-function prepareValue (statement, entity, unkown) {
+function prepareValue (statement, entity, unknown) {
   if (typeof statement !== 'object') {
-    const value = resolveProp(statement, entity, unkown)
+    const value = resolveProp(statement, entity, unknown)
     return value && value[0].value
   }
 
   const values = [].concat(...statement.props
-    .map(prop => resolveProp(prop, entity, unkown))
+    .map(prop => resolveProp(prop, entity, unknown))
     .filter(Boolean)
   )
 
@@ -66,10 +66,10 @@ export function parseEntity (entity) {
     source: 'Wikidata'
   }
 
-  const unkown = new Set(Object.keys(entity.claims))
+  const unknown = new Set(Object.keys(entity.claims))
 
   for (const prop in props) {
-    const input = prepareValue(props[prop], entity, unkown)
+    const input = prepareValue(props[prop], entity, unknown)
     if (input) {
       const output = parseProp(prop, input, entity)
       if (output) {
@@ -78,7 +78,7 @@ export function parseEntity (entity) {
     }
   }
 
-  for (const prop of unkown) {
+  for (const prop of unknown) {
     if (prop in ignoredProps) {
       continue
     }
