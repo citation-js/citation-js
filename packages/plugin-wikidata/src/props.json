@@ -101,8 +101,8 @@
     "props": ["P212", "P957"]
   },
   "ISSN": "P1433.P236",
-  "issue": "P433",
-  "issued": "P577",
+  "issue": { "values": "any", "props": ["P433", "P1433#P433"] },
+  "issued": { "values": "any", "props": ["P577", "P1433#P577"]},
   "journalAbbreviation": { "values": "any", "props": ["P1433.P1813", "P1433.P1160"] },
   "jurisdiction": "P1001",
   "keyword": {
@@ -132,7 +132,7 @@
   },
   "original-title": "P629.P1476",
 
-  "page": "P304",
+  "page": { "values": "any", "props": ["P304", "P1433#P304"]},
   "part-number": "P792",
   "part-title": "P792",
   "PMID": "P698",
@@ -162,7 +162,7 @@
   },
   "type": "P31",
   "version": "P348",
-  "volume": "P478",
+  "volume": { "values": "any", "props": ["P478", "P1433#P478"] },
   "URL": {
     "values": "any",
     "props": ["P856", "P953", "P973", "P2699"]
