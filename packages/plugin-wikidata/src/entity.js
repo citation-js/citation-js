@@ -120,6 +120,10 @@ export function parseEntity (entity) {
     delete data['chapter-number']
   }
 
+  if (data['original-author'] && !data.author) {
+    data.author = data['original-author']
+  }
+
   // END
 
   return data
