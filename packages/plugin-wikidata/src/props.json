@@ -53,8 +53,8 @@
   },
 
   "chapter-number": {
-    "values": "all",
-    "props": ["P1433", "P361"]
+    "values": "any",
+    "props": ["P1433#P1545", "P361#P1545"]
   },
 
   "collection-editor": {
@@ -62,8 +62,8 @@
     "props": ["P179.P98"]
   },
   "collection-number": {
-    "values": "all",
-    "props": ["P179"]
+    "values": "any",
+    "props": ["P179#P1545"]
   },
   "collection-title": "P179",
 

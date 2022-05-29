@@ -7,20 +7,41 @@ import ignoredProps from './ignoredProps.json'
 /**
  * @access private
  * @memberof module:@citation-js/plugin-wikidata.parsers.entity
+ * @param {Array<String>} parts - nested Wikidata properties
+ * @param {Object} entity
+ * @return {Object} statement
+ */
+function resolve (parts, { claims }) {
+  const [prop, qualifier] = parts[0].split('#')
+
+  if (!claims[prop] || !claims[prop].length) {
+    return
+  }
+
+  if (parts.length === 1) {
+    if (qualifier) {
+      if (claims[prop][0].qualifiers[qualifier]) {
+        return claims[prop][0].qualifiers[qualifier].map(value => ({ value }))
+      }
+      return
+    }
+
+    return claims[prop]
+  }
+
+
+  return resolve(parts.slice(1), claims[prop][0].value)
+}
+
+/**
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.entity
  * @param {String} prop_ - Chain of nested Wikidata properties
  * @param {Object} entity
  * @param {Set} unknown
  * @return {Object} statement
  */
 function resolveProp (prop_, entity, unknown) {
-  function resolve ([prop, ...parts], { claims }) {
-    if (!parts.length) {
-      return claims[prop]
-    } else if (claims[prop] && claims[prop].length) {
-      return resolve(parts, claims[prop][0].value)
-    }
-  }
-
   const parts = prop_.split('.')
   unknown.delete(parts[0])
 

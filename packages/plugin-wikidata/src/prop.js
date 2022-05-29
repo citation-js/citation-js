@@ -13,18 +13,6 @@ import config from './config.json'
 import types from './types.json'
 
 /**
- * Get series ordinal from qualifiers object
- *
- * @access private
- * @memberof module:@citation-js/plugin-wikidata.parsers.prop
- * @param {Object} qualifiers
- * @return {Number} series ordinal or -1
- */
-function getSeriesOrdinal ({ P1545 }) {
-  return P1545 ? parseInt(P1545[0]) : null
-}
-
-/**
  * Some name fields have, in addition to a Wikidata ID, a qualifier stating
  * how the name is actually represented. That's what we want to cite.
  *
@@ -54,7 +42,7 @@ function parseName ({ value, qualifiers }) {
     name = typeof value === 'string' ? value : getLabel(value)
   }
   name = name ? parseNameString(name) : { literal: name }
-  const ordinal = getSeriesOrdinal(qualifiers)
+  const ordinal = qualifiers.P1545 ? parseInt(qualifiers.P1545[0]) : null
   if (ordinal !== null) {
     name._ordinal = ordinal
   }
@@ -204,7 +192,7 @@ export function parseProp (prop, value, entity) {
 
     case 'chapter-number':
     case 'collection-number':
-      return getSeriesOrdinal(value[0].qualifiers)
+      return parseInt(value[0])
 
     case 'number-of-volumes':
       return value.length
