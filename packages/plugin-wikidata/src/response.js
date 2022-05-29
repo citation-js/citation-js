@@ -77,11 +77,6 @@ const FETCH_ADDITIONAL = {
   }
 }
 
-function flat (array, part) {
-  array.push(...part)
-  return array
-}
-
 /**
  * @memberof module:@citation-js/plugin-wikidata.parsers.response
  * @param {Object} entity
@@ -96,8 +91,7 @@ function collectAdditionalIds (entity, needed) {
   entity._needed = Object.assign(entity._needed || {}, needed)
   return Object.keys(entity.claims)
     .filter(prop => prop in needed)
-    .map(prop => entity.claims[prop].map(({ value }) => value.id || value))
-    .reduce(flat, [])
+    .flatMap(prop => entity.claims[prop].map(({ value }) => value.id || value))
 }
 
 /**
