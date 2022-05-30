@@ -39,6 +39,6 @@
     "@citation-js/core": "^0.5.7"
   },
   "peerDependencies": {
-    "@citation-js/core": "^0.5.0-alpha.0"
+    "@citation-js/core": "^0.6.0"
   }
 }
