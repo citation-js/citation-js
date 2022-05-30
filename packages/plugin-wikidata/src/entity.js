@@ -29,7 +29,6 @@ function resolve (parts, { claims }) {
     return claims[prop]
   }
 
-
   return resolve(parts.slice(1), claims[prop][0].value)
 }
 
