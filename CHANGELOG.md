@@ -1,4 +1,18 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.5.7...v) (2022-05-30)
+# [](https://github.com/citation-js/citation-js/compare/v0.6.0...v) (2022-06-02)
+
+
+### Bug Fixes
+
+* **plugin-bibtex:** do not output empty s2id field ([ca58949](https://github.com/citation-js/citation-js/commit/ca589491752b6467f9de3a89146929a6d24235ca))
+
+
+### Features
+
+* **plugin-wikidata:** include additional version information ([7b870b8](https://github.com/citation-js/citation-js/commit/7b870b8aefd91492863550faa539b9aaa4608d99))
+
+
+
+# [0.6.0](https://github.com/citation-js/citation-js/compare/v0.5.7...v0.6.0) (2022-05-30)
 
 
 ### Bug Fixes
