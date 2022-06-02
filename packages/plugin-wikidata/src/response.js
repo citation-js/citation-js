@@ -140,7 +140,18 @@ function completeResponse (entities, old) {
 }
 
 function simplifyEntities (entities) {
-  return simplify.entities(entities, SIMPLIFY_OPTS)
+  const simplified = simplify.entities(entities, SIMPLIFY_OPTS)
+  for (const id in entities) {
+    const claims = entities[id].claims
+    if (claims.P348) {
+      simplified[id].claims['P348:all'] = simplify.propertyClaims(claims.P348, {
+        ...SIMPLIFY_OPTS,
+        keepNonTruthy: true,
+        keepRank: true
+      }).filter(claim => claim.rank !== 'deprecated')
+    }
+  }
+  return simplified
 }
 
 /**

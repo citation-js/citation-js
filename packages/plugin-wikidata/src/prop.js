@@ -124,6 +124,28 @@ function parseDateRange (dates) {
 }
 
 /**
+ * Get version information.
+ *
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
+ * @param {Array<Object>} values
+ * @return {Array<Array<Number>>} Array of date-parts
+ */
+function parseVersion (version) {
+  const output = { version: version.value }
+  if (version.qualifiers.P577) {
+    output.issued = parseDate(version.qualifiers.P577[0])
+  }
+  if (version.qualifiers.P356) {
+    output.DOI = version.qualifiers.P356[0]
+  }
+  if (version.qualifiers.P6138) {
+    output.SWHID = version.qualifiers.P6138[0]
+  }
+  return output
+}
+
+/**
  * Transform property and value from Wikidata format to CSL.
  *
  * Returns additional _ordinal property on authors.
@@ -196,6 +218,9 @@ export function parseProp (prop, value, entity) {
 
     case 'number-of-volumes':
       return value.length
+
+    case '_versions':
+      return value.map(parseVersion)
 
     default:
       return value

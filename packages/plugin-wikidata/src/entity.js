@@ -144,6 +144,11 @@ export function parseEntity (entity) {
     data.author = data['original-author']
   }
 
+  if (data._versions) {
+    data.custom.versions = data._versions
+    delete data._versions
+  }
+
   // END
 
   return data
