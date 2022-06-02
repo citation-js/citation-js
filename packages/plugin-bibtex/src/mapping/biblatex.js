@@ -56,7 +56,7 @@ const nonSpec = [
         return { S2ID }
       },
       toSource ({ S2ID }) {
-        return [S2ID]
+        return S2ID
       }
     }
   }
