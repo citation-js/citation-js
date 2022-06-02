@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/cli",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "CLI for Citation.js",
   "keywords": [
     "citation-js",
@@ -37,7 +37,7 @@
     "@citation-js/plugin-bibtex": "^0.6.1",
     "@citation-js/plugin-csl": "^0.6.1",
     "@citation-js/plugin-doi": "^0.6.1",
-    "@citation-js/plugin-ris": "^0.6.1",
+    "@citation-js/plugin-ris": "^0.6.2",
     "@citation-js/plugin-wikidata": "^0.6.1",
     "commander": "^9.2.0"
   }

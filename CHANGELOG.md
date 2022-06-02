@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.6.0...v) (2022-06-02)
+# [](https://github.com/citation-js/citation-js/compare/v0.6.1...v) (2022-06-02)
+
+
+### Bug Fixes
+
+* **plugin-ris:** fix type constraints of mappings ([9be8f3b](https://github.com/citation-js/citation-js/commit/9be8f3bc677079d87f340e60a686ba23d245b294))
+
+
+
+## [0.6.1](https://github.com/citation-js/citation-js/compare/v0.6.0...v0.6.1) (2022-06-02)
 
 
 ### Bug Fixes
