@@ -28,14 +28,16 @@ for (const format in CSL.Output.Formats) {
 
 /**
  * @access private
- * @param {String} lang - language code
+ * @param {String} locale - locale code
  * @return {String} locale XML
  */
-function retrieveLocale (lang) {
-  const unnormalised = lang.replace('-', '_')
-  if (locales.has(lang)) {
-    return locales.get(lang)
-  } else if (locales.has(unnormalised)) {
+function retrieveLocale (locale) {
+  if (locales.has(locale)) {
+    return locales.get(locale)
+  }
+
+  const unnormalised = locale.replace('-', '_')
+  if (locales.has(unnormalised)) {
     return locales.get(unnormalised)
   }
 
@@ -64,8 +66,8 @@ const engines = {}
  *
  * @return {Object} CSL Engine
  */
-const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocale) {
-  const engineHash = `${style}|${lang}`
+const fetchEngine = function (style, locale, styleXml, retrieveItem, retrieveLocale) {
+  const engineHash = `${style}|${locale}`
   let engine
 
   if (engines[engineHash] instanceof CSL.Engine) {
@@ -73,7 +75,7 @@ const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocal
     engine.sys.retrieveItem = retrieveItem
     engine.updateItems([])
   } else {
-    engine = engines[engineHash] = new CSL.Engine({ retrieveLocale, retrieveItem }, template, lang, true)
+    engine = engines[engineHash] = new CSL.Engine({ retrieveLocale, retrieveItem }, styleXml, lang, true)
   }
 
   return engine
@@ -91,14 +93,14 @@ const fetchEngine = function (style, lang, template, retrieveItem, retrieveLocal
  *
  * @return {Object} CSL Engine
  */
-const prepareEngine = function (data, templateName, language, format) {
+const prepareEngine = function (data, style, locale, format) {
   if (!CSL.Output.Formats[format] || !CSL.Output.Formats[format]['@bibliography/entry']) {
     throw new TypeError(`Cannot find format '${format}'`)
   }
 
   const items = data.reduce((store, entry) => { store[entry.id] = entry; return store }, {})
-  const template = templates.get(templates.has(templateName) ? templateName : 'apa')
-  language = locales.has(language) ? language : undefined
+  const template = templates.get(templates.has(style) ? style : 'apa')
+  locale = locales.has(locale) ? locale : undefined
 
   const callback = function (key) {
     if (Object.prototype.hasOwnProperty.call(items, key)) {
@@ -108,7 +110,7 @@ const prepareEngine = function (data, templateName, language, format) {
     }
   }
 
-  const engine = fetchEngine(templateName, language, template, callback, retrieveLocale)
+  const engine = fetchEngine(style, locale, template, callback, retrieveLocale)
   engine.setOutputFormat(format)
 
   return engine
