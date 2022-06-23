@@ -38,6 +38,9 @@ function retrieveLocale (lang) {
   } else if (locales.has(unnormalised)) {
     return locales.get(unnormalised)
   }
+
+  // Should only occur when a cs:style default-locale is unknown
+  return {}
 }
 
 /**
