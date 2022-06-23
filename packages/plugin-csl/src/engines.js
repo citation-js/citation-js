@@ -95,7 +95,7 @@ const prepareEngine = function (data, templateName, language, format) {
 
   const items = data.reduce((store, entry) => { store[entry.id] = entry; return store }, {})
   const template = templates.get(templates.has(templateName) ? templateName : 'apa')
-  language = locales.has(language) ? language : 'en-US'
+  language = locales.has(language) ? language : undefined
 
   const callback = function (key) {
     if (Object.prototype.hasOwnProperty.call(items, key)) {

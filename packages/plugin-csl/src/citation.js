@@ -31,7 +31,7 @@ import prepareEngine from './engines.js'
  * @param {Array<CSL>} data
  * @param {Object} [options={}]
  * @param {String} [options.template='apa']
- * @param {String} [options.lang='en-US']
+ * @param {String} [options.lang]
  * @param {String} [options.format='text']
  * @param {module:@citation-js/plugin-csl.output~Entries} [options.entry] - list of ids or cite-items of entries to include in the citation (defaults to all)
  * @param {Array<String>} [options.citationsPre=[]]
@@ -40,7 +40,7 @@ import prepareEngine from './engines.js'
  * @return {String} output
  */
 export default function citation (data, options = {}) {
-  const { template = 'apa', lang = 'en-US', format = 'text' } = options
+  const { template = 'apa', lang, format = 'text' } = options
   const ids = data.map(({ id }) => id)
   const entries = options.entry ? [].concat(options.entry) : ids
   data = util.downgradeCsl(data)

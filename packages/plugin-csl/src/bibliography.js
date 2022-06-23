@@ -87,7 +87,7 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  * @param {Array<CSL>} data
  * @param {Object} [options={}]
  * @param {String} [options.template='apa']
- * @param {String} [options.lang='en-US']
+ * @param {String} [options.lang]
  * @param {String} [options.format='text']
  * @param {Booolean} [options.asEntryArray=false]
  * @param {Booolean} [options.nosort=false]
@@ -98,7 +98,7 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  * @return {String} output
  */
 export default function bibliography (data, options = {}) {
-  const { template = 'apa', lang = 'en-US', format = 'text', nosort = false } = options
+  const { template = 'apa', lang, format = 'text', nosort = false } = options
   const ids = options.entry ? [].concat(options.entry) : data.map(({ id }) => id)
   data = util.downgradeCsl(data)
 

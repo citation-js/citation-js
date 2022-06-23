@@ -82,6 +82,11 @@ module.exports = {
       '(Custom).',
       { lang: 'zh_CN' }
     ],
+    'style-default locale': [
+      bibliographyData,
+      'Hall, H.K. (1957) « Correlation of the Base Strengths of Amines 1 », Journal of the American Chemical Society, 79(20), p. 5441‑5444. doi:10.1021/ja01577a030.',
+      { template: 'harvard1:fr-FR' }
+    ],
     'static pre/append': [
       bibliographyData,
       'aHall, H. K. (1957). Correlation of the Base Strengths of Amines 1. Journal of the American Chemical Society, 79(20), 5441–5444. https://doi.org/10.1021/ja01577a030b',
@@ -127,6 +132,7 @@ module.exports = {
     'single entry': [citationData, '(d & h, 2012)', { entry: '2' }],
     'no entry option': [citationData, '(A, 2011; d & h, 2012; f, 2013)'],
     'with locator': [citationData, '(A, 2011, p. 123)', { entry: { id: '1', locator: 123, label: 'page' } }],
-    'with suffix': [citationData, '(A, 2011 [!])', { entry: { id: '1', suffix: '[!]' } }]
+    'with suffix': [citationData, '(A, 2011 [!])', { entry: { id: '1', suffix: '[!]' } }],
+    'style-default locale': [citationData, '(« a », 2011; d et h, 2012; f, 2013)', { template: 'harvard1:fr-FR' }]
   }
 }

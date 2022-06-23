@@ -49,6 +49,7 @@ CSL.locales.add('zh_CN', `<?xml version="1.0" encoding="utf-8"?>
     <term name="et-al" form="short">custom</term>
   </terms>
 </locale>`)
+CSL.templates.add('harvard1:fr-FR', CSL.templates.get('harvard1').replace(/en-GB/g, 'fr-FR'))
 
 describe('output', function () {
   for (const type in data) {
