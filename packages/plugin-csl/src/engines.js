@@ -75,7 +75,7 @@ const fetchEngine = function (style, locale, styleXml, retrieveItem, retrieveLoc
     engine.sys.retrieveItem = retrieveItem
     engine.updateItems([])
   } else {
-    engine = engines[engineHash] = new CSL.Engine({ retrieveLocale, retrieveItem }, styleXml, lang, true)
+    engine = engines[engineHash] = new CSL.Engine({ retrieveLocale, retrieveItem }, styleXml, locale, true)
   }
 
   return engine
