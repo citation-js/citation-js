@@ -11,10 +11,10 @@
     "conventional-changelog-cli": "^2.1.0",
     "expect.js": "^0.3.1",
     "jsdoc": "^3.6.6",
-    "lerna": "^4.0.0",
+    "lerna": "^5.1.8",
     "mocha": "^10.0.0",
     "mock-require": "^3.0.3",
-    "node-fetch": "^3.2.4",
+    "node-fetch": "^2.6.7",
     "nyc": "^15.1.0",
     "standard": "^17.0.0",
     "wikidata-sdk": "^8.0.0"
