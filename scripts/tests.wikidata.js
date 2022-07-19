@@ -15,7 +15,11 @@ const items = [
   'Q63862629',
   'Q7017193',
   'Q61642258',
-  'Q51615345'
+  'Q51615345',
+
+  // ImageJ
+  'Q1659584',
+  'Q390551'
 ]
 
 async function getItems (ids) {

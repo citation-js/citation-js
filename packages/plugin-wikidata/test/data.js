@@ -535,6 +535,31 @@ module.exports = {
           'original-publisher-place': 'London, UK'
         }
       ]
+    ],
+    software_developer: [
+      'Q1659584',
+      [{
+        id: 'Q1659584',
+        custom: {
+          FramalibreID: 'imagej',
+          QID: 'Q1659584',
+          RRID: 'RRID:SCR_003070',
+          SW_MATHID: '12531',
+          versions: [
+            {
+              version: '1.53k',
+              issued: { 'date-parts': [[2021, 7, 6]] }
+            }
+          ]
+        },
+        author: [{ family: 'Health', 'non-dropping-particle': 'of', given: 'National Institutes' }],
+        issued: { 'date-parts': [[2021, 7, 6]] },
+        source: 'Wikidata',
+        type: 'software',
+        version: '1.53k',
+        URL: 'https://imagej.nih.gov/ij/',
+        title: 'ImageJ'
+      }]
     ]
   },
   '@wikidata/list+text': {
