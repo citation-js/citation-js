@@ -2,6 +2,7 @@ import { logger } from '@citation-js/core'
 import * as response from './response.js'
 import { parseProp, getLabel } from './prop.js'
 import props from './props.json'
+import customProps from './customProps.json'
 import ignoredProps from './ignoredProps.json'
 
 /**
@@ -98,6 +99,16 @@ export function parseEntity (entity) {
     }
   }
 
+  for (const prop in customProps) {
+    const input = prepareValue(customProps[prop], entity, unknown)
+    if (input) {
+      const output = parseProp(prop, input, entity)
+      if (output) {
+        data.custom[prop] = output
+      }
+    }
+  }
+
   for (const prop of unknown) {
     if (prop in ignoredProps) {
       continue
@@ -142,11 +153,6 @@ export function parseEntity (entity) {
 
   if (data['original-author'] && !data.author) {
     data.author = data['original-author']
-  }
-
-  if (data._versions) {
-    data.custom.versions = data._versions
-    delete data._versions
   }
 
   // END

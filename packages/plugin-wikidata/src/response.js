@@ -32,6 +32,7 @@ const FETCH_ADDITIONAL = {
   P98: null,
   P110: null,
   P162: null,
+  P170: null,
   P175: null,
   P178: null,
   P371: null,

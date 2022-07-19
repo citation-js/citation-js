@@ -219,7 +219,7 @@ export function parseProp (prop, value, entity) {
     case 'number-of-volumes':
       return value.length
 
-    case '_versions':
+    case 'versions':
       return value.map(parseVersion)
 
     default:

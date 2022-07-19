@@ -1,7 +1,7 @@
 {
   "author": {
     "values": "all",
-    "props": ["P50", "P2093", "P178"]
+    "props": ["P50", "P2093", "P170", "P178"]
   },
   "composer": {
     "values": "all",
@@ -162,7 +162,5 @@
   "URL": {
     "values": "any",
     "props": ["P856", "P953", "P973", "P2699"]
-  },
-
-  "_versions": { "values": "all", "props": ["P348:all"] }
+  }
 }

@@ -1,0 +1,9 @@
+{
+  "versions": { "values": "all", "props": ["P348:all"] },
+
+  "DistroWatchID": "P3112",
+  "FramalibreID": "P4107",
+  "RRID": "P9712",
+  "SW_MATHID": "P6830",
+  "SWHID": { "values": "any", "props": ["P6138", "P348#P6138"] }
+}
