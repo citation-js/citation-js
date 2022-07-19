@@ -2,6 +2,14 @@
 
 First of all, thanks for considering contributing. Contributions are very welcome! Below is some helpful information.
 
+  - [Reporting issues](#reporting-issues)
+  - [Contributing code](#contributing-code)
+    - [Installing](#installing)
+    - [Editing](#editing)
+    - [Commits](#commits)
+    - [Testing](#testing)
+    - [Release](#release)
+
 ## Reporting issues
 
 You can report issues in [the Issue Tracker](https://github.com/citation-js/citation-js/issues). When filing an issue, be sure to provide some basic information for people to work with:
@@ -86,7 +94,7 @@ Additionally, coverage can be checked with
 
 ```sh
 lerna version
-lerna publish from-packages
+lerna publish from-package
 ```
 
 #### `larsgw/citation.js`
