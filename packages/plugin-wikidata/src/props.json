@@ -156,11 +156,11 @@
     "values": "all",
     "props": ["P655"]
   },
-  "type": "P31",
+  "type": { "values": "all", "props": ["P31"] },
   "version": "P348",
   "volume": { "values": "any", "props": ["P478", "P1433#P478"] },
   "URL": {
     "values": "any",
-    "props": ["P856", "P953", "P973", "P2699"]
+    "props": ["P856", "P953", "P2699"]
   }
 }

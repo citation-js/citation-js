@@ -123,14 +123,12 @@ export function parseEntity (entity) {
 
   // BEGIN: Hot-fix some types
 
-  if (data['reviewed-title'] || data['reviewed-author']) {
-    // not all
-    if (data.type.slice(0, 6) !== 'review') {
-      data.type = 'review'
-    }
-
-    // P921 (main subject) is used for review subjects and keywords
+  // P921 (main subject) is used for review subjects and keywords
+  if (data.type.slice(0, 6) === 'review') {
     delete data.keyword
+  } else {
+    delete data['reviewed-title']
+    delete data['reviewed-author']
   }
 
   if (data.recipient) {

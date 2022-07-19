@@ -145,6 +145,56 @@ function parseVersion (version) {
   return output
 }
 
+export const TYPE_PRIORITIES = {
+  'review-book': 10,
+  review: 9,
+  'entry-dictionary': 5,
+  'entry-encyclopedia': 5,
+  map: 5,
+  dataset: 4,
+  legislation: 1,
+
+  'article-magazine': 0,
+  bill: 0,
+  chapter: 0,
+  classic: 0,
+  collection: 0,
+  entry: 0,
+  figure: 0,
+  graphic: 0,
+  hearing: 0,
+  interview: 0,
+  legal_case: 0,
+  manuscript: 0,
+  motion_picture: 0,
+  musical_score: 0,
+  pamphlet: 0,
+  'paper-conference': 0,
+  patent: 0,
+  personal_communication: 0,
+  'post-weblog': 0,
+  report: 0,
+  song: 0,
+  speech: 0,
+  standard: 0,
+  thesis: 0,
+  treaty: 0,
+
+  broadcast: -1,
+  'article-newspaper': -1,
+  'article-journal': -1,
+  periodical: -2,
+  regulation: -2,
+  post: -5,
+  webpage: -6,
+  software: -7,
+  article: -9,
+  book: -10,
+  performance: -11,
+  event: -12,
+  document: -100
+}
+
 /**
  * Transform property and value from Wikidata format to CSL.
  *
@@ -230,16 +280,21 @@ export function parseProp (prop, value, entity) {
 /**
  * @access protected
  * @memberof module:@citation-js/plugin-wikidata.parsers.prop
- * @param {String} type - P31 Wikidata ID value
+ * @param {String|Array<String>} type - P31 Wikidata ID value
  * @return {String} CSL type
  */
 export function parseType (type) {
-  if (!types[type]) {
+  const unmapped = Array.isArray(type) ? type : [type]
+  const mapped = unmapped.map(type => types[type.value]).filter(Boolean)
+
+  if (!mapped.length) {
     logger.unmapped('[plugin-wikidata]', 'publication type', type)
     return 'document'
   }
 
-  return types[type]
+  mapped.sort((a, b) => TYPE_PRIORITIES[b] - TYPE_PRIORITIES[a])
+
+  return mapped[0]
 }
 
 /**

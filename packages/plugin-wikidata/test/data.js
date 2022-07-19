@@ -214,7 +214,7 @@ module.exports = {
               _ordinal: 6
             },
             {
-              given: 'Emma',
+              given: 'Emma L.',
               family: 'Schymanski',
               _ordinal: 7
             },
@@ -229,7 +229,7 @@ module.exports = {
               _ordinal: 9
             },
             {
-              given: 'David S',
+              given: 'David',
               family: 'Wishart',
               _ordinal: 10
             },
@@ -299,7 +299,7 @@ module.exports = {
           custom: { QID: 'Q1' },
           id: 'Q1',
           source: 'Wikidata',
-          title: 'Universe',
+          title: 'universe',
           type: 'document'
         }
       ]
@@ -376,6 +376,7 @@ module.exports = {
           issued: {
             'date-parts': [[2014, 4, 1]]
           },
+          language: 'en',
           'container-title': 'Canadian Family Physician',
           'container-title-short': 'Can. Fam. Physician',
           journalAbbreviation: 'Can. Fam. Physician',
@@ -401,15 +402,16 @@ module.exports = {
             family: 'Rowling'
           }],
           issued: {
-            'date-parts': [[1997, 6, 30]]
+            'date-parts': [[1997, 6, 26]]
           },
           'collection-title': 'Harry Potter',
           'collection-number': 1,
+          keyword: 'magician',
           'number-of-volumes': 7,
+          'number-of-pages': 240,
           language: 'en',
           publisher: 'Bloomsbury Publishing',
-          'publisher-place': 'London, UK',
-          ISBN: '978-0-7675-3830-5'
+          'publisher-place': 'London, UK'
         }
       ]
     ],
@@ -443,6 +445,8 @@ module.exports = {
             'date-parts': [[2019]]
           },
           keyword: 'Wikipedia',
+          language: 'en',
+          'number-of-pages': 12,
           page: '1567-1578',
           DOI: '10.1145/3308558.3313618',
           'container-title': 'Proceedings of the 2019 World Wide Web Conference on World Wide Web',
@@ -499,8 +503,7 @@ module.exports = {
           'publisher-place': 'Cambridge, USA',
           issued: { 'date-parts': [[1941]] },
           medium: 'paper',
-          scale: 60000000,
-          URL: 'http://id.lib.harvard.edu/alma/990037196110203941/catalog'
+          scale: 60000000
         }
       ]
     ],
@@ -525,14 +528,12 @@ module.exports = {
           issued: { 'date-parts': [[1913]] },
           publisher: 'Macmillan Publishers',
           'publisher-place': 'London, UK',
-          'original-title': 'গীতাঞ্জলি',
+          // 'original-title': 'গীতাঞ্জলি',
           'original-author': [{
             given: 'Rabindranath',
             family: 'Tagore'
           }],
-          'original-date': { 'date-parts': [[1910]] },
-          'original-publisher': 'Macmillan Publishers',
-          'original-publisher-place': 'London, UK'
+          'original-date': { 'date-parts': [[1912]] }
         }
       ]
     ],
