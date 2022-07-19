@@ -1,7 +1,7 @@
 {
   "author": {
     "values": "all",
-    "props": ["P50", "P2093"]
+    "props": ["P50", "P2093", "P178"]
   },
   "composer": {
     "values": "all",
@@ -22,10 +22,6 @@
   "guest": {
     "values": "all",
     "props": ["P5030"]
-  },
-  "host": {
-    "values": "all",
-    "props": ["P371"]
   },
   "host": {
     "values": "all",
@@ -102,7 +98,7 @@
   },
   "ISSN": "P1433.P236",
   "issue": { "values": "any", "props": ["P433", "P1433#P433"] },
-  "issued": { "values": "any", "props": ["P577", "P1433#P577"]},
+  "issued": { "values": "any", "props": ["P577", "P1433#P577", "P348#P577"]},
   "journalAbbreviation": { "values": "any", "props": ["P1433.P1813", "P1433.P1160"] },
   "jurisdiction": "P1001",
   "keyword": {

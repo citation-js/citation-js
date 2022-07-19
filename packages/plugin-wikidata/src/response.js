@@ -27,11 +27,22 @@ const FETCH_ADDITIONAL = {
   // name variables
   P50: null,
   P57: null,
+  P58: null,
   P86: null,
   P98: null,
   P110: null,
+  P162: null,
+  P175: null,
+  P178: null,
+  P371: null,
+  P488: null,
   P655: null,
+  P664: null,
+  P1431: null,
+  P1640: null,
   P1817: null,
+  P2438: null,
+  P5030: null,
 
   // keyword & reviewed-title
   P921: {
