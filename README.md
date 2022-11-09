@@ -7,7 +7,7 @@ Read the paper [*Citation.js: a format-independent, modular bibliography tool fo
 
 ---
 
-<p align="center"><a href="https://citation.js.org">Site</a> • <a href="https://github.com/citation-js/citation-js">Repo</a> • <a href="https://citation.js.org/api/tutorial-getting_started.html">Getting Started</a> • <a href="https://citation.js.org/api">Documentation</a> • <a href="https://citation.js.org/demo">Demo</a></p>
+<p align="center"><a href="https://citation.js.org">Site</a> • <a href="https://github.com/citation-js/citation-js">Repo</a> • <a href="https://citation.js.org/api/tutorial-getting_started.html">Getting Started</a> • <a href="https://citation.js.org/api/0.5">Documentation</a> • <a href="https://citation.js.org/demo">Demo</a></p>
 
 ---
 
