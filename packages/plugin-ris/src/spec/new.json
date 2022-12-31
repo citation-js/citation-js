@@ -211,25 +211,6 @@
     }
   },
   {
-    "source": [
-      "A3",
-      "PB"
-    ],
-    "target": "publisher",
-    "when": {
-      "source": {
-        "TY": [
-          "RPRT"
-        ]
-      },
-      "target": {
-        "type": [
-          "report"
-        ]
-      }
-    }
-  },
-  {
     "source": "A4",
     "target": "translator",
     "when": {
@@ -675,45 +656,6 @@
     }
   },
   {
-    "source": [
-      "C2",
-      "DA"
-    ],
-    "target": "issued",
-    "when": {
-      "source": {
-        "TY": [
-          "CONF"
-        ]
-      },
-      "target": {
-        "type": [
-          "paper-conference"
-        ]
-      }
-    }
-  },
-  {
-    "source": [
-      "C2",
-      "DA",
-      "PY"
-    ],
-    "target": "issued",
-    "when": {
-      "source": {
-        "TY": [
-          "PAT"
-        ]
-      },
-      "target": {
-        "type": [
-          "patent"
-        ]
-      }
-    }
-  },
-  {
     "source": "C3",
     "target": "dimensions",
     "when": {
@@ -848,21 +790,6 @@
           "patent"
         ]
       }
-    }
-  },
-  {
-    "source": [
-      "C5",
-      "PB"
-    ],
-    "target": "publisher",
-    "when": {
-      "source": {
-        "TY": [
-          "STAT"
-        ]
-      },
-      "target": false
     }
   },
   {
@@ -1204,6 +1131,45 @@
         ]
       },
       "target": false
+    }
+  },
+  {
+    "source": [
+      "DA",
+      "C2"
+    ],
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "CONF"
+        ]
+      },
+      "target": {
+        "type": [
+          "paper-conference"
+        ]
+      }
+    }
+  },
+  {
+    "source": [
+      "DA",
+      "C2",
+      "PY"
+    ],
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "PAT"
+        ]
+      },
+      "target": {
+        "type": [
+          "patent"
+        ]
+      }
     }
   },
   {
@@ -1924,25 +1890,6 @@
     }
   },
   {
-    "source": [
-      "L4",
-      "UR"
-    ],
-    "target": "URL",
-    "when": {
-      "source": {
-        "TY": [
-          "HEAR"
-        ]
-      },
-      "target": {
-        "type": [
-          "hearing"
-        ]
-      }
-    }
-  },
-  {
     "source": "LA",
     "target": "language",
     "when": {
@@ -2312,11 +2259,23 @@
     "target": "number",
     "when": {
       "source": {
+        "TY": "STAT"
+      },
+      "target": false
+    }
+  },
+  {
+    "source": [
+      "NV",
+      "M1"
+    ],
+    "target": "number",
+    "when": {
+      "source": {
         "TY": [
           "ICOMM",
           "MANSCPT",
-          "PCOMM",
-          "STAT"
+          "PCOMM"
         ]
       },
       "target": {
@@ -2324,45 +2283,6 @@
           "manuscript",
           "personal_communication",
           "post"
-        ]
-      }
-    }
-  },
-  {
-    "source": [
-      "M1",
-      "SE",
-      "SN"
-    ],
-    "target": "number",
-    "when": {
-      "source": {
-        "TY": [
-          "PAT"
-        ]
-      },
-      "target": {
-        "type": [
-          "patent"
-        ]
-      }
-    }
-  },
-  {
-    "source": [
-      "M1",
-      "SN"
-    ],
-    "target": "number",
-    "when": {
-      "source": {
-        "TY": [
-          "RPRT"
-        ]
-      },
-      "target": {
-        "type": [
-          "report"
         ]
       }
     }
@@ -2978,6 +2898,40 @@
     }
   },
   {
+    "source": [
+      "PB",
+      "A3"
+    ],
+    "target": "publisher",
+    "when": {
+      "source": {
+        "TY": [
+          "RPRT"
+        ]
+      },
+      "target": {
+        "type": [
+          "report"
+        ]
+      }
+    }
+  },
+  {
+    "source": [
+      "PB",
+      "C5"
+    ],
+    "target": "publisher",
+    "when": {
+      "source": {
+        "TY": [
+          "STAT"
+        ]
+      },
+      "target": false
+    }
+  },
+  {
     "source": "PY",
     "target": "issued",
     "when": {
@@ -3018,21 +2972,6 @@
           "paper-conference"
         ]
       }
-    }
-  },
-  {
-    "source": [
-      "PY",
-      "SE"
-    ],
-    "target": "issued",
-    "when": {
-      "source": {
-        "TY": [
-          "EJOUR"
-        ]
-      },
-      "target": false
     }
   },
   {
@@ -3274,6 +3213,21 @@
   {
     "source": [
       "SE",
+      "PY"
+    ],
+    "target": "issued",
+    "when": {
+      "source": {
+        "TY": [
+          "EJOUR"
+        ]
+      },
+      "target": false
+    }
+  },
+  {
+    "source": [
+      "SE",
       "T2"
     ],
     "target": "locator",
@@ -3410,6 +3364,45 @@
         ]
       },
       "target": false
+    }
+  },
+  {
+    "source": [
+      "SN",
+      "M1"
+    ],
+    "target": "number",
+    "when": {
+      "source": {
+        "TY": [
+          "RPRT"
+        ]
+      },
+      "target": {
+        "type": [
+          "report"
+        ]
+      }
+    }
+  },
+  {
+    "source": [
+      "SN",
+      "SE",
+      "M1"
+    ],
+    "target": "number",
+    "when": {
+      "source": {
+        "TY": [
+          "PAT"
+        ]
+      },
+      "target": {
+        "type": [
+          "patent"
+        ]
+      }
     }
   },
   {
@@ -4101,6 +4094,25 @@
           "thesis",
           "treaty",
           "webpage"
+        ]
+      }
+    }
+  },
+  {
+    "source": [
+      "UR",
+      "L4"
+    ],
+    "target": "URL",
+    "when": {
+      "source": {
+        "TY": [
+          "HEAR"
+        ]
+      },
+      "target": {
+        "type": [
+          "hearing"
         ]
       }
     }
