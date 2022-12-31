@@ -35,8 +35,5 @@
     "@citation-js/name": "^0.4.2",
     "fetch-ponyfill": "^7.1.0",
     "sync-fetch": "^0.4.1"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.12.1"
   }
 }

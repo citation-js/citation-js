@@ -1,1 +1,1 @@
-{"extends":"../../babel.config.js","plugins":["@babel/plugin-proposal-class-properties"]}
+{"extends":"../../babel.config.js"}
