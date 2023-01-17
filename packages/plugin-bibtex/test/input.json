@@ -584,6 +584,31 @@
           "date-parts": [[ 2020, 2 ]]
         }
       }]
+    ],
+    "with uppercase and": [
+      null,
+      [{
+        "type": "paper-conference",
+        "id": "10.1145/1499402.1499562",
+        "citation-key": "10.1145/1499402.1499562",
+        "author": [
+          { "family": "Lesk", "given": "M. E." },
+          { "family": "Kernighan", "given": "B. W." }
+        ],
+        "title": "Computer Typesetting of Technical Journals on UNIX",
+        "issued": {
+          "date-parts": [[ 1977 ]]
+        },
+        "ISBN": "9781450379144",
+        "publisher": "Association for Computing Machinery",
+        "URL": "https://doi.org/10.1145/1499402.1499562",
+        "DOI": "10.1145/1499402.1499562",
+        "container-title": "Proceedings of the June 13-16, 1977, National Computer Conference",
+        "page": "879-888",
+        "number-of-pages": "10",
+        "publisher-place": "Dallas, Texas",
+        "collection-title": "AFIPS '77"
+      }]
     ]
   },
   "@biblatex/entries+list": {

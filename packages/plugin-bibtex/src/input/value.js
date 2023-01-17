@@ -32,7 +32,7 @@ const lexer = moo.states({
     text: /[^{$}\s~\\]+/
   },
   namesLiteral: {
-    and: /\s+and\s+/,
+    and: /\s+[aA][nN][dD]\s+/,
     comma: ',',
     hyphen: '-',
     equals: '=',
