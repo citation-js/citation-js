@@ -272,6 +272,28 @@ module.exports = {
     'one url': [
       'https://doi.org/10.1021/ja01577a030',
       [ja01577a030]
+    ],
+    'one dx url': [
+      'https://dx.doi.org/10.1021/ja01577a030',
+      [ja01577a030]
+    ],
+    'one http url': [
+      'http://doi.org/10.1021/ja01577a030',
+      [ja01577a030]
+    ],
+    'one http dx url': [
+      'http://dx.doi.org/10.1021/ja01577a030',
+      [ja01577a030]
+    ],
+  },
+  '@doi/short-url': {
+    'one scheme-less url': [
+      'doi.org/10.1021/ja01577a030',
+      [ja01577a030]
+    ],
+    'one scheme-less dx url': [
+      'dx.doi.org/10.1021/ja01577a030',
+      [ja01577a030]
     ]
   },
   '@doi/list+text': {

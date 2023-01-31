@@ -81,6 +81,25 @@ const formats = {
   },
 
   /**
+   * DOI short URL (without scheme).
+   *
+   * @type module:@citation-js/core.plugins.input~parsers
+   * @memberof module:@citation-js/plugin-doi.formats
+   * @property {module:@citation-js/core.plugins.input~dataParser} parse
+   * @property {module:@citation-js/core.plugins.input~asyncDataParser} parseAsync
+   * @property {module:@citation-js/core.plugins.input~typeParser} parseType
+   */
+  '@doi/short-url': {
+    parse: function (url) {
+      return url.replace(/^(\s*)/, '$1https://')
+    },
+    parseType: {
+      dataType: 'String',
+      predicate: /^\s*((?:dx\.)?doi\.org\/(10.\d{4,9}\/[-._;()/:A-Z0-9]+))\s*$/i
+    }
+  },
+
+  /**
    * Actual DOI. Uses the pattern presented by [Crossef](https://www.crossref.org/blog/dois-and-matching-regular-expressions/).
    *
    * @type module:@citation-js/core.plugins.input~parsers
