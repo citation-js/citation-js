@@ -284,7 +284,7 @@ module.exports = {
     'one http dx url': [
       'http://dx.doi.org/10.1021/ja01577a030',
       [ja01577a030]
-    ],
+    ]
   },
   '@doi/short-url': {
     'one scheme-less url': [
