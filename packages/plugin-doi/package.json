@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-doi",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Plugin for DOI input for Citation.js",
   "keywords": [
     "citation-js",
