@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.6.5...v) (2023-01-31)
+# [](https://github.com/citation-js/citation-js/compare/v0.6.6...v) (2023-02-14)
+
+
+### Bug Fixes
+
+* **plugin-csl:** fix citationsPre, citationsPost ([bfb9db8](https://github.com/citation-js/citation-js/commit/bfb9db8c435de01072cf1a93193320e840f640e4)), closes [#141](https://github.com/citation-js/citation-js/issues/141) [#190](https://github.com/citation-js/citation-js/issues/190)
+
+
+
+## [0.6.6](https://github.com/citation-js/citation-js/compare/v0.6.5...v0.6.6) (2023-01-31)
 
 
 ### Bug Fixes
