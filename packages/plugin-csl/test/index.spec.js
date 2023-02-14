@@ -95,6 +95,24 @@ describe('output', function () {
         { id: '5', title: 'bar', author: [{ family: 'a' }] }
       ], { template })
     })
+
+    it('clears citation cache', function () {
+      const a = plugins.output.format('citation', [
+        { id: '6', title: 'foo', author: [{ family: 'a' }], issued: { 'date-parts': [[2000]] } },
+        { id: '7', title: 'foo', author: [{ family: 'a' }], issued: { 'date-parts': [[2000]] } }
+      ])
+      const b = plugins.output.format('bibliography', [
+        { id: '6', title: 'foo', author: [{ family: 'a' }], issued: { 'date-parts': [[2000]] } },
+        { id: '7', title: 'foo', author: [{ family: 'a' }], issued: { 'date-parts': [[2000]] } }
+      ])
+      const c = plugins.output.format('bibliography', [
+        { id: '6', title: 'foo', author: [{ family: 'a' }], issued: { 'date-parts': [[2000]] } }
+      ])
+
+      assert.strictEqual(a, '(a, 2000a, 2000b)')
+      assert.strictEqual(b, 'a. (2000a). foo.\na. (2000b). foo.\n')
+      assert.strictEqual(c, 'a. (2000). foo.\n')
+    })
   })
 
   describe('errors', function () {

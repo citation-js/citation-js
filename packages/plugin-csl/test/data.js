@@ -148,6 +148,7 @@ module.exports = {
     'no entry option': [citationData, '(A, 2011; d & h, 2012; f, 2013)'],
     'with locator': [citationData, '(A, 2011, p. 123)', { entry: { id: '1', locator: 123, label: 'page' } }],
     'with suffix': [citationData, '(A, 2011 [!])', { entry: { id: '1', suffix: '[!]' } }],
-    'style-default locale': [citationData, '(« a », 2011; d et h, 2012; f, 2013)', { template: 'harvard1:fr-FR' }]
+    'style-default locale': [citationData, '(« a », 2011; d et h, 2012; f, 2013)', { template: 'harvard1:fr-FR' }],
+    'with context': [citationData, '(3)', { template: 'vancouver', citationsPre: ['1', '2'], entry: '3' }]
   }
 }
