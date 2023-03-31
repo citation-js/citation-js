@@ -18,7 +18,11 @@
     "man": "man"
   },
   "homepage": "https://citation.js.org/",
-  "repository": "https://github.com/citation-js/citation-js/tree/master/packages/cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/citation-js/citation-js.git",
+    "directory": "packages/cli"
+  },
   "bugs": {
     "url": "https://github.com/citation-js/citation-js/issues"
   },

@@ -15,7 +15,11 @@
     "test": "__tests__"
   },
   "homepage": "https://citation.js.org/",
-  "repository": "https://github.com/citation-js/citation-js/tree/master/packages/plugin-ris",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/citation-js/citation-js.git",
+    "directory": "packages/plugin-ris"
+  },
   "bugs": {
     "url": "https://github.com/citation-js/citation-js/issues"
   },
