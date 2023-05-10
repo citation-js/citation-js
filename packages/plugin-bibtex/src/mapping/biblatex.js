@@ -14,7 +14,7 @@ const nonSpec = [
     target: 'accessed',
     when: {
       source: false,
-      target: { note: false }
+      target: { note: false, addendum: false }
     },
     convert: {
       toSource (accessed) {
@@ -441,6 +441,11 @@ export default new util.Translator([
   {
     source: 'note',
     target: 'note'
+  },
+  {
+    source: 'addendum',
+    target: 'note',
+    when: { source: { note: false }, target: false }
   },
   {
     source: 'eid',
