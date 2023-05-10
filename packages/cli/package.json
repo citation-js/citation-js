@@ -43,6 +43,6 @@
     "@citation-js/plugin-doi": "^0.6.6",
     "@citation-js/plugin-ris": "^0.6.5",
     "@citation-js/plugin-wikidata": "^0.6.5",
-    "commander": "^9.2.0"
+    "commander": "^10.0.1"
   }
 }
