@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-bibtex",
-  "version": "0.6.6",
+  "version": "0.6.8",
   "description": "Plugin for BibTeX formats for Citation.js",
   "keywords": [
     "citation-js",
@@ -41,7 +41,7 @@
     "moo": "^0.5.1"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.6.5"
+    "@citation-js/core": "^0.6.8"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.6.0"
