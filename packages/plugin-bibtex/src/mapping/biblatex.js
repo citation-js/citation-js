@@ -434,6 +434,11 @@ export default new util.Translator([
     convert: Converters.PICK
   },
   {
+    source: 'langid',
+    target: 'language',
+    when: { source: { language: false }, target: false }
+  },
+  {
     source: 'note',
     target: 'note'
   },

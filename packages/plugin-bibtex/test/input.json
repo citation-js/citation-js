@@ -609,6 +609,28 @@
         "publisher-place": "Dallas, Texas",
         "collection-title": "AFIPS '77"
       }]
+    ],
+    "with langid": [
+      null,
+      [{
+        "type": "book",
+        "id": "Valle2023",
+        "citation-key": "Valle2023",
+        "author": [
+          { "family": "Valle", "given": "Mario" },
+          { "family": "Galgano", "given": "Antonella" }
+        ],
+        "title": "La libertà",
+        "issued": {
+          "date-parts": [[ 2023, 3 ]]
+        },
+        "ISSN": "2532-64314",
+        "publisher": "Corriere della Sera",
+        "keyword": "montessori",
+        "volume": "19",
+        "collection-title": "Percorsi Montessori",
+        "language": "italian"
+      }]
     ]
   },
   "@biblatex/entries+list": {
