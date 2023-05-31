@@ -27,7 +27,7 @@ Read the paper [*Citation.js: a format-independent, modular bibliography tool fo
 
 ## Core
 
-[Core functionality](https://github.com/citation-js/citation-js/tree/master/packages/core):
+[Core functionality](https://github.com/citation-js/citation-js/tree/main/packages/core):
 
   * `Cite`: reference manager
   * `plugins`: plugins manager
@@ -38,12 +38,12 @@ Read the paper [*Citation.js: a format-independent, modular bibliography tool fo
 
 | Plugin | Description |
 |---|---|
-| [`plugin-bibjson`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-bibjson) | Plugin for BibJSON formats for Citation.js |
-| [`plugin-bibtex`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-bibtex) | Plugin for BibTeX formats for Citation.js |
-| [`plugin-csl`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-csl) | Plugin for CSL output for Citation.js |
-| [`plugin-doi`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-doi) | Plugin for DOI input for Citation.js |
-| [`plugin-ris`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-ris) | Plugin for RIS formats for Citation.js |
-| [`plugin-wikidata`](https://github.com/citation-js/citation-js/tree/master/packages/plugin-wikidata) | Plugin for Wikidata for Citation.js |
+| [`plugin-bibjson`](https://github.com/citation-js/citation-js/tree/main/packages/plugin-bibjson) | Plugin for BibJSON formats for Citation.js |
+| [`plugin-bibtex`](https://github.com/citation-js/citation-js/tree/main/packages/plugin-bibtex) | Plugin for BibTeX formats for Citation.js |
+| [`plugin-csl`](https://github.com/citation-js/citation-js/tree/main/packages/plugin-csl) | Plugin for CSL output for Citation.js |
+| [`plugin-doi`](https://github.com/citation-js/citation-js/tree/main/packages/plugin-doi) | Plugin for DOI input for Citation.js |
+| [`plugin-ris`](https://github.com/citation-js/citation-js/tree/main/packages/plugin-ris) | Plugin for RIS formats for Citation.js |
+| [`plugin-wikidata`](https://github.com/citation-js/citation-js/tree/main/packages/plugin-wikidata) | Plugin for Wikidata for Citation.js |
 
 ### Plugins in other repositories
 
@@ -60,7 +60,7 @@ Read the paper [*Citation.js: a format-independent, modular bibliography tool fo
 
 ## CLI
 
-[CLI](https://github.com/citation-js/citation-js/tree/master/packages/cli):
+[CLI](https://github.com/citation-js/citation-js/tree/main/packages/cli):
 
     Usage: citation-js [options]
 
