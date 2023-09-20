@@ -1,4 +1,4 @@
-import { validateOutputOptions as validate } from './static.js'
+import { validateOutputOptions as validate } from './validate.js'
 import { format as formatData } from '../plugins/output.js'
 import { clean as parseCsl } from '../plugins/input/csl.js'
 
