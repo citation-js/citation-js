@@ -1,4 +1,18 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.6.7...v) (2023-05-10)
+# [](https://github.com/citation-js/citation-js/compare/v0.6.8...v) (2023-09-20)
+
+
+### Bug Fixes
+
+* **plugin-wikidata:** do not use 'subject named as' for authors ([b6efe22](https://github.com/citation-js/citation-js/commit/b6efe229da65cc22c4ae2b98442485b42496c72b))
+
+
+### Features
+
+* **plugin-wikidata:** use Q5 to recognize literal names ([541d54c](https://github.com/citation-js/citation-js/commit/541d54cbc07dbb58d872594fc7c3890337000fc2)), closes [#199](https://github.com/citation-js/citation-js/issues/199)
+
+
+
+## [0.6.8](https://github.com/citation-js/citation-js/compare/v0.6.7...v0.6.8) (2023-05-10)
 
 
 ### Bug Fixes
