@@ -5,15 +5,13 @@ import config from '../config.js'
 import * as constants from './constants.js'
 import { orderNamePieces, formatNameParts, getStringCase } from './name.js'
 
-const commandKeywords = {
-  '\\begin': 'commandBegin',
-  '\\end': 'commandEnd'
-}
-
 const text = {
   command: {
     match: /\\(?:[a-zA-Z]+|.) */,
-    type: command => commandKeywords[command],
+    type: moo.keywords({
+      commandBegin: '\\begin',
+      commandEnd: '\\end'
+    }),
     value: s => s.slice(1).trim()
   },
   lbrace: { match: '{', push: 'bracedLiteral' },
