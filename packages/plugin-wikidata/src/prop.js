@@ -13,16 +13,31 @@ import config from './config.json'
 import types from './types.json'
 
 /**
- * Some name fields have, in addition to a Wikidata ID, a qualifier stating
- * how the name is actually represented. That's what we want to cite.
- *
  * @access private
  * @memberof module:@citation-js/plugin-wikidata.parsers.prop
- * @param {Object} qualifiers
- * @return {Array<String>} names
+ * @param {Object} claim - author claim
+ * @return {String|null} name
  */
-function getStatedAs (qualifiers) {
-  return qualifiers.P1932 || []
+function getNameString ({ value, qualifiers }) {
+  // Some name fields have, in addition to a Wikidata ID, a qualifier stating
+  // how the name is actually represented. That's what we want to cite. For
+  // example, Sylvie Deleurance (Q122350848) has published as Sylvie Glaçon,
+  // Sylvie Deleurance, and Sylvie Deleurance-Glaçon.
+  if (Array.isArray(qualifiers.P1932) && typeof qualifiers.P1932[0] === 'string') {
+    return qualifiers.P1932[0]
+  }
+
+  // P50 statements point to an entity
+  if (typeof value === 'object' && value !== null) {
+    return getLabel(value)
+  }
+
+  // P2093 statements point to a string
+  if (typeof value === 'string') {
+    return value
+  }
+
+  return null
 }
 
 /**
@@ -33,16 +48,23 @@ function getStatedAs (qualifiers) {
  * @param {Object} claim - name claim
  * @return {Object} Name object
  */
-function parseName ({ value, qualifiers }) {
-  let [name] = getStatedAs(qualifiers)
-  if (!name) {
-    name = typeof value === 'string' ? value : getLabel(value)
+function parseName (claim) {
+  const nameString = getNameString(claim)
+
+  if (nameString === null) {
+    return { literal: null }
   }
-  name = name ? parseNameString(name) : { literal: name }
+
+  const { value, qualifiers } = claim
+  const isPerson = typeof value !== 'object' || (value && value.claims.P31 && value.claims.P31.some(claim => claim.value === 'Q5'))
+  const name = isPerson ? parseNameString(nameString) : { literal: nameString }
+
+  // Add custom ordinal data
   const ordinal = qualifiers.P1545 ? parseInt(qualifiers.P1545[0]) : null
   if (ordinal !== null) {
     name._ordinal = ordinal
   }
+
   return name
 }
 

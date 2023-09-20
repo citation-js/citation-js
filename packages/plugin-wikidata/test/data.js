@@ -553,7 +553,7 @@ module.exports = {
             }
           ]
         },
-        author: [{ family: 'Health', 'non-dropping-particle': 'of', given: 'National Institutes' }],
+        author: [{ literal: 'National Institutes of Health' }],
         issued: { 'date-parts': [[2021, 7, 6]] },
         source: 'Wikidata',
         type: 'software',
