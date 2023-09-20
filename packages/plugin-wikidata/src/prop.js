@@ -22,10 +22,7 @@ import types from './types.json'
  * @return {Array<String>} names
  */
 function getStatedAs (qualifiers) {
-  return [].concat(...[
-    qualifiers.P1932,
-    qualifiers.P1810
-  ].filter(Boolean))
+  return qualifiers.P1932 || []
 }
 
 /**
