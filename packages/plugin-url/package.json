@@ -1,0 +1,41 @@
+{
+  "name": "@citation-js/plugin-url",
+  "version": "0.6.9",
+  "description": "Citation.js plugin for automatically fetching URLs.",
+  "keywords": [
+    "citation-js"
+  ],
+  "author": "Lars Willighagen <lars.willighagen@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib-mjs/index.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "homepage": "https://citation.js.org/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citation-js/citation-js.git",
+    "directory": "packages/plugin-url"
+  },
+  "bugs": {
+    "url": "https://github.com/citation-js/citation-js/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "lib",
+    "lib-mjs"
+  ],
+  "scripts": {
+    "test": "mocha -c -R dot test/*.spec.js"
+  },
+  "devDependencies": {
+    "@citation-js/core": "^0.6.9"
+  },
+  "peerDependencies": {
+    "@citation-js/core": "^0.6.0"
+  }
+}

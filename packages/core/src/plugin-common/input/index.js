@@ -5,13 +5,12 @@
  */
 
 import * as empty from './empty.js'
-import * as url from './url.js'
 import * as json from './json.js'
 import * as jquery from './jquery.js'
 import * as html from './html.js'
 
 export const ref = '@else'
-export const parsers = { empty, url, json, jquery, html }
+export const parsers = { empty, json, jquery, html }
 export const formats = {
   '@empty/text': {
     parse: empty.parse,
@@ -42,8 +41,6 @@ export const formats = {
     }
   },
   '@else/url': {
-    parse: url.parse,
-    parseAsync: url.parseAsync,
     parseType: {
       dataType: 'String',
       predicate: /^https?:\/\/(([\w-]+\.)*[\w-]+)(:\d+)?(\/[^?/]*)*(\?[^#]*)?(#.*)?$/i

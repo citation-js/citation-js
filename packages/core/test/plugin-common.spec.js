@@ -99,6 +99,26 @@ describe('input', function () {
       }
     })
   }
+
+  describe('@else/url', function () {
+    it('is registered', function () {
+      assert(plugins.input.has('@else/url'))
+    })
+
+    it('fails to load data', function () {
+      assert.throws(
+        () => plugins.input.chain('https://example.org/'),
+        /^TypeError: No synchronous parser found for @else\/url$/
+      )
+    })
+
+    it('fails to load data', function () {
+      assert.rejects(
+        () => plugins.input.chainAsync('https://example.org/'),
+        /^TypeError: No parser found for @else\/url$/
+      )
+    })
+  })
 })
 
 const outputData = {
