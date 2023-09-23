@@ -1,4 +1,15 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.6.8...v) (2023-09-20)
+# [](https://github.com/citation-js/citation-js/compare/v0.6.9...v) (2023-09-23)
+
+
+### Bug Fixes
+
+* **plugin-bibjson:** expand recognition of bibjson ([c80b9b9](https://github.com/citation-js/citation-js/commit/c80b9b902e8570d7aa94829bb95f7f7d4d859dc9))
+* **plugin-bibjson:** make parsing more resilient ([4f615f4](https://github.com/citation-js/citation-js/commit/4f615f451189a2093c6c7e1c50e57242709ed5eb))
+* **plugin-csl:** fix citation data object in `entry` ([6527db6](https://github.com/citation-js/citation-js/commit/6527db61290927d264533ceb5b34ad7291d98562))
+
+
+
+## [0.6.9](https://github.com/citation-js/citation-js/compare/v0.6.8...v0.6.9) (2023-09-20)
 
 
 ### Bug Fixes
