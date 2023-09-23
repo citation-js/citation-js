@@ -97,18 +97,20 @@ function generalProps (input) {
 
   if (input.publisher) { output.publisher = input.publisher.name || input.publisher }
 
-  if (input.date && Object.keys(input.date).length > 0) {
-    const dates = input.date
-    if (dates.submitted) { output.submitted = parseDate(dates.submitted) }
-    if (dates.published) { output.issued = parseDate(dates.published) }
+  if (input.date && input.date.published) {
+    output.issued = parseDate(input.date.published)
   } else if (input.year) {
     output.issued = { 'date-parts': [[+input.year]] }
   }
+  if (input.date && input.date.submitted) {
+    output.submitted = parseDate(input.date.submitted)
+  }
+
   if (input.journal) {
     const journal = input.journal
     if (journal.name) { output['container-title'] = journal.name }
-    if (journal.volume) { output.volume = +journal.volume }
-    if (journal.issue) { output.issue = +journal.issue }
+    if (journal.volume) { output.volume = journal.volume }
+    if (journal.issue) { output.issue = journal.issue }
 
     Object.assign(output, idProps(journal, journalIdentifiers))
 
