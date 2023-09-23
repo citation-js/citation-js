@@ -5,26 +5,27 @@
         "type": "article",
         "title": "On a family of symmetric Bernoulli convolutions",
         "author": [
-          {
-            "name": "Erdös, Paul"
-          }
+          { "name": "Erdös, Paul" }
         ],
         "journal": {
           "name": "American Journal of Mathematics",
           "identifier": [
-            {
-              "id": "0002-9327",
-              "type": "issn"
-            }
+            { "id": "AmJM" },
+            { "id": "45530", "type": "crossref" },
+            { "id": "0002-9327", "type": "issn" }
           ],
           "volume": "61",
           "pages": "974--976"
         },
         "year": "1939",
+        "date": {
+          "submitted": "1939-05-12T00:00:00+00:00"
+        },
         "owner": "me",
         "id": "ID_1",
         "collection": "my_collection",
         "url": "http://example.com/me/my_collection/ID_1",
+        "publisher": "Johns Hopkins University Press",
         "link":[
           {
             "url": "http://okfn.org",
@@ -41,9 +42,76 @@
           ],
           "container-title": "American Journal of Mathematics",
           "ISSN": "0002-9327",
-          "volume": 61,
+          "volume": "61",
           "page": "974-976",
           "issued": {"date-parts": [[1939]]},
+          "submitted": {"date-parts": [[1939, 5, 12]]},
+          "publisher": "Johns Hopkins University Press",
+          "URL": "http://okfn.org"
+        }
+      ]
+    ],
+    [
+      {
+        "cid": "internal-002",
+        "type": "article",
+        "title": "On a family of symmetric Bernoulli convolutions",
+        "author": [
+          { "lastname": "Erdös", "firstname": "Paul" }
+        ],
+        "reviewer": [
+          { "lastName": "Einstein", "firstName": "Albert" }
+        ],
+        "year": "1939",
+        "owner": "me",
+        "id": "ID_1",
+        "collection": "my_collection",
+        "url": "http://example.com/me/my_collection/ID_1"
+      },
+      [
+        {
+          "id": "internal-002",
+          "type": "article",
+          "title": "On a family of symmetric Bernoulli convolutions",
+          "reviewed-author": [
+            {"given": "Paul", "family": "Erdös"}
+          ],
+          "author": [
+            {"given": "Albert", "family": "Einstein"}
+          ],
+          "issued": {"date-parts": [[1939]]}
+        }
+      ]
+    ],
+    [
+      {
+        "type": "article",
+        "title": "On a family of symmetric Bernoulli convolutions",
+        "editor": [
+          { "lastname": "Erdös", "firstname": "Paul" }
+        ],
+        "reviewer": [
+          { "lastName": "Einstein", "firstName": "Albert" }
+        ],
+        "journal": {},
+        "owner": "me",
+        "id": "ID_1",
+        "collection": "my_collection",
+        "url": "http://example.com/me/my_collection/ID_1",
+        "link":[
+          { "url": "http://okfn.org", "anchor": "Open Knowledge Foundation" }
+        ]
+      },
+      [
+        {
+          "type": "article",
+          "title": "On a family of symmetric Bernoulli convolutions",
+          "editor": [
+            {"given": "Paul", "family": "Erdös"}
+          ],
+          "author": [
+            {"given": "Albert", "family": "Einstein"}
+          ],
           "URL": "http://okfn.org"
         }
       ]
@@ -103,8 +171,8 @@
           ],
           "publisher": "BioMed Central",
           "container-title": "Journal of Ethnobiology and Ethnomedicine",
-          "volume": 2,
-          "issue": 1,
+          "volume": "2",
+          "issue": "1",
           "page-first": "29",
           "issued": {
             "date-parts": [[
@@ -117,6 +185,73 @@
           "DOI": "10.1186/1746-4269-2-29",
           "ISSN": "1746-4269",
           "URL": "https://ethnobiomed.biomedcentral.com/articles/10.1186/1746-4269-2-29"
+        }
+      ]
+    ]
+  ],
+  "@bibjson/collection+object": [
+    [
+      {
+        "metadata": {
+            "collection": "my_collection",
+            "label": "My collection of records",
+            "description": "a great collection",
+            "id": "long_complex_uuid",
+            "owner": "test",
+            "created": "2011-10-31T16:05:23.055882",
+            "modified": "2011-10-31T16:05:23.055882",
+            "source": "http://webaddress.com/collection.bib",
+            "records": 1594,
+            "from": 0,
+            "size": 2
+        },
+        "records": [
+          {
+            "type": "article",
+            "title": "On a family of symmetric Bernoulli convolutions",
+            "author": [
+              {
+                "name": "Erdös, Paul"
+              }
+            ],
+            "journal": {
+              "name": "American Journal of Mathematics",
+              "identifier": [
+                {
+                  "id": "0002-9327",
+                  "type": "issn"
+                }
+              ],
+              "volume": "61",
+              "pages": "974--976"
+            },
+            "year": "1939",
+            "owner": "me",
+            "id": "ID_1",
+            "collection": "my_collection",
+            "url": "http://example.com/me/my_collection/ID_1",
+            "link": [
+              {
+                "url": "http://okfn.org",
+                "anchor": "Open Knowledge Foundation"
+              }
+            ]
+          }
+        ]
+      },
+      [
+        {
+          "type": "article",
+          "title": "On a family of symmetric Bernoulli convolutions",
+          "author": [
+            {"given": "Paul", "family": "Erdös"}
+          ],
+          "container-title": "American Journal of Mathematics",
+          "ISSN": "0002-9327",
+          "volume": "61",
+          "page": "974-976",
+          "issued": {"date-parts": [[1939]]},
+          "URL": "http://okfn.org"
         }
       ]
     ]

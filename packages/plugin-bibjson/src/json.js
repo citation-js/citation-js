@@ -78,10 +78,10 @@ function quickscrapeSpecificProps () {
 
 function generalProps (input) {
   const output = {
-    type: typeMap[input.type] || 'document'
+    type: typeMap[input.type] || 'document',
+    title: input.title
   }
 
-  if (input.title) { output.title = input.title }
   if (input.author) { output.author = input.author.map(nameProps).filter(Boolean) }
   if (input.editor) { output.editor = input.editor.map(nameProps).filter(Boolean) }
   if (input.reviewer) {
@@ -89,6 +89,7 @@ function generalProps (input) {
     output.author = input.reviewer.map(nameProps).filter(Boolean)
   }
 
+  /* istanbul ignore next: no examples found */
   if (Array.isArray(input.keywords)) {
     output.keyword = input.keywords.join()
   } else if (input.keywords) {
@@ -115,6 +116,7 @@ function generalProps (input) {
     Object.assign(output, idProps(journal, journalIdentifiers))
 
     if (journal.firstpage) { output['page-first'] = journal.firstpage }
+    /* istanbul ignore else: no examples found */
     if (journal.pages) {
       output.page = journal.pages.replace('--', '-')
     } else if (journal.firstpage && journal.lastpage) {
