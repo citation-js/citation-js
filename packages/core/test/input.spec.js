@@ -130,7 +130,7 @@ describe('input', function () {
           await chain('foo', { forceType: '@foo' })
           expect().fail('chainAsync should fail as `undefined` is invalid JSON')
         } catch (e) {
-          expect(e.message).to.match(/Unexpected token u in JSON at position 0/)
+          expect(e.message).to.match(/Unexpected token u in JSON at position 0|"undefined" is not valid JSON/)
         }
         plugins.input.remove('@foo')
       })
