@@ -20,6 +20,7 @@ const getWrapperProxy = function (original) {
 for (const format in CSL.Output.Formats) {
   const original = CSL.Output.Formats[format]['@bibliography/entry']
 
+  /* istanbul ignore if: currently unreachable */
   if (!original || original[proxied]) { continue }
 
   CSL.Output.Formats[format]['@bibliography/entry'] = getWrapperProxy(original)

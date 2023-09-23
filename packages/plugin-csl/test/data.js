@@ -107,6 +107,11 @@ module.exports = {
       'aHall, H. K. (1957). Correlation of the Base Strengths of Amines 1. Journal of the American Chemical Society, 79(20), 5441–5444. https://doi.org/10.1021/ja01577a030b',
       { prepend: 'a', append: 'b' }
     ],
+    'static prepend only': [
+      bibliographyData,
+      'aHall, H. K. (1957). Correlation of the Base Strengths of Amines 1. Journal of the American Chemical Society, 79(20), 5441–5444. https://doi.org/10.1021/ja01577a030',
+      { prepend: 'a', append: null }
+    ],
     'dynamic pre/append': [
       bibliographyData,
       '20Hall, H. K. (1957). Correlation of the Base Strengths of Amines 1. Journal of the American Chemical Society, 79(20), 5441–5444. https://doi.org/10.1021/ja01577a03079',
@@ -149,6 +154,7 @@ module.exports = {
     'with locator': [citationData, '(A, 2011, p. 123)', { entry: { id: '1', locator: 123, label: 'page' } }],
     'with suffix': [citationData, '(A, 2011 [!])', { entry: { id: '1', suffix: '[!]' } }],
     'style-default locale': [citationData, '(« a », 2011; d et h, 2012; f, 2013)', { template: 'harvard1:fr-FR' }],
-    'with context': [citationData, '(3)', { template: 'vancouver', citationsPre: ['1', '2'], entry: '3' }]
+    'with context': [citationData, '(3)', { template: 'vancouver', citationsPre: ['1', '2'], entry: '3' }],
+    'with citationItems': [citationData, '(A, 2011 [!])', { entry: { citationItems: [{ id: '1', suffix: '[!]' }], properties: { noteIndex: 0 } } }]
   }
 }
