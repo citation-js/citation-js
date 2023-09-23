@@ -21,10 +21,13 @@ describe('input', function () {
           })
           it('parses data', function () {
             const method = link ? plugins.input.chainLink : plugins.input.chain
-            assert.deepStrictEqual(
-              method(input, Object.assign({ generateGraph: false }, opts || {})),
-              expected
-            )
+            const output = method(input, Object.assign({ generateGraph: false }, opts || {}))
+            assert.deepStrictEqual(output, expected)
+          })
+          it('parses data async', async function () {
+            const method = link ? plugins.input.chainLinkAsync : plugins.input.chainAsync
+            const output = await method(input, Object.assign({ generateGraph: false }, opts || {}))
+            assert.deepStrictEqual(output, expected)
           })
         })
       }

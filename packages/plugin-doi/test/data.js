@@ -256,6 +256,24 @@ const preprint = {
   subtype: 'preprint'
 }
 
+const zenodo8242099 = {
+  type: 'article',
+  id: 'https://doi.org/10.5281/zenodo.8242099',
+  language: 'en',
+  author: [
+    { family: 'Willighagen', given: 'Lars' },
+    { family: 'Puchkov', given: 'Vasily Georgievich' }
+  ],
+  issued: { 'date-parts': [[2023, 8, 12]] },
+  abstract: 'Translation of Puchkov, VG (1961). Shchytnyky. Fauna of Ukraine 21(1)',
+  DOI: '10.5281/ZENODO.8242099',
+  publisher: 'Zenodo',
+  title: 'Shield bugs (nymphs)',
+  URL: 'https://zenodo.org/record/8242099',
+  copyright: 'Open Access',
+  version: 'v0.1.1'
+}
+
 module.exports = {
   '@doi/id': {
     'one id': [
@@ -284,6 +302,10 @@ module.exports = {
     'one http dx url': [
       'http://dx.doi.org/10.1021/ja01577a030',
       [ja01577a030]
+    ],
+    'entry with normal type': [
+      'https://doi.org/10.5281/zenodo.8242099',
+      [zenodo8242099]
     ]
   },
   '@doi/short-url': {
@@ -305,6 +327,13 @@ module.exports = {
     newlines: [
       '10.1021/ja01577a030\n10.1021/ci025584y',
       ['https://doi.org/10.1021/ja01577a030', 'https://doi.org/10.1021/ci025584y'],
+      { link: true }
+    ]
+  },
+  '@doi/list+object': {
+    array: [
+      ['10.1021/ja01577a030', '10.1101/2021.08.15.21262067'],
+      ['https://doi.org/10.1021/ja01577a030', 'https://doi.org/10.1101/2021.08.15.21262067'],
       { link: true }
     ]
   }
