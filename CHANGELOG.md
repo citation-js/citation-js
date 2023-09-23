@@ -1,4 +1,30 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.6.8...v) (2023-09-20)
+# [](https://github.com/citation-js/citation-js/compare/v0.6.9...v) (2023-09-23)
+
+
+### Bug Fixes
+
+* **core:** do not automatically fetch generic URLs ([0ee548d](https://github.com/citation-js/citation-js/commit/0ee548d1f1dd1ae653eea7bd0f45e04cc8ca010b))
+* **plugin-bibjson:** expand recognition of bibjson ([c80b9b9](https://github.com/citation-js/citation-js/commit/c80b9b902e8570d7aa94829bb95f7f7d4d859dc9))
+* **plugin-bibjson:** make parsing more resilient ([4f615f4](https://github.com/citation-js/citation-js/commit/4f615f451189a2093c6c7e1c50e57242709ed5eb))
+* **plugin-csl:** fix citation data object in `entry` ([6527db6](https://github.com/citation-js/citation-js/commit/6527db61290927d264533ceb5b34ad7291d98562))
+
+
+### BREAKING CHANGES
+
+* Use Node.js 16 or above
+* **core:** Do not automatically fetch URLs, unless configured to do so. To continue
+  to automatically fetch and evaluate the response of URLs, install and
+  load the new URL plugin like so:
+
+      require('@citation-js/plugin-url')
+
+  This is a breaking change. This change does not apply to specific URLs,
+  like the DOI, ISBN, Pubmed, and Wikidata plugins. The @else/url input
+  type can still be used to build input types off of.
+
+
+
+## [0.6.9](https://github.com/citation-js/citation-js/compare/v0.6.8...v0.6.9) (2023-09-20)
 
 
 ### Bug Fixes
@@ -147,7 +173,7 @@
 * use Node.js 14 or above
 * **core:** to get CSL 1.0.1 output, use the 'version' option
 * **plugin-csl:** output of updated styles and locales may differ
-* **core:** use the 'custom' object instead of fields starting with 
+* **core:** use the 'custom' object instead of fields starting with
 an underscore.
 
 
@@ -291,7 +317,7 @@ an underscore.
 
 ### BREAKING CHANGES
 
-* **core:** Constructing a Cite instance no longer automatically creates a snapshot. 
+* **core:** Constructing a Cite instance no longer automatically creates a snapshot.
 You can do this manually instead.
 * **plugin-bibtex:**   - The @bibtex input type prefix has been
     changed to @biblatex
@@ -551,7 +577,7 @@ https://github.com/citation-js/citation-js/issues
 
 ### BREAKING CHANGES
 
-* **plugin-bibtex:** strips unkown commands entirely instead of replacing 
+* **plugin-bibtex:** strips unkown commands entirely instead of replacing
 the braces with no-case tags
 
 

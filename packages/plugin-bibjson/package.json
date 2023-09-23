@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-bibjson",
-  "version": "0.6.9",
+  "version": "0.7.0",
   "description": "Plugin for BibJSON formats for Citation.js",
   "keywords": [
     "citation-js",
@@ -38,7 +38,7 @@
     "@citation-js/name": "^0.4.2"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.6.9"
+    "@citation-js/core": "^0.7.0"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.6.0"

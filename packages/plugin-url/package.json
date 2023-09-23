@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-url",
-  "version": "0.6.9",
+  "version": "0.7.0",
   "description": "Citation.js plugin for automatically fetching URLs.",
   "keywords": [
     "citation-js"
@@ -33,7 +33,7 @@
     "test": "mocha -c -R dot test/*.spec.js"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.6.9"
+    "@citation-js/core": "^0.7.0"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.6.0"
