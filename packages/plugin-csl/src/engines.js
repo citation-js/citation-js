@@ -73,6 +73,7 @@ const fetchEngine = function (style, locale, styleXml, retrieveItem, retrieveLoc
   if (engines[engineHash] instanceof CSL.Engine) {
     engine = engines[engineHash]
     engine.sys.retrieveItem = retrieveItem
+    engine.sys.wrapBibliographyEntry = undefined
     engine.updateItems([])
   } else {
     engine = engines[engineHash] = new CSL.Engine({ retrieveLocale, retrieveItem }, styleXml, locale, true)
