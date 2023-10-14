@@ -275,6 +275,9 @@ export default new util.Translator([
     convert: Converters.PICK,
     when: {
       source: {
+        howpublished (howPublished) {
+          return howPublished && !howPublished.startsWith('http')
+        },
         publisher: false,
         organization: false,
         institution: false,

@@ -631,6 +631,21 @@
         "collection-title": "Percorsi Montessori",
         "language": "italian"
       }]
+    ],
+    "with howpublished": [
+      null,
+      [{
+        "type": "document",
+        "id": "guidelinesdigedition",
+        "citation-key": "guidelinesdigedition",
+        "author": [
+          { "family": "Modern Language Association" }
+        ],
+        "title": "Guidelines for Editors of Scholarly Editions",
+        "issued": {"date-parts": [[2011]]},
+        "URL": "https://www.mla.org/Resources/Research/Surveys-Reports-and-Other-Documents/Publishing-and-Scholarship/Reports-from-the-MLA-Committee-on-Scholarly-Editions/Guidelines-for-Editors-of-Scholarly-Editions",
+        "note": "Accessed: 6th September 2021"
+      }]
     ]
   },
   "@biblatex/entries+list": {
