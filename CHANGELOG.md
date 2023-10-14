@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.0...v) (2023-09-23)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.1...v) (2023-10-14)
+
+
+### Bug Fixes
+
+* **plugin-bibtex:** do not map "howpublished" url to publisher ([d4e3296](https://github.com/citation-js/citation-js/commit/d4e32967cb14dc873ba66ac06ccd77d533d6a726))
+
+
+
+## [0.7.1](https://github.com/citation-js/citation-js/compare/v0.7.0...v0.7.1) (2023-09-23)
 
 
 ### Bug Fixes
