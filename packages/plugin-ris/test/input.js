@@ -257,6 +257,37 @@ KW  - Animals `,
           title: 'The boy, the mole, the fox and the horse',
           type: 'book'
         }
+      ],
+    ],
+    'https://github.com/citation-js/citation-js/issues/213': [
+      `TY  - JOUR
+AU  - Greco, Angela
+PY  - 2021
+ID  - cdlj-2021-2
+IS  - 2
+J2  - CDLJ
+SN  - 1540-8779
+T2  - Cuneiform Digital Library Journal
+TI  - An Archive of Pasture Plots from Ur-III Ĝirsu
+UR  - https://cdli.mpiwg-berlin.mpg.de/articles/cdlj/2021-2
+VL  - 2021
+Y2  - 2023/11/1/
+ER  - `,
+      [
+        {
+          accessed: { 'date-parts': [[2023, 11, 1]] },
+          author: [{ family: 'Greco', given: 'Angela' }],
+          'container-title': 'Cuneiform Digital Library Journal',
+          'container-title-short': 'CDLJ',
+          id: 'cdlj-2021-2',
+          ISSN: '1540-8779',
+          issue: '2',
+          issued: { 'date-parts': [[2021]] },
+          title: 'An Archive of Pasture Plots from Ur-III Ĝirsu',
+          type: 'article-journal',
+          URL: 'https://cdli.mpiwg-berlin.mpg.de/articles/cdlj/2021-2',
+          volume: '2021'
+        }
       ]
     ]
   }

@@ -16,7 +16,7 @@
   "accessed": "DATE",
   "container": "DATE",
   "event-date": "DATE",
-  "issued": "DATE",
+  "issued": "DATE_YEAR",
   "original-date": "DATE",
   "submitted": "DATE",
 

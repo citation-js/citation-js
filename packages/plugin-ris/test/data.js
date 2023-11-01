@@ -77,6 +77,7 @@ module.exports = {
       `TY  - JOUR
 AU  - Hall, H. K.
 DA  - 1957/1/1/
+PY  - 1957
 DO  - 10.1021/ja01577a030
 ID  - Q23571040
 IS  - 20
@@ -94,6 +95,7 @@ ER  -`
           'Vrandečić, Denny'
         ],
         DA: '2013/1/1/',
+        PY: '2013',
         Y2: '2018/7/21/',
         DO: '10.1109/MIS.2013.119',
         IS: '4',
@@ -111,6 +113,7 @@ ER  -`
         TY: 'JOUR',
         AU: ['Hall, H. K.'],
         DA: '1957/1/1/',
+        PY: '1957',
         DO: '10.1021/ja01577a030',
         IS: '20',
         SP: '5441-5444',
@@ -140,6 +143,7 @@ ER  -`
         AB: ' 1N01 , ... \n 1N01 , ABGAL \n 1N01 , KINGAL \n 1N01 , ... \n 1N01 , GAL~a UMUN2 \n 1N01 , GAL~a UMUN2 KU3~a \n 1N01 , DUB~a SANGA~a \n 1N01 , SUG5 SAG \n 1N01 , UB SAG \n N , ... ',
         AU: ['Cuneiform Digital Library Iniative (CDLI)'],
         DA: '2017/9/4/',
+        PY: '2017',
         ID: 'P000001',
         LA: 'undetermined',
         M1: '2020/6/27/',
@@ -166,6 +170,7 @@ ER  -`
       }],
       [{
         A1: ['Cuneiform Digital Library Iniative (CDLI)'],
+        PY: '2017',
         ID: 'P000001',
         N2: ' 1N01 , ... \n 1N01 , ABGAL \n 1N01 , KINGAL \n 1N01 , ... \n 1N01 , GAL~a UMUN2 \n 1N01 , GAL~a UMUN2 KU3~a \n 1N01 , DUB~a SANGA~a \n 1N01 , SUG5 SAG \n 1N01 , UB SAG \n N , ... ',
         T1: 'CDLI Lexical 000002, ex. 065 artifact entry',
@@ -204,7 +209,38 @@ ER  -`
       }],
       [{
         TY: 'JOUR',
-        DA: '2022///Summer'
+        DA: '2022///Summer',
+        PY: '2022'
+      }],
+      { format: 'object' }
+    ],
+    'http://localhost:2354/articles/cdlj/2021-2': [
+      [{
+        accessed: { 'date-parts': [[2023, 11, 1]] },
+        author: [{ family: 'Greco', given: 'Angela' }],
+        'container-title': 'Cuneiform Digital Library Journal',
+        'container-title-short': 'CDLJ',
+        ISSN: '1540-8779',
+        issue: 2,
+        issued: { 'date-parts': [[2021]] },
+        title: 'An Archive of Pasture Plots from Ur-III Ĝirsu',
+        type: 'article-journal',
+        URL: 'https://cdli.mpiwg-berlin.mpg.de/articles/cdlj/2021-2',
+        volume: '2021'
+      }],
+      [{
+        TY: 'JOUR',
+        AU: ['Greco, Angela'],
+        DA: '2021///',
+        PY: '2021',
+        IS: 2,
+        J2: 'CDLJ',
+        SN: '1540-8779',
+        T2: 'Cuneiform Digital Library Journal',
+        TI: 'An Archive of Pasture Plots from Ur-III Ĝirsu',
+        UR: 'https://cdli.mpiwg-berlin.mpg.de/articles/cdlj/2021-2',
+        VL: '2021',
+        Y2: '2023/11/1/'
       }],
       { format: 'object' }
     ]

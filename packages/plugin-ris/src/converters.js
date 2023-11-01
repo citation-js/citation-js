@@ -32,6 +32,25 @@ const CONVERTERS = {
     }
   },
 
+  YEAR: {
+    toTarget (year) {
+      return { 'date-parts': [[year]] }
+    },
+    toSource (date) {
+      return date['date-parts']?.[0]?.[0]?.toString()
+    }
+  },
+
+  DATE_YEAR: {
+    keepAll: true,
+    toTarget (...dates) {
+      return CONVERTERS.DATE.toTarget(dates.find(Boolean))
+    },
+    toSource (date) {
+      return [CONVERTERS.DATE.toSource(date), CONVERTERS.YEAR.toSource(date)]
+    }
+  },
+
   NAME: {
     toTarget (names) {
       return names && [].concat(names).map(name => {

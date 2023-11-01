@@ -12,6 +12,11 @@ const TRANSLATORS = new Map()
 function prepareTranslator (spec) {
   if (!TRANSLATORS.has(spec)) {
     for (const mapping of spec) {
+      if (mapping.target === 'issued' && !Array.isArray(mapping.source)) {
+        mapping.convert = CONVERTERS.YEAR
+        continue
+      }
+
       if (mapping.target in DATA_TYPES) {
         mapping.convert = CONVERTERS[DATA_TYPES[mapping.target]]
       }
