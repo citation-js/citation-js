@@ -34,7 +34,7 @@ const CONVERTERS = {
 
   YEAR: {
     toTarget (year) {
-      return { 'date-parts': [[year]] }
+      return isNaN(+year) ? { raw: year } : { 'date-parts': [[+year]] }
     },
     toSource (date) {
       return date['date-parts']?.[0]?.[0]?.toString()
@@ -44,7 +44,7 @@ const CONVERTERS = {
   DATE_YEAR: {
     keepAll: true,
     toTarget (...dates) {
-      return CONVERTERS.DATE.toTarget(dates.find(Boolean))
+      return CONVERTERS.DATE.toTarget(CONVERTERS.ANY.toTarget(...dates))
     },
     toSource (date) {
       return [CONVERTERS.DATE.toSource(date), CONVERTERS.YEAR.toSource(date)]
