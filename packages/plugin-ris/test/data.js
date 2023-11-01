@@ -218,6 +218,7 @@ ER  -`
       [{
         accessed: { 'date-parts': [[2023, 11, 1]] },
         author: [{ family: 'Greco', given: 'Angela' }],
+        'available-date': { 'date-parts': [[2022, 1, 24]] },
         'container-title': 'Cuneiform Digital Library Journal',
         'container-title-short': 'CDLJ',
         ISSN: '1540-8779',
@@ -233,6 +234,7 @@ ER  -`
         AU: ['Greco, Angela'],
         DA: '2021///',
         PY: '2021',
+        ET: '2022/1/24/',
         IS: 2,
         J2: 'CDLJ',
         SN: '1540-8779',
