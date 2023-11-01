@@ -289,6 +289,48 @@ ER  - `,
           volume: '2021'
         }
       ]
+    ],
+    'https://github.com/citation-js/citation-js/issues/213-2': [
+      `TY  - COMP
+AU  - Willighagen, Lars
+DO  - 10.5281/zenodo.10037162
+ET  - 0.5.0
+PY  - 2023
+TI  - Formica
+UR  - https://github.com/identification-resources/formica/tree/v0.5.0
+ER  - `,
+      [
+        {
+          author: [{ family: 'Willighagen', given: 'Lars' }],
+          DOI: '10.5281/zenodo.10037162',
+          issued: { 'date-parts': [[2023]] },
+          title: 'Formica',
+          type: 'software',
+          URL: 'https://github.com/identification-resources/formica/tree/v0.5.0',
+          version: '0.5.0'
+        }
+      ]
+    ],
+    'https://github.com/citation-js/citation-js/issues/213-3': [
+      `TY  - COMP
+AU  - Willighagen, Lars
+DO  - 10.5281/zenodo.10037162
+ET  - 0.5.0
+PY  - 2023-10-24
+TI  - Formica
+UR  - https://github.com/identification-resources/formica/tree/v0.5.0
+ER  - `,
+      [
+        {
+          author: [{ family: 'Willighagen', given: 'Lars' }],
+          DOI: '10.5281/zenodo.10037162',
+          issued: { raw: '2023-10-24' },
+          title: 'Formica',
+          type: 'software',
+          URL: 'https://github.com/identification-resources/formica/tree/v0.5.0',
+          version: '0.5.0'
+        }
+      ]
     ]
   }
 }
