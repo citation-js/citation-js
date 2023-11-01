@@ -257,7 +257,7 @@ KW  - Animals `,
           title: 'The boy, the mole, the fox and the horse',
           type: 'book'
         }
-      ],
+      ]
     ],
     'https://github.com/citation-js/citation-js/issues/213': [
       `TY  - JOUR
