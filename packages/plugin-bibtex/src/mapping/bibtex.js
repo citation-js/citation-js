@@ -124,6 +124,11 @@ export default new util.Translator([
     }
   },
   {
+    // Introduced in plainnat
+    source: 'doi',
+    target: 'DOI'
+  },
+  {
     source: 'edition',
     target: 'edition'
   },
@@ -136,6 +141,16 @@ export default new util.Translator([
     source: LABEL,
     target: ['id', 'citation-key', 'author', 'issued', 'year-suffix', 'title'],
     convert: Converters.LABEL
+  },
+  {
+    // Introduced in plainnat
+    source: 'isbn',
+    target: 'ISBN'
+  },
+  {
+    // Introduced in plainnat
+    source: 'issn',
+    target: 'ISSN'
   },
   {
     source: 'number',
@@ -175,6 +190,15 @@ export default new util.Translator([
     when: {
       source: { [TYPE]: ['patent', 'report', 'techreport'] },
       target: { type: ['patent', 'report'] }
+    }
+  },
+  {
+    // Introduced in plainnat
+    source: 'eid',
+    target: 'number',
+    when: {
+      source: { number: false },
+      target: { type: ['article-journal'] }
     }
   },
   {
@@ -331,6 +355,11 @@ export default new util.Translator([
     convert: {
       toSource () { return 'misc' }
     }
+  },
+  {
+    // Introduced in plainnat
+    source: 'url',
+    target: 'URL'
   },
   {
     source: 'howpublished',

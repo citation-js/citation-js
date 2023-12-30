@@ -1,6 +1,7 @@
 [Hall1957Correlation]
 	author: Hall, H. K.
 	journal: Journal of the American Chemical Society
+	doi: 10.1021/ja01577a030
 	number: 20
 	year: 1957
 	month: jan 1
