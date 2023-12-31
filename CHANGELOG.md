@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.3...v) (2023-11-01)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.4...v) (2023-12-31)
+
+
+### Features
+
+* **plugin-bibtex:** add mappings for plainnat fields ([208bd96](https://github.com/citation-js/citation-js/commit/208bd9670572c83ee890c4b2e8d047fc9f02aefc)), closes [#204](https://github.com/citation-js/citation-js/issues/204)
+
+
+
+## [0.7.4](https://github.com/citation-js/citation-js/compare/v0.7.3...v0.7.4) (2023-11-01)
 
 
 ### Bug Fixes
