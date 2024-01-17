@@ -1,7 +1,7 @@
 import fetchDoiType from './type.js'
 
 /**
- * Format CrossRef JSON
+ * Format Crossref JSON
  *
  * @access protected
  * @method parse
@@ -24,6 +24,10 @@ function parseDoiJson (data) {
       value['date-parts'] = [value['date-parts']]
     }
   })
+
+  if (data.type === 'dissertation' && !data.genre) {
+    res.genre = 'Doctoral dissertation'
+  }
 
   return Object.assign({}, data, res)
 }

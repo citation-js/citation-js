@@ -66,7 +66,9 @@ const entryTypes = {
   'journal-article': 'article-journal',
   'book-chapter': 'chapter',
   'posted-content': 'manuscript',
-  'proceedings-article': 'paper-conference'
+  'proceedings-article': 'paper-conference',
+  // From https://github.com/citation-js/citation-js/issues/220
+  dissertation: 'thesis'
 }
 
 /**
