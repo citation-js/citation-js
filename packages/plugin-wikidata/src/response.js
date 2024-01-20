@@ -96,14 +96,25 @@ const FETCH_ADDITIONAL = {
  * @return {Array<String>}
  */
 function collectAdditionalIds (entity, needed) {
+  const additionalIds = []
+
   if (!needed) {
-    return []
+    return additionalIds
   }
 
   entity._needed = Object.assign(entity._needed || {}, needed)
-  return Object.keys(entity.claims)
-    .filter(prop => prop in needed)
-    .flatMap(prop => entity.claims[prop].map(({ value }) => value.id || value))
+
+  for (const prop in entity.claims) {
+    if (prop in needed) {
+      for (const claim of entity.claims[prop]) {
+        if (claim.value) {
+          additionalIds.push(claim.value.id ?? claim.value)
+        }
+      }
+    }
+  }
+
+  return additionalIds
 }
 
 /**

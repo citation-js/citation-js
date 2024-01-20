@@ -299,7 +299,7 @@ module.exports = {
           custom: { QID: 'Q1' },
           id: 'Q1',
           source: 'Wikidata',
-          title: 'universe',
+          title: 'Universe',
           type: 'document'
         }
       ]
@@ -401,13 +401,17 @@ module.exports = {
             given: 'J. K.',
             family: 'Rowling'
           }],
+          illustrator: [{
+            given: 'Thomas',
+            family: 'Taylor'
+          }],
           issued: {
             'date-parts': [[1997, 6, 26]]
           },
           'collection-title': 'Harry Potter',
           'collection-number': 1,
-          keyword: 'magician',
-          'number-of-volumes': 7,
+          keyword: 'magician,philosopher\'s stone',
+          'number-of-volumes': 8,
           'number-of-pages': 240,
           language: 'en',
           publisher: 'Bloomsbury Publishing',
@@ -524,6 +528,7 @@ module.exports = {
             given: 'Rabindranath',
             family: 'Tagore'
           }],
+          keyword: 'Gitanjali',
           language: 'en',
           issued: { 'date-parts': [[1913]] },
           publisher: 'Macmillan Publishers',
@@ -548,18 +553,44 @@ module.exports = {
           SW_MATHID: '12531',
           versions: [
             {
-              version: '1.53k',
-              issued: { 'date-parts': [[2021, 7, 6]] }
+              issued: { 'date-parts': [[2022, 8, 24]] },
+              version: '1.53t'
             }
           ]
         },
-        author: [{ literal: 'National Institutes of Health' }],
-        issued: { 'date-parts': [[2021, 7, 6]] },
+        author: [{ family: 'Rasband', given: 'Wayne' }],
+        issued: { 'date-parts': [[2022, 8, 24]] },
         source: 'Wikidata',
         type: 'software',
-        version: '1.53k',
+        version: '1.53t',
         URL: 'https://imagej.nih.gov/ij/',
         title: 'ImageJ'
+      }]
+    ],
+    'no_value author': [
+      'Q124174815',
+      [{
+        DOI: '10.1016/S0140-6736(02)96066-6',
+        ISSN: '0140-6736',
+        URL: 'https://ia800708.us.archive.org/view_archive.php?archive=/22/items/crossref-pre-1909-scholarly-works/10.1016%252Fs0140-6736%252802%252995607-2.zip&file=10.1016%252Fs0140-6736%252802%252996066-6.pdf',
+        author: [
+          { _ordinal: 1, family: 'D.' }
+        ],
+        'container-title': 'The Lancet',
+        'container-title-short': 'Lancet',
+        custom: {
+          QID: 'Q124174815'
+        },
+        id: 'Q124174815',
+        issue: '780',
+        issued: { 'date-parts': [[1838, 8]] },
+        journalAbbreviation: 'Lancet',
+        language: 'en',
+        page: '703',
+        source: 'Wikidata',
+        title: 'Dr. Clanny\'s case of diabetes',
+        type: 'article-journal',
+        volume: '30'
       }]
     ]
   },

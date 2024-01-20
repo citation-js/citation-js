@@ -76,7 +76,7 @@ describe('configuration', function () {
       config.langs.unshift('foo')
       assert.strictEqual(
         plugins.input.chain(qid)[0].title,
-        'universe'
+        'Universe'
       )
       config.langs.shift()
     })
