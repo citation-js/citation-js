@@ -9,7 +9,10 @@ const configs = [{
     const response = { entities: {} }
     const ids = searchParams.get('ids').split('|')
     for (const id of ids) {
-      response.entities[id] = wikidata.entities[id]
+      response.entities[id] = wikidata.entities[id] || {
+        id,
+        missing: ''
+      }
     }
     return JSON.stringify(response)
   }

@@ -13,7 +13,7 @@ describe('input', function () {
         assert(plugins.input.has(type))
       })
 
-      for (const name of Object.keys(data[type])) {
+      for (const name in data[type]) {
         const [input, expected, { link, opts } = {}] = data[type][name]
         describe(name, function () {
           it('parses type', function () {
@@ -37,6 +37,26 @@ describe('input', function () {
       }
     })
   }
+
+  describe('errors', function () {
+    it('for non-existent entity', function () {
+      assert.throws(
+        () => plugins.input.chain('Q6', { generateGraph: false }),
+        {
+          message: 'Entity "Q6" not found'
+        }
+      )
+    })
+
+    it('for incorrect identifiers', function () {
+      assert.throws(
+        () => plugins.input.chain('abc', { generateGraph: false, forceType: '@wikidata/id' }),
+        {
+          message: 'Entity "abc" not found'
+        }
+      )
+    })
+  })
 })
 
 describe('configuration', function () {

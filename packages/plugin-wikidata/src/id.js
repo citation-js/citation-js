@@ -14,8 +14,16 @@ import config from './config.json'
  * @return {Object} Wikidata JSON
  */
 function parseWikidata (data, langs) {
-  const list = [].concat(data)
-  return [].concat(wdk.getManyEntities(list, langs || config.langs))
+  const ids = Array.isArray(data) ? data : [data]
+
+  for (const id of ids) {
+    if (!/^Q[1-9][0-9]*$/.test(id)) {
+      throw new Error(`Entity "${id}" not found`)
+    }
+  }
+
+  const urls = wdk.getManyEntities(ids, langs || config.langs)
+  return Array.isArray(urls) ? urls : [urls]
 }
 
 export {

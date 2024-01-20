@@ -154,6 +154,10 @@ function completeResponse (entities, old) {
 function simplifyEntities (entities) {
   const simplified = simplify.entities(entities, SIMPLIFY_OPTS)
   for (const id in entities) {
+    if (entities[id].missing === '') {
+      throw new Error(`Entity "${id}" not found`)
+    }
+
     const claims = entities[id].claims
     if (claims.P348) {
       simplified[id].claims['P348:all'] = simplify.propertyClaims(claims.P348, {
