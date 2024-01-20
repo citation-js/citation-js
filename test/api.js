@@ -20,7 +20,12 @@ const configs = [{
   domain: /^((www|dx)\.)?doi\.org/,
   path: /^\//,
   response ({ pathname }) {
-    return JSON.stringify(doi[pathname.slice(1)][0])
+    const data = doi[pathname.slice(1)]
+    if (data) {
+      return JSON.stringify(data[0])
+    } else {
+      throw new Error('Server responded with status code 404')
+    }
   }
 }]
 

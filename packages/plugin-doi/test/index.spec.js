@@ -33,4 +33,15 @@ describe('input', function () {
       }
     })
   }
+
+  describe('errors', function () {
+    it('for non-existent DOI', function () {
+      assert.throws(
+        () => plugins.input.chain('10.1016/does-not-exist', { generateGraph: false }),
+        {
+          message: 'Server responded with status code 404'
+        }
+      )
+    })
+  })
 })
