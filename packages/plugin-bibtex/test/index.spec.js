@@ -222,6 +222,66 @@ describe('output', function () {
       }
     })
   }
+
+  describe('asciiOnly', function () {
+    afterEach(function () { config.format.asciiOnly = true })
+
+    // See https://github.com/citation-js/citation-js/issues/177
+    it('keeps cyrillic characters', function () {
+      const input = [{
+        id: 'antonenko1997',
+        ISBN: '966-7219-00-3',
+        type: 'book',
+        title: 'Як ми говоримо',
+        author: [{ given: 'Б.Д.', family: 'Антоненко-Давидович' }],
+        issued: { 'date-parts': [[1997]] },
+        edition: '4',
+        publisher: 'Українська книга',
+        'citation-key': 'antonenko1997',
+        'publisher-place': 'Київ'
+      }]
+
+      config.format.asciiOnly = false
+      const actual = plugins.output.format('bibtex', input)
+      const expected = `@book{antonenko1997,
+\taddress = {Київ},
+\tauthor = {Антоненко-Давидович, Б.Д.},
+\tedition = {4},
+\tisbn = {966-7219-00-3},
+\tyear = {1997},
+\tpublisher = {Українська книга},
+\ttitle = {Як ми говоримо},
+}\n\n`
+      assert.deepStrictEqual(actual, expected)
+    })
+
+    it('removes cyrillic characters', function () {
+      const input = [{
+        id: 'antonenko1997',
+        ISBN: '966-7219-00-3',
+        type: 'book',
+        title: 'Як ми говоримо',
+        author: [{ given: 'Б.Д.', family: 'Антоненко-Давидович' }],
+        issued: { 'date-parts': [[1997]] },
+        edition: '4',
+        publisher: 'Українська книга',
+        'citation-key': 'antonenko1997',
+        'publisher-place': 'Київ'
+      }]
+
+      const actual = plugins.output.format('bibtex', input)
+      const expected = `@book{antonenko1997,
+\taddress = {},
+\tauthor = {-, ..},
+\tedition = {4},
+\tisbn = {966-7219-00-3},
+\tyear = {1997},
+\tpublisher = { },
+\ttitle = {  },
+}\n\n`
+      assert.deepStrictEqual(actual, expected)
+    })
+  })
 })
 
 describe('mapping', function () {

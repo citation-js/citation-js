@@ -192,8 +192,10 @@ export default {
    * @memberof module:@citation-js/plugin-bibtex.config
    * @var {Object} format
    * @property {Boolean} [format.useIdAsLabel=false] - Use the entry ID as the label instead of generating one.
+   * @property {Boolean} [format.asciiOnly=true] - Escape or remove non-ASCII characters.
    */
   format: {
-    useIdAsLabel: false
+    useIdAsLabel: false,
+    asciiOnly: true
   }
 }

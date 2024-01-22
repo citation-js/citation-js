@@ -1,3 +1,4 @@
+import config from '../config.js'
 import { diacritics, commands, mathCommands, ligatures, fieldTypes } from '../input/constants.js'
 
 const unicode = {}
@@ -38,6 +39,10 @@ function escapeCharacter (char) {
 }
 
 function escapeValue (value) {
+  if (!config.format.asciiOnly) {
+    return value
+  }
+
   return value
     .normalize('NFKD')
     .replace(UNSAFE_UNICODE, char => escapeCharacter(char))
