@@ -31,6 +31,7 @@
     "unicode escapes": [[
       {"title": "Foo —"},
       {"title": "Bar ⸘"},
+      {"title": "Qux Γ"},
       {"title": "Baz 🙂"}
     ]],
     "list with and": [[
