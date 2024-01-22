@@ -20,7 +20,7 @@ const configs = [{
   domain: /^((www|dx)\.)?doi\.org/,
   path: /^\//,
   response ({ pathname }) {
-    const data = doi[pathname.slice(1)]
+    const data = doi[pathname.slice(1).toUpperCase()]
     if (data) {
       return JSON.stringify(data[0])
     } else {

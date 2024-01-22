@@ -2,13 +2,13 @@ const ja01577a030 = {
   indexed: {
     'date-parts': [
       [
-        2021,
-        11,
-        19
+        2024,
+        1,
+        22
       ]
     ],
-    'date-time': '2021-11-19T08:52:31Z',
-    timestamp: 1637311951424
+    'date-time': '2024-01-22T08:33:12Z',
+    timestamp: 1705912392405
   },
   'reference-count': 0,
   publisher: 'American Chemical Society (ACS)',
@@ -57,8 +57,8 @@ const ja01577a030 = {
   },
   page: '5441-5444',
   source: 'Crossref',
-  'is-referenced-by-count': 582,
-  title: 'Correlation of the Base Strengths of Amines1',
+  'is-referenced-by-count': 672,
+  title: 'Correlation of the Base Strengths of Amines<sup>1</sup>',
   prefix: '10.1021',
   volume: '79',
   author: [
@@ -75,7 +75,7 @@ const ja01577a030 = {
   'original-title': [],
   'journal-issue': {
     issue: '20',
-    'published-print': { 'date-parts': [[1957, 10]] }
+    'published-print': { 'date-parts': [[1957, 10, 1]] }
   },
   language: 'en',
   link: [
@@ -89,13 +89,13 @@ const ja01577a030 = {
   deposited: {
     'date-parts': [
       [
-        2021,
-        8,
-        4
+        2023,
+        3,
+        31
       ]
     ],
-    'date-time': '2021-08-04T21:46:46Z',
-    timestamp: 1628113606000
+    'date-time': '2023-03-31T04:16:07Z',
+    timestamp: 1680236167000
   },
   score: 1,
   subtitle: [],
@@ -114,6 +114,11 @@ const ja01577a030 = {
   ],
   URL: 'http://dx.doi.org/10.1021/ja01577a030',
   relation: {},
+  resource: {
+    primary: {
+      URL: 'https://pubs.acs.org/doi/abs/10.1021/ja01577a030'
+    }
+  },
   ISSN: [
     '0002-7863',
     '1520-5126'
@@ -132,9 +137,9 @@ const preprint = {
     name: 'medRxiv'
   }],
   indexed: {
-    'date-parts': [[2021, 10, 27]],
-    'date-time': '2021-10-27T09:25:11Z',
-    timestamp: 1635326711372
+    'date-parts': [[2024, 1, 21]],
+    'date-time': '2024-01-21T16:15:17Z',
+    timestamp: 1705853717954
   },
   posted: {
     'date-parts': [[2021, 8, 18]]
@@ -158,7 +163,7 @@ const preprint = {
     timestamp: 1629318311000
   },
   source: 'Crossref',
-  'is-referenced-by-count': 4,
+  'is-referenced-by-count': 13,
   title: 'Significant reduction in humoral immunity among healthcare workers and nursing home residents 6 months after COVID-19 BNT162b2 mRNA vaccination',
   prefix: '10.1101',
   author: [
@@ -252,6 +257,11 @@ const preprint = {
   'references-count': 5,
   URL: 'http://dx.doi.org/10.1101/2021.08.15.21262067',
   relation: {},
+  resource: {
+    primary: {
+      URL: 'http://medrxiv.org/lookup/doi/10.1101/2021.08.15.21262067'
+    }
+  },
   published: { 'date-parts': [[2021, 8, 18]] },
   subtype: 'preprint'
 }

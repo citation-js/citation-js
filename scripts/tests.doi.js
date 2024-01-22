@@ -10,7 +10,7 @@ Promise.all(dois.map(doi => fetch('https://doi.org/' + doi, {
 })))
   .then(results => Promise.all(results.map(json)))
   .then(results => results.reduce((o, result) => {
-    o[result.DOI] = [result]
+    o[result.DOI.toUpperCase()] = [result]
     return o
   }, {}))
   .then(results => JSON.stringify(results, null, 2))
