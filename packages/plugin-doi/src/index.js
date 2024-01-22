@@ -75,7 +75,7 @@ const formats = {
     parseAsync: api.parseAsync,
     parseType: {
       dataType: 'String',
-      predicate: /^\s*(https?:\/\/(?:dx\.)?doi\.org\/(10.\d{4,9}\/[-._;()/:A-Z0-9]+))\s*$/i,
+      predicate: /^\s*(https?:\/\/(?:dx\.)?doi\.org\/(10.\d{4,9}\/[-._;()/:A-Z0-9[\]<>]+))\s*$/i,
       extends: '@else/url'
     }
   },
@@ -95,12 +95,13 @@ const formats = {
     },
     parseType: {
       dataType: 'String',
-      predicate: /^\s*((?:dx\.)?doi\.org\/(10.\d{4,9}\/[-._;()/:A-Z0-9]+))\s*$/i
+      predicate: /^\s*((?:dx\.)?doi\.org\/(10.\d{4,9}\/[-._;()/:A-Z0-9[\]<>]+))\s*$/i
     }
   },
 
   /**
    * Actual DOI. Uses the pattern presented by [Crossef](https://www.crossref.org/blog/dois-and-matching-regular-expressions/).
+   * Amended with "[]<>" for SICI-style DOIs.
    *
    * @type module:@citation-js/core.plugins.input~parsers
    * @memberof module:@citation-js/plugin-doi.formats
@@ -111,7 +112,7 @@ const formats = {
     parse: id.parse,
     parseType: {
       dataType: 'String',
-      predicate: /^\s*(10.\d{4,9}\/[-._;()/:A-Z0-9]+)\s*$/i
+      predicate: /^\s*(10.\d{4,9}\/[-._;()/:A-Z0-9[\]<>]+)\s*$/i
     }
   },
 
@@ -127,7 +128,7 @@ const formats = {
     parse: id.parse,
     parseType: {
       dataType: 'String',
-      tokenList: /^10.\d{4,9}\/[-._;()/:A-Z0-9]+$/i
+      tokenList: /^10.\d{4,9}\/[-._;()/:A-Z0-9[\]<>]+$/i
     }
   },
 
