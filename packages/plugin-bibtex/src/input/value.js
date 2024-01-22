@@ -366,6 +366,10 @@ export const valueGrammar = new util.Grammar({
     } else if (command in constants.commands) {
       return constants.commands[command]
 
+    // math commands
+    } else if (command in constants.mathCommands) {
+      return constants.mathCommands[command]
+
     // diacritics
     } else if (command in constants.diacritics && !this.matchEndOfFile()) {
       const text = this.consumeRule('Text')

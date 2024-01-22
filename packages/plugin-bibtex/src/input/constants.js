@@ -13,6 +13,7 @@ export const required = _required
 export const fieldTypes = _fieldTypes
 export const diacritics = unicode.diacritics
 export const commands = unicode.commands
+export const mathCommands = unicode.mathCommands
 
 // Adapted from astrocite-bibtex (accessed 2018-02-22)
 // https://github.com/dsifford/astrocite/blob/668a9e4/packages/astrocite-bibtex/src/constants.ts#L112-L148

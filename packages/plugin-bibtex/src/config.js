@@ -56,6 +56,7 @@ export default {
    *
    *   - `config.constants.diacritics` maps commands (`\"`) to diacritics
    *   - `config.constants.commands` maps commands (`\textinterrobangdown`) to general unicode characters (`⸘`)
+   *   - `config.constants.mathCommands` maps math-mode commands (`\Gamma`) to general unicode characters (`Γ`)
    *   - `config.constants.ligatures` maps non-command character sequences (`---`, `~`, etc.) to their replacements (emdash, no-breaking space, etc.)
    *   - `config.constants.ligaturePattern` is a RegExp that recognizes the ligatures mapped above
    *   - `config.constants.mathScripts` maps superscript and subscript (in properties `^` and `_` respectively)

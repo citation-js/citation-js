@@ -1,9 +1,11 @@
-import { diacritics, commands, ligatures, fieldTypes } from '../input/constants.js'
+import { diacritics, commands, mathCommands, ligatures, fieldTypes } from '../input/constants.js'
 
 const unicode = {}
 for (const command in commands) { unicode[commands[command]] = command }
 for (const diacritic in diacritics) { unicode[diacritics[diacritic]] = diacritic }
 for (const ligature in ligatures) { unicode[ligatures[ligature]] = ligature }
+const mathUnicode = {}
+for (const command in mathCommands) { mathUnicode[mathCommands[command]] = command }
 
 // eslint-disable-next-line no-misleading-character-class
 const UNSAFE_UNICODE = /[^a-zA-Z0-9\s!"#%&'()*+,\-./:;=?@[\]{}\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]/g
@@ -24,13 +26,20 @@ const richTextMappings = {
   'span class="nocase"': '{'
 }
 
+function escapeCharacter (char) {
+  if (char in unicode) {
+    return unicode[char] in ligatures ? unicode[char] : `\\${unicode[char]}{}`
+  } else if (char in mathUnicode) {
+    return `$\\${mathUnicode[char]}$`
+  } else {
+    return ''
+  }
+}
+
 function escapeValue (value) {
   return value
     .normalize('NFKD')
-    .replace(UNSAFE_UNICODE, char => char in unicode
-      ? unicode[char] in ligatures ? unicode[char] : `\\${unicode[char]}{}`
-      : ''
-    )
+    .replace(UNSAFE_UNICODE, char => escapeCharacter(char))
     .replace(DIACRITIC_PATTERN, match => Array.from(match).reduce(
       (subject, diacritic) => `{\\${unicode[diacritic]} ${subject}}`
     ))
