@@ -6,12 +6,9 @@ import * as constants from './constants.js'
 import { orderNamePieces, formatNameParts, getStringCase } from './name.js'
 
 const text = {
+  commandBegin: { match: '\\begin', push: 'environment' },
   command: {
     match: /\\(?:[a-zA-Z]+|.) */,
-    type: moo.keywords({
-      commandBegin: '\\begin',
-      commandEnd: '\\end'
-    }),
     value: s => s.slice(1).trim()
   },
   lbrace: { match: '{', push: 'bracedLiteral' },
@@ -57,6 +54,11 @@ const lexer = moo.states({
     mathShift: { match: '$', pop: true },
     script: /[\^_]/,
     text: /[^{$}\s~\\^_]+/
+  },
+  environment: {
+    commandEnd: { match: '\\end', pop: true },
+    ...text,
+    text: /[^{$}\s~\\]+/
   }
 })
 

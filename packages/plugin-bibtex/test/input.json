@@ -646,6 +646,13 @@
         "URL": "https://www.mla.org/Resources/Research/Surveys-Reports-and-Other-Documents/Publishing-and-Scholarship/Reports-from-the-MLA-Committee-on-Scholarly-Editions/Guidelines-for-Editors-of-Scholarly-Editions",
         "note": "Accessed: 6th September 2021"
       }]
+    ],
+    "with escaped and": [
+      null,
+      [
+        {"id": "a", "citation-key": "a", "type": "document", "author": [{"family": "A and B"}]},
+        {"id": "b", "citation-key": "b", "type": "document", "author": [{"family": "A and B"}]}
+      ]
     ]
   },
   "@biblatex/entries+list": {
