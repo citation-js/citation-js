@@ -44,6 +44,16 @@ const lexer = moo.states({
     ...text,
     text: /[^{$}\s~\\,]+/
   },
+  annotation: {
+    ...text,
+    colon: ':',
+    equals: '=',
+    comma: ',',
+    semicolon: ';',
+    quote: '"',
+    itemCount: /\d+/,
+    text: /[^{$}\s~\\":;,=]+/
+  },
   bracedLiteral: {
     ...text,
     rbrace: { match: '}', pop: true },
@@ -233,6 +243,102 @@ export const valueGrammar = new util.Grammar({
     }
 
     return flattenConsString(output)
+  },
+
+  Annotations () {
+    const annotations = {}
+
+    while (true) {
+      const { scope, item, part, value } = this.consumeRule('Annotation')
+
+      if (scope === 'part') {
+        if (!annotations.part) {
+          annotations.part = []
+        }
+        if (!annotations.part[item]) {
+          annotations.part[item] = {}
+        }
+        annotations.part[item][part] = value
+      } else if (scope === 'item') {
+        if (!annotations.item) {
+          annotations.item = []
+        }
+        annotations.item[item] = value
+      } else {
+        annotations.field = value
+      }
+
+      if (this.matchEndOfFile()) {
+        break
+      } else {
+        this.consumeToken('semicolon')
+        this.consumeRule('_')
+      }
+    }
+
+    return annotations
+  },
+
+  Annotation () {
+    const annotation = {}
+
+    if (this.matchToken('itemCount')) {
+      annotation.item = parseInt(this.consumeToken('itemCount')) - 1
+
+      if (this.matchToken('colon')) {
+        this.consumeToken('colon')
+        annotation.part = this.consumeToken('text')
+        annotation.scope = 'part'
+      } else {
+        annotation.scope = 'item'
+      }
+    } else {
+      annotation.scope = 'field'
+    }
+
+    this.consumeToken('equals')
+    this.consumeRule('_')
+
+    if (this.matchToken('quote')) {
+      this.consumeToken('quote')
+
+      let literal = ''
+
+      while (!this.matchToken('quote')) {
+        if (this.matchToken('itemCount') || this.matchToken('colon') ||
+            this.matchToken('comma') || this.matchToken('semicolon') || this.matchToken('equals')) {
+          literal += this.token.value
+          this.token = this.lexer.next()
+        } else {
+          literal += this.consumeRule('Text')
+        }
+      }
+
+      this.consumeToken('quote')
+
+      annotation.value = flattenConsString(literal)
+
+      this.consumeRule('_')
+    } else {
+      annotation.value = []
+
+      let output = ''
+      while (true) {
+        output += this.consumeRule('Text')
+
+        if (this.matchToken('comma')) {
+          this.consumeToken('comma')
+          this.consumeRule('_')
+          annotation.value.push(flattenConsString(output))
+          output = ''
+        } else if (this.matchEndOfFile() || this.matchToken('semicolon')) {
+          annotation.value.push(flattenConsString(output))
+          break
+        }
+      }
+    }
+
+    return annotation
   },
 
   BracketString () {
@@ -430,6 +536,12 @@ export const valueGrammar = new util.Grammar({
     }
 
     return applyFormatting(output, constants.formattingEnvs[beginEnv])
+  },
+
+  _ () {
+    while (this.matchToken('whitespace')) {
+      this.consumeToken('whitespace')
+    }
   }
 }, {
   sentenceCase: false,
@@ -502,4 +614,12 @@ export function parse (text, field, languages = []) {
     line: 0,
     col: 0
   }), getMainRule(fieldType, languages))
+}
+
+export function parseAnnotation (text) {
+  return valueGrammar.parse(lexer.reset(text, {
+    state: 'annotation',
+    line: 0,
+    col: 0
+  }), 'Annotations')
 }

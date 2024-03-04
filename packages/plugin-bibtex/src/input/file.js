@@ -1,9 +1,10 @@
 import { util, logger } from '@citation-js/core'
 
 import moo from 'moo'
+import config from '../config.js'
 import { defaultStrings } from './constants.js'
 
-const identifier = /[a-zA-Z_][a-zA-Z0-9_:-]*/
+const identifier = /[a-zA-Z_][a-zA-Z0-9_:+-]*/
 const whitespace = {
   comment: /%.*/,
   whitespace: { match: /\s+/, lineBreaks: true }
@@ -119,9 +120,9 @@ export const bibtexGrammar = new util.Grammar({
       this.consumeToken('comma')
       this.consumeRule('_')
 
-      const properties = this.consumeRule('EntryBody')
+      const entryBody = this.consumeRule('EntryBody')
 
-      result = { type, label, properties }
+      result = { type, label, ...entryBody }
     }
 
     this.consumeRule('_')
@@ -134,11 +135,26 @@ export const bibtexGrammar = new util.Grammar({
   },
 
   EntryBody () {
-    const properties = {}
+    const output = { properties: {} }
 
     while (this.matchToken('identifier')) {
       const [field, value] = this.consumeRule('Field')
-      properties[field] = value
+
+      let annotationField
+      let annotationName = 'default'
+      if (field.endsWith(config.biber.annotationMarker)) {
+        annotationField = field.slice(0, -config.biber.annotationMarker.length)
+      } else if (field.includes(config.biber.annotationMarker + config.biber.namedAnnotationMarker)) {
+        [annotationField, annotationName] = field.split(config.biber.annotationMarker + config.biber.namedAnnotationMarker)
+      }
+
+      if (annotationField) {
+        if (!output.annotations) { output.annotations = {} }
+        if (!output.annotations[annotationField]) { output.annotations[annotationField] = {} }
+        output.annotations[annotationField][annotationName] = value
+      } else {
+        output.properties[field] = value
+      }
 
       this.consumeRule('_')
       if (this.consumeToken('comma', true)) {
@@ -148,7 +164,7 @@ export const bibtexGrammar = new util.Grammar({
       }
     }
 
-    return properties
+    return output
   },
 
   Field () {

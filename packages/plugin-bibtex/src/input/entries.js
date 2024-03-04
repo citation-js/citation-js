@@ -1,6 +1,6 @@
 import config from '../config.js'
 import { parse as mapBiblatex, parseBibtex as mapBibtex } from '../mapping/index.js'
-import { parse as parseValue } from './value.js'
+import { parse as parseValue, parseAnnotation } from './value.js'
 import { required } from './constants.js'
 
 function validate (entries, requirements) {
@@ -42,6 +42,12 @@ function parseEntryValues (entry) {
     const value = entry.properties[property]
     if (value === '') { continue }
     output[property] = parseValue(value + '', property, output.language)
+  }
+
+  for (const property in entry.annotations) {
+    for (const annotation in entry.annotations[property]) {
+      output[property + '+an:' + annotation] = parseAnnotation(entry.annotations[property][annotation])
+    }
   }
 
   return { ...entry, properties: output }

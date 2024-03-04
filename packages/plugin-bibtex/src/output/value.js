@@ -134,6 +134,14 @@ function formatList (values, valueType, listType) {
   }).join(delimiter)
 }
 
+function formatAnnotationValue (values) {
+  if (Array.isArray(values)) {
+    return values.map(value => escapeValue(value).replace(/([;,"])/g, '{$1}')).join(', ')
+  } else {
+    return '"' + escapeValue(values).replace(/(["])/g, '{$1}') + '"'
+  }
+}
+
 export function format (field, value) {
   /* istanbul ignore if: not relevant in normal use */
   if (!(field in fieldTypes)) {
@@ -147,4 +155,31 @@ export function format (field, value) {
   } else {
     return formatSingleValue(value, valueType)
   }
+}
+
+export function formatAnnotation (value) {
+  const annotations = []
+
+  if (value.field) {
+    annotations.push('=' + formatAnnotationValue(value.field))
+  }
+  if (value.item) {
+    for (const [itemCount, itemValue] of Object.entries(value.item)) {
+      if (!itemValue) { continue }
+      const i = parseInt(itemCount) + 1
+      annotations.push(i + '=' + formatAnnotationValue(itemValue))
+    }
+  }
+  if (value.part) {
+    for (const [itemCount, itemValue] of Object.entries(value.part)) {
+      if (!itemValue) { continue }
+      const i = parseInt(itemCount) + 1
+      for (const part in itemValue) {
+        if (!itemValue[part]) { continue }
+        annotations.push(i + ':' + part + '=' + formatAnnotationValue(itemValue[part]))
+      }
+    }
+  }
+
+  return annotations.join('; ')
 }

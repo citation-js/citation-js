@@ -45,6 +45,42 @@ describe('input', function () {
     })
   }
 
+  describe('data annotations', function () {
+    it('are parsed correctly', function () {
+      assert.deepStrictEqual(
+        plugins.input.chainLink(`@misc{a,
+          title = {Data annotations test},
+          title+an = {=default},
+          title+an:test = {={f,o} o, bar},
+          title+an:literal = {="a\\begin{center}b"\\end{center}c{"}d="},
+
+          author = {Doe, John and Doe, Jane},
+          author+an = {=field; 1=item; 2:family=part}
+        }`, {
+          generateGraph: false
+        }),
+        [{
+          type: 'misc',
+          label: 'a',
+          properties: {
+            title: 'Data annotations test',
+            author: 'Doe, John and Doe, Jane'
+          },
+          annotations: {
+            title: {
+              default: '=default',
+              test: '={f,o} o, bar',
+              literal: '="a\\begin{center}b"\\end{center}c{"}d="'
+            },
+            author: {
+              default: '=field; 1=item; 2:family=part'
+            }
+          }
+        }]
+      )
+    })
+  })
+
   describe('sentenceCase', function () {
     afterEach(function () { config.parse.sentenceCase = 'never' })
     it('is applied correctly', function () {

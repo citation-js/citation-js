@@ -1,10 +1,27 @@
-function formatEntry ({ type, label, properties }, dict) {
-  const fields = Object.entries(properties)
-    .map(([field, value]) => dict.listItem.join(`${field} = {${value}},`))
+import config from '../config.js'
 
-  return dict.entry.join(`@${type}{${label},${dict.list.join(
-    fields.join('')
-  )}}`)
+function formatField (field, value, dict) {
+  return dict.listItem.join(`${field} = {${value}},`)
+}
+
+function formatEntry (entry, dict) {
+  const fields = []
+
+  for (const field in entry.properties) {
+    fields.push(formatField(field, entry.properties[field], dict))
+
+    if (entry.annotations && entry.annotations[field]) {
+      for (const annotation in entry.annotations[field]) {
+        let annotationField = field + config.biber.annotationMarker
+        if (annotation !== 'default') {
+          annotationField += config.biber.namedAnnotationMarker + annotation
+        }
+        fields.push(formatField(annotationField, entry.annotations[field][annotation], dict))
+      }
+    }
+  }
+
+  return dict.entry.join(`@${entry.type}{${entry.label},${dict.list.join(fields.join(''))}}`)
 }
 
 /**

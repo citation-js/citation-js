@@ -197,5 +197,16 @@ export default {
   format: {
     useIdAsLabel: false,
     asciiOnly: true
+  },
+
+  /**
+   * @memberof module:@citation-js/plugin-bibtex.config
+   * @var {Object} biber
+   * @property {Boolean} [biber.annotationMarker='+an'] - Signifier that a field is a data annotation.
+   * @property {Boolean} [biber.namedAnnotationMarker=':'] - Signifier that a data annotation is named.
+   */
+  biber: {
+    annotationMarker: '+an',
+    namedAnnotationMarker: ':'
   }
 }
