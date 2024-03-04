@@ -208,6 +208,19 @@ const fieldTypes = {
  */
 function correctName (name, bestGuessConversions) {
   if (typeof name === 'object' && name !== null && (name.literal || (name.given || name.family))) {
+    if (name.ORCID) {
+      name._orcid = name._orcid || name.ORCID
+      delete name.ORCID
+    }
+    if (name.orcid) {
+      name._orcid = name._orcid || name.orcid
+      delete name.orcid
+    }
+    if (name._ORCID) {
+      name._orcid = name._orcid || name._ORCID
+      delete name._ORCID
+    }
+
     return name
   } else if (!bestGuessConversions) {
     return undefined
