@@ -133,9 +133,9 @@ export default new util.Translator([
     target: 'annote'
   },
   {
-    source: 'author',
+    source: ['author', 'author+an:orcid'],
     target: 'author',
-    convert: Converters.NAMES
+    convert: Converters.NAMES_ORCID
   },
   {
     source: 'library',

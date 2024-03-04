@@ -311,6 +311,29 @@ export const Converters = {
     toTarget (list) { return list.map(name.convertToTarget) },
     toSource (list) { return list.map(name.convertToSource) }
   },
+  // Names with ORCID annotations
+  NAMES_ORCID: {
+    toTarget (list, orcid) {
+      return list.map((inputName, i) => {
+        const outputName = name.convertToTarget(inputName)
+        if (typeof orcid?.item?.[i] === 'string') {
+          outputName._orcid = orcid.item[i]
+        }
+        return outputName
+      })
+    },
+    toSource (list) {
+      const names = []
+      const orcid = []
+
+      for (let i = 0; i < list.length; i++) {
+        names.push(name.convertToSource(list[i]))
+        if (list[i]._orcid) { orcid[i] = list[i]._orcid }
+      }
+
+      return [names, orcid.length ? { item: orcid } : undefined]
+    }
+  },
   // TODO multiple page ranges
   PAGES: {
     toTarget (pages) { return pages.replace(/[–—]/, '-') },

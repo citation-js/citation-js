@@ -653,6 +653,24 @@
         {"id": "a", "citation-key": "a", "type": "document", "author": [{"family": "A and B"}]},
         {"id": "b", "citation-key": "b", "type": "document", "author": [{"family": "A and B"}]}
       ]
+    ],
+    "with orcid": [
+      null,
+      [
+        {
+          "type": "article-journal",
+          "id": "10.1111_icad.12730",
+          "citation-key": "10.1111_icad.12730",
+          "author": [
+            { "family": "Willighagen", "given": "Lars G.", "_orcid": "0000-0002-4751-4637" },
+            { "family": "Jongejans", "given": "Eelke", "_orcid": "0000-0003-1148-7419" }
+          ],
+          "container-title": "Insect Conservation and Diversity",
+          "issued": { "date-parts": [[2024, 3, 2]] },
+          "DOI": "10.1111/icad.12730",
+          "title": "Mapping wing morphs of <i>Tetrix subulata</i> using citizen science data: Flightless groundhoppers are more prevalent in grasslands near water"
+        }
+      ]
     ]
   },
   "@biblatex/entries+list": {
