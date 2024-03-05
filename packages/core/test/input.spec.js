@@ -234,6 +234,12 @@ describe('input', function () {
         expect(util.clean([{ author: ['foo'] }], false)).to.eql([{}])
         expect(util.clean([{ author: [{ foo: 1 }] }], false)).to.eql([{}])
       })
+      it('normalizes ORCID fields in names', function () {
+        for (const prop of ['ORCID', 'orcid', '_ORCID']) {
+          const input = [{ author: [{ literal: 'foo', [prop]: 'bar' }] }]
+          expect(util.clean(input)).to.eql([{ author: [{ literal: 'foo', _orcid: 'bar' }] }])
+        }
+      })
       it('keeps valid dates', function () {
         let input
         input = [{ issued: { 'date-parts': [[1, 2, 3]] } }]
