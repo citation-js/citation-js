@@ -9,7 +9,9 @@ function formatEntryValues ({ type, label, properties }) {
     const [field, annotation] = property.split('+an:')
 
     if (annotation) {
+      /* istanbul ignore else: not yet possible */
       if (!output.annotations) { output.annotations = {} }
+      /* istanbul ignore else: not yet possible */
       if (!output.annotations[field]) { output.annotations[field] = {} }
       output.annotations[field][annotation] = formatAnnotation(value)
     } else {
