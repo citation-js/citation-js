@@ -50,7 +50,7 @@ describe('data annotations', function () {
     assert.deepStrictEqual(parseAnnotation('=field; 1=item; 2:family=part'), {
       field: ['field'],
       item: [['item']],
-      part: [, { family: ['part'] }]
+      part: [, { family: ['part'] }] // eslint-disable-line no-sparse-arrays
     })
     assert.deepStrictEqual(parseAnnotation('=field; 1=item; 2:family=part').part[1], { family: ['part'] })
     assert.deepStrictEqual(parseAnnotation('1:family="a"; 2:family="b"; 2:given="c"'), {
@@ -60,7 +60,7 @@ describe('data annotations', function () {
 
   it('are formatted correctly', function () {
     assert.deepStrictEqual(formatAnnotation({ field: ['f,o o', 'bar'] }), '=f{,}o o, bar')
-    assert.deepStrictEqual(formatAnnotation({ part: { '1': { family: ['part'] } } }), '2:family=part')
+    assert.deepStrictEqual(formatAnnotation({ part: { 1: { family: ['part'] } } }), '2:family=part')
     assert.deepStrictEqual(formatAnnotation({ item: [null], part: [null, { family: null }] }), '')
   })
 
