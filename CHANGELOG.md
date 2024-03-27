@@ -1,4 +1,18 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.8...v) (2024-03-05)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.9...v) (2024-03-27)
+
+
+### Bug Fixes
+
+* **plugin-ris:** handle output of literal dates ([6f6b85a](https://github.com/citation-js/citation-js/commit/6f6b85ace62eb075f101616f249228a0b42741a2))
+
+
+### Features
+
+* **plugin-wikidata:** update type mappings ([e9493d1](https://github.com/citation-js/citation-js/commit/e9493d1c614b328017766162e49d3068cdee3767))
+
+
+
+## [0.7.9](https://github.com/citation-js/citation-js/compare/v0.7.8...v0.7.9) (2024-03-05)
 
 
 ### Bug Fixes
