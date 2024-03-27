@@ -25,6 +25,10 @@ const CONVERTERS = {
       return date && parseDate(date.split('/').slice(0, 3).filter(Boolean).join('/'))
     },
     toSource (date) {
+      if (!date['date-parts'] || !date['date-parts'][0]) {
+        return undefined
+      }
+
       const parts = Array(4).fill('')
       date['date-parts'][0].forEach((part, index) => { parts[index] = part })
       if (date.season) { parts[3] = date.season }

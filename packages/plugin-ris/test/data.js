@@ -245,6 +245,18 @@ ER  -`
         Y2: '2023/11/1/'
       }],
       { format: 'object' }
+    ],
+    'literal date': [
+      [{
+        author: [{ family: 'Virolleaud', given: 'Charles' }],
+        type: 'document',
+        issued: [{ literal: '1908-1912' }]
+      }],
+      [{
+        TY: 'GEN',
+        AU: ['Virolleaud, Charles']
+      }],
+      { format: 'object' }
     ]
   }
 }
