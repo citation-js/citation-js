@@ -30,13 +30,13 @@ authors:
   - family-names: Čermák
     given-names: Petr
     website: https://github.com/me2d09
-date-released: 2021-05-11
+date-released: 2024-03-27
 identifiers:
   - type: url
     value: https://github.com/citation-js/citation-js
 title: citation-js/citation-js
 url: https://github.com/citation-js/citation-js
-version: v0.5.1
+version: v0.7.10
 preferred-citation:
   authors:
     - family-names: Willighagen
