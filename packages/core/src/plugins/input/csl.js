@@ -6,7 +6,7 @@ const DATE = 3
 const TYPE = 4
 
 /**
- * Data from https://github.com/citation-style-language/schema/blob/master/schemas/input/csl-data.json
+ * Possible values in the type field.
  *
  *   - true if a valid type
  *   - string if another type should be used
@@ -16,6 +16,8 @@ const TYPE = 4
  * @memberof module:@citation-js/core.plugins.input
  */
 const entryTypes = {
+  // Valid types
+  // From https://github.com/citation-style-language/schema/blob/master/schemas/input/csl-data.json
   article: true,
   'article-journal': true,
   'article-magazine': true,
@@ -62,6 +64,7 @@ const entryTypes = {
   treaty: true,
   webpage: true,
 
+  // Invalid types, in use elsewhere
   // From https://github.com/CrossRef/rest-api-doc/issues/187
   'journal-article': 'article-journal',
   'book-chapter': 'chapter',
@@ -321,11 +324,17 @@ function correctType (type, bestGuessConversions) {
 
   if (entryTypes[type] === true) {
     return type
-  } else if (bestGuessConversions && type in entryTypes) {
-    return entryTypes[type]
-  } else {
-    return undefined
   }
+
+  if (bestGuessConversions) {
+    if (type in entryTypes) {
+      return entryTypes[type]
+    } else if (type.toLowerCase() !== type) {
+      return correctType(type.toLowerCase(), bestGuessConversions)
+    }
+  }
+
+  return undefined
 }
 
 /**

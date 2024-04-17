@@ -305,6 +305,13 @@ describe('input', function () {
             type: 'paper-conference'
           }])
         })
+        it('on non-lowercase types', function () {
+          expect(util.clean([{
+            type: 'Article'
+          }])).to.eql([{
+            type: 'article'
+          }])
+        })
         it('on unparsed names', function () {
           expect(util.clean([{
             author: ['Lars G. Willighagen']
