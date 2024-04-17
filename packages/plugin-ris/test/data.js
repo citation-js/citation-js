@@ -257,6 +257,25 @@ ER  -`
         AU: ['Virolleaud, Charles']
       }],
       { format: 'object' }
+    ],
+    'missing type': [
+      [{
+        title: 'A title',
+        author: [{ literal: 'Foo, Bar' }],
+        issued: { 'date-parts': [[2017, 1, 1]] },
+        publisher: 'PUBLISHER',
+        URL: 'http://dx.doi.org/10.1234/publisher.999999'
+      }],
+      [{
+        TY: 'GEN',
+        AU: ['Foo, Bar'],
+        DA: '2017/1/1/',
+        PY: '2017',
+        PB: 'PUBLISHER',
+        TI: 'A title',
+        UR: 'http://dx.doi.org/10.1234/publisher.999999'
+      }],
+      { format: 'object' }
     ]
   }
 }

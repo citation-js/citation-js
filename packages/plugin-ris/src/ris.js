@@ -131,7 +131,8 @@ export function parseMixed (data) { return prepareTranslator(SPECS.mixed).conver
  */
 export function format (data, { type, format = type || 'text', spec } = {}) {
   const outputSpec = spec || config.outputSpec
-  const entries = data.map(prepareTranslator(SPECS[outputSpec]).convertToSource)
+  const translate = prepareTranslator(SPECS[outputSpec]).convertToSource
+  const entries = data.map(entry => translate(entry.type ? entry : { ...entry, type: 'document' }))
 
   if (format === 'object') {
     return entries
