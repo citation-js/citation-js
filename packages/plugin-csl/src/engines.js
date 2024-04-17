@@ -114,6 +114,7 @@ const prepareEngine = function (data, style, locale, format) {
 
   const engine = fetchEngine(style, locale, template, callback, retrieveLocale)
   engine.setOutputFormat(format)
+  engine.opt.development_extensions.wrap_url_and_doi = false
 
   return engine
 }

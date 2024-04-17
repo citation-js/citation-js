@@ -91,6 +91,7 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  * @param {String} [options.format='text']
  * @param {Booolean} [options.asEntryArray=false]
  * @param {Booolean} [options.nosort=false]
+ * @param {Boolean} [options.hyperlinks=false]
  * @param {String|Array<String>} [options.entry]
  * @param {Cite~wrapper} [options.prepend]
  * @param {Cite~wrapper} [options.append]
@@ -115,6 +116,10 @@ export default function bibliography (data, options = {}) {
         getAffix(entry, options.append)
       ]
     }
+  }
+
+  if (options.hyperlinks) {
+    citeproc.opt.development_extensions.wrap_url_and_doi = true
   }
 
   const bibliography = citeproc.makeBibliography()
