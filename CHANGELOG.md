@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.10...v) (2024-04-17)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.11...v) (2024-05-07)
+
+
+### Features
+
+* **plugin-bibtex:** add option to force use of label ([d5631e2](https://github.com/citation-js/citation-js/commit/d5631e239dc95aa054683c91ba49fdf8661ce3e5))
+
+
+
+## [0.7.11](https://github.com/citation-js/citation-js/compare/v0.7.10...v0.7.11) (2024-04-17)
 
 
 ### Bug Fixes
