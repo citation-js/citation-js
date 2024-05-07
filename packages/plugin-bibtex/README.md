@@ -58,6 +58,8 @@ const config = plugins.config.get('@bibtex')
 | `config.parse.strict` | `true`, [`false`] | When true, entries are checked for required fields. |
 | `config.parse.sentenceCase` | `'always'`, `'english'`, [`'never'`] | Convert titles to sentence case when parsing. |
 | `config.format.useIdAsLabel` | `true`, [`false`] | Use the entry ID as the label instead of generating one. |
+| `config.format.checkLabel` | [`true`], `false` | Remove unsafe characters from the provided label (or ID). |
+| `config.format.asciiOnly` | [`true`], `false` | Escape or remove non-ASCII characters. |
 
 ### Type mappings
 

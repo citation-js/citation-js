@@ -11,6 +11,22 @@ const stopWords = new Set([
 const unsafeChars = /(?:<\/?.*?>|[\u0020-\u002F\u003A-\u0040\u005B-\u005E\u0060\u007B-\u007F])+/g
 const unicode = /[^\u0020-\u007F]+/g
 
+function isLabelSafe (text) {
+  return !config.format.checkLabel || !text.match(unsafeChars)
+}
+
+function formatLabelFromId (id) {
+  if (id === null) {
+    return 'null'
+  } else if (id === undefined) {
+    return 'undefined'
+  } else if (config.format.checkLabel) {
+    return id.toString().replace(unsafeChars, '')
+  } else {
+    return id.toString()
+  }
+}
+
 function firstWord (text) {
   if (!text) {
     return ''
@@ -287,22 +303,12 @@ export const Converters = {
       return [label, label]
     },
     toSource (id, label, author, issued, suffix, title) {
-      let safeId
-      if (id === null) {
-        safeId = 'null'
-      } else if (id === undefined) {
-        safeId = 'undefined'
-      } else {
-        safeId = id.toString().replace(unsafeChars, '')
-      }
-      if (config.format.useIdAsLabel) {
-        return safeId
-      }
-
-      if (label && !unsafeChars.test(label)) {
+      if (label && isLabelSafe(label)) {
         return label
+      } else if (config.format.useIdAsLabel) {
+        return formatLabelFromId(id)
       } else {
-        return formatLabel(author, issued, suffix, title) || safeId
+        return formatLabel(author, issued, suffix, title) || formatLabelFromId(id)
       }
     }
   },
