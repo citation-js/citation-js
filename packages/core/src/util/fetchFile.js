@@ -7,10 +7,17 @@ import pkg from '../../package.json'
 const { fetch, Headers } = fetchPolyfill()
 
 // Browser environments have CORS enabled
-const corsEnabled = typeof location !== 'undefined' && typeof document !== 'undefined'
+const corsEnabled = typeof location !== 'undefined' && typeof navigator !== 'undefined'
 
-// Do not try to set the user agent in browsers
-let userAgent = corsEnabled ? '' : `Citation.js/${pkg.version} Node.js/${process.version}`
+let userAgent = `Citation.js/${pkg.version}`
+
+/* istanbul-ignore if: browser only */
+if (corsEnabled) {
+  // Do not try to set the user agent in browsers
+  userAgent = ''
+} else if (process && process.release && process.release.name === 'node' && process.version) {
+  userAgent += ` Node.js/${process.version}`
+}
 
 /**
  * @typedef module:@citation-js/core.util.fetchFile~options
