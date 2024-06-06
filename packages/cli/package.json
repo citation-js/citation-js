@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/cli",
-  "version": "0.7.12",
+  "version": "0.7.13",
   "description": "CLI for Citation.js",
   "keywords": [
     "citation-js",
@@ -36,13 +36,13 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@citation-js/core": "^0.7.11",
-    "@citation-js/plugin-bibjson": "^0.7.11",
-    "@citation-js/plugin-bibtex": "^0.7.12",
-    "@citation-js/plugin-csl": "^0.7.11",
-    "@citation-js/plugin-doi": "^0.7.11",
-    "@citation-js/plugin-ris": "^0.7.11",
-    "@citation-js/plugin-wikidata": "^0.7.11",
+    "@citation-js/core": "^0.7.13",
+    "@citation-js/plugin-bibjson": "^0.7.13",
+    "@citation-js/plugin-bibtex": "^0.7.13",
+    "@citation-js/plugin-csl": "^0.7.13",
+    "@citation-js/plugin-doi": "^0.7.13",
+    "@citation-js/plugin-ris": "^0.7.13",
+    "@citation-js/plugin-wikidata": "^0.7.13",
     "commander": "^11.0.0"
   }
 }

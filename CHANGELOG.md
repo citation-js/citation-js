@@ -1,4 +1,14 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.11...v) (2024-05-07)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.12...v) (2024-06-06)
+
+
+### Bug Fixes
+
+* **core:** handle errors in user agent determination ([4ae7fbc](https://github.com/citation-js/citation-js/commit/4ae7fbc3b11607e9429132bd6edd00b9c2118716)), closes [#227](https://github.com/citation-js/citation-js/issues/227)
+* **core:** only use node-fetch until node 16 is dropped ([4b29a5d](https://github.com/citation-js/citation-js/commit/4b29a5df00985cc4d07484df8b67a9bb7367cd31))
+
+
+
+## [0.7.12](https://github.com/citation-js/citation-js/compare/v0.7.11...v0.7.12) (2024-05-07)
 
 
 ### Features
