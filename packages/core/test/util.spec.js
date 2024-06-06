@@ -21,26 +21,14 @@ function deepNotEqual (a, b) {
   }
 }
 
-const nodeVersion = parseInt(process.version.split('.')[0])
 function getHeaders (headers) {
-  if (nodeVersion >= 18) {
-    return {
-      accept: '*/*',
-      'accept-encoding': 'gzip, deflate',
-      'accept-language': '*',
-      connection: 'keep-alive',
-      host: 'localhost:30200',
-      'sec-fetch-mode': 'cors',
-      ...headers
-    }
-  } else {
-    return {
-      accept: '*/*',
-      'accept-encoding': 'gzip,deflate',
-      connection: 'close',
-      host: 'localhost:30200',
-      ...headers
-    }
+  return {
+    accept: '*/*',
+    'accept-encoding': 'gzip,deflate',
+    connection: 'close',
+    host: 'localhost:30200',
+    'user-agent': 'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)',
+    ...headers
   }
 }
 

@@ -4,18 +4,14 @@ import fetchPolyfill from 'fetch-ponyfill'
 import logger from '../logger.js'
 import pkg from '../../package.json'
 
-const { fetch, Headers } = fetchPolyfill()
-
 // Browser environments have CORS enabled
-const corsEnabled = typeof location !== 'undefined' && typeof navigator !== 'undefined'
+const isBrowser = typeof location !== 'undefined' && typeof navigator !== 'undefined'
+
+const { fetch: asyncFetch, Headers: asyncHeaders } = typeof fetch === 'function' && isBrowser ? { fetch, Headers } : fetchPolyfill()
 
 let userAgent = `Citation.js/${pkg.version}`
 
-/* istanbul-ignore if: browser only */
-if (corsEnabled) {
-  // Do not try to set the user agent in browsers
-  userAgent = ''
-} else if (process && process.release && process.release.name === 'node' && process.version) {
+if (process && process.release && process.release.name === 'node' && process.version) {
   userAgent += ` Node.js/${process.version}`
 }
 
@@ -35,7 +31,7 @@ if (corsEnabled) {
 function normaliseHeaders (headers) {
   const result = {}
 
-  const entries = headers instanceof Headers || headers instanceof syncFetch.Headers
+  const entries = headers instanceof asyncHeaders || headers instanceof syncFetch.Headers
     ? Array.from(headers)
     : Object.entries(headers)
   for (const [name, header] of entries) {
@@ -59,7 +55,8 @@ function parseOpts (opts = {}) {
     checkContentType: opts.checkContentType
   }
 
-  if (userAgent && !corsEnabled) {
+  // Do not try to set the user agent in browsers
+  if (userAgent && !isBrowser) {
     reqOpts.headers['user-agent'] = userAgent
   }
 
@@ -161,7 +158,7 @@ export async function fetchFileAsync (url, opts) {
 
   logger.http('[core]', reqOpts.method, url, reqOpts)
 
-  return fetch(url, reqOpts)
+  return asyncFetch(url, reqOpts)
     .then(response => checkResponse(response, reqOpts))
     .then(response => response.text())
 }
