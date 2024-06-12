@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.12...v) (2024-06-06)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.13...v) (2024-06-12)
+
+
+### Bug Fixes
+
+* **core:** fix regression in 4ae7fbc ([c2dcb6a](https://github.com/citation-js/citation-js/commit/c2dcb6a26e8676c08efef4cf76695ab056f9be39)), closes [#229](https://github.com/citation-js/citation-js/issues/229)
+
+
+
+## [0.7.13](https://github.com/citation-js/citation-js/compare/v0.7.12...v0.7.13) (2024-06-06)
 
 
 ### Bug Fixes
