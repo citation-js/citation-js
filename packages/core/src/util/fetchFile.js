@@ -11,7 +11,7 @@ const { fetch: asyncFetch, Headers: asyncHeaders } = typeof fetch === 'function'
 
 let userAgent = `Citation.js/${pkg.version}`
 
-if (process && process.release && process.release.name === 'node' && process.version) {
+if (typeof process !== 'undefined' && process && process.release && process.release.name === 'node' && process.version) {
   userAgent += ` Node.js/${process.version}`
 }
 
