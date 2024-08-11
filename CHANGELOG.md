@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.13...v) (2024-06-12)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.14...v) (2024-08-11)
+
+
+### Bug Fixes
+
+* **plugin-wikidata:** replace deprecated wikidata-sdk ([32d1527](https://github.com/citation-js/citation-js/commit/32d15272e8dd41ff5fef259cb029297d29c4c5d1))
+
+
+
+## [0.7.14](https://github.com/citation-js/citation-js/compare/v0.7.13...v0.7.14) (2024-06-12)
 
 
 ### Bug Fixes
