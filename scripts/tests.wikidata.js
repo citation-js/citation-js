@@ -1,7 +1,10 @@
 const fetch = require('node-fetch')
 
 const fs = require('fs')
-const wdk = require('wikidata-sdk')
+const wdk = require('wikibase-sdk')({
+  instance: 'https://www.wikidata.org',
+  sparqlEndpoint: 'https://query.wikidata.org/sparql'
+})
 const response = require('../packages/plugin-wikidata/lib/response.js')
 
 const items = [

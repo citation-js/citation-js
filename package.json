@@ -17,7 +17,7 @@
     "node-fetch": "^2.6.7",
     "nyc": "^15.1.0",
     "standard": "^17.0.0",
-    "wikidata-sdk": "^8.0.0"
+    "wikibase-sdk": "^8.1.1"
   },
   "scripts": {
     "babel": "lerna exec --parallel -- babel src -d lib --copy-files",
