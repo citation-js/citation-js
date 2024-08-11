@@ -1,4 +1,4 @@
-import { simplify } from 'wikidata-sdk'
+import wdk from './wdk.js'
 import { parse as fetch, parseAsync as fetchAsync } from './api.js'
 import { parse as getUrls } from './id.js'
 
@@ -163,7 +163,7 @@ function completeResponse (entities, old) {
 }
 
 function simplifyEntities (entities) {
-  const simplified = simplify.entities(entities, SIMPLIFY_OPTS)
+  const simplified = wdk.simplify.entities(entities, SIMPLIFY_OPTS)
   for (const id in entities) {
     if (entities[id].missing === '') {
       throw new Error(`Entity "${id}" not found`)
@@ -171,7 +171,7 @@ function simplifyEntities (entities) {
 
     const claims = entities[id].claims
     if (claims.P348) {
-      simplified[id].claims['P348:all'] = simplify.propertyClaims(claims.P348, {
+      simplified[id].claims['P348:all'] = wdk.simplify.propertyClaims(claims.P348, {
         ...SIMPLIFY_OPTS,
         keepNonTruthy: true,
         keepRank: true

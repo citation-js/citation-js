@@ -1,4 +1,4 @@
-import wdk from 'wikidata-sdk'
+import wdk from './wdk.js'
 import config from './config.json'
 
 /**
