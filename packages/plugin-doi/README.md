@@ -19,6 +19,24 @@ Register by importing the package:
 require('@citation-js/plugin-doi')
 ```
 
+### 'Polite' API access
+
+The plugin fetches data from DOIs using [DOI Content Negotiation](https://citation.crosscite.org/docs),
+which means the Crossref, DataCite, and mEDRA APIs are indirectly used.
+
+[Crossref strongly encourages](https://api.crossref.org/swagger-ui/index.html)
+adding a `mailto:` link to the `User-Agent` header or URL parameters
+to get higher rate limits. Because the Crossref API is only used indirectly,
+the URL parameter method cannot be used consistently. Additionally, the `User-Agent`
+header cannot be set in the browser. For non-browser usage however,
+the user agent can be set like this:
+
+```js
+const { util, version } = require('@citation-js/core')
+
+util.setUserAgent(`Example Foo (mailto:foo@example.org) Citation.js/${version} Node.js/${process.versions.node}`)
+```
+
 ## Formats
 
 Formats and other features added by this plugin.
