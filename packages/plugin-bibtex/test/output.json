@@ -28,6 +28,9 @@
     "invalid rich text title": [[
       {"title": "<span class=\"\"subscript\"\">sub</span>"}
     ]],
+    "ascii escapes": [[
+      {"title": "Foo &"}
+    ]],
     "unicode escapes": [[
       {"title": "Foo —"},
       {"title": "Bar ⸘"},

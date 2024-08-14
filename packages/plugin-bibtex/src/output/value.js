@@ -9,7 +9,7 @@ const mathUnicode = {}
 for (const command in mathCommands) { mathUnicode[mathCommands[command]] = command }
 
 // eslint-disable-next-line no-misleading-character-class
-const UNSAFE_UNICODE = /[^a-zA-Z0-9\s!"#%&'()*+,\-./:;=?@[\]{}\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]/g
+const UNSAFE_UNICODE = /[^a-zA-Z0-9\s!"'()*+,\-./:;=?@[\]\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]/g
 const DIACRITIC_PATTERN = /.[\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]+/g
 const LONE_DIACRITIC_PATTERN = /[\u0300-\u0308\u030a-\u030c\u0332\u0323\u0327\u0328\u0361\u0326]/g
 
@@ -33,6 +33,8 @@ function escapeCharacter (char) {
     return unicode[char] in ligatures ? unicode[char] : `\\${unicode[char]}{}`
   } else if (char in mathUnicode) {
     return `$\\${mathUnicode[char]}$`
+  } else if (/^[&%$#_{}]$/.test(char)) {
+    return `\\${char}`
   } else {
     return ''
   }
