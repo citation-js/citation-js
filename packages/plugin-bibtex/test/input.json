@@ -719,6 +719,33 @@
           "id": "Steinbeck2003"
         }
       ]
+    ],
+    "a weird label": [
+      [{
+        "type": "article",
+        "label": "foo[2}",
+        "properties": {
+          "author": "Laroche, Emmanuel",
+          "journal": "Revue d\\textquoteright{}Assyriologie et d\\textquoteright{}Arch{\\' e}ologie Orientale",
+          "number": "1",
+          "year": "1952",
+          "pages": "42--50",
+          "title": "Fragments {Hittites} de {Gen}{\\` e}ve ({Suite} {Et} {Fin})",
+          "volume": "46"
+        }
+      }],
+      [{
+        "type": "article-journal",
+        "citation-key": "foo[2}",
+        "id": "foo[2}",
+        "author": [{ "given": "Emmanuel", "family": "Laroche" }],
+        "container-title": "Revue d’Assyriologie et d’Archéologie Orientale",
+        "issue": "1",
+        "volume": "46",
+        "issued": { "date-parts": [[1952]] },
+        "page": "42-50",
+        "title": "Fragments Hittites de Genève (Suite Et Fin)"
+      }]
     ]
   },
   "@bibtxt/text": {
