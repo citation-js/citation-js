@@ -87,7 +87,7 @@ const CONVERTERS = {
   },
 
   ID: {
-    toSource (id) { return id.slice(0, 20) }
+    toSource (id) { return id.toString().slice(0, 20) }
   },
 
   TYPE: {
