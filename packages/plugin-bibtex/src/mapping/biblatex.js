@@ -525,7 +525,7 @@ export default new util.Translator([
       target: {
         // All except:
         //   - thesis, report: institution
-        //   - webpage: organization
+        //   - webpage, paper-conference: organization
         type: [
           'article',
           'article-journal',
@@ -554,7 +554,6 @@ export default new util.Translator([
           'motion_picture',
           'musical_score',
           'pamphlet',
-          'paper-conference',
           'patent',
           'performance',
           'periodical',
@@ -582,7 +581,7 @@ export default new util.Translator([
         publisher: false
       },
       target: {
-        type: 'webpage' // TODO paper-conference?
+        type: ['paper-conference', 'webpage']
       }
     }
   },
