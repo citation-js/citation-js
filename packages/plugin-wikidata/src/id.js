@@ -22,7 +22,7 @@ function parseWikidata (data, langs) {
     }
   }
 
-  const urls = wdk.getManyEntities({ids, languages: langs || config.langs })
+  const urls = wdk.getManyEntities({ ids, languages: langs || config.langs })
   return Array.isArray(urls) ? urls : [urls]
 }
 

@@ -104,7 +104,7 @@ const blogpost = {
     }
   ],
   issued: { 'date-parts': [[2006, 11, 1]] },
-  'URL': 'http://dx.doi.org/10.59350/hhtcn-zah03'
+  URL: 'http://dx.doi.org/10.59350/hhtcn-zah03'
 }
 
 module.exports = {

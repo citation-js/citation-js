@@ -31,8 +31,9 @@ function parseDoiJson (data) {
 
   // https://github.com/citation-js/citation-js/issues/243
   if (data.type === 'posted-content' && (data.subtype === 'preprint' || data.member === '31795')) {
-    if (Array.isArray(data.institution) && data.institution[0] && data.institution[0].name)
-    res['container-title'] = data.institution[0].name
+    if (Array.isArray(data.institution) && data.institution[0] && data.institution[0].name) {
+      res['container-title'] = data.institution[0].name
+    }
   }
 
   return Object.assign({}, data, res)
