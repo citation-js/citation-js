@@ -1,10 +1,7 @@
 const fetch = require('node-fetch')
 
 const fs = require('fs')
-const wdk = require('wikibase-sdk')({
-  instance: 'https://www.wikidata.org',
-  sparqlEndpoint: 'https://query.wikidata.org/sparql'
-})
+const { wdk } = require('@larsgw/wikibase-sdk/commonjs/wikidata.org')
 const response = require('../packages/plugin-wikidata/lib/response.js')
 
 const items = [
@@ -29,7 +26,7 @@ const items = [
 async function getItems (ids) {
   return {
     entities: Object.assign(...await Promise.all(wdk
-      .getManyEntities(ids)
+      .getManyEntities({ ids })
       .map(url => fetch(url)
         .then(res => res.json())
         .then(res => res.entities)

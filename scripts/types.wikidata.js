@@ -1,7 +1,4 @@
-const wdk = require('wikibase-sdk')({
-  instance: 'https://www.wikidata.org',
-  sparqlEndpoint: 'https://query.wikidata.org/sparql'
-})
+const { wdk } = require('@larsgw/wikibase-sdk/commonjs/wikidata.org')
 const fetch = require('node-fetch')
 const { TYPE_PRIORITIES: TYPES } = require('../packages/plugin-wikidata/lib/prop.js')
 

@@ -1,4 +1,4 @@
-import wdk from './wdk.js'
+import wdk from '@larsgw/wikibase-sdk/commonjs/wikidata.org'
 import config from './config.json'
 
 /**
@@ -22,7 +22,7 @@ function parseWikidata (data, langs) {
     }
   }
 
-  const urls = wdk.getManyEntities(ids, langs || config.langs)
+  const urls = wdk.getManyEntities({ids, languages: langs || config.langs })
   return Array.isArray(urls) ? urls : [urls]
 }
 

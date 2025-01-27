@@ -37,7 +37,7 @@
   "dependencies": {
     "@citation-js/date": "^0.5.0",
     "@citation-js/name": "^0.4.2",
-    "wikibase-sdk": "^8.1.1"
+    "@larsgw/wikibase-sdk": "^10.2.1"
   },
   "devDependencies": {
     "@citation-js/core": "^0.7.14"
