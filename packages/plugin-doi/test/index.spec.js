@@ -1,38 +1,64 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const { plugins } = require('../../../test/api.js')(require('@citation-js/core'))
+const { Cite, plugins } = require('../../../test/api.js')(require('@citation-js/core'))
 require('../src/index.js')
 
+const id = require('./id.js')
 const data = require('./data.js')
 
 describe('input', function () {
-  for (const type in data) {
+  for (const type in id) {
     describe(type, function () {
       it('is registered', function () {
         assert(plugins.input.has(type))
       })
 
-      for (const name of Object.keys(data[type])) {
-        const [input, expected, { link, opts } = {}] = data[type][name]
+      for (const name in id[type]) {
+        const [input, expected] = id[type][name]
+
         describe(name, function () {
           it('parses type', function () {
             assert.strictEqual(plugins.input.type(input), type)
           })
-          it('parses data', function () {
-            const method = link ? plugins.input.chainLink : plugins.input.chain
-            const output = method(input, Object.assign({ generateGraph: false }, opts || {}))
-            assert.deepStrictEqual(output, expected)
-          })
-          it('parses data async', async function () {
-            const method = link ? plugins.input.chainLinkAsync : plugins.input.chainAsync
-            const output = await method(input, Object.assign({ generateGraph: false }, opts || {}))
+          it('parses id', function () {
+            const output = plugins.input.chainLink(input)
             assert.deepStrictEqual(output, expected)
           })
         })
       }
     })
   }
+
+  describe('@doi/api', function () {
+    it('is registered', function () {
+      assert(plugins.input.has('@doi/api'))
+    })
+
+    for (const name in data) {
+      const [input, expected] = data[name]
+
+      describe(name, function () {
+        it('parses type', function () {
+          assert.strictEqual(plugins.input.type(input), type)
+        })
+        it('parses data', function () {
+          const output = Cite(input).format('data', { format: 'object' })
+          for (const item of output) {
+            delete item.id
+          }
+          assert.deepStrictEqual(output, expected)
+        })
+        it('parses data async', async function () {
+          const output = await Cite.async(input).then(cite => cite.format('data', { format: 'object' }))
+          for (const item of output) {
+            delete item.id
+          }
+          assert.deepStrictEqual(output, expected)
+        })
+      })
+    }
+  })
 
   describe('errors', function () {
     it('for non-existent DOI', function () {
