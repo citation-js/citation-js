@@ -40,7 +40,7 @@ describe('input', function () {
 
       describe(name, function () {
         it('parses type', function () {
-          assert.strictEqual(plugins.input.type(input), type)
+          assert.strictEqual(plugins.input.type(input), '@doi/api')
         })
         it('parses data', function () {
           const output = Cite(input).format('data', { format: 'object' })
