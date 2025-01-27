@@ -29,6 +29,7 @@ const preprint = {
   abstract: '<jats:title>Abstract</jats:title><jats:p>High COVID-19 mortality among nursing home (NH) residents led to their prioritization for SARS-CoV-2 vaccination; most NH residents received BNT162b2 mRNA vaccination under the Emergency Use Authorization due to first to market and its availability. With NH residents’ poor initial vaccine response, the rise of NH breakthrough infections and outbreaks, characterization of the durability of immunity to inform public health policy on the need for boosting is needed. We report on humoral immunity from 2 weeks to 6-months post-vaccination in 120 NH residents and 92 ambulatory healthcare worker controls with and without pre-vaccination SARS-CoV-2 infection. Anti-spike and anti-receptor binding domain (RBD) IgG, and serum neutralization titers, were assessed using a bead-based ELISA method and pseudovirus neutralization assay. Anti-spike, anti-RBD and neutralization levels dropped more than 84% over 6 months’ time in all groups irrespective of prior SARS-CoV-2 infection. At 6 months post-vaccine, 70% of the infection-naive NH residents had neutralization titers at or below the lower limit of detection compared to 16% at 2 weeks after full vaccination. These data demonstrate a significant reduction in levels of antibody in all groups. In particular, those infection-naive NH residents had lower initial post-vaccination humoral immunity immediately and exhibited the greatest declines 6 months later. Healthcare workers, given their younger age and relative good-health, achieved higher initial antibody levels and better maintained them, yet also experienced significant declines in humoral immunity. Based on the rapid spread of the delta variant and reports of vaccine breakthrough in NH and among younger community populations, boosting NH residents may be warranted.</jats:p>',
   DOI: '10.1101/2021.08.15.21262067',
   type: 'article',
+  'container-title': 'medRxiv',
   source: 'Crossref',
   title: 'Significant reduction in humoral immunity among healthcare workers and nursing home residents 6 months after COVID-19 BNT162b2 mRNA vaccination',
   author: [
@@ -84,6 +85,28 @@ const zenodo8242099 = {
   version: 'v0.1.1'
 }
 
+const blogpost = {
+  'container-title': 'chem-bla-ics',
+  publisher: 'Front Matter',
+  abstract: '<p>The Bioclipse Workshop is in progress, and Ola is now leading a discussion about future releases and functionality. Proceedings are live updated, and presentation sheets will be available shortly.</p>',
+  DOI: '10.59350/hhtcn-zah03',
+  type: 'post-weblog',
+  source: 'Crossref',
+  title: 'The Bioclipse Workshop is in progress',
+  author: [
+    {
+      _orcid: 'http://orcid.org/0000-0001-7542-0286',
+      'authenticated-orcid': false,
+      given: 'Egon',
+      family: 'Willighagen',
+      sequence: 'first',
+      affiliation: []
+    }
+  ],
+  issued: { 'date-parts': [[2006, 11, 1]] },
+  'URL': 'http://dx.doi.org/10.59350/hhtcn-zah03'
+}
+
 module.exports = {
   'one url': [
     'https://doi.org/10.1021/ja01577a030',
@@ -108,5 +131,9 @@ module.exports = {
   preprint: [
     'https://dx.doi.org/10.1101/2021.08.15.21262067',
     [preprint]
+  ],
+  blogpost: [
+    'https://dx.doi.org/10.59350/hhtcn-zah03',
+    [blogpost]
   ]
 }

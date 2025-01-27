@@ -2,7 +2,7 @@ const fetch = require('node-fetch')
 
 const fs = require('fs')
 
-const dois = ['10.1021/ja01577a030', '10.1101/2021.08.15.21262067', '10.5281/zenodo.8242099']
+const dois = ['10.1021/ja01577a030', '10.1101/2021.08.15.21262067', '10.5281/zenodo.8242099', '10.59350/hhtcn-zah03']
 const json = response => response.json()
 
 Promise.all(dois.map(doi => fetch('https://doi.org/' + doi, {

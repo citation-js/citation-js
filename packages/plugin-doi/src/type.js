@@ -35,6 +35,11 @@ function fetchDoiType (value, data) {
     return 'article'
   }
 
+  // https://github.com/citation-js/citation-js/issues/243
+  if (value === 'posted-content' && data.subtype === 'other' && data.member === '31795') {
+    return 'post-weblog'
+  }
+
   return doiTypes[value] || value
 }
 
