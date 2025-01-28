@@ -1,4 +1,15 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.16...v) (2024-12-31)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.17...v) (2025-01-28)
+
+
+### Bug Fixes
+
+* **plugin-doi:** improve handling of Crossref data ([91c1741](https://github.com/citation-js/citation-js/commit/91c17410386b74bf92382dba4b1e5b7838198351)), closes [#243](https://github.com/citation-js/citation-js/issues/243)
+* **plugin-wikidata:** fix parser for multiple API responses ([1233bf7](https://github.com/citation-js/citation-js/commit/1233bf766360b579f0021b9b65dfd328b55dab02))
+* **plugin-wikidata:** update wikibase-sdk ([2f84aa6](https://github.com/citation-js/citation-js/commit/2f84aa650afb2744892cf6e3194a91f96b437389)), closes [#242](https://github.com/citation-js/citation-js/issues/242)
+
+
+
+## [0.7.17](https://github.com/citation-js/citation-js/compare/v0.7.16...v0.7.17) (2024-12-31)
 
 
 ### Bug Fixes
