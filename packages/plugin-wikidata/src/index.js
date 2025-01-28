@@ -214,7 +214,7 @@ const formats = {
         combined.success &= success
         Object.assign(combined.entities, entities)
         return combined
-      }, {})
+      })
     },
     parseType: {
       dataType: 'Array',
