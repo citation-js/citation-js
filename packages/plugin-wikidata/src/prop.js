@@ -122,6 +122,7 @@ function getTitle (value) {
 function parseKeywords (values) {
   return values
     .map(({ value }) => getLabel(value))
+    .filter(value => typeof value === 'string' && value !== '')
     .join(',')
 }
 
