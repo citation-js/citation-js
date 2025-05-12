@@ -7,7 +7,7 @@ module.exports = {
   '@wikidata/id': {
     simple: [
       'Q21972834',
-      ['https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q21972834&format=json&languages=en'],
+      ['https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q21972834&format=json&languages=en%7Cmul'],
       opts
     ],
     'no linked authors': [
