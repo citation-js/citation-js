@@ -83,6 +83,26 @@ function parseNames (values) {
 }
 
 /**
+ * Get place name from country.
+ *
+ * @access private
+ * @memberof module:@citation-js/plugin-wikidata.parsers.prop
+ * @param {Object} value
+ * @return {String} Country name
+ */
+function getCountryName (value) {
+  if (value.claims.P1813) {
+    // only short names that are not an instance of (P31) emoji flag seqs. (Q28840786)
+    const shortNames = value.claims.P1813.filter(({ qualifiers: { P31 } }) => !P31 || P31[0] !== 'Q28840786')
+    if (shortNames.length) {
+      return shortNames[0].value
+    }
+  }
+
+  return getLabel(value)
+}
+
+/**
  * Get place name from (publisher) entity.
  *
  * @access private
@@ -91,10 +111,13 @@ function parseNames (values) {
  * @return {String} Place name + country
  */
 function getPlace (value) {
-  const country = value.claims.P17[0].value
-  // only short names that are not an instance of (P31) emoji flag seqs. (Q28840786)
-  const shortNames = country.claims.P1813.filter(({ qualifiers: { P31 } }) => !P31 || P31[0] !== 'Q28840786')
-  return getLabel(value) + ', ' + (shortNames[0] || country.claims.P1448[0]).value
+  const place = getLabel(value)
+
+  if (value.claims.P17) {
+    return place + ', ' + getCountryName(value.claims.P17[0].value)
+  } else {
+    return place
+  }
 }
 
 /**
