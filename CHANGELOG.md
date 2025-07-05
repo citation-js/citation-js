@@ -1,4 +1,13 @@
-# [](https://github.com/citation-js/citation-js/compare/v0.7.18...v) (2025-05-12)
+# [](https://github.com/citation-js/citation-js/compare/v0.7.19...v) (2025-07-05)
+
+
+### Bug Fixes
+
+* **plugin-wikidata:** account for missing data on countries ([c95d47d](https://github.com/citation-js/citation-js/commit/c95d47d62a40ad788ead0ec21c9450d420101d78))
+
+
+
+## [0.7.19](https://github.com/citation-js/citation-js/compare/v0.7.18...v0.7.19) (2025-05-12)
 
 
 ### Bug Fixes
