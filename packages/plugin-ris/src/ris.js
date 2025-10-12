@@ -64,7 +64,9 @@ export function parse (text) {
       continue
     }
 
-    const [tag, value] = line.split(LINE_SPLIT)
+    const [tag, valueRaw] = line.split(LINE_SPLIT);
+    // convert type to uppercase; some RIS producers emit lowercase values
+    const value = (tag === 'TY' && typeof valueRaw === 'string') ? valueRaw.toUpperCase() : valueRaw;
     switch (tag) {
       case 'ER':
         lastEntry = undefined
