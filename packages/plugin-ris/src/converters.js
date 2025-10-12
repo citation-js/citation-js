@@ -96,8 +96,18 @@ const CONVERTERS = {
   },
 
   DOI: {
-    toTarget (doi) { return doi.match(DOI_REGEX)[0] },
-    toSource (doi) { return doi.match(DOI_REGEX)[0] }
+    toTarget(doi) {
+      if (doi == null) return undefined;
+      const str = typeof doi === 'string' ? doi : String(doi);
+      const m = str.match(DOI_REGEX);
+      return m ? m[0] : undefined;
+    },
+    toSource(doi) {
+      if (doi == null) return undefined;
+      const str = typeof doi === 'string' ? doi : String(doi);
+      const m = str.match(DOI_REGEX);
+      return m ? m[0] : undefined;
+    }
   }
 }
 
