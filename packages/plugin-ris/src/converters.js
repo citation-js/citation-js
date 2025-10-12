@@ -96,8 +96,14 @@ const CONVERTERS = {
   },
 
   DOI: {
-    toTarget (doi) { return doi.match(DOI_REGEX)[0] },
-    toSource (doi) { return doi.match(DOI_REGEX)[0] }
+    toTarget (doi) {
+      const match = doi.match(DOI_REGEX)
+      return match ? match[0] : undefined
+    },
+    toSource (doi) {
+      const match = doi.match(DOI_REGEX)
+      return match ? match[0] : undefined
+    }
   }
 }
 

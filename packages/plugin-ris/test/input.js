@@ -331,6 +331,120 @@ ER  - `,
           version: '0.5.0'
         }
       ]
+    ],
+    'https://github.com/citation-js/citation-js/pull/248-1': [
+      `MIME type 'application/xresearch-info-systems'
+
+
+Provider:   OEB
+
+TY  - Chap
+DB  - OEB
+TI  - Like cats and cows.
+TT  -
+ID  - OEB 205629
+N1  - OEB 205629
+DO  -
+ET  -
+IS  -
+PB  -
+PP  -
+CY  -
+PY  - 2013
+SP  - 3-5
+UR  -
+VL  -
+AU  - Allen, James P.
+T2  - Decorum and experience: essays in ancient culture for John Baines
+PB  - Griffith Institute
+PP  - Oxford
+CY  - Oxford
+SN  - 9780900416927
+ET  -
+IS  -
+A2  - McDonald, Angela
+A2  - Roberts, R. Gareth
+A2  - Frood, Elizabeth
+ER  -
+`,
+      [
+        {
+          type: 'chapter',
+          source: 'OEB',
+          title: 'Like cats and cows.',
+          id: 'OEB 205629',
+          note: 'OEB 205629',
+          issued: { 'date-parts': [[2013]] },
+          page: '3-5',
+          author: [{ given: 'James P.', family: 'Allen' }],
+          'container-title': 'Decorum and experience: essays in ancient culture for John Baines',
+          publisher: 'Griffith Institute',
+          'publisher-place': 'Oxford',
+          ISBN: '9780900416927',
+          editor: [
+            { family: 'McDonald', given: 'Angela' },
+            { family: 'Roberts', given: 'R. Gareth' },
+            { family: 'Frood', given: 'Elizabeth' }
+          ]
+        }
+      ]
+    ],
+    'https://github.com/citation-js/citation-js/pull/248-2': [
+      ` MIME type 'application/xresearch-info-systems'
+
+
+Provider:   OEB
+
+TY  - Journ
+TI  - The gneiss sphinx of Sesostris III: counterpart and provenance
+ST  - The gneiss sphinx of Sesostris III
+TT  -
+ID  - OEB 30135
+N1  - OEB 30135
+DO  -
+ET  -
+NV  -
+PB  -
+PP  -
+CY  -
+PY  - 1984 - 1985
+SP  - 11-16
+UR  - http://www.jstor.org/stable/pdfplus/1512808.pdf
+VL  -
+AU  - Habachi, Labib
+PB  -
+PP  -
+CY  -
+IS  -
+VL  - 19-20
+JO  - Metropolitan Museum Journal
+T2  - Metropolitan Museum Journal
+KW  - Karnak
+KW  - Karnak Magazine
+KW  - New York, Metropolitan Museum of Art
+KW  - New York, Metropolitan Museum of Art 17.9.2
+KW  - royal sculpture MK
+KW  - Senwosret III
+KW  - sphinx
+KW  - text
+ER  -
+`,
+      [
+        {
+          type: 'article-journal',
+          title: 'The gneiss sphinx of Sesostris III: counterpart and provenance',
+          'title-short': 'The gneiss sphinx of Sesostris III',
+          id: 'OEB 30135',
+          note: 'OEB 30135',
+          issued: { 'date-parts': [[1984], [1985]] },
+          page: '11-16',
+          URL: 'http://www.jstor.org/stable/pdfplus/1512808.pdf',
+          author: [{ family: 'Habachi', given: 'Labib' }],
+          volume: '19-20',
+          'container-title': 'Metropolitan Museum Journal',
+          keyword: 'Karnak,Karnak Magazine,New York, Metropolitan Museum of Art,New York, Metropolitan Museum of Art 17.9.2,royal sculpture MK,Senwosret III,sphinx,text'
+        }
+      ]
     ]
   }
 }

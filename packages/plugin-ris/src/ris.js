@@ -44,6 +44,16 @@ function prepareTranslator (spec) {
   return TRANSLATORS.get(spec)
 }
 
+function parseType (type) {
+  type = type.toUpperCase()
+
+  if (type === 'JOURN') {
+    return 'JOUR'
+  }
+
+  return type
+}
+
 /**
  * @access private
  * @method parse
@@ -64,7 +74,13 @@ export function parse (text) {
       continue
     }
 
-    const [tag, value] = line.split(LINE_SPLIT)
+    let [tag, value] = line.split(LINE_SPLIT)
+
+    if (value.trim() === '') {
+      lastTag = undefined
+      continue
+    }
+
     switch (tag) {
       case 'ER':
         lastEntry = undefined
@@ -73,6 +89,7 @@ export function parse (text) {
       case 'TY':
         lastEntry = {}
         entries.push(lastEntry)
+        value = parseType(value)
         // fall through
       default:
         if (Array.isArray(lastEntry[tag])) {
