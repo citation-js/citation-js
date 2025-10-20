@@ -329,7 +329,7 @@ function correctType (type, bestGuessConversions) {
   if (bestGuessConversions) {
     if (type in entryTypes) {
       return entryTypes[type]
-    } else if (type.toLowerCase() !== type) {
+    } else if (typeof type === 'string' && type.toLowerCase() !== type) {
       return correctType(type.toLowerCase(), bestGuessConversions)
     }
   }

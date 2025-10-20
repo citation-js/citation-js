@@ -312,6 +312,10 @@ describe('input', function () {
             type: 'article'
           }])
         })
+        it('but handles empty types', function () {
+          expect(util.clean([{ type: null }])).to.eql([{}])
+          expect(util.clean([{ type: undefined }])).to.eql([{}])
+        })
         it('on unparsed names', function () {
           expect(util.clean([{
             author: ['Lars G. Willighagen']
