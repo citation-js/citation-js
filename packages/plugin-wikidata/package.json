@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-wikidata",
-  "version": "0.7.20",
+  "version": "0.7.21",
   "description": "Plugin for Wikidata for Citation.js",
   "keywords": [
     "citation-js",
@@ -40,7 +40,7 @@
     "@larsgw/wikibase-sdk": "^10.2.1"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.7.18"
+    "@citation-js/core": "^0.7.21"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.7.0"
