@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-wikidata",
-  "version": "0.7.21",
+  "version": "0.7.22",
   "description": "Plugin for Wikidata for Citation.js",
   "keywords": [
     "citation-js",
