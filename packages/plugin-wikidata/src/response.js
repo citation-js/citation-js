@@ -86,7 +86,10 @@ const FETCH_ADDITIONAL = {
   // other container-title (has no event)
   P361: {
     P50: null
-  }
+  },
+
+  // genre
+  P13046: null
 }
 
 /**

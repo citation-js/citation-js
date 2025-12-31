@@ -309,6 +309,9 @@ export function parseProp (prop, value, entity) {
     case 'collection-number':
       return parseInt(value[0])
 
+    case 'genre':
+      return getLabel(value)
+
     case 'number-of-volumes':
       return value.length
 

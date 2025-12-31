@@ -28,7 +28,7 @@ module.exports = {
           'container-title': 'Bioinformatics',
           'container-title-short': 'Bioinformatics',
           journalAbbreviation: 'Bioinformatics',
-          keyword: 'Picea glauca,Shotgun sequencing',
+          keyword: 'Picea glauca,shotgun sequencing,whole genome sequencing',
           language: 'en',
           PMID: '23698863',
           PMCID: '3673215',
@@ -172,6 +172,7 @@ module.exports = {
           },
           title: 'SPLASH, a hashed identifier for mass spectra',
           keyword: 'metabolomics',
+          language: 'en',
           volume: '34',
           issue: '11',
           page: '1099-1101',
@@ -338,6 +339,7 @@ module.exports = {
       'Q7878315',
       [
         {
+          'chapter-number': 5,
           custom: { QID: 'Q7878315' },
           id: 'Q7878315',
           source: 'Wikidata',
@@ -360,7 +362,7 @@ module.exports = {
           id: 'Q50237325',
           type: 'review',
           source: 'Wikidata',
-          title: 'Deadly medicines and organised crime: How big pharma has corrupted healthcare.',
+          title: 'Deadly medicines and organised crime: How big pharma has corrupted healthcare',
           'reviewed-title': 'Deadly Medicines and Organised Crime',
           'reviewed-author': [{
             given: 'Peter C.',
@@ -415,7 +417,7 @@ module.exports = {
           'number-of-pages': 240,
           language: 'en',
           publisher: 'Bloomsbury Publishing',
-          'publisher-place': 'London, UK'
+          'publisher-place': 'London, United Kingdom'
         }
       ]
     ],
@@ -448,7 +450,7 @@ module.exports = {
           issued: {
             'date-parts': [[2019]]
           },
-          keyword: 'Wikipedia',
+          keyword: 'Wikipedia,academic studies about Wikipedia',
           language: 'en',
           'number-of-pages': 12,
           page: '1567-1578',
@@ -528,11 +530,10 @@ module.exports = {
             given: 'Rabindranath',
             family: 'Tagore'
           }],
-          keyword: 'Gitanjali',
           language: 'en',
           issued: { 'date-parts': [[1913]] },
           publisher: 'Macmillan Publishers',
-          'publisher-place': 'London, UK',
+          'publisher-place': 'London, United Kingdom',
           // 'original-title': 'গীতাঞ্জলি',
           'original-author': [{
             given: 'Rabindranath',
@@ -549,21 +550,21 @@ module.exports = {
         custom: {
           FramalibreID: 'imagej',
           QID: 'Q1659584',
-          RRID: 'RRID:SCR_003070',
+          RRID: 'SCR_003070',
           SW_MATHID: '12531',
           versions: [
             {
-              issued: { 'date-parts': [[2022, 8, 24]] },
-              version: '1.53t'
+              issued: { 'date-parts': [[2025, 9, 25]] },
+              version: '1.54r'
             }
           ]
         },
         author: [{ family: 'Rasband', given: 'Wayne' }],
-        issued: { 'date-parts': [[2022, 8, 24]] },
+        issued: { 'date-parts': [[2025, 9, 25]] },
         source: 'Wikidata',
         type: 'software',
-        version: '1.53t',
-        URL: 'https://imagej.nih.gov/ij/',
+        version: '1.54r',
+        URL: 'https://imagej.net/ij/',
         title: 'ImageJ'
       }]
     ],
@@ -576,7 +577,7 @@ module.exports = {
         author: [
           { _ordinal: 1, family: 'D.' }
         ],
-        'container-title': 'The Lancet',
+        'container-title': 'Lancet',
         'container-title-short': 'Lancet',
         custom: {
           QID: 'Q124174815'
@@ -591,6 +592,32 @@ module.exports = {
         title: 'Dr. Clanny\'s case of diabetes',
         type: 'article-journal',
         volume: '30'
+      }]
+    ],
+    'publication type': [
+      'Q28078908',
+      [{
+        DOI: '10.1002/MBO3.415',
+        ISSN: '2045-8827',
+        PMCID: '5387314',
+        PMID: '27785885',
+        author: [
+          { _ordinal: 1, family: 'Proença', given: 'Diogo N.' },
+          { _ordinal: 2, family: 'Grass', given: 'Gregor' },
+          { _ordinal: 3, family: 'Morais', given: 'Paula V.' }
+        ],
+        'container-title': 'MicrobiologyOpen',
+        custom: {
+          QID: 'Q28078908'
+        },
+        genre: 'review article',
+        id: 'Q28078908',
+        issued: { 'date-parts': [[2016, 10, 26]] },
+        keyword: 'plant disease,Pinus,bacteria,endophyte,Tylenchida,Bursaphelenchus xylophilus',
+        language: 'en',
+        source: 'Wikidata',
+        title: 'Understanding pine wilt disease: roles of the pine endophytic bacteria and of the bacteria carried by the disease-causing pinewood nematode',
+        type: 'article-journal'
       }]
     ]
   },

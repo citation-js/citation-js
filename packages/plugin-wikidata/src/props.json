@@ -88,6 +88,7 @@
   },
   "event-place": "P1433.P4745.P276",
 
+  "genre": { "values": "any", "props": ["P13046"] },
   "illustrator": {
     "values": "all",
     "props": ["P110"]
