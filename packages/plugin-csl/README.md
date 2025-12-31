@@ -17,6 +17,8 @@ Register by importing the package:
 
 ```js
 require('@citation-js/plugin-csl')
+// or
+import '@citation-js/plugin-csl'
 ```
 
 ## Formats
@@ -130,6 +132,8 @@ It is possible to add different styles and locales.
 
 ```js
 const { Cite, plugins } = require('@citation-js/core')
+// or
+import { Cite, plugins } from '@citation-js/core'
 ```
 
 #### Templates
