@@ -26,7 +26,7 @@ require('@citation-js/plugin-doi')
 require('@citation-js/plugin-ris')
 require('@citation-js/plugin-wikidata')
 
-const program = require('commander')
+const { program } = require('commander')
 program
   .version(require('../package.json').version)
   .usage('[options]')
