@@ -221,30 +221,6 @@ const formats = {
       elementConstraint: '@wikidata/object'
     },
     outputs: '@wikidata/object'
-  },
-
-  /**
-   * Convert a Wikidata prop+value+entity tuple to CSL.
-   *
-   * @deprecated
-   * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-wikidata.formats
-   * @property {module:@citation-js/core.plugins.input~dataParser} parse
-   */
-  '@wikidata/prop': {
-    parse: prop.parseProp
-  },
-
-  /**
-   * Convert a Wikidata ID to a CSL type.
-   *
-   * @deprecated
-   * @type module:@citation-js/core.plugins.input~parsers
-   * @memberof module:@citation-js/plugin-wikidata.formats
-   * @property {module:@citation-js/core.plugins.input~dataParser} parse
-   */
-  '@wikidata/type': {
-    parse: prop.parseType
   }
 }
 
