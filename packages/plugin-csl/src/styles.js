@@ -20,22 +20,4 @@ import defaultTemplates from './styles.json'
  */
 const templates = new util.Register(defaultTemplates)
 
-/* istanbul ignore next: deprecated */
-/**
- * Retrieve CSL style
- *
- * @access private
- * @deprecated
- * @param {String} [style="apa"] - style name
- * @return {String} CSL style
- */
-const fetchStyle = style => {
-  if (templates.has(style)) {
-    return templates.get(style)
-  } else {
-    return templates.get('apa')
-  }
-}
-
-export default fetchStyle
 export { templates }
