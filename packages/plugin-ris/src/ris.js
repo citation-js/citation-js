@@ -1,5 +1,4 @@
 import { util } from '@citation-js/core'
-import config from './config.json'
 
 import { SPECS } from './spec/index.js'
 import CONVERTERS from './converters.js'
@@ -147,8 +146,8 @@ export function parseMixed (data) { return prepareTranslator(SPECS.mixed).conver
  * @return {String|Array<Object>}
  */
 export function format (data, { type, format = type || 'text', spec } = {}) {
-  const outputSpec = spec || config.outputSpec
-  const translate = prepareTranslator(SPECS[outputSpec]).convertToSource
+  const mapping = SPECS[spec] || SPECS.mixed
+  const translate = prepareTranslator(mapping).convertToSource
   const entries = data.map(entry => translate(entry.type ? entry : { ...entry, type: 'document' }))
 
   if (format === 'object') {

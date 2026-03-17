@@ -11,7 +11,6 @@
  */
 
 import { plugins } from '@citation-js/core'
-import config from './config.json'
 import { parse, parseNew, parseOld, parseMixed, format } from './ris.js'
 
 const oldProps = ['A1', 'AV', 'BT', 'CP', 'ED', 'EP', 'ID', 'J1', 'JA', 'JF', 'JO', 'L2', 'L3', 'N2', 'T1', 'U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'Y1']
@@ -96,20 +95,6 @@ plugins.add('@ris', {
       }
     }
   },
-
-  /**
-   * Which specification to use when producing output.
-   *
-   * @deprecated Use the `spec` option of {@link module:@citation-js/plugin-ris.output.ris} instead.
-   * @var {String} [outputSpec="mixed"]
-   * @memberof module:@citation-js/plugin-ris.config
-   */
-
-  /**
-   * @namespace config
-   * @memberof module:@citation-js/plugin-ris
-   */
-  config,
 
   /**
    * @namespace output
