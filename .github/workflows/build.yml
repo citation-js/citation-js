@@ -2,9 +2,11 @@ name: build
 
 on: [push, pull_request]
 
+env:
+  NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -14,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node-version }}
 
