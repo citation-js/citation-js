@@ -24,10 +24,10 @@ function deepNotEqual (a, b) {
 function getHeaders (headers) {
   return {
     accept: '*/*',
-    'accept-encoding': 'gzip,deflate',
-    connection: 'close',
+    'accept-encoding': 'gzip, deflate, br',
+    connection: 'keep-alive',
     host: 'localhost:30200',
-    'user-agent': 'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)',
+    'user-agent': 'node-fetch',
     ...headers
   }
 }
@@ -233,17 +233,15 @@ describe('util', function () {
     })
 
     it('use default user agent (async)', async function () {
-      const [request, expectedResponse] = requests['accept custom user agents as header']
+      const [request] = requests['accept custom user agents as header']
       const headers = { ...request[1].headers }
       delete headers['User-Agent']
       util.setUserAgent(undefined)
       const actualResponse = await util.fetchFileAsync(serverName + request[0], { ...request[1], headers })
       assert.deepStrictEqual(JSON.parse(actualResponse), {
-        ...expectedResponse,
-        headers: {
-          ...expectedResponse.headers,
-          'user-agent': 'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)'
-        }
+        method: 'GET',
+        headers: getHeaders({}),
+        body: ''
       })
       util.setUserAgent(userAgent)
     })

@@ -1,5 +1,5 @@
 import syncFetch from 'sync-fetch'
-import fetchPolyfill from 'fetch-ponyfill'
+import { default as asyncFetch, Headers as asyncHeaders } from 'node-fetch'
 
 import logger from '../logger.js'
 import pkg from '../../package.json'
@@ -7,7 +7,10 @@ import pkg from '../../package.json'
 // Browser environments have CORS enabled
 const isBrowser = typeof location !== 'undefined' && typeof navigator !== 'undefined'
 
-const { fetch: asyncFetch, Headers: asyncHeaders } = typeof fetch === 'function' && isBrowser ? { fetch, Headers } : fetchPolyfill()
+if (isBrowser) {
+  asyncFetch = fetch
+  asyncHeaders = Headers
+}
 
 let userAgent = `Citation.js/${pkg.version}`
 
