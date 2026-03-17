@@ -32,9 +32,6 @@
   "files": [
     "lib"
   ],
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
   "dependencies": {
     "@citation-js/core": "^0.7.21",
     "@citation-js/plugin-bibjson": "^0.7.21",
