@@ -30,7 +30,9 @@
     "lib-mjs"
   ],
   "scripts": {
-    "test": "mocha -c -R dot test/*.spec.js"
+    "test": "mocha -c -R dot -r @babel/register test/*.spec.js",
+    "test:live": "TEST_MOCK_HTTP=false npm test",
+    "coverage": "NODE_ENV=coverage nyc npm test -- -c && nyc report --reporter=text-lcov > coverage.lcov"
   },
   "devDependencies": {
     "@citation-js/core": "^0.7.21"

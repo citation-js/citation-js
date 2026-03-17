@@ -34,7 +34,6 @@ To install for development, it's probably best to clone this repo:
 Then install dependencies:
 
     npm install
-    lerna bootstrap
 
 ### Editing
 
@@ -76,7 +75,7 @@ Examples of this are when you made changes to `@citation-js/core`s `util.fetchFi
 
 The tests for Wikidata and DOIs use cached data, to save time and take it easier on their APIs. If you want to bypass the caches for Wikidata and DOIs, run
 
-    npm run test:live
+    npx lerna run test:live
 
 To update the caches, run
 
