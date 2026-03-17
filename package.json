@@ -19,6 +19,11 @@
     "nyc": "^18.0.0",
     "standard": "^17.0.0"
   },
+  "overrides": {
+    "mocha": {
+      "serialize-javascript": "7.0.4"
+    }
+  },
   "scripts": {
     "babel": "lerna exec --parallel -- babel src -d lib --copy-files",
     "babel-mjs": "lerna exec --parallel -- babel src -d lib-mjs --copy-files --env-name mjs",
