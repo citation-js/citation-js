@@ -54,4 +54,10 @@ describe('output', function () {
       }
     })
   }
+
+  it('errors for invalid RIS specifications', function () {
+    assert.throws(() => plugins.output.format('ris', [], { spec: 'foo' }), {
+      message: 'Invalid RIS specification ("foo")'
+    })
+  })
 })

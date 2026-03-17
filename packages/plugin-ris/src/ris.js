@@ -145,9 +145,12 @@ export function parseMixed (data) { return prepareTranslator(SPECS.mixed).conver
  * @param {module:@citation-js/core.plugins.dict~dictName|String} [opts.format='text'] - Output dict name or `'object'` for a representation
  * @return {String|Array<Object>}
  */
-export function format (data, { type, format = type || 'text', spec } = {}) {
-  const mapping = SPECS[spec] || SPECS.mixed
-  const translate = prepareTranslator(mapping).convertToSource
+export function format (data, { type, format = type || 'text', spec = 'mixed' } = {}) {
+  if (!SPECS[spec]) {
+    throw new TypeError(`Invalid RIS specification ("${spec}")`)
+  }
+
+  const translate = prepareTranslator(SPECS[spec]).convertToSource
   const entries = data.map(entry => translate(entry.type ? entry : { ...entry, type: 'document' }))
 
   if (format === 'object') {
