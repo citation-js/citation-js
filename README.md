@@ -69,7 +69,6 @@ Read the paper [*Citation.js: a format-independent, modular bibliography tool fo
       -V, --version                   output the version number
       -i, --input <path>              Input file. If all input options are omitted, it uses stdin
       -t, --text <string>             Input text. If all input options are omitted, it uses stdin
-      -u, --url <string>              Deprecated in favor of -t, --text. If all input options are omitted, it uses stdin
       -o, --output <path>             Output file (omit file extension). If this option is omitted, the output is written to stdout
       -R, --output-non-real           Output as a text file
       -f, --output-type <option>      Output structure type: string, html, json (default: "json")

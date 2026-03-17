@@ -21,7 +21,6 @@ CLI for Citation.js.
 
       -i, --input <path>                 Input file. If all input options are omitted, it uses stdin
       -t, --text <string>                Input text. If all input options are omitted, it uses stdin
-      -u, --url <string>                 Deprecated in favor of -t, --text. If all input options are omitted, it uses stdin
       -o, --output <path>                Output file (omit file extension). If this option is omitted, the output is written to stdout
       --pipe                             Pipe and transform from stdin to stdout
 
@@ -44,7 +43,7 @@ CLI for Citation.js.
 
 ## Input
 
-Input can be read from `stdin`, passed as a file with `-i, --input <path>` or, for simple IDs, as plain text with `-t, --text` or the deprecated alias `-u, --url`.
+Input can be read from `stdin`, passed as a file with `-i, --input <path>` or, for simple IDs, as plain text with `-t, --text`.
 
     $ echo "Q30000000" > input.txt
 

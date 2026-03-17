@@ -33,7 +33,6 @@ program
 
   .option('-i, --input <path>', 'Input file. If all input options are omitted, it uses stdin')
   .option('-t, --text <string>', 'Input text. If all input options are omitted, it uses stdin')
-  .option('-u, --url <string>', 'Deprecated in favor of -t, --text. If all input options are omitted, it uses stdin')
 
   .option('-o, --output <path>', 'Output file (omit file extension). If this option is omitted, the output is written to stdout')
 
@@ -141,7 +140,7 @@ function parseValue (value) {
 module.exports.pipe = pipe
 function pipe (stdin, stdout, options) {
   return new Promise((resolve, reject) => {
-    const useless = ['input', 'text', 'url', 'output'].filter(option => options[option])
+    const useless = ['input', 'text', 'output'].filter(option => options[option])
     if (useless.length) {
       reject(new Error(`Cannot use options "${
         useless.map(option => `--${option}`).join(', ')
@@ -163,8 +162,8 @@ function pipe (stdin, stdout, options) {
 async function getInput (options) {
   if (options.input) {
     return readFile(options.input, 'utf8')
-  } else if (options.text || options.url) {
-    return options.text || options.url
+  } else if (options.text) {
+    return options.text
   } else {
     return new Promise(function (resolve, reject) {
       let input = ''
