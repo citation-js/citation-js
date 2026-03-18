@@ -3,7 +3,7 @@
  *
  * Formats and other features added by this plugin. General output options:
  *
- *   * `template`: the style template to use. Currently, the following are built-in:
+ *   * `style`: the style style to use. Currently, the following are built-in:
  *     * `apa` (default)
  *     * `vancouver`
  *     * `harvard1`
@@ -56,7 +56,7 @@
 import { plugins } from '@citation-js/core'
 
 import { locales } from './locales.js'
-import { templates } from './styles.js'
+import { styles } from './styles.js'
 import engine from './engines.js'
 
 import bibliography from './bibliography.js'
@@ -119,7 +119,7 @@ plugins.add('@csl', {
      * let example = new Cite(...)
      * example.format('bibliography', {
      *   format: 'html',
-     *   template: 'apa',
+     *   style: 'apa',
      *   lang: language
      * })
      * ```
@@ -130,26 +130,26 @@ plugins.add('@csl', {
     locales,
 
     /**
-     * Different [CSL Templates](https://github.com/citation-style-language/styles) can be registered like this:
+     * Different [CSL Styles](https://github.com/citation-style-language/styles) can be registered like this:
      *
      * ```js
-     * let templateName = 'custom'
-     * let template = '<?xml version="1.0" encoding="utf-8"?><style ...>...</style>' // The actual XML file
+     * let styleName = 'custom'
+     * let style = '<?xml version="1.0" encoding="utf-8"?><style ...>...</style>' // The actual XML file
      *
      * let config = plugins.config.get('@csl')
-     * config.templates.add(templateName, template)
+     * config.styles.add(styleName, style)
      *
      * let example = new Cite(...)
      * example.format('bibliography', {
      *   format: 'html',
-     *   template: templateName,
+     *   style: styleName,
      *   lang: 'en-US'
      * })
      * ```
      *
      * @memberof module:@citation-js/plugin-csl.config
-     * @var {module:@citation-js/core.util.Register} templates
+     * @var {module:@citation-js/core.util.Register} styles
      */
-    templates
+    styles
   }
 })

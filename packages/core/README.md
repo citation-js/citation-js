@@ -34,7 +34,7 @@ let example = new Cite('Q21972834')
 
 let output = example.format('bibliography', {
   format: 'html',
-  template: 'apa',
+  style: 'apa',
   lang: 'en-US'
 })
 
@@ -52,7 +52,7 @@ let example = await Cite.async('Q21972834')
 
 let output = example.format('bibliography', {
   format: 'html',
-  template: 'apa',
+  style: 'apa',
   lang: 'en-US'
 })
 

@@ -43,7 +43,7 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  *
  * cite.format('bibliography', {
  *   format: 'html',
- *   template: 'apa',
+ *   style: 'apa',
  *   prepend (entry) {
  *     return `[${entry.id}]: `
  *   },
@@ -86,7 +86,8 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  *
  * @param {Array<CSL>} data
  * @param {Object} [options={}]
- * @param {String} [options.template='apa']
+ * @param {String} [options.style='apa']
+ * @param {String} [options.template] deprecated alias of the style option
  * @param {String} [options.lang]
  * @param {String} [options.format='text']
  * @param {Booolean} [options.asEntryArray=false]
@@ -99,11 +100,12 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  * @return {String} output
  */
 export default function bibliography (data, options = {}) {
-  const { template = 'apa', lang, format = 'text', nosort = false } = options
+  const style = options.style || options.template || 'apa'
+  const { lang, format = 'text', nosort = false } = options
   const ids = options.entry ? [].concat(options.entry) : data.map(({ id }) => id)
   data = util.downgradeCsl(data)
 
-  const citeproc = prepareEngine(data, template, lang, format)
+  const citeproc = prepareEngine(data, style, lang, format)
   const sortedIds = citeproc.updateItems(ids, nosort)
 
   if (options.append || options.prepend) {

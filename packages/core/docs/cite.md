@@ -166,7 +166,7 @@ Now, we can choose different {@tutorial output_formats output options} as a para
 ```js
 > example.format('bibliography', {
     format: 'html',
-    template: 'apa'
+    style: 'apa'
   })
 
 < <div class="csl-bib-body">

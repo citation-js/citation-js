@@ -1,6 +1,6 @@
 import CSL from 'citeproc'
 
-import { templates } from './styles.js'
+import { styles } from './styles.js'
 import { locales } from './locales.js'
 
 // BEGIN add sys function
@@ -59,16 +59,16 @@ const engines = {}
  *
  * @access private
  *
- * @param {String} style - CSL style id
+ * @param {String} styleName - CSL style id
  * @param {String} lang - Language code
- * @param {String} template - CSL XML template
+ * @param {String} styleXml - CSL XML style
  * @param {module:output/csl~retrieveItem} retrieveItem - Code to retreive item
  * @param {module:output/csl~retrieveLocale} retrieveLocale - Code to retreive locale
  *
  * @return {Object} CSL Engine
  */
-const fetchEngine = function (style, locale, styleXml, retrieveItem, retrieveLocale) {
-  const engineHash = `${style}|${locale}`
+const fetchEngine = function (styleName, locale, styleXml, retrieveItem, retrieveLocale) {
+  const engineHash = `${styleName}|${locale}`
   let engine
 
   if (engines[engineHash] instanceof CSL.Engine) {
@@ -89,19 +89,19 @@ const fetchEngine = function (style, locale, styleXml, retrieveItem, retrieveLoc
  * @access private
  *
  * @param {Array<CSL>} data
- * @param {String} templateName
+ * @param {String} styleName
  * @param {String} language
  * @param {String} format
  *
  * @return {Object} CSL Engine
  */
-const prepareEngine = function (data, style, locale, format) {
+const prepareEngine = function (data, styleName, locale, format) {
   if (!CSL.Output.Formats[format] || !CSL.Output.Formats[format]['@bibliography/entry']) {
     throw new TypeError(`Cannot find format '${format}'`)
   }
 
   const items = data.reduce((store, entry) => { store[entry.id] = entry; return store }, {})
-  const template = templates.get(templates.has(style) ? style : 'apa')
+  const style = styles.get(styles.has(styleName) ? styleName : 'apa')
   locale = locales.has(locale) ? locale : undefined
 
   const callback = function (key) {
@@ -112,7 +112,7 @@ const prepareEngine = function (data, style, locale, format) {
     }
   }
 
-  const engine = fetchEngine(style, locale, template, callback, retrieveLocale)
+  const engine = fetchEngine(styleName, locale, style, callback, retrieveLocale)
   engine.setOutputFormat(format)
   engine.opt.development_extensions.wrap_url_and_doi = false
 

@@ -1,23 +1,23 @@
 import { util } from '@citation-js/core'
 
 /**
- * Object containing CSL templates
+ * Object containing CSL styles
  *
- * Templates from the [CSL Project](http://citationstyles.org/)<br>
+ * Styles from the [CSL Project](http://citationstyles.org/)<br>
  * [REPO](https://github.com/citation-style-language/styles), [LICENSE](https://creativecommons.org/licenses/by-sa/3.0/)
  *
  * Accesed 10/22/2016
  *
  * @access private
- * @constant defaultTemplates
+ * @constant defaultStyles
  */
-import defaultTemplates from './styles.json'
+import defaultStyles from './styles.json'
 
 /**
  * @access private
  * @type module:@citation-js/core.util.Register
  * @member
  */
-const templates = new util.Register(defaultTemplates)
+const styles = new util.Register(defaultStyles)
 
-export { templates }
+export { styles }

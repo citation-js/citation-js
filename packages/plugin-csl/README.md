@@ -25,7 +25,7 @@ import '@citation-js/plugin-csl'
 
 Formats and other features added by this plugin. General output options:
 
-  * `template`: the style template to use. Currently, the following are built-in:
+  * `style`: the style to use. Currently, the following are built-in:
     * `apa` (default)
     * `vancouver`
     * `harvard1`
@@ -68,7 +68,7 @@ let date = (new Date()).toLocaleDateString()
 
 cite.format('bibliography', {
   format: 'html',
-  template: 'apa',
+  style: 'apa',
   prepend (entry) {
     return `[${entry.id}]: `
   },
@@ -136,21 +136,21 @@ const { Cite, plugins } = require('@citation-js/core')
 import { Cite, plugins } from '@citation-js/core'
 ```
 
-#### Templates
+#### Styles
 
-Different [CSL Templates](https://github.com/citation-style-language/styles) can be registered like this:
+Different [CSL Styles](https://github.com/citation-style-language/styles) can be registered like this:
 
 ```js
-let templateName = 'custom'
-let template = '<?xml version="1.0" encoding="utf-8"?><style ...>...</style>' // The actual XML file
+let styleName = 'custom'
+let style = '<?xml version="1.0" encoding="utf-8"?><style ...>...</style>' // The actual XML file
 
 let config = plugins.config.get('@csl')
-config.templates.add(templateName, template)
+config.styles.add(styleName, style)
 
 let example = new Cite(...)
 example.format('bibliography', {
   format: 'html',
-  template: templateName,
+  style: styleName,
   lang: 'en-US'
 })
 ```
@@ -169,7 +169,7 @@ config.locales.add(language, locale)
 let example = new Cite(...)
 example.format('bibliography', {
   format: 'html',
-  template: 'apa',
+  style: 'apa',
   lang: language
 })
 ```
@@ -183,7 +183,7 @@ let config = plugins.config.get('@csl')
 
 let citeproc = plugins.engine(
   /* data: */ [{ ... }],
-  /* template: */ 'apa',
+  /* style: */ 'apa',
   /* locale: */ 'en-US',
   /* format: */ 'html'
 )

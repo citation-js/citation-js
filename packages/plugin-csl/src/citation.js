@@ -83,7 +83,8 @@ function prepareCitations (context) {
  *
  * @param {Array<CSL>} data
  * @param {Object} [options={}]
- * @param {String} [options.template='apa']
+ * @param {String} [options.style='apa']
+ * @param {String} [options.template] deprecated alias of the style option
  * @param {String} [options.lang]
  * @param {String} [options.format='text']
  * @param {module:@citation-js/plugin-csl.output~Entries} [options.entry] - list of ids or cite-items of entries to include in the citation (defaults to all)
@@ -93,12 +94,13 @@ function prepareCitations (context) {
  * @return {String} output
  */
 export default function citation (data, options = {}) {
-  const { template = 'apa', lang, format = 'text' } = options
+  const style = options.style || options.template || 'apa'
+  const { lang, format = 'text' } = options
   const ids = data.map(({ id }) => id)
   const entries = options.entry ? options.entry : ids
   data = util.downgradeCsl(data)
 
-  const citeproc = prepareEngine(data, template, lang, format)
+  const citeproc = prepareEngine(data, style, lang, format)
 
   const before = prepareCitations(options.citationsPre)
   const citation = prepareCitation(entries)

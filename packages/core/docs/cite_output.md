@@ -20,7 +20,7 @@ With these options you can also change style, for example:
 
 ```js
 cite.format('citation', {
-  template: 'vancouver'
+  style: 'vancouver'
 })
 // '(1)'
 ```
@@ -49,7 +49,7 @@ Now, we can choose different {@tutorial output_formats output options} as a para
 ```js
 > example.format('bibliography', {
     format: 'html',
-    template: 'apa'
+    style: 'apa'
   })
 
 < <div class="csl-bib-body">
@@ -80,7 +80,7 @@ const example = new Cite('Q30000000')
 
 > example.format('bibliography', {
     format: 'rtf',
-    template: 'apa'
+    style: 'apa'
   })
 
 < {\rtf Miccadei, S., De Leo, R., Zammarchi, E., Natali, P. G., & Civitareale, D. (2002). The Synergistic Activity of Thyroid Transcription Factor 1 and Pax 8 Relies on the Promoter/Enhancer Interplay. {\i{}Molecular Endocrinology}, {\i{}16}(4), 837\uc0\u8211{}846. https://doi.org/10.1210/MEND.16.4.0808}

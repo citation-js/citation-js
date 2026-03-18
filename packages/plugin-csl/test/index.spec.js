@@ -6,7 +6,7 @@ const { plugins } = require('@citation-js/core')
 const data = require('./data.js')
 
 const CSL = plugins.config.get('@csl')
-CSL.templates.add('custom', `<?xml version="1.0" encoding="utf-8"?>
+CSL.styles.add('custom', `<?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="minimal">
   <bibliography>
     <layout>
@@ -49,7 +49,7 @@ CSL.locales.add('zh_CN', `<?xml version="1.0" encoding="utf-8"?>
     <term name="et-al" form="short">custom</term>
   </terms>
 </locale>`)
-CSL.templates.add('harvard1:fr-FR', CSL.templates.get('harvard1').replace(/en-GB/g, 'fr-FR'))
+CSL.styles.add('harvard1:fr-FR', CSL.styles.get('harvard1').replace(/en-GB/g, 'fr-FR'))
 
 describe('output', function () {
   for (const type in data) {
@@ -85,15 +85,15 @@ describe('output', function () {
 
     it('clears disambiguation cache', function () {
       // Force new engine (sorry)
-      const template = 'apa-disambig-cache'
-      CSL.templates.add(template, CSL.templates.get('apa'))
+      const style = 'apa-disambig-cache'
+      CSL.styles.add(style, CSL.styles.get('apa'))
 
       plugins.output.format('bibliography', [
         { id: '4', title: 'foo', author: [{ family: 'a' }] }
-      ], { template })
+      ], { style })
       plugins.output.format('bibliography', [
         { id: '5', title: 'bar', author: [{ family: 'a' }] }
-      ], { template })
+      ], { style })
     })
 
     it('clears citation cache', function () {
