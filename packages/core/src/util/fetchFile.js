@@ -1,5 +1,5 @@
 import syncFetch from 'sync-fetch'
-import { default as asyncFetch, Headers as asyncHeaders } from 'node-fetch'
+import nodeFetch, { Headers as nodeFetchHeaders } from 'node-fetch'
 
 import logger from '../logger.js'
 import pkg from '../../package.json'
@@ -7,10 +7,8 @@ import pkg from '../../package.json'
 // Browser environments have CORS enabled
 const isBrowser = typeof location !== 'undefined' && typeof navigator !== 'undefined'
 
-if (isBrowser) {
-  asyncFetch = fetch
-  asyncHeaders = Headers
-}
+const asyncFetch = isBrowser ? fetch : nodeFetch
+const asyncHeaders = isBrowser ? fetch : nodeFetchHeaders
 
 let userAgent = `Citation.js/${pkg.version}`
 
