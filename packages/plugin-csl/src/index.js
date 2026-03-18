@@ -13,7 +13,13 @@
  *     * `de-DE`
  *     * `fr-FR`
  *     * `nl-NL`
- *   * `format`: output (markup) format. Note: this doesn't support the output format dictionaries
+ *   * `format`: output (markup) format used by `citeproc-js`
+ *     * `text` (default)
+ *     * `html`
+ *     * `rtf`
+ *     * `asciidoc`
+ *     * `fo`
+ *     * `latex`
  *   * `entry` (`String`, `Array[String]`): entry ID or list of entry IDs to identify the items to cite
  *
  * For all formats and format-specific options, check out {@link module:@citation-js/plugin-csl.output}.
