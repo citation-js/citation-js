@@ -24,7 +24,7 @@ Currently, Citation.js supports the following types of plugins:
 
   * `input`: {@tutorial input_plugins} add to or change the parsing process
   * `output`: {@tutorial output_plugins} add or change output formats
-  * `dict`: {@tutorial output_plugins_dict} extend CSL with different locales and templates
+  * `dict`: {@tutorial output_plugins_dict} extend output formats to different markup languages
 
 ## Config
 
