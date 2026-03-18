@@ -93,21 +93,6 @@ function getJson (src, dict) {
   return dict.bibliographyContainer.join(`[${entries}]`)
 }
 
-/**
- * Get a JSON HTML string from CSL
- *
- * @access protected
- * @method getJsonWrapper
- * @deprecated use the generalised method: {@link module:output/json~getJson}
- *
- * @param {Array<CSL>} src - Input CSL
- *
- * @return {String} JSON HTML string
- */
-export /* istanbul ignore next: deprecated */ function getJsonWrapper (src) {
-  return getJson(src, plugins.dict.get('html'))
-}
-
 export default {
   data (data, { type, format = type || 'text', version = '1.0.2' } = {}) {
     if (version < '1.0.2') {
