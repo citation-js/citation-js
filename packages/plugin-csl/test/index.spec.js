@@ -136,5 +136,15 @@ describe('output', function () {
         { message: 'Cannot find format \'foo\'' }
       )
     })
+    it('for non-existing styles', function () {
+      assert.throws(
+        () => plugins.output.format(
+          'bibliography',
+          [{ id: 'foo' }],
+          { style: 'foo' }
+        ),
+        { message: 'Cannot find style \'foo\'' }
+      )
+    })
   })
 })

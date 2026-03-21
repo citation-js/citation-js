@@ -100,8 +100,11 @@ const prepareEngine = function (data, styleName, locale, format) {
     throw new TypeError(`Cannot find format '${format}'`)
   }
 
+  if (!styles.has(styleName)) {
+    throw new TypeError(`Cannot find style '${styleName}'`)
+  }
+
   const items = data.reduce((store, entry) => { store[entry.id] = entry; return store }, {})
-  const style = styles.get(styles.has(styleName) ? styleName : 'apa')
   locale = locales.has(locale) ? locale : undefined
 
   const callback = function (key) {
@@ -112,7 +115,7 @@ const prepareEngine = function (data, styleName, locale, format) {
     }
   }
 
-  const engine = fetchEngine(styleName, locale, style, callback, retrieveLocale)
+  const engine = fetchEngine(styleName, locale, styles.get(styleName), callback, retrieveLocale)
   engine.setOutputFormat(format)
   engine.opt.development_extensions.wrap_url_and_doi = false
 

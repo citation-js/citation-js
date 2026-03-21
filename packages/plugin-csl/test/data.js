@@ -57,11 +57,6 @@ module.exports = {
       '1.  Hall HK. Correlation of the Base Strengths of Amines 1. Journal of the American Chemical Society. 1957 Jan 1;79(20):5441–4.',
       { style: 'vancouver' }
     ],
-    'non-existent style': [
-      bibliographyData,
-      'Hall, H. K. (1957). Correlation of the Base Strengths of Amines 1. Journal of the American Chemical Society, 79(20), 5441–5444. https://doi.org/10.1021/ja01577a030',
-      { style: 'foo' }
-    ],
     'deprecated "template" option': [
       bibliographyData,
       '1.  Hall HK. Correlation of the Base Strengths of Amines 1. Journal of the American Chemical Society. 1957 Jan 1;79(20):5441–4.',
