@@ -1,5 +1,5 @@
 const { wdk } = require('@larsgw/wikibase-sdk/commonjs/wikidata.org')
-const fetch = require('node-fetch')
+const fetch = require('node-fetch').default
 const { TYPE_PRIORITIES: TYPES } = require('../packages/plugin-wikidata/lib/prop.js')
 
 const SOURCE_QUERY = `PREFIX csl: <https://citationstyles.org/ontology/type/>

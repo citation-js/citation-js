@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = require('node-fetch').default
 
 const LOCALES = ['en-US', 'nl-NL', 'fr-FR', 'de-DE', 'es-ES']
 
