@@ -8,7 +8,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
     "@larsgw/wikibase-sdk": "^10.2.1",
-    "babel-plugin-istanbul": "^7.0.1",
+    "babel-plugin-istanbul": "^8.0.0",
     "conventional-changelog": "^7.2.0",
     "expect.js": "^0.3.1",
     "jsdoc": "^4.0.0",
@@ -20,8 +20,11 @@
     "standard": "^17.0.0"
   },
   "overrides": {
+    "lerna": {
+      "tar": "7.5.19"
+    },
     "mocha": {
-      "serialize-javascript": "7.0.4"
+      "serialize-javascript": "7.0.5"
     }
   },
   "scripts": {
@@ -42,5 +45,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "allowScripts": {
+    "nx@22.7.6": true
+  }
 }
