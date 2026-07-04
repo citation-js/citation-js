@@ -60,7 +60,7 @@ const engines = {}
  * @access private
  *
  * @param {String} styleName - CSL style id
- * @param {String} lang - Language code
+ * @param {String} locale - Language code
  * @param {String} styleXml - CSL XML style
  * @param {module:output/csl~retrieveItem} retrieveItem - Code to retreive item
  * @param {module:output/csl~retrieveLocale} retrieveLocale - Code to retreive locale
@@ -90,7 +90,7 @@ const fetchEngine = function (styleName, locale, styleXml, retrieveItem, retriev
  *
  * @param {Array<CSL>} data
  * @param {String} styleName
- * @param {String} language
+ * @param {String} locale
  * @param {String} format
  *
  * @return {Object} CSL Engine
