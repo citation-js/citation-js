@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-url",
-  "version": "0.7.21",
+  "version": "0.8.0",
   "description": "Citation.js plugin for automatically fetching URLs.",
   "keywords": [
     "citation-js"
@@ -35,7 +35,7 @@
     "coverage": "NODE_ENV=coverage nyc npm test -- -c && nyc report --reporter=text-lcov > coverage.lcov"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.7.21"
+    "@citation-js/core": "^0.8.0"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.7.0"
