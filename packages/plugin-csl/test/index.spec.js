@@ -51,6 +51,7 @@ CSL.locales.add('zh_CN', `<?xml version="1.0" encoding="utf-8"?>
 </locale>`)
 CSL.styles.add('harvard1:fr-FR', CSL.styles.get('harvard1').replace(/<style (("[^"\n]*"|[^">\n])+)>/, '<style $1 default-locale="fr-FR">'))
 CSL.styles.add('harvard1:en-GB', CSL.styles.get('harvard1').replace(/<style (("[^"\n]*"|[^">\n])+)>/, '<style $1 default-locale="en-GB">'))
+CSL.styles.add('harvard1:unpatched', CSL.styles.get('harvard1').replace(/"event-title"/g, '"event"'))
 
 describe('output', function () {
   for (const type in data) {

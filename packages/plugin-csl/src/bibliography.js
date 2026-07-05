@@ -90,9 +90,10 @@ const getAffix = (source, affix) => typeof affix === 'function' ? affix(source) 
  * @param {String} [options.template] deprecated alias of the style option
  * @param {String} [options.lang]
  * @param {String} [options.format='text']
- * @param {Booolean} [options.asEntryArray=false]
- * @param {Booolean} [options.nosort=false]
+ * @param {Boolean} [options.asEntryArray=false]
+ * @param {Boolean} [options.nosort=false]
  * @param {Boolean} [options.hyperlinks=false]
+ * @param {Boolean} [options.downgradeCsl=false]
  * @param {String|Array<String>} [options.entry]
  * @param {Cite~wrapper} [options.prepend]
  * @param {Cite~wrapper} [options.append]
@@ -103,7 +104,10 @@ export default function bibliography (data, options = {}) {
   const style = options.style || options.template || 'apa'
   const { lang, format = 'text', nosort = false } = options
   const ids = options.entry ? [].concat(options.entry) : data.map(({ id }) => id)
-  data = util.downgradeCsl(data)
+
+  if (options.downgradeCsl) {
+    data = util.downgradeCsl(data)
+  }
 
   const citeproc = prepareEngine(data, style, lang, format)
   const sortedIds = citeproc.updateItems(ids, nosort)

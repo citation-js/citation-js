@@ -87,6 +87,7 @@ function prepareCitations (context) {
  * @param {String} [options.template] deprecated alias of the style option
  * @param {String} [options.lang]
  * @param {String} [options.format='text']
+ * @param {Boolean} [options.downgradeCsl=false]
  * @param {module:@citation-js/plugin-csl.output~Entries} [options.entry] - list of ids or cite-items of entries to include in the citation (defaults to all)
  * @param {Array<String>} [options.citationsPre=[]]
  * @param {Array<String>} [options.citationsPost=[]]
@@ -98,7 +99,10 @@ export default function citation (data, options = {}) {
   const { lang, format = 'text' } = options
   const ids = data.map(({ id }) => id)
   const entries = options.entry ? options.entry : ids
-  data = util.downgradeCsl(data)
+
+  if (options.downgradeCsl) {
+    data = util.downgradeCsl(data)
+  }
 
   const citeproc = prepareEngine(data, style, lang, format)
 
