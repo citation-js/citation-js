@@ -1,13 +1,18 @@
 ##  (2026-07-05)
 
-* feat(plugin-csl): default to CSL 1.0.2 ([c57c3e8](https://github.com/citation-js/citation-js/commit/c57c3e8)), closes [#276](https://github.com/citation-js/citation-js/issues/276)
-* feat(plugin-csl): rename `template` option to `style` ([0c9bc83](https://github.com/citation-js/citation-js/commit/0c9bc83)), closes [#169](https://github.com/citation-js/citation-js/issues/169)
-* feat(plugin-csl): throw error for unknown style names ([68e1d53](https://github.com/citation-js/citation-js/commit/68e1d53)), closes [#219](https://github.com/citation-js/citation-js/issues/219)
-* feat(plugin-ris): error for invalid RIS specifications ([914d211](https://github.com/citation-js/citation-js/commit/914d211))
+* fix(deps): update peer dependencies ([3298e31](https://github.com/citation-js/citation-js/commit/3298e31))
+
+## 0.8.0 (2026-07-05)
+
 * chore(cli)!: remove deprecated "-u, --url" option ([98ad239](https://github.com/citation-js/citation-js/commit/98ad239))
 * chore(plugin-ris)!: remove deprecated config object ([6af5f66](https://github.com/citation-js/citation-js/commit/6af5f66))
 * chore(plugin-wikidata)!: remove deprecated input parsers ([d31a9e5](https://github.com/citation-js/citation-js/commit/d31a9e5))
 * feat(plugin-csl)!: update bundled CSL styles and locales ([a149dd8](https://github.com/citation-js/citation-js/commit/a149dd8))
+* v0.8.0 ([8a4691c](https://github.com/citation-js/citation-js/commit/8a4691c))
+* feat(plugin-csl): default to CSL 1.0.2 ([c57c3e8](https://github.com/citation-js/citation-js/commit/c57c3e8)), closes [#276](https://github.com/citation-js/citation-js/issues/276)
+* feat(plugin-csl): rename `template` option to `style` ([0c9bc83](https://github.com/citation-js/citation-js/commit/0c9bc83)), closes [#169](https://github.com/citation-js/citation-js/issues/169)
+* feat(plugin-csl): throw error for unknown style names ([68e1d53](https://github.com/citation-js/citation-js/commit/68e1d53)), closes [#219](https://github.com/citation-js/citation-js/issues/219)
+* feat(plugin-ris): error for invalid RIS specifications ([914d211](https://github.com/citation-js/citation-js/commit/914d211))
 * chore: drop Node.js v16, v18 ([02792df](https://github.com/citation-js/citation-js/commit/02792df))
 * chore(*): specify engine requirements ([98796b9](https://github.com/citation-js/citation-js/commit/98796b9))
 * chore(ci): add NODE_EXTRA_CA_CERTS variable, update actions ([1edc080](https://github.com/citation-js/citation-js/commit/1edc080))
