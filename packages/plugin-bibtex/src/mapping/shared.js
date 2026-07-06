@@ -101,7 +101,10 @@ export const MONTHS = {
   september: 9,
   october: 10,
   november: 11,
-  december: 12
+  december: 12,
+
+  // https://github.com/citation-js/citation-js/issues/263
+  sept: 9
 }
 
 export const TYPE_KEYS = {
