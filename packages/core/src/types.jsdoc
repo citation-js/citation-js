@@ -11,12 +11,12 @@
  * @typedef {Object} module:@citation-js/core~InputOptions
  * @tutorial input_options
  *
- * @property {module:@citation-js/core~OutputOptions} output
  * @property {Number} maxChainLength
  * @property {Boolean} generateGraph
  * @property {Boolean} strict
- * @property {Cite.parse~format} forceType
- * @property {Cite.parse~format} target
+ * @property {module:@citation-js/core.plugins.input~format} forceType
+ * @property {module:@citation-js/core.plugins.input~format} target
+ * @property {module:@citation-js/core~OutputOptions} output - Deprecated: use the {@link module:@citation-js/core.Cite#format} function and its parameters
  */
 
 /**
