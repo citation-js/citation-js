@@ -1,6 +1,6 @@
 {
   "name": "@citation-js/plugin-doi",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Plugin for DOI input for Citation.js",
   "keywords": [
     "citation-js",
@@ -38,7 +38,7 @@
     "coverage": "NODE_ENV=coverage nyc npm test -- -c && nyc report --reporter=text-lcov > coverage.lcov"
   },
   "devDependencies": {
-    "@citation-js/core": "^0.8.1"
+    "@citation-js/core": "^0.8.2"
   },
   "peerDependencies": {
     "@citation-js/core": "^0.8.0"
