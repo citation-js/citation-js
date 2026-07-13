@@ -8,7 +8,7 @@ import pkg from '../../package.json'
 const isBrowser = typeof location !== 'undefined' && typeof navigator !== 'undefined'
 
 const asyncFetch = isBrowser ? fetch : nodeFetch
-const asyncHeaders = isBrowser ? fetch : nodeFetchHeaders
+const asyncHeaders = isBrowser ? Headers : nodeFetchHeaders
 
 let userAgent = `Citation.js/${pkg.version}`
 
