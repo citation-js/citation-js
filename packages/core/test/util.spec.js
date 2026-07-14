@@ -24,10 +24,9 @@ function deepNotEqual (a, b) {
 function getHeaders (headers) {
   return {
     accept: '*/*',
-    'accept-encoding': 'gzip, deflate, br',
     connection: 'keep-alive',
     host: 'localhost:30200',
-    'user-agent': 'node-fetch',
+    'user-agent': 'node',
     ...headers
   }
 }

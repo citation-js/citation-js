@@ -15,9 +15,14 @@ const server = http.createServer(function router (req, res) {
       let body = ''
       req.on('data', c => { body += c })
       req.on('end', function () {
+        // Drop client-injected headers that differ between fetch implementations.
+        const headers = { ...req.headers }
+        for (const name of ['accept-encoding', 'accept-language', 'sec-fetch-mode']) {
+          delete headers[name]
+        }
         res.end(JSON.stringify({
           method: req.method,
-          headers: req.headers,
+          headers,
           body
         }))
       })
