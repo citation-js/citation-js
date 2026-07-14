@@ -1,14 +1,10 @@
 import syncFetch from 'sync-fetch'
-import nodeFetch, { Headers as nodeFetchHeaders } from 'node-fetch'
 
 import logger from '../logger.js'
 import pkg from '../../package.json'
 
 // Browser environments have CORS enabled
 const isBrowser = typeof location !== 'undefined' && typeof navigator !== 'undefined'
-
-const asyncFetch = isBrowser ? fetch : nodeFetch
-const asyncHeaders = isBrowser ? Headers : nodeFetchHeaders
 
 let userAgent = `Citation.js/${pkg.version}`
 
@@ -32,7 +28,7 @@ if (typeof process !== 'undefined' && process && process.release && process.rele
 function normaliseHeaders (headers) {
   const result = {}
 
-  const entries = headers instanceof asyncHeaders || headers instanceof syncFetch.Headers
+  const entries = headers instanceof Headers || headers instanceof syncFetch.Headers
     ? Array.from(headers)
     : Object.entries(headers)
   for (const [name, header] of entries) {
@@ -159,7 +155,7 @@ export async function fetchFileAsync (url, opts) {
 
   logger.http('[core]', reqOpts.method, url, reqOpts)
 
-  return asyncFetch(url, reqOpts)
+  return fetch(url, reqOpts)
     .then(response => checkResponse(response, reqOpts))
     .then(response => response.text())
 }
