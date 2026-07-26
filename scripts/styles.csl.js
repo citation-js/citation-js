@@ -1,5 +1,3 @@
-const fetch = require('node-fetch').default
-
 const STYLES = {
   apa: 'apa',
   vancouver: 'vancouver',

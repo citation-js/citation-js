@@ -1,5 +1,3 @@
-const fetch = require('node-fetch').default
-
 const fs = require('fs')
 const { wdk } = require('@larsgw/wikibase-sdk/commonjs/wikidata.org')
 const response = require('../packages/plugin-wikidata/lib/response.js')

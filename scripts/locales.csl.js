@@ -1,5 +1,3 @@
-const fetch = require('node-fetch').default
-
 const LOCALES = ['en-US', 'nl-NL', 'fr-FR', 'de-DE', 'es-ES']
 
 Promise.all(LOCALES.map(locale => fetch(`https://raw.githubusercontent.com/citation-style-language/locales/master/locales-${locale}.xml`)
