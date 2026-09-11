@@ -4,12 +4,12 @@ const targets = {
 
 module.exports = {
   presets: [
-    ['@babel/env', { targets }]
+    ['@babel/env', { modules: 'commonjs', targets }]
   ],
   env: {
     mjs: {
       presets: [
-        ['@babel/env', { modules: false, targets }]
+        ['@babel/env', { modules: 'auto', targets }]
       ]
     },
     coverage: {
