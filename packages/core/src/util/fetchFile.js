@@ -1,4 +1,4 @@
-import syncFetch from 'sync-fetch'
+import syncFetch from 'sync-fetch-undici'
 
 import logger from '../logger.js'
 import pkg from '../../package.json'
