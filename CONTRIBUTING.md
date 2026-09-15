@@ -53,6 +53,8 @@ To install new packages, please use `lerna add` instead of `npm install`:
 
 Commits follow the [Angular commits convention](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit). For examples, take a look in [the recent commits](https://github.com/citation-js/citation-js/commits).
 
+Please do not advertise for LLMs and bots in your commits, so no `Co-Authored-By` statements.
+
 ### Testing
 
 New test go in the `test/` directories of the various packages in `packages/`. To run tests in the entire package, run
