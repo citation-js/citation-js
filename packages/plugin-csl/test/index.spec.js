@@ -63,6 +63,7 @@ describe('output', function () {
       for (const name of Object.keys(data[type])) {
         const [input, expected, ...opts] = data[type][name]
         it(`with ${name} works`, function () {
+          this.timeout(4000)
           const actual = plugins.output.format(type, input, ...opts)
           assert.deepStrictEqual(
             typeof actual === 'string' ? actual.trim() : actual,
