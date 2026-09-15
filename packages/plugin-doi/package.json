@@ -35,7 +35,7 @@
   "scripts": {
     "test": "mocha -c -R dot -r @babel/register test/*.spec.js",
     "test:live": "TEST_MOCK_HTTP=false npm test",
-    "coverage": "NODE_ENV=coverage nyc npm test -- -c && nyc report --reporter=text-lcov > coverage.lcov"
+    "coverage": "BABEL_ENV=coverage nyc npm test && nyc report --reporter=text-lcov > coverage.lcov"
   },
   "devDependencies": {
     "@citation-js/core": "^0.8.2"
