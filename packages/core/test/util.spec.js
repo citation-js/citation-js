@@ -177,7 +177,7 @@ describe('util', function () {
 
     after(function (done) {
       serverProcess.on('close', done)
-      serverProcess.kill()
+      serverProcess.kill('SIGKILL')
     })
 
     for (const name in requests) {
