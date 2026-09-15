@@ -39,6 +39,6 @@
     "packages/*"
   ],
   "allowScripts": {
-    "nx@22.7.6": true
+    "nx@23.2.1": true
   }
 }
