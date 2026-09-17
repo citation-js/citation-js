@@ -11,6 +11,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib-mjs/index.js",
+  "types": "index.d.ts",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -29,7 +30,8 @@
   },
   "files": [
     "lib",
-    "lib-mjs"
+    "lib-mjs",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "mocha -c -R dot -r @babel/register test/*.spec.js",
@@ -39,7 +41,8 @@
   "dependencies": {
     "@citation-js/date": "^0.5.0",
     "@citation-js/name": "^0.4.2",
-    "@larsgw/wikibase-sdk": "^10.2.1"
+    "@larsgw/wikibase-sdk": "^10.2.1",
+    "wikibase-sdk": "^11.6.4"
   },
   "devDependencies": {
     "@citation-js/core": "^0.8.2"

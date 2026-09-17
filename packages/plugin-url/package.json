@@ -9,6 +9,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib-mjs/index.js",
+  "types": "index.d.ts",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -27,7 +28,8 @@
   },
   "files": [
     "lib",
-    "lib-mjs"
+    "lib-mjs",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "mocha -c -R dot -r @babel/register test/*.spec.js",
