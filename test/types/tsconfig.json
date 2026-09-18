@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./lib",
+    "target": "es6",
+
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+
+    "module": "es6",
+    "ignoreDeprecations": "6.0",
+    "esModuleInterop": true
+  },
+  "include": ["./index.ts"]
+}

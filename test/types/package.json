@@ -1,0 +1,24 @@
+{
+  "name": "types",
+  "private": "true",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@citation-js/core": "file:../../packages/core",
+    "@citation-js/plugin-bibjson": "file:../../packages/plugin-bibjson",
+    "@citation-js/plugin-bibtex": "file:../../packages/plugin-bibtex",
+    "@citation-js/plugin-csl": "file:../../packages/plugin-csl",
+    "@citation-js/plugin-doi": "file:../../packages/plugin-doi",
+    "@citation-js/plugin-ris": "file:../../packages/plugin-ris",
+    "@citation-js/plugin-url": "file:../../packages/plugin-url",
+    "@citation-js/plugin-wikidata": "file:../../packages/plugin-wikidata"
+  }
+}
