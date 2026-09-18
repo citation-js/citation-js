@@ -1,3 +1,13 @@
+# [](https://github.com/citation-js/citation-js/compare/v0.8.2...v) (2026-09-18)
+
+### chore
+
+* drop Node.js v20 ([5984acd](https://github.com/citation-js/citation-js/commit/5984acdd576ccefa4af87b8db74cff8b09ccb14a))
+
+### BREAKING CHANGES
+
+* minimum Node version now 22
+
 # [](https://github.com/citation-js/citation-js/compare/v0.8.1...v) (2026-07-13)
 
 
