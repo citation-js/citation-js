@@ -1,4 +1,4 @@
-import wdk from '@larsgw/wikibase-sdk/commonjs/wikidata.org'
+import wdk from 'wikibase-sdk/wikidata.org'
 import { parse as fetch, parseAsync as fetchAsync } from './api.js'
 import { parse as getUrls } from './id.js'
 

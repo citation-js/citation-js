@@ -41,7 +41,6 @@
   "dependencies": {
     "@citation-js/date": "^0.5.0",
     "@citation-js/name": "^0.4.2",
-    "@larsgw/wikibase-sdk": "^10.2.1",
     "wikibase-sdk": "^11.6.4"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import wdk from '@larsgw/wikibase-sdk/commonjs/wikidata.org'
+import wdk from 'wikibase-sdk/wikidata.org'
 import config from './config.json'
 
 /**

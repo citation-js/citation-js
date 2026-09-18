@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { wdk } = require('@larsgw/wikibase-sdk/commonjs/wikidata.org')
+const { wdk } = require('wikibase-sdk/wikidata.org')
 const response = require('../packages/plugin-wikidata/lib/response.js')
 
 const items = [
