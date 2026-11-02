@@ -20,6 +20,11 @@
     "typescript": "^7.0.2",
     "wikibase-sdk": "^11.6.4"
   },
+  "overrides": {
+    "nx": {
+      "undici": "^8.0.0"
+    }
+  },
   "scripts": {
     "babel": "lerna exec --parallel -- babel src -d lib --copy-files",
     "babel-mjs": "lerna exec --parallel -- babel src -d lib-mjs --copy-files --env-name mjs",
